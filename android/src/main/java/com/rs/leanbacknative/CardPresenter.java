@@ -1,11 +1,8 @@
 package com.rs.leanbacknative;
 
 import android.graphics.drawable.Drawable;
-import android.util.Log;
-import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.leanback.widget.Presenter;
 
@@ -43,9 +40,6 @@ public class CardPresenter extends Presenter {
         mHasContent = attributes.getBoolean("hasContent");
         mHasIconRight = attributes.getBoolean("hasIconRight");
         mHasIconLeft = attributes.getBoolean("hasIconLeft");
-
-        // selected BG color
-        // default BG color
     }
 
     public CardPresenter() {

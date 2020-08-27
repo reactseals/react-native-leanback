@@ -16,15 +16,19 @@ public class DataManager {
 
             NativeRowItem nativeRowItem = new NativeRowItem();
             nativeRowItem.setIndex(i);
-            nativeRowItem.setId(dataRowItem.getInt("id"));
-            nativeRowItem.setTitle(dataRowItem.getString("title"));
-            nativeRowItem.setDescription(dataRowItem.getString("description"));
-            nativeRowItem.setCardImageUrl(dataRowItem.getString("cardImage"));
-            nativeRowItem.setBackdropUrl(dataRowItem.getString("backdropUrl"));
+            nativeRowItem.setId(validateString(dataRowItem, "id"));
+            nativeRowItem.setTitle(validateString(dataRowItem, "title"));
+            nativeRowItem.setDescription(validateString(dataRowItem, "description"));
+            nativeRowItem.setCardImageUrl(validateString(dataRowItem, "cardImageUrl"));
+            nativeRowItem.setBackdropUrl(validateString(dataRowItem, "backdropUrl"));
 
             rows.add(nativeRowItem);
         }
 
         return rows;
+    }
+
+    private static String validateString(ReadableMap item, String prop) {
+        return item.getString(prop) != null ? item.getString(prop) : "";
     }
 }

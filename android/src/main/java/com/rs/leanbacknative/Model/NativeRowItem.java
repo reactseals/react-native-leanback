@@ -2,15 +2,12 @@ package com.rs.leanbacknative.Model;
 
 import com.google.gson.Gson;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.Serializable;
 
 public class NativeRowItem implements Serializable {
     static final long serialVersionUID = 727566175075960653L;
 
-    private long id;
+    private String id;
 
     private int index;
 
@@ -25,11 +22,11 @@ public class NativeRowItem implements Serializable {
     public NativeRowItem() {
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
