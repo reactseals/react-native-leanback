@@ -16,7 +16,7 @@ import java.util.Map;
 public class LeanbackNativeRowManager extends ViewGroupManager<LeanbackRowLayout> {
 
     public static final String REACT_CLASS = "LeanbackNativeRow";
-    private final String COMMAND_REQUEST_FOCUS = "requestFocus";
+    private final int COMMAND_REQUEST_FOCUS = 1;
 
     @Override
     public String getName() {
@@ -51,7 +51,7 @@ public class LeanbackNativeRowManager extends ViewGroupManager<LeanbackRowLayout
     }
 
     @Override
-    public void receiveCommand(LeanbackRowLayout view, String commandType, @Nullable ReadableArray args) {
+    public void receiveCommand(LeanbackRowLayout view, int commandType, @Nullable ReadableArray args) {
         switch (commandType) {
             case COMMAND_REQUEST_FOCUS:
                 view.requestFocus();

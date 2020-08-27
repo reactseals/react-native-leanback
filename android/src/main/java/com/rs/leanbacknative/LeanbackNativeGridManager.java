@@ -14,7 +14,7 @@ import com.rs.leanbacknative.Layout.LeanbackRowLayout;
 import java.util.Map;
 
 public class LeanbackNativeGridManager extends ViewGroupManager<LeanbackGridLayout> {
-    private final String COMMAND_REQUEST_FOCUS = "requestFocus";
+    private final int COMMAND_REQUEST_FOCUS = 1;
     public static final String REACT_CLASS = "LeanbackNativeGrid";
 
     @Override
@@ -39,18 +39,18 @@ public class LeanbackNativeGridManager extends ViewGroupManager<LeanbackGridLayo
                 .build();
     }
 
+    @ReactProp(name = "data")
+    public void setData(LeanbackGridLayout view, ReadableArray data) {
+        view.setData(data);
+    }
+
     @Override
-    public void receiveCommand(LeanbackRowLayout view, String commandType, @Nullable ReadableArray args) {
+    public void receiveCommand(LeanbackGridLayout view, int commandType, @Nullable ReadableArray args) {
         switch (commandType) {
             case COMMAND_REQUEST_FOCUS:
                 view.requestFocus();
                 break;
             default:
         }
-    }
-
-    @ReactProp(name = "data")
-    public void setData(LeanbackGridLayout view, ReadableArray data) {
-        view.setData(data);
     }
 }
