@@ -86,7 +86,7 @@ public class LeanbackRowLayout extends FrameLayout {
                 NativeRowItem nativeRowItem = (NativeRowItem) item;
                 WritableMap event = Arguments.createMap();
                 event.putString("item", nativeRowItem.toJSON());
-                mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "onClick", event);
+                mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "onPress", event);
             }
         }
     }

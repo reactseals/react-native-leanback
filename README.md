@@ -45,7 +45,7 @@ import { Row } from 'react-native-leanback-native';
     style={{ width: '100%' }}
     title="Title for row"
     onFocus={(item) => console.log(item)}
-    onClick={(item) => console.log(item)}
+    onPress={(item) => console.log(item)}
 />
 ```
 

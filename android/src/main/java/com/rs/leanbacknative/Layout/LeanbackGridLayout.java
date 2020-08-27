@@ -59,15 +59,12 @@ public class LeanbackGridLayout extends FrameLayout {
         mRowsAdapter = new ArrayObjectAdapter(new CardPresenter());
 
         GridItemPresenter mGridPresenter = new GridItemPresenter();
-        ArrayObjectAdapter gridRowAdapter = new ArrayObjectAdapter(mGridPresenter);
 
         FragmentManager fragmentManager = mContext.getCurrentActivity().getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(verticalGridFragment, "RowsFragment").commit();
         fragmentManager.executePendingTransactions();
         verticalGridFragment.setAdapter(mRowsAdapter);
-
-        fragmentManager.popBackStackImmediate(1, FragmentManager.POP_BACK_STACK_INCLUSIVE);
     }
 
     private void setupEventListeners(VerticalGridFragment verticalGridFragment) {
@@ -127,7 +124,7 @@ public class LeanbackGridLayout extends FrameLayout {
                 NativeRowItem nativeRowItem = (NativeRowItem) item;
                 WritableMap event = Arguments.createMap();
                 event.putString("item", nativeRowItem.toJSON());
-                mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "onClick", event);
+                mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "onPress", event);
             }
         }
     }
