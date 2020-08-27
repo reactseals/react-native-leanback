@@ -1,5 +1,6 @@
 package com.rs.leanbacknative;
 
+import androidx.annotation.Nullable;
 import androidx.leanback.app.VerticalGridFragment;
 
 import com.facebook.react.bridge.ReadableArray;
@@ -8,11 +9,12 @@ import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
 import com.rs.leanbacknative.Layout.LeanbackGridLayout;
+import com.rs.leanbacknative.Layout.LeanbackRowLayout;
 
 import java.util.Map;
 
 public class LeanbackNativeGridManager extends ViewGroupManager<LeanbackGridLayout> {
-
+    private final String COMMAND_REQUEST_FOCUS = "requestFocus";
     public static final String REACT_CLASS = "LeanbackNativeGrid";
 
     @Override
@@ -35,6 +37,16 @@ public class LeanbackNativeGridManager extends ViewGroupManager<LeanbackGridLayo
                 .put("onClick", MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", "onClick")))
                 .put("onFocus", MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", "onFocus")))
                 .build();
+    }
+
+    @Override
+    public void receiveCommand(LeanbackRowLayout view, String commandType, @Nullable ReadableArray args) {
+        switch (commandType) {
+            case COMMAND_REQUEST_FOCUS:
+                view.requestFocus();
+                break;
+            default:
+        }
     }
 
     @ReactProp(name = "data")
