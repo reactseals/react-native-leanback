@@ -5,6 +5,19 @@ Android TV leanback wrapper for React Native
 
 Move [styles.xml][link1] and [values.xml][link2] to your androidtv resources folder.
 
+**Renative implementation**
+
+Add this code snipped to your `renative.json`
+```
+"react-native-leanback-native": {
+    "version": "github:reactseals/react-native-leanback#master",
+    "androidtv": {
+        "path": "packages/react-native-leanback-native/android",
+        "package": "com.rs.leanbacknative.LeanbackNativePackage"
+    }
+}
+```
+
 ## Data Model
 
 ```
