@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":react-native-leanback-native" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/../../../platformBuilds/playgroud_androidtv" external.system.id="GRADLE" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="android-gradle" name="Android-Gradle">
+      <configuration>
+        <option name="GRADLE_PROJECT_PATH" value=":react-native-leanback-native" />
+        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" value="3.3.1" />
+        <option name="LAST_KNOWN_AGP_VERSION" value="3.3.1" />
+      </configuration>
+    </facet>
+    <facet type="android" name="Android">
+      <configuration>
+        <option name="SELECTED_BUILD_VARIANT" value="debug" />
+        <option name="ASSEMBLE_TASK_NAME" value="assembleDebug" />
+        <option name="COMPILE_JAVA_TASK_NAME" value="compileDebugSources" />
+        <afterSyncTasks>
+          <task>generateDebugSources</task>
+        </afterSyncTasks>
+        <option name="ALLOW_USER_CONFIGURATION" value="false" />
+        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/../../../node_modules/react-native-leanback-native/android/src/main/AndroidManifest.xml" />
+        <option name="RES_FOLDER_RELATIVE_PATH" value="/../../../node_modules/react-native-leanback-native/android/src/main/res" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/main/res;file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/res/rs/debug;file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/res/resValues/debug" />
+        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="" />
+        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/../../../node_modules/react-native-leanback-native/android/src/main/assets" />
+        <option name="PROJECT_TYPE" value="1" />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7">
+    <output url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes" />
+    <output-test url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/intermediates/javac/debugUnitTest/compileDebugUnitTestJavaWithJavac/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/aidl_source_output_dir/debug/compileDebugAidl/out">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/aidl_source_output_dir/debug/compileDebugAidl/out" isTestSource="false" generated="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/aidl_source_output_dir/debugAndroidTest/compileDebugAndroidTestAidl/out">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/aidl_source_output_dir/debugAndroidTest/compileDebugAndroidTestAidl/out" isTestSource="true" generated="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/renderscript_source_output_dir/debug/compileDebugRenderscript/out">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/renderscript_source_output_dir/debug/compileDebugRenderscript/out" isTestSource="false" generated="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/renderscript_source_output_dir/debugAndroidTest/compileDebugAndroidTestRenderscript/out">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/renderscript_source_output_dir/debugAndroidTest/compileDebugAndroidTestRenderscript/out" isTestSource="true" generated="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/res/resValues/androidTest/debug">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/res/resValues/androidTest/debug" type="java-test-resource" generated="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/res/resValues/debug">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/res/resValues/debug" type="java-resource" generated="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/res/rs/androidTest/debug">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/res/rs/androidTest/debug" type="java-test-resource" generated="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/res/rs/debug">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/res/rs/debug" type="java-resource" generated="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/source/apt/androidTest/debug">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/source/apt/androidTest/debug" isTestSource="true" generated="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/source/apt/debug">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/source/apt/debug" isTestSource="false" generated="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/source/apt/test/debug">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/source/apt/test/debug" isTestSource="true" generated="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/source/buildConfig/androidTest/debug">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/source/buildConfig/androidTest/debug" isTestSource="true" generated="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/source/buildConfig/debug">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/build/generated/source/buildConfig/debug" isTestSource="false" generated="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTest/aidl">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTest/aidl" isTestSource="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTest/assets">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTest/assets" type="java-test-resource" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTest/java">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTest/java" isTestSource="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTest/res">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTest/res" type="java-test-resource" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTest/resources">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTest/resources" type="java-test-resource" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTest/rs">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTest/rs" isTestSource="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTest/shaders">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTest/shaders" isTestSource="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTestDebug/aidl">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTestDebug/aidl" isTestSource="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTestDebug/assets">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTestDebug/assets" type="java-test-resource" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTestDebug/java">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTestDebug/java" isTestSource="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTestDebug/res">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTestDebug/res" type="java-test-resource" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTestDebug/resources">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTestDebug/resources" type="java-test-resource" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTestDebug/rs">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTestDebug/rs" isTestSource="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTestDebug/shaders">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/androidTestDebug/shaders" isTestSource="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/debug/aidl">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/debug/aidl" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/debug/assets">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/debug/assets" type="java-resource" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/debug/java">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/debug/java" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/debug/res">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/debug/res" type="java-resource" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/debug/resources">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/debug/resources" type="java-resource" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/debug/rs">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/debug/rs" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/debug/shaders">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/debug/shaders" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/main/aidl">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/main/aidl" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/main/assets">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/main/assets" type="java-resource" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/main/java">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/main/java" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/main/res">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/main/res" type="java-resource" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/main/resources">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/main/resources" type="java-resource" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/main/rs">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/main/rs" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/main/shaders">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/main/shaders" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/test/aidl">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/test/aidl" isTestSource="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/test/assets">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/test/assets" type="java-test-resource" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/test/java">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/test/java" isTestSource="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/test/res">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/test/res" type="java-test-resource" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/test/resources">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/test/resources" type="java-test-resource" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/test/rs">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/test/rs" isTestSource="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/test/shaders">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/test/shaders" isTestSource="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/testDebug/aidl">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/testDebug/aidl" isTestSource="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/testDebug/assets">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/testDebug/assets" type="java-test-resource" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/testDebug/java">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/testDebug/java" isTestSource="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/testDebug/res">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/testDebug/res" type="java-test-resource" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/testDebug/resources">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/testDebug/resources" type="java-test-resource" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/testDebug/rs">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/testDebug/rs" isTestSource="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/testDebug/shaders">
+      <sourceFolder url="file://$MODULE_DIR$/../../../node_modules/react-native-leanback-native/android/src/testDebug/shaders" isTestSource="true" />
+    </content>
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="jdk" jdkName="Android API 28 Platform" jdkType="Android SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: com.github.bumptech.glide:glide:3.8.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.8.5@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.facebook.infer.annotation:infer-annotation:0.11.2@jar" level="project" />
+    <orderEntry type="library" name="Gradle: javax.inject:javax.inject:1@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.code.findbugs:jsr305:3.0.2@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp-urlconnection:3.12.1@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp:3.12.1@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.15.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.collection:collection:1.1.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-common:2.1.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.arch.core:core-common:2.1.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.annotation:annotation:1.1.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.parse.bolts:bolts-tasks:1.4.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.facebook.react:react-native:0.61.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.leanback:leanback:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.appcompat:appcompat:1.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.facebook.fresco:fresco:2.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.facebook.fresco:imagepipeline-okhttp3:2.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.facebook.fresco:drawee:2.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.facebook.fresco:nativeimagefilters:2.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.facebook.fresco:imagepipeline:2.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.facebook.fresco:nativeimagetranscoder:2.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.facebook.fresco:imagepipeline-base:2.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.facebook.soloader:soloader:0.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.recyclerview:recyclerview:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.legacy:legacy-support-core-ui:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.media:media:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.fragment:fragment:1.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.appcompat:appcompat-resources:1.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.drawerlayout:drawerlayout:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.legacy:legacy-support-core-utils:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.viewpager:viewpager:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.coordinatorlayout:coordinatorlayout:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.slidingpanelayout:slidingpanelayout:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.customview:customview:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.swiperefreshlayout:swiperefreshlayout:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.asynclayoutinflater:asynclayoutinflater:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.loader:loader:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.activity:activity:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.vectordrawable:vectordrawable-animated:1.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.vectordrawable:vectordrawable:1.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.core:core:1.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.cursoradapter:cursoradapter:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.versionedparcelable:versionedparcelable:1.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.interpolator:interpolator:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-runtime:2.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-viewmodel:2.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.documentfile:documentfile:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.localbroadcastmanager:localbroadcastmanager:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.print:print:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.savedstate:savedstate:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-livedata:2.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-livedata-core:2.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.arch.core:core-runtime:2.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.facebook.fresco:fbcore:2.0.0@aar" level="project" />
+  </component>
+</module>
