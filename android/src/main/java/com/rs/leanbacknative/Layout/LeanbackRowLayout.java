@@ -16,6 +16,7 @@ import androidx.leanback.widget.OnItemViewSelectedListener;
 import androidx.leanback.widget.Presenter;
 import androidx.leanback.widget.Row;
 import androidx.leanback.widget.RowPresenter;
+
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
@@ -25,8 +26,8 @@ import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.rs.leanbacknative.CardPresenter;
 import com.rs.leanbacknative.DataManager;
 import com.rs.leanbacknative.Model.NativeRowItem;
-import java.util.List;
 
+import java.util.List;
 
 @SuppressLint("ViewConstructor")
 public class LeanbackRowLayout extends FrameLayout {
@@ -36,6 +37,7 @@ public class LeanbackRowLayout extends FrameLayout {
     private ArrayObjectAdapter mRowsAdapter;
 
     private String mRowTitle;
+
 
     public LeanbackRowLayout(@NonNull ThemedReactContext context, RowsFragment rowsFragment) {
         super(context);
@@ -63,10 +65,10 @@ public class LeanbackRowLayout extends FrameLayout {
     private final class ItemViewSelectedListener implements OnItemViewSelectedListener {
         @Override
         public void onItemSelected(
-                Presenter.ViewHolder itemViewHolder,
-                Object item,
-                RowPresenter.ViewHolder rowViewHolder,
-                Row row) {
+            Presenter.ViewHolder itemViewHolder,
+            Object item,
+            RowPresenter.ViewHolder rowViewHolder,
+            Row row) {
 
             if (item instanceof NativeRowItem) {
                 NativeRowItem nativeRowItem = (NativeRowItem) item;
@@ -93,8 +95,8 @@ public class LeanbackRowLayout extends FrameLayout {
 
     public void setDataAndAttributes(ReadableMap dataAndAttributes) {
         ReadableArray data = dataAndAttributes.getArray("data");
-        List<NativeRowItem> rows = DataManager.setupData(data);
 
+        List<NativeRowItem> rows = DataManager.setupData(data);
         ArrayObjectAdapter mListRowAdapterWithData;
         CardPresenter mCardPresenter;
 

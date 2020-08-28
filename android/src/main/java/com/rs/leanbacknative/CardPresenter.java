@@ -34,7 +34,7 @@ public class CardPresenter extends Presenter {
 
     public CardPresenter(ReadableMap attributes) {
         mCardWidth = Math.round(PixelUtil.toPixelFromDIP(attributes.getInt("width")));
-        mCardHeight= Math.round(PixelUtil.toPixelFromDIP(attributes.getInt("height")));
+        mCardHeight = Math.round(PixelUtil.toPixelFromDIP(attributes.getInt("height")));
         mHasImageOnly = attributes.getBoolean("hasImageOnly");
         mHasTitle = attributes.getBoolean("hasTitle");
         mHasContent = attributes.getBoolean("hasContent");
