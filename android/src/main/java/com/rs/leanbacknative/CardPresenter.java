@@ -97,13 +97,14 @@ public class CardPresenter extends Presenter {
 
         if (cardView.getId() == -1) {
             cardView.setId(View.generateViewId());
-            for (int i = 0; i < mForbiddenFocusDirections.size(); i++) {
-                if (Objects.equals(mForbiddenFocusDirections.getString(i), FOCUS_DIRECTION_UP)) {
-                    cardView.setNextFocusUpId(cardView.getId());
-                }
-                if (Objects.equals(mForbiddenFocusDirections.getString(i), FOCUS_DIRECTION_DOWN)) {
-                    cardView.setNextFocusDownId(cardView.getId());
-                }
+        }
+
+        for (int i = 0; i < mForbiddenFocusDirections.size(); i++) {
+            if (Objects.equals(mForbiddenFocusDirections.getString(i), FOCUS_DIRECTION_UP)) {
+                cardView.setNextFocusUpId(cardView.getId());
+            }
+            if (Objects.equals(mForbiddenFocusDirections.getString(i), FOCUS_DIRECTION_DOWN)) {
+                cardView.setNextFocusDownId(cardView.getId());
             }
         }
 
