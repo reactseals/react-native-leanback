@@ -29,6 +29,16 @@ public class DataManager {
     }
 
     private static String validateString(ReadableMap item, String prop) {
-        return item.getString(prop) != null ? item.getString(prop) : "";
+        String res = "";
+        if (!item.hasKey(prop) || item.isNull(prop)) return res;
+        switch (item.getType(prop)) {
+            case String:
+                res = item.getString(prop);
+                break;
+            case Number:
+                res = String.valueOf(item.getInt(prop));
+                break;
+        }
+        return res;
     }
 }
