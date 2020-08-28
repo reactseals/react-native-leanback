@@ -1,9 +1,13 @@
-import React from 'react';
-import { requireNativeComponent } from 'react-native';
+import React, { useEffect, useRef, useImperativeHandle } from 'react';
+import { requireNativeComponent, UIManager, findNodeHandle } from 'react-native';
 
 const LeanbackNativeRow = requireNativeComponent('LeanbackNativeRow');
 
+const REQUEST_FOCUS_ACTION = 1;
+
 const Row = React.forwardRef(({ attributes, forbiddenFocusDirections, data, ...restOfProps }, ref) => {
+    const rowRef = useRef();
+
     const attrs = {
         data,
         attributes: {
@@ -18,10 +22,21 @@ const Row = React.forwardRef(({ attributes, forbiddenFocusDirections, data, ...r
         },
     };
 
+    useImperativeHandle(ref, () => ({
+        requestFocus: () => {
+            requestFocus();
+        },
+    }));
+
+    const requestFocus = () => {
+        const node = findNodeHandle(rowRef.current);
+        UIManager.dispatchViewManagerCommand(node, REQUEST_FOCUS_ACTION, []);
+    };
+
     return (
         <LeanbackNativeRow
             {...restOfProps}
-            ref={ref}
+            ref={rowRef}
             dataAndAttributes={attrs}
             onFocus={event => {
                 const { item } = event.nativeEvent;
