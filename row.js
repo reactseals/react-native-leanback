@@ -42,9 +42,9 @@ const Row = React.forwardRef(({ attributes, forbiddenFocusDirections, data, ...r
                 const { item } = event.nativeEvent;
                 if (restOfProps.onFocus) restOfProps.onFocus(JSON.parse(item));
             }}
-            onClick={event => {
+            onPress={event => {
                 const { item } = event.nativeEvent;
-                if (restOfProps.onClick) restOfProps.onClick(JSON.parse(item));
+                if (restOfProps.onPress) restOfProps.onPress(JSON.parse(item));
             }}
         />
     );
