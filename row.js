@@ -3,7 +3,7 @@ import { requireNativeComponent } from 'react-native';
 
 const LeanbackNativeRow = requireNativeComponent('LeanbackNativeRow');
 
-const Row = React.forwardRef(({ attributes, data, ...restOfProps }, ref) => {
+const Row = React.forwardRef(({ attributes, forbiddenFocusDirections, data, ...restOfProps }, ref) => {
     const attrs = {
         data,
         attributes: {
@@ -14,6 +14,7 @@ const Row = React.forwardRef(({ attributes, data, ...restOfProps }, ref) => {
             hasContent: attributes?.hasContent !== undefined ? attributes.hasContent : true,
             hasIconRight: attributes?.hasIconRight !== undefined ? attributes.hasIconRight : false,
             hasIconLeft: attributes?.hasIconLeft !== undefined ? attributes.hasIconLeft : false,
+            forbiddenFocusDirections: forbiddenFocusDirections && Array.isArray(forbiddenFocusDirections) ? forbiddenFocusDirections : [],
         },
     };
 
