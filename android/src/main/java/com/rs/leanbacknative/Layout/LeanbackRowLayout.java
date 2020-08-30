@@ -145,6 +145,10 @@ public class LeanbackRowLayout extends FrameLayout {
         HeaderItem header = new HeaderItem(0, mRowTitle);
         mRowsAdapter.clear();
         mRowsAdapter.add(new ListRow(header, mListRowAdapterWithData));
+
+        WritableMap event = Arguments.createMap();
+        event.putString("data", DataManager.getViewIds().toString());
+        mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "onDataIdsReady", event);
     }
 
     public void setRowTitle(String title) {

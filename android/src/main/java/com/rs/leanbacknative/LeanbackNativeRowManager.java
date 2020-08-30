@@ -37,6 +37,7 @@ public class LeanbackNativeRowManager extends ViewGroupManager<LeanbackRowLayout
         return MapBuilder.builder()
             .put("onPress", MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", "onPress")))
             .put("onFocus", MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", "onFocus")))
+            .put("onDataIdsReady", MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", "onDataIdsReady")))
             .build();
     }
 

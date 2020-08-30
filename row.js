@@ -46,6 +46,13 @@ const Row = React.forwardRef(({ attributes, forbiddenFocusDirections, data, ...r
                 const { item } = event.nativeEvent;
                 if (restOfProps.onPress) restOfProps.onPress(JSON.parse(item));
             }}
+            onDataIdsReady={event => {
+                const { data: stringifiedData } = event.nativeEvent;
+                if (restOfProps.onDataIdsReady) {
+                    const data = JSON.parse(stringifiedData);
+                    if (data.length) restOfProps.onDataIdsReady(data);
+                }
+            }}
         />
     );
 });

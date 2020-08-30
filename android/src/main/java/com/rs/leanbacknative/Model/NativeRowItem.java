@@ -1,5 +1,7 @@
 package com.rs.leanbacknative.Model;
 
+import androidx.annotation.Nullable;
+
 import com.google.gson.Gson;
 
 import java.io.Serializable;
@@ -10,6 +12,8 @@ public class NativeRowItem implements Serializable {
     private String id;
 
     private int index;
+
+    private int viewId;
 
     private String title;
 
@@ -68,6 +72,14 @@ public class NativeRowItem implements Serializable {
 
     public void setBackdropUrl(String backdropUrl) {
         this.backdropUrl = backdropUrl;
+    }
+
+    public int getViewId() {
+        return viewId;
+    }
+
+    public void setViewId(int viewId) {
+        this.viewId = viewId;
     }
 
     @Override
