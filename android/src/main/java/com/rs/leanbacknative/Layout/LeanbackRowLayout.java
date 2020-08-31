@@ -54,7 +54,8 @@ public class LeanbackRowLayout extends FrameLayout {
     }
 
     private void initializeAdapter(RowsFragment rowsFragment) {
-        mRowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
+        ListRowPresenter listRowPresenter = new FocusedItemAtStartListRowPresenter();
+        mRowsAdapter = new ArrayObjectAdapter(listRowPresenter);
 
         FragmentManager fragmentManager = mContext.getCurrentActivity().getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
