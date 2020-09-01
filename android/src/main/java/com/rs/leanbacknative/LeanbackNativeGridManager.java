@@ -4,12 +4,12 @@ import androidx.annotation.Nullable;
 import androidx.leanback.app.VerticalGridFragment;
 
 import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
 import com.rs.leanbacknative.Layout.LeanbackGridLayout;
-import com.rs.leanbacknative.Layout.LeanbackRowLayout;
 
 import java.util.Map;
 
@@ -36,12 +36,13 @@ public class LeanbackNativeGridManager extends ViewGroupManager<LeanbackGridLayo
         return MapBuilder.builder()
                 .put("onPress", MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", "onPress")))
                 .put("onFocus", MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", "onFocus")))
+                .put("onDataIdsReady", MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", "onDataIdsReady")))
                 .build();
     }
 
-    @ReactProp(name = "data")
-    public void setData(LeanbackGridLayout view, ReadableArray data) {
-        view.setData(data);
+    @ReactProp(name = "dataAndAttributes")
+    public void setDataAndAttributes(LeanbackGridLayout view, ReadableMap dataAndAttributes) {
+        view.setDataAndAttributes(dataAndAttributes);
     }
 
     @Override
