@@ -3,19 +3,11 @@ package com.rs.leanbacknative.Layout;
 import android.annotation.SuppressLint;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.graphics.Color;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.leanback.app.VerticalGridFragment;
 import androidx.leanback.widget.ArrayObjectAdapter;
-import androidx.leanback.widget.HeaderItem;
-import androidx.leanback.widget.ListRow;
 import androidx.leanback.widget.OnItemViewClickedListener;
 import androidx.leanback.widget.OnItemViewSelectedListener;
 import androidx.leanback.widget.Presenter;
@@ -32,7 +24,6 @@ import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.rs.leanbacknative.CardPresenter;
 import com.rs.leanbacknative.DataManager;
 import com.rs.leanbacknative.Model.NativeRowItem;
-import com.rs.leanbacknative.R;
 
 import java.util.List;
 
@@ -54,7 +45,7 @@ public class LeanbackGridLayout extends FrameLayout {
     }
 
     private void initializeAdapter(VerticalGridFragment verticalGridFragment) {
-        VerticalGridPresenter verticalGridPresenter = new VerticalGridPresenter();
+        VerticalGridPresenter verticalGridPresenter = new OTTGridPresenter();
         verticalGridPresenter.setNumberOfColumns(5);
         verticalGridFragment.setGridPresenter(verticalGridPresenter);
 

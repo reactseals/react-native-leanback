@@ -10,6 +10,7 @@ import androidx.leanback.widget.FocusHighlight;
 import androidx.leanback.widget.HorizontalGridView;
 import androidx.leanback.widget.ListRowPresenter;
 import androidx.leanback.widget.ListRowView;
+import androidx.leanback.widget.RowPresenter;
 
 class OTTRowPresenter extends ListRowPresenter {
     private String mFocusedCardAlignment = "left";
@@ -24,8 +25,8 @@ class OTTRowPresenter extends ListRowPresenter {
     }
 
     @Override
-    protected androidx.leanback.widget.RowPresenter.ViewHolder createRowViewHolder(ViewGroup parent) {
-        androidx.leanback.widget.RowPresenter.ViewHolder viewHolder = super.createRowViewHolder(parent);
+    protected RowPresenter.ViewHolder createRowViewHolder(ViewGroup parent) {
+        RowPresenter.ViewHolder viewHolder = super.createRowViewHolder(parent);
 
         View view = viewHolder.view;
 
