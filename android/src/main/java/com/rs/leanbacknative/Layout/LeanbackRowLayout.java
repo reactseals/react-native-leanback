@@ -3,15 +3,12 @@ package com.rs.leanbacknative.Layout;
 import android.annotation.SuppressLint;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.util.Log;
 import android.view.KeyEvent;
-import android.view.View;
 import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.leanback.app.RowsFragment;
 import androidx.leanback.widget.ArrayObjectAdapter;
-import androidx.leanback.widget.BaseOnItemViewSelectedListener;
 import androidx.leanback.widget.HeaderItem;
 import androidx.leanback.widget.ListRow;
 import androidx.leanback.widget.ListRowPresenter;
@@ -19,7 +16,6 @@ import androidx.leanback.widget.OnItemViewClickedListener;
 import androidx.leanback.widget.OnItemViewSelectedListener;
 import androidx.leanback.widget.Presenter;
 import androidx.leanback.widget.Row;
-import androidx.leanback.widget.RowPresenter;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReadableArray;
@@ -39,33 +35,40 @@ public class LeanbackRowLayout extends FrameLayout {
 
     private ThemedReactContext mContext;
     private ArrayObjectAdapter mRowsAdapter;
-
     private String mRowTitle;
     private NativeRowItem mLastSelectedItem;
     private List<NativeRowItem> mRows;
-
+    private ListRowPresenter mListRowPresenter;
+    private RowsFragment mRowsFragment;
 
     public LeanbackRowLayout(@NonNull ThemedReactContext context, RowsFragment rowsFragment) {
         super(context);
 
         mContext = context;
-        initializeAdapter(rowsFragment);
-        setupEventListeners(rowsFragment);
+        mRowsFragment = rowsFragment;
+        initializeFragmentManager();
+        setupEventListeners();
     }
 
-    private void initializeAdapter(RowsFragment rowsFragment) {
-        mRowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
-
+    private void initializeFragmentManager() {
         FragmentManager fragmentManager = mContext.getCurrentActivity().getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(rowsFragment, "RowsFragment").commit();
+        fragmentTransaction.add(mRowsFragment, "RowsFragment").commit();
         fragmentManager.executePendingTransactions();
-        rowsFragment.setAdapter(mRowsAdapter);
     }
 
-    private void setupEventListeners(RowsFragment rowsFragment) {
-        rowsFragment.setOnItemViewClickedListener(new ItemViewClickedListener());
-        rowsFragment.setOnItemViewSelectedListener(new ItemViewSelectedListener());
+    private void initializeAdapter(ReadableMap attributes) {
+        String focusedCardAlignment = attributes.hasKey("focusedCardAlignment") ? attributes.getString("focusedCardAlignment") : "left";
+        int numberOfRows = attributes.hasKey("numberOfRows") ? attributes.getInt("numberOfRows") : 1;
+        mListRowPresenter = new OTTRowPresenter(focusedCardAlignment);
+        mListRowPresenter.setNumRows(numberOfRows);
+        mRowsAdapter = new ArrayObjectAdapter(mListRowPresenter);
+        mRowsFragment.setAdapter(mRowsAdapter);
+    }
+
+    private void setupEventListeners() {
+        mRowsFragment.setOnItemViewClickedListener(new ItemViewClickedListener());
+        mRowsFragment.setOnItemViewSelectedListener(new ItemViewSelectedListener());
     }
 
     @Override
@@ -93,10 +96,10 @@ public class LeanbackRowLayout extends FrameLayout {
     private final class ItemViewSelectedListener implements OnItemViewSelectedListener {
         @Override
         public void onItemSelected(
-                Presenter.ViewHolder itemViewHolder,
-                Object item,
-                RowPresenter.ViewHolder rowViewHolder,
-                Row row) {
+            Presenter.ViewHolder itemViewHolder,
+            Object item,
+            androidx.leanback.widget.RowPresenter.ViewHolder rowViewHolder,
+            Row row) {
 
             if (item instanceof NativeRowItem) {
                 NativeRowItem nativeRowItem = (NativeRowItem) item;
@@ -111,7 +114,7 @@ public class LeanbackRowLayout extends FrameLayout {
     private final class ItemViewClickedListener implements OnItemViewClickedListener {
         @Override
         public void onItemClicked(Presenter.ViewHolder itemViewHolder, Object item,
-                                  RowPresenter.ViewHolder rowViewHolder, Row row) {
+                                  androidx.leanback.widget.RowPresenter.ViewHolder rowViewHolder, Row row) {
 
             if (item instanceof NativeRowItem) {
                 NativeRowItem nativeRowItem = (NativeRowItem) item;
@@ -131,6 +134,7 @@ public class LeanbackRowLayout extends FrameLayout {
 
         ReadableMap attributes = dataAndAttributes.getMap("attributes");
         if (attributes != null) {
+            initializeAdapter(attributes);
             mCardPresenter = new CardPresenter(attributes);
         } else {
             mCardPresenter = new CardPresenter();
@@ -143,13 +147,14 @@ public class LeanbackRowLayout extends FrameLayout {
         }
 
         HeaderItem header = new HeaderItem(0, mRowTitle);
+
         mRowsAdapter.clear();
         mRowsAdapter.add(new ListRow(header, mListRowAdapterWithData));
-
         WritableMap event = Arguments.createMap();
         event.putString("data", DataManager.getViewIds().toString());
         mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "onDataIdsReady", event);
     }
+
 
     public void setRowTitle(String title) {
         mRowTitle = title;

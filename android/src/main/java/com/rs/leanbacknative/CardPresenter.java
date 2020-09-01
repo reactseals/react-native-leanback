@@ -44,7 +44,7 @@ public class CardPresenter extends Presenter {
         mCardWidth = Math.round(PixelUtil.toPixelFromDIP(attributes.getInt("width")));
         mCardHeight = Math.round(PixelUtil.toPixelFromDIP(attributes.getInt("height")));
         mHasImageOnly = attributes.getBoolean("hasImageOnly");
-        mForbiddenFocusDirections = attributes.getArray("forbiddenFocusDirections");
+        mForbiddenFocusDirections = attributes.hasKey("forbiddenFocusDirections") ? attributes.getArray("forbiddenFocusDirections") : null;
         mHasTitle = attributes.getBoolean("hasTitle");
         mHasContent = attributes.getBoolean("hasContent");
         mHasIconRight = attributes.getBoolean("hasIconRight");
@@ -65,22 +65,22 @@ public class CardPresenter extends Presenter {
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent) {
         sDefaultBackgroundColor =
-                ContextCompat.getColor(parent.getContext(), R.color.default_background);
+            ContextCompat.getColor(parent.getContext(), R.color.default_background);
         sSelectedBackgroundColor =
-                ContextCompat.getColor(parent.getContext(), R.color.selected_background);
+            ContextCompat.getColor(parent.getContext(), R.color.selected_background);
 
         mDefaultCardImage = ContextCompat.getDrawable(parent.getContext(), R.drawable.lb_ic_sad_cloud);
 
         NativeImageCardView cardView =
-                new NativeImageCardView(parent.getContext()) {
-                    @Override
-                    public void setSelected(boolean selected) {
-                        if (!mHasImageOnly) {
-                            updateCardBackgroundColor(this, selected);
-                        }
-                        super.setSelected(selected);
+            new NativeImageCardView(parent.getContext()) {
+                @Override
+                public void setSelected(boolean selected) {
+                    if (!mHasImageOnly) {
+                        updateCardBackgroundColor(this, selected);
                     }
-                };
+                    super.setSelected(selected);
+                }
+            };
 
         cardView.buildImageCardView(mHasImageOnly, mHasTitle, mHasContent, mHasIconRight, mHasIconLeft);
 
@@ -99,12 +99,14 @@ public class CardPresenter extends Presenter {
             cardView.setId(View.generateViewId());
         }
 
-        for (int i = 0; i < mForbiddenFocusDirections.size(); i++) {
-            if (Objects.equals(mForbiddenFocusDirections.getString(i), FOCUS_DIRECTION_UP)) {
-                cardView.setNextFocusUpId(cardView.getId());
-            }
-            if (Objects.equals(mForbiddenFocusDirections.getString(i), FOCUS_DIRECTION_DOWN)) {
-                cardView.setNextFocusDownId(cardView.getId());
+        if (mForbiddenFocusDirections != null) {
+            for (int i = 0; i < mForbiddenFocusDirections.size(); i++) {
+                if (Objects.equals(mForbiddenFocusDirections.getString(i), FOCUS_DIRECTION_UP)) {
+                    cardView.setNextFocusUpId(cardView.getId());
+                }
+                if (Objects.equals(mForbiddenFocusDirections.getString(i), FOCUS_DIRECTION_DOWN)) {
+                    cardView.setNextFocusDownId(cardView.getId());
+                }
             }
         }
 
@@ -113,10 +115,10 @@ public class CardPresenter extends Presenter {
             cardView.setContentText(rowItem.getDescription());
             cardView.setMainImageDimensions(mCardWidth, mCardHeight);
             Glide.with(viewHolder.view.getContext())
-                    .load(rowItem.getCardImageUrl())
-                    .centerCrop()
-                    .error(mDefaultCardImage)
-                    .into(cardView.getMainImageView());
+                .load(rowItem.getCardImageUrl())
+                .centerCrop()
+                .error(mDefaultCardImage)
+                .into(cardView.getMainImageView());
         }
     }
 
