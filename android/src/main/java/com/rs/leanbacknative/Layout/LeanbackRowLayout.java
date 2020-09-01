@@ -59,9 +59,9 @@ public class LeanbackRowLayout extends FrameLayout {
 
     private void initializeAdapter(ReadableMap attributes) {
         String focusedCardAlignment = attributes.hasKey("focusedCardAlignment") ? attributes.getString("focusedCardAlignment") : "left";
-        Double height = attributes.hasKey("height") ? attributes.getDouble("height") : 0;
-
+        int numberOfRows = attributes.hasKey("numberOfRows") ? attributes.getInt("numberOfRows") : 1;
         mListRowPresenter = new OTTRowPresenter(focusedCardAlignment);
+        mListRowPresenter.setNumRows(numberOfRows);
         mRowsAdapter = new ArrayObjectAdapter(mListRowPresenter);
         mRowsFragment.setAdapter(mRowsAdapter);
     }

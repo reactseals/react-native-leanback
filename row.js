@@ -39,6 +39,7 @@ const Row = React.forwardRef(
             ? forbiddenFocusDirections
             : [],
         focusedCardAlignment: attributes?.focusedCardAlignment || "left",
+        numberOfRows: attributes?.numberOfRows || 1,
       },
     };
 
