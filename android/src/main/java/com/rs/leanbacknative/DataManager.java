@@ -8,6 +8,7 @@ import com.rs.leanbacknative.Model.NativeRowItem;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class DataManager {
     private static ArrayList<Integer> viewIds = new ArrayList<Integer>();
@@ -19,9 +20,11 @@ public class DataManager {
     public static List<NativeRowItem> setupData(ReadableArray data) {
         viewIds.clear();
         List<NativeRowItem> rows = new ArrayList<>();
+        Random random = new Random();
 
         for (int i = 0; i < data.size(); i++) {
-            int viewId = View.generateViewId();
+            random.nextInt();
+            int viewId = View.generateViewId() + random.nextInt(); // ensure viewID is not duplicate with React ones
             viewIds.add(viewId);
             
             ReadableMap dataRowItem = data.getMap(i);

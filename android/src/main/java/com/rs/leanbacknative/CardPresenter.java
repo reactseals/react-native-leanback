@@ -96,7 +96,7 @@ public class CardPresenter extends Presenter {
         NativeImageCardView cardView = (NativeImageCardView) viewHolder.view;
 
         if (cardView.getId() == -1) {
-            cardView.setId(View.generateViewId());
+            cardView.setId(rowItem.getViewId());
         }
 
         if (mForbiddenFocusDirections != null) {
