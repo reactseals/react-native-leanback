@@ -1,6 +1,7 @@
 package com.rs.leanbacknative;
 
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -36,8 +37,11 @@ public class CardPresenter extends Presenter {
     private boolean mHasIconRight = false;
     private boolean mHasIconLeft = false;
     private ReadableArray mForbiddenFocusDirections;
+    private int nextFocusUpId = -1;
+    private int nextFocusDownId = -1;
     private static int sSelectedBackgroundColor;
     private static int sDefaultBackgroundColor;
+
 
 
     public CardPresenter(ReadableMap attributes) {
@@ -49,6 +53,8 @@ public class CardPresenter extends Presenter {
         mHasContent = attributes.getBoolean("hasContent");
         mHasIconRight = attributes.getBoolean("hasIconRight");
         mHasIconLeft = attributes.getBoolean("hasIconLeft");
+        nextFocusUpId = attributes.getInt("nextFocusUpId");
+        nextFocusDownId = attributes.getInt("nextFocusDownId");
     }
 
     public CardPresenter() {
@@ -108,6 +114,14 @@ public class CardPresenter extends Presenter {
                     cardView.setNextFocusDownId(cardView.getId());
                 }
             }
+        }
+
+        if (nextFocusUpId != -1) {
+            cardView.setNextFocusUpId(nextFocusUpId);
+        }
+
+        if (nextFocusDownId != -1) {
+            cardView.setNextFocusDownId(nextFocusDownId);
         }
 
         if (rowItem.getCardImageUrl() != null) {
