@@ -43,7 +43,7 @@ public class LeanbackRowLayout extends FrameLayout {
     private String mRowTitle;
     private NativeRowItem mLastSelectedItem;
     private List<NativeRowItem> mRows;
-
+    private boolean firstSelectEventIgnored = false;
 
     public LeanbackRowLayout(@NonNull ThemedReactContext context, RowsFragment rowsFragment) {
         super(context);
@@ -99,12 +99,17 @@ public class LeanbackRowLayout extends FrameLayout {
                 RowPresenter.ViewHolder rowViewHolder,
                 Row row) {
 
-            if (item instanceof NativeRowItem) {
+            if (item instanceof NativeRowItem && firstSelectEventIgnored) {
                 NativeRowItem nativeRowItem = (NativeRowItem) item;
                 mLastSelectedItem = nativeRowItem;
                 WritableMap event = Arguments.createMap();
                 event.putString("item", nativeRowItem.toJSON());
                 mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "onFocus", event);
+            }
+
+            //leanback fires this event initially when data is loaded even if item is not actually selected
+            if (item instanceof NativeRowItem) {
+                firstSelectEventIgnored = true;
             }
         }
     }
