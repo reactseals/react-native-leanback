@@ -10,7 +10,17 @@ const LeanbackNativeRow = requireNativeComponent("LeanbackNativeRow");
 const REQUEST_FOCUS_ACTION = 1;
 
 const Row = React.forwardRef(
-  ({ attributes, forbiddenFocusDirections, data, ...restOfProps }, ref) => {
+  (
+    {
+      attributes,
+      forbiddenFocusDirections,
+      nextFocusUpId,
+      nextFocusDownId,
+      data,
+      ...restOfProps
+    },
+    ref
+  ) => {
     const rowRef = useRef();
 
     const attrs = {
@@ -40,6 +50,8 @@ const Row = React.forwardRef(
             : [],
         focusedCardAlignment: attributes?.focusedCardAlignment || "left",
         numberOfRows: attributes?.numberOfRows || 1,
+        nextFocusUpId: nextFocusUpId || -1,
+        nextFocusDownId: nextFocusDownId || -1,
       },
     };
 
