@@ -1,5 +1,6 @@
 package com.rs.leanbacknative;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +10,7 @@ import androidx.core.content.ContextCompat;
 import androidx.leanback.widget.Presenter;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.uimanager.PixelUtil;
@@ -40,8 +42,8 @@ public class CardPresenter extends Presenter {
     private int nextFocusUpId = -1;
     private int nextFocusDownId = -1;
     private static int sSelectedBackgroundColor;
-    private static int sDefaultBackgroundColor;
-
+    private static int sDefaultBackgroundColor = Color.TRANSPARENT;
+    private String mCardShape = "square";
 
 
     public CardPresenter(ReadableMap attributes) {
@@ -55,6 +57,7 @@ public class CardPresenter extends Presenter {
         mHasIconLeft = attributes.getBoolean("hasIconLeft");
         nextFocusUpId = attributes.getInt("nextFocusUpId");
         nextFocusDownId = attributes.getInt("nextFocusDownId");
+        mCardShape = attributes.getString("cardShape");
     }
 
     public CardPresenter() {
@@ -70,8 +73,6 @@ public class CardPresenter extends Presenter {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent) {
-        sDefaultBackgroundColor =
-            ContextCompat.getColor(parent.getContext(), R.color.default_background);
         sSelectedBackgroundColor =
             ContextCompat.getColor(parent.getContext(), R.color.selected_background);
 
@@ -81,7 +82,7 @@ public class CardPresenter extends Presenter {
             new NativeImageCardView(parent.getContext()) {
                 @Override
                 public void setSelected(boolean selected) {
-                    if (!mHasImageOnly) {
+                    if (!mHasImageOnly && !mCardShape.equals("round")) {
                         updateCardBackgroundColor(this, selected);
                     }
                     super.setSelected(selected);
@@ -89,6 +90,9 @@ public class CardPresenter extends Presenter {
             };
 
         cardView.buildImageCardView(mHasImageOnly, mHasTitle, mHasContent, mHasIconRight, mHasIconLeft);
+
+        cardView.setBackgroundColor(sDefaultBackgroundColor);
+        if (!mHasImageOnly)  cardView.findViewById(R.id.info_field).setBackgroundColor(sDefaultBackgroundColor);
 
         cardView.setFocusable(true);
         cardView.setFocusableInTouchMode(true);
@@ -128,9 +132,12 @@ public class CardPresenter extends Presenter {
             cardView.setTitleText(rowItem.getTitle());
             cardView.setContentText(rowItem.getDescription());
             cardView.setMainImageDimensions(mCardWidth, mCardHeight);
+
+            RequestOptions requestOptions = mCardShape.equals("round") ? RequestOptions.circleCropTransform() : RequestOptions.centerCropTransform();
+
             Glide.with(viewHolder.view.getContext())
                 .load(rowItem.getCardImageUrl())
-                .centerCrop()
+                .apply(requestOptions)
                 .error(mDefaultCardImage)
                 .into(cardView.getMainImageView());
         }

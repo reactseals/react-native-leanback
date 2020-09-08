@@ -52,6 +52,7 @@ const Row = React.forwardRef(
         numberOfRows: attributes?.numberOfRows || 1,
         nextFocusUpId: nextFocusUpId || -1,
         nextFocusDownId: nextFocusDownId || -1,
+        cardShape: attributes?.cardShape || "square",
       },
     };
 
