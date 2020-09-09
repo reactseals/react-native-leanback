@@ -42,7 +42,7 @@ public class CardPresenter extends Presenter {
     private int nextFocusUpId = -1;
     private int nextFocusDownId = -1;
     private static int sSelectedBackgroundColor;
-    private static int sDefaultBackgroundColor = Color.TRANSPARENT;
+    private static int sDefaultBackgroundColor;
     private String mCardShape = "square";
 
 
@@ -69,13 +69,14 @@ public class CardPresenter extends Presenter {
         // during animations.
         view.setBackgroundColor(color);
         view.findViewById(R.id.info_field).setBackgroundColor(color);
+
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent) {
         sSelectedBackgroundColor =
             ContextCompat.getColor(parent.getContext(), R.color.selected_background);
-
+        sDefaultBackgroundColor = !mCardShape.equals("round") && mHasImageOnly ? ContextCompat.getColor(parent.getContext(), R.color.default_background) : Color.TRANSPARENT;
         mDefaultCardImage = ContextCompat.getDrawable(parent.getContext(), R.drawable.lb_ic_sad_cloud);
 
         NativeImageCardView cardView =
@@ -88,8 +89,10 @@ public class CardPresenter extends Presenter {
                     super.setSelected(selected);
                 }
             };
-
+            
         cardView.buildImageCardView(mHasImageOnly, mHasTitle, mHasContent, mHasIconRight, mHasIconLeft);
+
+
 
         cardView.setBackgroundColor(sDefaultBackgroundColor);
         if (!mHasImageOnly)  cardView.findViewById(R.id.info_field).setBackgroundColor(sDefaultBackgroundColor);
@@ -104,6 +107,9 @@ public class CardPresenter extends Presenter {
     public void onBindViewHolder(Presenter.ViewHolder viewHolder, Object item) {
         NativeRowItem rowItem = (NativeRowItem) item;
         NativeImageCardView cardView = (NativeImageCardView) viewHolder.view;
+
+        cardView.setTitleText(rowItem.getTitle());
+        cardView.setContentText(rowItem.getDescription());
 
         if (cardView.getId() == -1) {
             cardView.setId(rowItem.getViewId());
@@ -129,8 +135,6 @@ public class CardPresenter extends Presenter {
         }
 
         if (rowItem.getCardImageUrl() != null) {
-            cardView.setTitleText(rowItem.getTitle());
-            cardView.setContentText(rowItem.getDescription());
             cardView.setMainImageDimensions(mCardWidth, mCardHeight);
 
             RequestOptions requestOptions = mCardShape.equals("round") ? RequestOptions.circleCropTransform() : RequestOptions.centerCropTransform();
@@ -140,6 +144,8 @@ public class CardPresenter extends Presenter {
                 .apply(requestOptions)
                 .error(mDefaultCardImage)
                 .into(cardView.getMainImageView());
+
+
         }
     }
 
