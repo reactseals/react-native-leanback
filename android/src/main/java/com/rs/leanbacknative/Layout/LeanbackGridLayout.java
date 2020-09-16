@@ -46,7 +46,7 @@ public class LeanbackGridLayout extends FrameLayout {
 
     private void initializeAdapter(VerticalGridFragment verticalGridFragment) {
         VerticalGridPresenter verticalGridPresenter = new OTTGridPresenter();
-        verticalGridPresenter.setNumberOfColumns(5);
+        verticalGridPresenter.setNumberOfColumns(4);
         verticalGridFragment.setGridPresenter(verticalGridPresenter);
 
 
