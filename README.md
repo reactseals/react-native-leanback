@@ -9,10 +9,10 @@ Move [styles.xml][link1] and [values.xml][link2] to your androidtv resources fol
 
 Add this code snipped to your `renative.json`
 ```
-"react-native-leanback-native": {
+"react-native-leanback": {
     "version": "github:reactseals/react-native-leanback#master",
     "androidtv": {
-        "path": "packages/react-native-leanback-native/android",
+        "path": "packages/react-native-leanback/android",
         "package": "com.rs.leanbacknative.LeanbackNativePackage"
     }
 }
@@ -33,7 +33,7 @@ Add this code snipped to your `renative.json`
 ## Usage
 
 ```javascript
-import { Row } from 'react-native-leanback-native';
+import { Row } from 'react-native-leanback';
 
 <Row
     data={data}

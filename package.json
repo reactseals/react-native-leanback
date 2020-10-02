@@ -1,5 +1,5 @@
 {
-  "name": "react-native-leanback-native",
+  "name": "react-native-leanback",
   "title": "React Native Leanback Native",
   "version": "1.0.0",
   "description": "TODO",
@@ -9,8 +9,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-leanback-native.git",
-    "baseUrl": "https://github.com/github_account/react-native-leanback-native"
+    "url": "git+https://github.com/github_account/react-native-leanback.git",
+    "baseUrl": "https://github.com/github_account/react-native-leanback"
   },
   "keywords": [
     "react-native"
