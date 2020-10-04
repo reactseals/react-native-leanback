@@ -5,7 +5,7 @@ Android TV leanback wrapper for React Native
 
 Move [styles.xml][link1] and [values.xml][link2] to your androidtv resources folder.
 
-**Renative implementation**
+**[Renative][link3] implementation**
 
 Add this code snipped to your `renative.json`
 ```
@@ -30,7 +30,9 @@ Add this code snipped to your `renative.json`
 }
 ```
 
-## Usage
+# Usage
+
+## Row
 
 ```javascript
 import { Row } from 'react-native-leanback';
@@ -49,5 +51,11 @@ import { Row } from 'react-native-leanback';
 />
 ```
 
+![React native leanback row with titles](https://media.giphy.com/media/NSAa5PLn8Y18TrnaIZ/source.gif)
+![React native leanback row with no titles](https://media.giphy.com/media/6Bgo0R8v9v7QXm6uj1/source.gif)
+![React native leanback row custom sized](https://media.giphy.com/media/KXwRQOjf10sTCU8J0w/source.gif)
+![React native leanback row](https://media.giphy.com/media/EK26dv5pvEyASXFfbi/source.gif)
+
 [link1]: https://github.com/reactseals/react-native-leanback/blob/master/android/src/main/res/values/styles.xml
 [link2]: https://github.com/reactseals/react-native-leanback/blob/master/android/src/main/res/values/values.xml
+[link3]: https://github.com/pavjacko/renative

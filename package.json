@@ -9,8 +9,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-leanback.git",
-    "baseUrl": "https://github.com/github_account/react-native-leanback"
+    "url": "git+https://github.com/reactseals/react-native-leanback.git",
+    "baseUrl": "https://github.com/reactseals/react-native-leanback"
   },
   "keywords": [
     "react-native"
@@ -29,5 +29,8 @@
   "devDependencies": {
     "react": "^16.9.0",
     "react-native": "^0.61.5"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@reactseals"
   }
 }
