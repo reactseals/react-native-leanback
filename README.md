@@ -33,6 +33,10 @@ Add this code snipped to your `renative.json`
 # Usage
 
 ## Row
+<img src="./doc/img/row1.gif" alt="React native leanback row with titles" />
+<img src="./doc/img/row2.gif" alt="React native leanback row with no titles" />
+<img src="./doc/img/row3.gif" alt="React native leanback row custom sized" />
+<img src="./doc/img/row4.gif" alt="React native leanback row" />
 
 ```javascript
 import { Row } from 'react-native-leanback';
@@ -50,11 +54,6 @@ import { Row } from 'react-native-leanback';
     onPress={(item) => console.log(item)}
 />
 ```
-
-![React native leanback row with titles](https://media.giphy.com/media/NSAa5PLn8Y18TrnaIZ/source.gif)
-![React native leanback row with no titles](https://media.giphy.com/media/6Bgo0R8v9v7QXm6uj1/source.gif)
-![React native leanback row custom sized](https://media.giphy.com/media/KXwRQOjf10sTCU8J0w/source.gif)
-![React native leanback row](https://media.giphy.com/media/EK26dv5pvEyASXFfbi/source.gif)
 
 [link1]: https://github.com/reactseals/react-native-leanback/blob/master/android/src/main/res/values/styles.xml
 [link2]: https://github.com/reactseals/react-native-leanback/blob/master/android/src/main/res/values/values.xml
