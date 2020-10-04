@@ -11,7 +11,7 @@ Add this code snipped to your `renative.json`
 
 ```
 "@reactseals/react-native-leanback": {
-    "version": "1.0.1",
+    "version": "1.0.4",
     "androidtv": {
         "path": "packages/react-native-leanback/android",
         "package": "com.rs.leanbacknative.LeanbackNativePackage"
@@ -24,13 +24,13 @@ Add this code snipped to your `renative.json`
 Install via `package.json`:
 
 ```
-"@reactseals/react-native-leanback": "1.0.0"
+"@reactseals/react-native-leanback": "1.0.4"
 ```
 
 Install from the command line:
 
 ```
-npm install @reactseals/react-native-leanback@1.0.0
+npm install @reactseals/react-native-leanback@1.0.4
 ```
 
 ## Data Model

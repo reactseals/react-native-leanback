@@ -1,11 +1,11 @@
 {
-  "name": "react-native-leanback",
+  "name": "@reactseals/react-native-leanback",
   "title": "React Native Leanback",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "Leanback implementation for React Native Android TV",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "publish-package": "npm publish --access public"
   },
   "repository": {
     "type": "git",
@@ -35,8 +35,5 @@
   "devDependencies": {
     "react": "^16.9.0",
     "react-native": "^0.61.5"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@reactseals"
   }
 }
