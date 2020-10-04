@@ -8,14 +8,29 @@ Move [styles.xml][link1] and [values.xml][link2] to your androidtv resources fol
 **[Renative][link3] implementation**
 
 Add this code snipped to your `renative.json`
+
 ```
-"react-native-leanback": {
-    "version": "github:reactseals/react-native-leanback#master",
+"@reactseals/react-native-leanback": {
+    "version": "1.0.1",
     "androidtv": {
         "path": "packages/react-native-leanback/android",
         "package": "com.rs.leanbacknative.LeanbackNativePackage"
     }
 }
+```
+
+**React native implementation implementation**
+
+Install via `package.json`:
+
+```
+"@reactseals/react-native-leanback": "1.0.0"
+```
+
+Install from the command line:
+
+```
+npm install @reactseals/react-native-leanback@1.0.0
 ```
 
 ## Data Model
@@ -33,10 +48,15 @@ Add this code snipped to your `renative.json`
 # Usage
 
 ## Row
-<img src="./misc/img/row1.gif" alt="React native leanback row with titles" style="display: block; margin: 10px 0;" />
-<img src="./misc/img/row2.gif" alt="React native leanback row with no titles" style="display: block; margin: 10px 0;" />
-<img src="./misc/img/row3.gif" alt="React native leanback row custom sized" style="display: block; margin: 10px 0;" />
-<img src="./misc/img/row4.gif" alt="React native leanback row" style="display: block; margin: 10px 0;" />
+
+| Prop                        | Type        | Description                                               |
+| --------------------------- | ----------- | --------------------------------------------------------- |
+| ``data``                    | ``array``   | Data for row                                              |
+| ``style``                   | ``object``  | Container holder style                                    |
+| ``title``                   | ``string``  | Row title                                                 |
+| ``attributes.width``        | ``integer`` | Width of row                                              |
+| ``attributes.height``       | ``integer`` | Height of row                                             |
+| ``attributes.hasImageOnly`` | ``boolean`` | Bool flag which indicates wheter show title or image only |
 
 ```javascript
 import { Row } from 'react-native-leanback';
@@ -54,6 +74,11 @@ import { Row } from 'react-native-leanback';
     onPress={(item) => console.log(item)}
 />
 ```
+
+<img src="./misc/img/row1.gif" alt="React native leanback row with titles" style="display: block; margin: 10px auto;" />
+<img src="./misc/img/row2.gif" alt="React native leanback row with no titles" style="display: block; margin: 10px auto;" />
+<img src="./misc/img/row3.gif" alt="React native leanback row custom sized" style="display: block; margin: 10px auto;" />
+<img src="./misc/img/row4.gif" alt="React native leanback row" style="display: block; margin: 10px auto;" />
 
 [link1]: https://github.com/reactseals/react-native-leanback/blob/master/android/src/main/res/values/styles.xml
 [link2]: https://github.com/reactseals/react-native-leanback/blob/master/android/src/main/res/values/values.xml
