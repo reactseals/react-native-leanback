@@ -33,7 +33,7 @@ Add this code snipped to your `renative.json`
 # Usage
 
 ## Row
-<img src="./doc/img/row1.gif" alt="React native leanback row with titles" />
+<img src="https://media.giphy.com/media/WudmQDWXQ8eC3LBrQ3/source.gif" alt="React native leanback row with titles" style="display: block;" />
 <img src="./doc/img/row2.gif" alt="React native leanback row with no titles" />
 <img src="./doc/img/row3.gif" alt="React native leanback row custom sized" />
 <img src="./doc/img/row4.gif" alt="React native leanback row" />
