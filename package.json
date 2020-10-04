@@ -2,7 +2,7 @@
   "name": "react-native-leanback",
   "title": "React Native Leanback",
   "version": "1.0.1",
-  "description": "TODO",
+  "description": "Leanback implementation for React Native Android TV",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,12 +13,18 @@
     "baseUrl": "https://github.com/reactseals/react-native-leanback"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "react native leanback",
+    "android tv",
+    "leanback"
   ],
   "author": {
     "name": "Aurimas Mickys",
     "email": "aurimas.mickys@gmail.com"
   },
+  "contributors": [
+    "Rokas Kasinskas <https://github.com/kasinskas>"
+  ],
   "license": "MIT",
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
