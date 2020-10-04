@@ -1,1 +1,9 @@
 /android/.idea/
+node_modules
+# Android/IntelliJ
+#
+build/
+.idea
+.gradle
+local.properties
+*.iml
