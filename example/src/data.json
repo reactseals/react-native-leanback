@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "cardImageUrl": "https://miro.medium.com/max/3376/1*0RTfTupYYCswBxAa2LOnog.png",
+        "title": "The Avengers",
+        "description": "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity."
+    },
+    {
+        "id": 2,
+        "cardImageUrl": "https://miro.medium.com/max/3840/1*-xxH5kXE8AGA8-vzPURslg.jpeg",
+        "title": "Harry Potter",
+        "description": "Harry Potter is a film series based on the eponymous novels by author J. K. Rowling."
+    },
+    {
+        "id": 5,
+        "cardImageUrl": "https://pmcvariety.files.wordpress.com/2019/04/joker-trailer.jpg?w=681&h=383&crop=1",
+        "title": "Joker",
+        "description": "Joker is a 2019 American psychological thriller film directed and produced by Todd Phillips, who co-wrote the screenplay with Scott Silver."
+    },
+    {
+        "id": 6,
+        "cardImageUrl": "https://www.telegraph.co.uk/content/dam/films/spark/download-and-keep/film-poster-the-incredibles-2.jpg?imwidth=480",
+        "title": "The Incredibles",
+        "description": "A family of undercover superheroes, while trying to live the quiet suburban life, are forced into action to save the world."
+    },
+    {
+        "id": 7,
+        "cardImageUrl": "https://cdn.onebauer.media/one/empire-tmdb/films/72105/images/sPiFgbWMSQxVMO6TuRFrkeWwarI.jpg?quality=50&width=1800&ratio=16-9&resizeStyle=aspectfill&format=jpg",
+        "title": "Ted",
+        "description": "Ted is a 2012 American comedy film directed by Seth MacFarlane and written by MacFarlane"
+    },
+    {
+        "id": 1,
+        "cardImageUrl": "https://static.toiimg.com/photo/73514755.jpeg",
+        "title": "The Gentlemen",
+        "description": "An American expat tries to sell off his highly profitable marijuana empire in London, triggering plots, schemes, bribery and blackmail in an attempt to steal his domain out from under him."
+    },
+    {
+        "id": 2,
+        "cardImageUrl": "https://allears.net/wp-content/uploads/2020/08/thor-poster-marvel.jpg",
+        "title": "Thor",
+        "description": "Thor is a 2011 American superhero film based on the Marvel Comics character of the same name"
+    },
+    {
+        "id": 5,
+        "cardImageUrl": "https://www.denofgeek.com/wp-content/uploads/2017/08/captain_america_should_stay_in_the_past.jpg?resize=768%2C432",
+        "title": "Captain America",
+        "description": "Captain America: The First Avenger is a 2011 American superhero film based on the Marvel Comics character Captain America."
+    },
+    {
+        "id": 6,
+        "cardImageUrl": "https://cdn.onebauer.media/one/empire-tmdb/films/76341/images/tbhdm8UJAb4ViCTsulYFL3lxMCd.jpg?quality=50&width=1800&ratio=16-9&resizeStyle=aspectfill&format=jpg",
+        "title": "Mad Max: Fury Road",
+        "description": "Mad Max: Fury Road is a 2015 Australian post-apocalyptic action film co-written, co-produced, and directed by George Miller"
+    },
+    {
+        "id": 7,
+        "cardImageUrl": "https://scontent.fkun1-1.fna.fbcdn.net/v/t1.0-0/c0.14.1067.557a/p600x600/84521152_100284664880990_6486162166201188352_o.jpg?_nc_cat=102&_nc_sid=e3f864&_nc_ohc=KzWSY8lcIY4AX_nAokH&_nc_ht=scontent.fkun1-1.fna&_nc_tp=27&oh=66d9e8475ae117d88f8b631c6c4b24ac&oe=5F9D6249",
+        "title": "Fast & Furious 9 2020",
+        "description": "F9 is an upcoming American action film directed by Justin Lin and written by Daniel Casey"
+    }
+]
