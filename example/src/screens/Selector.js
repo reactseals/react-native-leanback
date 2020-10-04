@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {ScrollView, View, ImageBackground} from 'react-native';
+import {ScrollView, View} from 'react-native';
 
 import SelectorButton from '../components/SelectorButton';
 

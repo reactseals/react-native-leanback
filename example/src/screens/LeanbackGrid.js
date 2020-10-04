@@ -1,13 +1,5 @@
-import React, {useEffect, useRef} from 'react';
-import {
-  View,
-  ScrollView,
-  TouchableOpacity,
-  UIManager,
-  Button,
-  findNodeHandle,
-  TVEventHandler,
-} from 'react-native';
+import React from 'react';
+import {ScrollView} from 'react-native';
 import {Grid} from 'react-native-leanback';
 
 import data from '../data.json';
