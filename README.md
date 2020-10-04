@@ -75,10 +75,18 @@ import { Row } from 'react-native-leanback';
 />
 ```
 
-<img src="./misc/img/row1.gif" alt="React native leanback row with titles" style="display: block; margin: 10px auto;" />
-<img src="./misc/img/row2.gif" alt="React native leanback row with no titles" style="display: block; margin: 10px auto;" />
-<img src="./misc/img/row3.gif" alt="React native leanback row custom sized" style="display: block; margin: 10px auto;" />
-<img src="./misc/img/row4.gif" alt="React native leanback row" style="display: block; margin: 10px auto;" />
+<p align="center">
+    <img src="./misc/img/row1.gif" alt="React native leanback row with titles" />
+</p>
+<p align="center">
+    <img src="./misc/img/row2.gif" alt="React native leanback row with no titles" />
+</p>
+<p align="center">
+    <img src="./misc/img/row3.gif" alt="React native leanback row custom sized" />
+</p>
+<p align="center">
+    <img src="./misc/img/row4.gif" alt="React native leanback row" />
+</p>
 
 [link1]: https://github.com/reactseals/react-native-leanback/blob/master/android/src/main/res/values/styles.xml
 [link2]: https://github.com/reactseals/react-native-leanback/blob/master/android/src/main/res/values/values.xml
