@@ -13,7 +13,7 @@ Add this code snipped to your `renative.json`
 "@reactseals/react-native-leanback": {
     "version": "1.0.4",
     "androidtv": {
-        "path": "packages/react-native-leanback/android",
+        "path": "node_modules/@reactseals/react-native-leanback/android",
         "package": "com.rs.leanbacknative.LeanbackNativePackage"
     }
 }
@@ -59,7 +59,7 @@ npm install @reactseals/react-native-leanback@1.0.4
 | ``attributes.hasImageOnly`` | ``boolean`` | Bool flag which indicates wheter show title or image only |
 
 ```javascript
-import { Row } from 'react-native-leanback';
+import { Row } from '@reactseals/react-native-leanback';
 
 <Row
     data={data}
