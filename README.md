@@ -88,6 +88,40 @@ import { Row } from 'react-native-leanback';
     <img src="./misc/img/row4.gif" alt="React native leanback row" />
 </p>
 
+## Grid
+
+| Prop                        | Type        | Description                                               |
+| --------------------------- | ----------- | --------------------------------------------------------- |
+| ``data``                    | ``array``   | Data for row                                              |
+| ``style``                   | ``object``  | Container holder style                                    |
+| ``title``                   | ``string``  | Row title                                                 |
+| ``attributes.width``        | ``integer`` | Width of row                                              |
+| ``attributes.height``       | ``integer`` | Height of row                                             |
+| ``attributes.hasImageOnly`` | ``boolean`` | Bool flag which indicates wheter show title or image only |
+
+```javascript
+import { Grid } from 'react-native-leanback';
+
+<Grid
+    data={data}
+    attributes={{
+        width: 313,
+        height: 173,
+        hasImageOnly: true,
+    }}
+    style={{ width: '100%' }}
+    onFocus={(item) => console.log(item)}
+    onPress={(item) => console.log(item)}
+/>
+```
+
+<p align="center">
+    <img src="./misc/img/grid1.gif" alt="React native leanback grid with titles" />
+</p>
+<p align="center">
+    <img src="./misc/img/grid2.gif" alt="React native leanback grid with no titles" />
+</p>
+
 [link1]: https://github.com/reactseals/react-native-leanback/blob/master/android/src/main/res/values/styles.xml
 [link2]: https://github.com/reactseals/react-native-leanback/blob/master/android/src/main/res/values/values.xml
 [link3]: https://github.com/pavjacko/renative
