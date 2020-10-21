@@ -22,6 +22,7 @@ public class DataManager {
 
     public static List<NativeRowItem> setupData(ReadableArray data) {
         viewIds.clear();
+        isOverlayPresenter = false;
         List<NativeRowItem> rows = new ArrayList<>();
         Random random = new Random();
 
