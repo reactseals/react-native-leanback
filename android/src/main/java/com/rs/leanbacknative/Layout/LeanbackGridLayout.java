@@ -22,6 +22,7 @@ import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.rs.leanbacknative.Presenter.OverlayCardPresenter;
+import com.rs.leanbacknative.Presenter.CardPresenter;
 import com.rs.leanbacknative.DataManager;
 import com.rs.leanbacknative.Model.NativeRowItem;
 
@@ -108,7 +109,7 @@ public class LeanbackGridLayout extends FrameLayout {
         } else {
             cardPresenter = new CardPresenter();
         }
-        
+
         mRowsAdapter = new ArrayObjectAdapter(cardPresenter);
 
         mRowsAdapter.clear();
