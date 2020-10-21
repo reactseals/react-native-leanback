@@ -23,7 +23,8 @@ import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
-import com.rs.leanbacknative.CardPresenter;
+import com.rs.leanbacknative.Presenter.CardPresenter;
+import com.rs.leanbacknative.Presenter.OverlayCardPresenter;
 import com.rs.leanbacknative.DataManager;
 import com.rs.leanbacknative.Model.NativeRowItem;
 
@@ -141,17 +142,26 @@ public class LeanbackRowLayout extends FrameLayout {
 
         mRows = DataManager.setupData(data);
         ArrayObjectAdapter mListRowAdapterWithData;
-        CardPresenter mCardPresenter;
 
         ReadableMap attributes = dataAndAttributes.getMap("attributes");
         if (attributes != null) {
             initializeAdapter(attributes);
-            mCardPresenter = new CardPresenter(attributes);
+            if (DataManager.isOverlayPresenter()) {
+                OverlayCardPresenter cardPresenter =  new OverlayCardPresenter(attributes);
+                mListRowAdapterWithData = new ArrayObjectAdapter(cardPresenter);
+            } else {
+                CardPresenter cardPresenter = new CardPresenter(attributes);
+                mListRowAdapterWithData = new ArrayObjectAdapter(cardPresenter);
+            }
         } else {
-            mCardPresenter = new CardPresenter();
+            if (DataManager.isOverlayPresenter()) {
+                OverlayCardPresenter cardPresenter =  new OverlayCardPresenter();
+                mListRowAdapterWithData = new ArrayObjectAdapter(cardPresenter);
+            } else {
+                CardPresenter cardPresenter = new CardPresenter();
+                mListRowAdapterWithData = new ArrayObjectAdapter(cardPresenter);
+            }
         }
-
-        mListRowAdapterWithData = new ArrayObjectAdapter(mCardPresenter);
 
         for (int i = 0; i < mRows.size(); i++) {
             mListRowAdapterWithData.add(mRows.get(i));

@@ -1,13 +1,10 @@
-package com.rs.leanbacknative;
+package com.rs.leanbacknative.Presenter;
 
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.core.content.ContextCompat;
-import androidx.leanback.widget.Presenter;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -15,12 +12,10 @@ import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.uimanager.PixelUtil;
 import com.rs.leanbacknative.Model.NativeRowItem;
+import com.rs.leanbacknative.R;
 import com.rs.leanbacknative.Widget.NativeImageCardView;
 
-import java.util.Objects;
-
-
-public class CardPresenter extends Presenter {
+public class CardPresenter extends OverlayCardPresenter {
     private static final String TAG = "CardPresenter";
 
     private static final int DEFAULT_CARD_WIDTH = 313;
@@ -89,7 +84,7 @@ public class CardPresenter extends Presenter {
                     super.setSelected(selected);
                 }
             };
-            
+
         cardView.buildImageCardView(mHasImageOnly, mHasTitle, mHasContent, mHasIconRight, mHasIconLeft);
 
 
@@ -104,7 +99,7 @@ public class CardPresenter extends Presenter {
     }
 
     @Override
-    public void onBindViewHolder(Presenter.ViewHolder viewHolder, Object item) {
+    public void onBindViewHolder(ViewHolder viewHolder, Object item) {
         NativeRowItem rowItem = (NativeRowItem) item;
         NativeImageCardView cardView = (NativeImageCardView) viewHolder.view;
 
@@ -115,16 +110,8 @@ public class CardPresenter extends Presenter {
             cardView.setId(rowItem.getViewId());
         }
 
-        if (mForbiddenFocusDirections != null) {
-            for (int i = 0; i < mForbiddenFocusDirections.size(); i++) {
-                if (Objects.equals(mForbiddenFocusDirections.getString(i), FOCUS_DIRECTION_UP)) {
-                    cardView.setNextFocusUpId(cardView.getId());
-                }
-                if (Objects.equals(mForbiddenFocusDirections.getString(i), FOCUS_DIRECTION_DOWN)) {
-                    cardView.setNextFocusDownId(cardView.getId());
-                }
-            }
-        }
+        if (mForbiddenFocusDirections != null)
+            CardUtils.setForbiddenFocusDirections(mForbiddenFocusDirections, cardView);
 
         if (nextFocusUpId != -1) {
             cardView.setNextFocusUpId(nextFocusUpId);
@@ -137,7 +124,7 @@ public class CardPresenter extends Presenter {
         if (rowItem.getCardImageUrl() != null) {
             cardView.setMainImageDimensions(mCardWidth, mCardHeight);
 
-            RequestOptions requestOptions = mCardShape.equals("round") ? RequestOptions.circleCropTransform() : RequestOptions.centerCropTransform();
+            RequestOptions requestOptions = mCardShape.equals("round") ? RequestOptions.circleCropTransform() : RequestOptions.fitCenterTransform();
 
             Glide.with(viewHolder.view.getContext())
                 .load(rowItem.getCardImageUrl())
@@ -150,7 +137,7 @@ public class CardPresenter extends Presenter {
     }
 
     @Override
-    public void onUnbindViewHolder(Presenter.ViewHolder viewHolder) {
+    public void onUnbindViewHolder(ViewHolder viewHolder) {
         NativeImageCardView cardView = (NativeImageCardView) viewHolder.view;
         cardView.setBadgeImage(null);
         cardView.setMainImage(null);

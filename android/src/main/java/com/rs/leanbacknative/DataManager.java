@@ -12,10 +12,13 @@ import java.util.Random;
 
 public class DataManager {
     private static ArrayList<Integer> viewIds = new ArrayList<Integer>();
+    private static boolean isOverlayPresenter;
 
     public static ArrayList getViewIds() {
         return viewIds;
     }
+
+    public static boolean isOverlayPresenter() { return isOverlayPresenter; }
 
     public static List<NativeRowItem> setupData(ReadableArray data) {
         viewIds.clear();
@@ -36,9 +39,23 @@ public class DataManager {
             nativeRowItem.setTitle(validateString(dataRowItem, "title"));
             nativeRowItem.setDescription(validateString(dataRowItem, "description"));
             nativeRowItem.setCardImageUrl(validateString(dataRowItem, "cardImageUrl"));
+            nativeRowItem.setOverlayImageUrl(validateString(dataRowItem, "overlayImageUrl"));
+            nativeRowItem.setOverlayText(validateString(dataRowItem, "overlayText"));
             nativeRowItem.setBackdropUrl(validateString(dataRowItem, "backdropUrl"));
+            nativeRowItem.setOverlayPosition(validateString(dataRowItem, "overlayPosition"));
+            nativeRowItem.setLiveBadgeColor(validateString(dataRowItem, "liveBadgeColor"));
+            nativeRowItem.setLiveProgressBarColor(validateString(dataRowItem, "liveProgressBarColor"));
+            nativeRowItem.setProgramStartTimestamp(dataRowItem.hasKey("programStartTimestamp") ? Long.parseLong(dataRowItem.getString("programStartTimestamp")) : 0);
+            nativeRowItem.setProgramEndTimestamp(dataRowItem.hasKey("programEndTimestamp") ? Long.parseLong(dataRowItem.getString("programEndTimestamp")) : 0);
 
             rows.add(nativeRowItem);
+
+            if (!nativeRowItem.getOverlayImageUrl().isEmpty() ||
+                    !nativeRowItem.getOverlayText().isEmpty() ||
+                    nativeRowItem.getProgramStartTimestamp() != 0
+            ) {
+                isOverlayPresenter = true;
+            }
         }
 
         return rows;

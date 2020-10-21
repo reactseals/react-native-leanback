@@ -21,7 +21,7 @@ import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
-import com.rs.leanbacknative.CardPresenter;
+import com.rs.leanbacknative.Presenter.OverlayCardPresenter;
 import com.rs.leanbacknative.DataManager;
 import com.rs.leanbacknative.Model.NativeRowItem;
 
@@ -31,7 +31,7 @@ import java.util.List;
 @SuppressLint("ViewConstructor")
 public class LeanbackGridLayout extends FrameLayout {
     private ThemedReactContext mContext;
-    private CardPresenter mCardPresenter;
+    private OverlayCardPresenter mCardPresenter;
     private ArrayObjectAdapter mRowsAdapter;
     private VerticalGridFragment mVerticalGridFragment;
 
@@ -50,7 +50,7 @@ public class LeanbackGridLayout extends FrameLayout {
         verticalGridFragment.setGridPresenter(verticalGridPresenter);
 
 
-        mRowsAdapter = new ArrayObjectAdapter(new CardPresenter());
+        mRowsAdapter = new ArrayObjectAdapter(new OverlayCardPresenter());
 
         FragmentManager fragmentManager = mContext.getCurrentActivity().getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -108,7 +108,7 @@ public class LeanbackGridLayout extends FrameLayout {
         } else {
             cardPresenter = new CardPresenter();
         }
-
+        
         mRowsAdapter = new ArrayObjectAdapter(cardPresenter);
 
         mRowsAdapter.clear();

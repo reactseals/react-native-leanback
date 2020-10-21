@@ -23,8 +23,21 @@ public class NativeRowItem implements Serializable {
 
     private String backdropUrl;
 
-    public NativeRowItem() {
-    }
+    private String overlayImageUrl;
+
+    private String overlayText;
+
+    private String overlayPosition;
+
+    private String liveBadgeColor;
+
+    private String liveProgressBarColor;
+
+    private long programStartTimestamp;
+
+    private long programEndTimestamp;
+
+    public NativeRowItem() { }
 
     public String getId() {
         return id;
@@ -80,6 +93,62 @@ public class NativeRowItem implements Serializable {
 
     public void setViewId(int viewId) {
         this.viewId = viewId;
+    }
+
+    public String getOverlayImageUrl() {
+        return overlayImageUrl;
+    }
+
+    public void setOverlayImageUrl(String overlayImageUrl) {
+        this.overlayImageUrl = overlayImageUrl;
+    }
+
+    public String getOverlayText() {
+        return overlayText;
+    }
+
+    public void setOverlayText(String overlayText) {
+        this.overlayText = overlayText;
+    }
+
+    public long getProgramStartTimestamp() {
+        return programStartTimestamp;
+    }
+
+    public void setProgramStartTimestamp(long programStartTimestamp) {
+        this.programStartTimestamp = programStartTimestamp;
+    }
+
+    public long getProgramEndTimestamp() {
+        return programEndTimestamp;
+    }
+
+    public void setProgramEndTimestamp(long programEndTimestamp) {
+        this.programEndTimestamp = programEndTimestamp;
+    }
+
+    public String getOverlayPosition() {
+        return overlayPosition;
+    }
+
+    public void setOverlayPosition(String overlayPosition) {
+        this.overlayPosition = overlayPosition;
+    }
+
+    public String getLiveBadgeColor() {
+        return liveBadgeColor;
+    }
+
+    public void setLiveBadgeColor(String liveBadgeColor) {
+        this.liveBadgeColor = liveBadgeColor;
+    }
+
+    public String getLiveProgressBarColor() {
+        return liveProgressBarColor;
+    }
+
+    public void setLiveProgressBarColor(String liveProgressBarColor) {
+        this.liveProgressBarColor = liveProgressBarColor;
     }
 
     @Override

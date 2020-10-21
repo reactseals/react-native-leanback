@@ -3,19 +3,27 @@
         "id": 1,
         "cardImageUrl": "https://miro.medium.com/max/3376/1*0RTfTupYYCswBxAa2LOnog.png",
         "title": "The Avengers",
-        "description": "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity."
+        "description": "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+        "overlayImageUrl": "https://images-platform.99static.com//bQzsVFJaxHG3baYYDtmtfidqxJ4=/0x0:1200x1200/fit-in/500x500/99designs-contests-attachments/91/91295/attachment_91295374",
+        "programStartTimestamp": "1603265045000",
+        "programEndTimestamp": "1603324800000",
+        "liveBadgeColor": "#FF0000",
+        "liveProgressBarColor": "#FFFF00",
+        "overlayPosition": "right"
     },
     {
         "id": 2,
         "cardImageUrl": "https://miro.medium.com/max/3840/1*-xxH5kXE8AGA8-vzPURslg.jpeg",
         "title": "Harry Potter",
-        "description": "Harry Potter is a film series based on the eponymous novels by author J. K. Rowling."
+        "description": "Harry Potter is a film series based on the eponymous novels by author J. K. Rowling.",
+        "overlayText": "Im Overlay"
     },
     {
         "id": 5,
         "cardImageUrl": "https://pmcvariety.files.wordpress.com/2019/04/joker-trailer.jpg?w=681&h=383&crop=1",
         "title": "Joker",
-        "description": "Joker is a 2019 American psychological thriller film directed and produced by Todd Phillips, who co-wrote the screenplay with Scott Silver."
+        "description": "Joker is a 2019 American psychological thriller film directed and produced by Todd Phillips, who co-wrote the screenplay with Scott Silver.",
+        "overlayImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Google-Logo.svg/1280px-Google-Logo.svg.png"
     },
     {
         "id": 6,
