@@ -3,6 +3,7 @@ package com.rs.leanbacknative.Presenter;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -11,6 +12,7 @@ import android.widget.RelativeLayout;
 
 import com.facebook.react.bridge.ReadableArray;
 import com.rs.leanbacknative.Model.NativeRowItem;
+import com.rs.leanbacknative.R;
 import com.rs.leanbacknative.Widget.NativeImageOverlayView;
 
 import java.util.Objects;
@@ -62,19 +64,19 @@ class CardUtils {
      * @param rowItem
      */
     static void setupLiveAssetElements(NativeImageOverlayView cardView, NativeRowItem rowItem) {
-        if (rowItem.getProgramStartTimestamp() == 0 && rowItem.getProgramEndTimestamp() == 0) {
-            cardView.getLayoutView().removeView(cardView.getProgressBarView());
-            cardView.getLayoutView().removeView(cardView.getLiveBadgeView());
-        } else {
-            cardView.getLayoutView().addView(cardView.getProgressBarView());
-            cardView.getLayoutView().addView(cardView.getLiveBadgeView());
-
+        View view = cardView.findViewById(R.id.progress_bar);
+        if (rowItem.getProgramStartTimestamp() != 0 && rowItem.getProgramEndTimestamp() != 0) {
+            if (view == null) {
+                cardView.getLayoutView().addView(cardView.getProgressBarView());
+                cardView.getLayoutView().addView(cardView.getLiveBadgeView());
+            }
             GradientDrawable drawable = (GradientDrawable) cardView.getLiveBadgeView().getBackground();
-            drawable.setColor(Color.parseColor(rowItem.getLiveBadgeColor()));
-            cardView.getProgressBarView().setProgressTintList(ColorStateList.valueOf(Color.parseColor(rowItem.getLiveProgressBarColor())));
+            if (!rowItem.getLiveBadgeColor().isEmpty())
+                drawable.setColor(Color.parseColor(rowItem.getLiveBadgeColor()));
+            if (!rowItem.getLiveProgressBarColor().isEmpty())
+                cardView.getProgressBarView().setProgressTintList(ColorStateList.valueOf(Color.parseColor(rowItem.getLiveProgressBarColor())));
             cardView.getProgressBarView().setProgress(CardUtils.livePercentageLeft(rowItem.getProgramStartTimestamp(), rowItem.getProgramEndTimestamp()));
         }
-
     }
 
     /**
@@ -105,13 +107,13 @@ class CardUtils {
      * @param rowItem
      */
     static void setupTextOverlay(NativeImageOverlayView cardView, NativeRowItem rowItem) {
+        View view = cardView.findViewById(R.id.gradient);
         if (!rowItem.getOverlayText().isEmpty()) {
-            cardView.getLayoutView().addView(cardView.getGradientView());
-            cardView.getLayoutView().addView(cardView.getOverlayTextView());
+            if (view == null) {
+                cardView.getLayoutView().addView(cardView.getGradientView());
+                cardView.getLayoutView().addView(cardView.getOverlayTextView());
+            }
             cardView.getOverlayTextView().setText(rowItem.getOverlayText());
-        } else {
-            cardView.getLayoutView().removeView(cardView.getOverlayTextView());
-            cardView.getLayoutView().removeView(cardView.getGradientView());
         }
     }
 }

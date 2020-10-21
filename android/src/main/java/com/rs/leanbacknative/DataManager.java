@@ -29,7 +29,7 @@ public class DataManager {
             random.nextInt();
             int viewId = View.generateViewId() + random.nextInt(); // ensure viewID is not duplicate with React ones
             viewIds.add(viewId);
-            
+
             ReadableMap dataRowItem = data.getMap(i);
 
             NativeRowItem nativeRowItem = new NativeRowItem();
@@ -45,8 +45,8 @@ public class DataManager {
             nativeRowItem.setOverlayPosition(validateString(dataRowItem, "overlayPosition"));
             nativeRowItem.setLiveBadgeColor(validateString(dataRowItem, "liveBadgeColor"));
             nativeRowItem.setLiveProgressBarColor(validateString(dataRowItem, "liveProgressBarColor"));
-            nativeRowItem.setProgramStartTimestamp(dataRowItem.hasKey("programStartTimestamp") ? Long.parseLong(dataRowItem.getString("programStartTimestamp")) : 0);
-            nativeRowItem.setProgramEndTimestamp(dataRowItem.hasKey("programEndTimestamp") ? Long.parseLong(dataRowItem.getString("programEndTimestamp")) : 0);
+            nativeRowItem.setProgramStartTimestamp(validateLong(dataRowItem, "programStartTimestamp"));
+            nativeRowItem.setProgramEndTimestamp(validateLong(dataRowItem, "programEndTimestamp"));
 
             rows.add(nativeRowItem);
 
@@ -72,6 +72,18 @@ public class DataManager {
                 res = String.valueOf(item.getInt(prop));
                 break;
         }
+        return res;
+    }
+
+    private static long validateLong(ReadableMap item, String prop) {
+        long res = 0;
+        if (!item.hasKey(prop) || item.isNull(prop)) return res;
+        switch (item.getType(prop)) {
+            case String:
+                res =  Long.parseLong(item.getString(prop));
+                break;
+        }
+
         return res;
     }
 }
