@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.view.ViewGroup;
 
 import androidx.core.content.ContextCompat;
+import androidx.leanback.widget.Presenter;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -15,7 +16,7 @@ import com.rs.leanbacknative.Model.NativeRowItem;
 import com.rs.leanbacknative.R;
 import com.rs.leanbacknative.Widget.NativeImageCardView;
 
-public class CardPresenter extends OverlayCardPresenter {
+public class CardPresenter extends Presenter {
     private static final String TAG = "CardPresenter";
 
     private static final int DEFAULT_CARD_WIDTH = 313;
@@ -131,8 +132,6 @@ public class CardPresenter extends OverlayCardPresenter {
                 .apply(requestOptions)
                 .error(mDefaultCardImage)
                 .into(cardView.getMainImageView());
-
-
         }
     }
 

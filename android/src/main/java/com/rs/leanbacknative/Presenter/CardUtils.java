@@ -87,8 +87,8 @@ class CardUtils {
     static void setupOverlayImage(NativeImageOverlayView cardView, NativeRowItem rowItem) {
         switch (rowItem.getOverlayPosition()) {
             case "right":
-                ((FrameLayout.LayoutParams) cardView.getOverlayImageWrapperView().getLayoutParams()).gravity = Gravity.END;
-                ((FrameLayout.LayoutParams) cardView.getOverlayImageWrapperView().getLayoutParams()).topMargin = 10;
+                ((FrameLayout.LayoutParams) cardView.getOverlayImageWrapperView().getLayoutParams()).gravity = Gravity.BOTTOM|Gravity.END;
+                ((FrameLayout.LayoutParams) cardView.getOverlayImageWrapperView().getLayoutParams()).bottomMargin = 10;
                 ((FrameLayout.LayoutParams) cardView.getOverlayImageWrapperView().getLayoutParams()).rightMargin = 10;
                 cardView.getOverlayImageView().setScaleType(ImageView.ScaleType.FIT_END);
                 break;
@@ -106,12 +106,14 @@ class CardUtils {
      * @param cardView
      * @param rowItem
      */
-    static void setupTextOverlay(NativeImageOverlayView cardView, NativeRowItem rowItem) {
+    static void setupTextOverlay(NativeImageOverlayView cardView, NativeRowItem rowItem, int mBorderRadius) {
         View view = cardView.findViewById(R.id.gradient);
         if (!rowItem.getOverlayText().isEmpty()) {
             if (view == null) {
                 cardView.getLayoutView().addView(cardView.getGradientView());
                 cardView.getLayoutView().addView(cardView.getOverlayTextView());
+                GradientDrawable drawable = (GradientDrawable) cardView.getGradientView().getBackground();
+                drawable.setCornerRadius(mBorderRadius);
             }
             cardView.getOverlayTextView().setText(rowItem.getOverlayText());
         }

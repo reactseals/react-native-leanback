@@ -32,7 +32,7 @@ import java.util.List;
 @SuppressLint("ViewConstructor")
 public class LeanbackGridLayout extends FrameLayout {
     private ThemedReactContext mContext;
-    private OverlayCardPresenter mCardPresenter;
+    private CardPresenter mCardPresenter;
     private ArrayObjectAdapter mRowsAdapter;
     private VerticalGridFragment mVerticalGridFragment;
 
@@ -51,7 +51,7 @@ public class LeanbackGridLayout extends FrameLayout {
         verticalGridFragment.setGridPresenter(verticalGridPresenter);
 
 
-        mRowsAdapter = new ArrayObjectAdapter(new OverlayCardPresenter());
+        mRowsAdapter = new ArrayObjectAdapter(new CardPresenter());
 
         FragmentManager fragmentManager = mContext.getCurrentActivity().getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

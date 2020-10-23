@@ -67,8 +67,7 @@ public class LeanbackRowLayout extends FrameLayout {
         mListRowPresenter = new OTTRowPresenter(focusedCardAlignment);
         mListRowPresenter.setNumRows(numberOfRows);
 
-        if (cardShape.equals("round")) mListRowPresenter.setShadowEnabled(false);
-
+        if (cardShape.equals("round") || DataManager.isOverlayPresenter()) mListRowPresenter.setShadowEnabled(false);
         mRowsAdapter = new ArrayObjectAdapter(mListRowPresenter);
         mRowsFragment.setAdapter(mRowsAdapter);
     }

@@ -1,6 +1,7 @@
 package com.rs.leanbacknative.Presenter;
 
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.ViewGroup;
 import androidx.core.content.ContextCompat;
 import androidx.leanback.widget.Presenter;
@@ -69,7 +70,7 @@ public class OverlayCardPresenter extends Presenter {
         if (nextFocusDownId != -1)
             cardView.setNextFocusDownId(nextFocusDownId);
 
-        CardUtils.setupTextOverlay(cardView, rowItem);
+        CardUtils.setupTextOverlay(cardView, rowItem, mBorderRadius);
         CardUtils.setupOverlayImage(cardView, rowItem);
         CardUtils.setupLiveAssetElements(cardView, rowItem);
 
@@ -89,7 +90,7 @@ public class OverlayCardPresenter extends Presenter {
 
             Glide.with(viewHolder.view.getContext())
                     .load(rowItem.getOverlayImageUrl())
-                    .apply(requestOptions)
+                    .apply(RequestOptions.fitCenterTransform())
                     .into(cardView.getOverlayImageView());
         }
     }

@@ -50,6 +50,7 @@ const LeanbackRows = () => {
           attributes={{
             width: 213,
             height: 173,
+            borderRadius: 36
           }}
           style={{width: '100%', height: 330}}
         />
