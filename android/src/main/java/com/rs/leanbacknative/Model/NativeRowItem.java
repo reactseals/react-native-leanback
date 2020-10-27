@@ -37,6 +37,8 @@ public class NativeRowItem implements Serializable {
 
     private long programEndTimestamp;
 
+    private byte progress;
+
     public NativeRowItem() { }
 
     public String getId() {
@@ -149,6 +151,13 @@ public class NativeRowItem implements Serializable {
 
     public void setLiveProgressBarColor(String liveProgressBarColor) {
         this.liveProgressBarColor = liveProgressBarColor;
+    }
+    public byte getProgress() {
+        return progress;
+    }
+
+    public void setProgress(byte progress) {
+        this.progress = progress;
     }
 
     @Override

@@ -65,16 +65,21 @@ class CardUtils {
      */
     static void setupLiveAssetElements(NativeImageOverlayView cardView, NativeRowItem rowItem) {
         View view = cardView.findViewById(R.id.progress_bar);
-        if (rowItem.getProgramStartTimestamp() != 0 && rowItem.getProgramEndTimestamp() != 0) {
+
+        if ((rowItem.getProgramStartTimestamp() != 0 && rowItem.getProgramEndTimestamp() != 0) || rowItem.getProgress()!=-1) {
             if (view == null) {
                 cardView.getLayoutView().addView(cardView.getProgressBarView());
-                cardView.getLayoutView().addView(cardView.getLiveBadgeView());
+                if(!rowItem.getLiveBadgeColor().isEmpty())
+                    cardView.getLayoutView().addView(cardView.getLiveBadgeView());
             }
             GradientDrawable drawable = (GradientDrawable) cardView.getLiveBadgeView().getBackground();
             if (!rowItem.getLiveBadgeColor().isEmpty())
                 drawable.setColor(Color.parseColor(rowItem.getLiveBadgeColor()));
             if (!rowItem.getLiveProgressBarColor().isEmpty())
                 cardView.getProgressBarView().setProgressTintList(ColorStateList.valueOf(Color.parseColor(rowItem.getLiveProgressBarColor())));
+            if(rowItem.getProgress() > 0 && rowItem.getProgress() < 100)
+            cardView.getProgressBarView().setProgress(rowItem.getProgress());
+            else if(rowItem.getProgramStartTimestamp() != 0 && rowItem.getProgramEndTimestamp()!=0)
             cardView.getProgressBarView().setProgress(CardUtils.livePercentageLeft(rowItem.getProgramStartTimestamp(), rowItem.getProgramEndTimestamp()));
         }
     }

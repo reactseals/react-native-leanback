@@ -47,13 +47,15 @@ public class DataManager {
             nativeRowItem.setLiveBadgeColor(validateString(dataRowItem, "liveBadgeColor"));
             nativeRowItem.setLiveProgressBarColor(validateString(dataRowItem, "liveProgressBarColor"));
             nativeRowItem.setProgramStartTimestamp(validateLong(dataRowItem, "programStartTimestamp"));
+            nativeRowItem.setProgress(validateByte(dataRowItem, "progress"));
             nativeRowItem.setProgramEndTimestamp(validateLong(dataRowItem, "programEndTimestamp"));
 
             rows.add(nativeRowItem);
 
             if (!nativeRowItem.getOverlayImageUrl().isEmpty() ||
                     !nativeRowItem.getOverlayText().isEmpty() ||
-                    nativeRowItem.getProgramStartTimestamp() != 0
+                    nativeRowItem.getProgramStartTimestamp() != 0 ||
+                    nativeRowItem.getProgress() != -1
             ) {
                 isOverlayPresenter = true;
             }
@@ -87,4 +89,18 @@ public class DataManager {
 
         return res;
     }
+    private static byte validateByte(ReadableMap item, String prop) {
+        byte res = -1;
+        if (!item.hasKey(prop) || item.isNull(prop)) return res;
+        switch (item.getType(prop)) {
+            case Number:
+                res = (byte)item.getInt(prop);
+                break;
+            case String:
+                res =(byte) Integer.parseInt(item.getString(prop));
+                break;
+        }
+        return res;
+    }
 }
+
