@@ -15,6 +15,9 @@ class OTTGridPresenter extends VerticalGridPresenter {
         super(FocusHighlight.ZOOM_FACTOR_MEDIUM);
     }
 
+    OTTGridPresenter(boolean useFocusDimmer) {
+        super(FocusHighlight.ZOOM_FACTOR_MEDIUM, useFocusDimmer);
+    }
 
     @Override
     protected ViewHolder createGridViewHolder(ViewGroup parent) {

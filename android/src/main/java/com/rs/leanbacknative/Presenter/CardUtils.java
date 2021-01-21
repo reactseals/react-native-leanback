@@ -110,13 +110,12 @@ class CardUtils {
 
     static void setUpSeeAllItem(NativeImageOverlayView cardView, NativeRowItem rowItem) {
         if (rowItem.getType().equals("see_all")) {
-            cardView.getOverlayImageView().setVisibility(View.GONE);
-            cardView.getMainImageView().setImageBitmap(null);
-            cardView.getMainImageView().setBackgroundColor(Color.parseColor(rowItem.getBackgroundColor()));
+            cardView.getOverlayImageView().setVisibility(View.INVISIBLE);
+            cardView.getMainImageView().setVisibility(View.INVISIBLE);
+            cardView.getGradientView().setBackgroundColor(Color.parseColor(rowItem.getBackgroundColor()));
         } else {
             cardView.getMainImageView().setVisibility(View.VISIBLE);
             cardView.getOverlayImageView().setVisibility(View.VISIBLE);
-            cardView.getMainImageView().setBackgroundColor(Color.TRANSPARENT);
         }
     }
 
@@ -140,8 +139,8 @@ class CardUtils {
             cardView.getOverlayTextView().setText(rowItem.getOverlayText());
         } else {
             if (view != null) {
-                cardView.getGradientView().setVisibility(View.GONE);
-                cardView.getOverlayTextView().setVisibility(View.GONE);
+                cardView.getGradientView().setVisibility(View.INVISIBLE);
+                cardView.getOverlayTextView().setVisibility(View.INVISIBLE);
             }
         }
     }
