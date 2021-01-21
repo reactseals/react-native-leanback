@@ -7,7 +7,6 @@ import androidx.core.content.ContextCompat;
 import androidx.leanback.widget.Presenter;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
-import com.bumptech.glide.load.resource.bitmap.FitCenter;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.facebook.react.bridge.ReadableArray;
@@ -16,6 +15,7 @@ import com.facebook.react.uimanager.PixelUtil;
 import com.rs.leanbacknative.Model.NativeRowItem;
 import com.rs.leanbacknative.R;
 import com.rs.leanbacknative.Widget.NativeImageOverlayView;
+import static com.rs.leanbacknative.Presenter.CardUtils.*;
 
 
 public class OverlayCardPresenter extends Presenter {
@@ -47,7 +47,7 @@ public class OverlayCardPresenter extends Presenter {
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent) {
         mDefaultCardImage = ContextCompat.getDrawable(parent.getContext(), R.drawable.lb_ic_sad_cloud);
-        NativeImageOverlayView cardView =  new NativeImageOverlayView(parent.getContext());
+        NativeImageOverlayView cardView = new NativeImageOverlayView(parent.getContext());
         cardView.buildImageCardView();
 
         return new ViewHolder(cardView);
@@ -74,25 +74,29 @@ public class OverlayCardPresenter extends Presenter {
         CardUtils.setupOverlayImage(cardView, rowItem);
         CardUtils.setupLiveAssetElements(cardView, rowItem);
 
-        if (rowItem.getCardImageUrl() != null) {
-            cardView.setLayoutDimensions(mCardWidth, mCardHeight);
-            cardView.setMainImageDimensions(mCardWidth, mCardHeight);
+        cardView.setLayoutDimensions(mCardWidth, mCardHeight);
+        cardView.setMainImageDimensions(mCardWidth, mCardHeight);
 
-            RequestOptions requestOptions = mBorderRadius != 0 ?
-                    (new RequestOptions()).transform(new CenterCrop(), new RoundedCorners(mBorderRadius)) :
-                    RequestOptions.fitCenterTransform();
+        RequestOptions requestOptions = mBorderRadius != 0 ?
+                (new RequestOptions()).transform(new CenterCrop(), new RoundedCorners(mBorderRadius)) :
+                RequestOptions.fitCenterTransform();
 
+        if (!rowItem.getType().equals("see_all")) {
             Glide.with(viewHolder.view.getContext())
                 .load(rowItem.getCardImageUrl())
                 .apply(requestOptions)
                 .error(mDefaultCardImage)
                 .into(cardView.getMainImageView());
+        }
 
+        if (!rowItem.getOverlayImageUrl().isEmpty()) {
             Glide.with(viewHolder.view.getContext())
                     .load(rowItem.getOverlayImageUrl())
                     .apply(RequestOptions.fitCenterTransform())
                     .into(cardView.getOverlayImageView());
         }
+
+        CardUtils.setUpSeeAllItem(cardView, rowItem);
     }
 
     @Override

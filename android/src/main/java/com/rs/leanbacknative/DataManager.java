@@ -43,6 +43,8 @@ public class DataManager {
             nativeRowItem.setOverlayImageUrl(validateString(dataRowItem, "overlayImageUrl"));
             nativeRowItem.setOverlayText(validateString(dataRowItem, "overlayText"));
             nativeRowItem.setBackdropUrl(validateString(dataRowItem, "backdropUrl"));
+            nativeRowItem.setType(validateString(dataRowItem, "type"));
+            nativeRowItem.setBackgroundColor(validateString(dataRowItem, "backgroundColor"));
             nativeRowItem.setOverlayPosition(validateString(dataRowItem, "overlayPosition"));
             nativeRowItem.setLiveBadgeColor(validateString(dataRowItem, "liveBadgeColor"));
             nativeRowItem.setLiveProgressBarColor(validateString(dataRowItem, "liveProgressBarColor"));

@@ -33,6 +33,10 @@ public class NativeRowItem implements Serializable {
 
     private String liveProgressBarColor;
 
+    private String type;
+
+    private String backgroundColor;
+
     private long programStartTimestamp;
 
     private long programEndTimestamp;
@@ -158,6 +162,22 @@ public class NativeRowItem implements Serializable {
 
     public void setProgress(byte progress) {
         this.progress = progress;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getBackgroundColor() {
+        return backgroundColor;
+    }
+
+    public void setBackgroundColor(String backgroundColor) {
+        this.backgroundColor = backgroundColor;
     }
 
     @Override

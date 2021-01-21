@@ -21,6 +21,7 @@ class CardUtils {
 
     private static final String FOCUS_DIRECTION_UP = "up";
     private static final String FOCUS_DIRECTION_DOWN = "down";
+    public static final String ITEM_TYPE_SEE_ALL = "see_all";
 
     /**
      *
@@ -104,6 +105,19 @@ class CardUtils {
                 cardView.getOverlayImageView().setScaleType(ImageView.ScaleType.FIT_CENTER);
                 break;
         }
+
+    }
+
+    static void setUpSeeAllItem(NativeImageOverlayView cardView, NativeRowItem rowItem) {
+        if (rowItem.getType().equals("see_all")) {
+            cardView.getOverlayImageView().setVisibility(View.GONE);
+            cardView.getMainImageView().setImageBitmap(null);
+            cardView.getMainImageView().setBackgroundColor(Color.parseColor(rowItem.getBackgroundColor()));
+        } else {
+            cardView.getMainImageView().setVisibility(View.VISIBLE);
+            cardView.getOverlayImageView().setVisibility(View.VISIBLE);
+            cardView.getMainImageView().setBackgroundColor(Color.TRANSPARENT);
+        }
     }
 
     /**
@@ -119,8 +133,16 @@ class CardUtils {
                 cardView.getLayoutView().addView(cardView.getOverlayTextView());
                 GradientDrawable drawable = (GradientDrawable) cardView.getGradientView().getBackground();
                 drawable.setCornerRadius(mBorderRadius);
+            } else {
+                cardView.getGradientView().setVisibility(View.VISIBLE);
+                cardView.getOverlayTextView().setVisibility(View.VISIBLE);
             }
             cardView.getOverlayTextView().setText(rowItem.getOverlayText());
+        } else {
+            if (view != null) {
+                cardView.getGradientView().setVisibility(View.GONE);
+                cardView.getOverlayTextView().setVisibility(View.GONE);
+            }
         }
     }
 }
