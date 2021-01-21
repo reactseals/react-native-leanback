@@ -428,6 +428,20 @@ public class NativeImageCardView extends BaseCardView {
     }
 
     /**
+     * @return TextView
+     */
+    public TextView getTitleView() {
+        return mTitleView;
+    }
+
+    /**
+     * @return TextView
+     */
+    public TextView getContentView() {
+        return mContentView;
+    }
+
+    /**
      * Returns the content text.
      */
     public CharSequence getContentText() {
