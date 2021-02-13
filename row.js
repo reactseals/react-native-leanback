@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useImperativeHandle } from "react";
+import React, { useEffect, useRef, useImperativeHandle } from 'react';
 import {
   requireNativeComponent,
   UIManager,
   findNodeHandle,
-} from "react-native";
+} from 'react-native';
 
-const LeanbackNativeRow = requireNativeComponent("LeanbackNativeRow");
+const LeanbackNativeRow = requireNativeComponent('LeanbackNativeRow');
 
 const REQUEST_FOCUS_ACTION = 1;
 
@@ -22,6 +22,26 @@ const Row = React.forwardRef(
     ref
   ) => {
     const rowRef = useRef();
+
+    // Validate timestamps
+    data.forEach((item) => {
+      if (
+        typeof item.programStartTimestamp === 'string' &&
+        item?.programStartTimestamp?.length &&
+        item?.programStartTimestamp?.length !== 13
+      )
+        throw new Error(
+          'Timestamp is of incorrect format. Must meet JS standart - miliseconds!'
+        );
+      if (
+        typeof item.programEndTimestamp === 'string' &&
+        item?.programStartTimestamp?.length &&
+        item?.programEndTimestamp?.length !== 13
+      )
+        throw new Error(
+          'Timestamp is of incorrect format. Must meet JS standart - miliseconds!'
+        );
+    });
 
     const attrs = {
       data,
@@ -48,11 +68,13 @@ const Row = React.forwardRef(
           forbiddenFocusDirections && Array.isArray(forbiddenFocusDirections)
             ? forbiddenFocusDirections
             : [],
-        focusedCardAlignment: attributes?.focusedCardAlignment || "left",
+        focusedCardAlignment: attributes?.focusedCardAlignment || 'left',
         numberOfRows: attributes?.numberOfRows || 1,
         nextFocusUpId: nextFocusUpId || -1,
         nextFocusDownId: nextFocusDownId || -1,
-        cardShape: attributes?.cardShape || "square",
+        cardShape: attributes?.cardShape || 'square',
+        overlayPosition: attributes?.overlayPosition || '',
+        borderRadius: attributes?.borderRadius || 0,
       },
     };
 

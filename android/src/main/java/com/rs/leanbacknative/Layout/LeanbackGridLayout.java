@@ -21,7 +21,8 @@ import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
-import com.rs.leanbacknative.CardPresenter;
+import com.rs.leanbacknative.Presenter.OverlayCardPresenter;
+import com.rs.leanbacknative.Presenter.GridCardPresenter;
 import com.rs.leanbacknative.DataManager;
 import com.rs.leanbacknative.Model.NativeRowItem;
 
@@ -31,7 +32,7 @@ import java.util.List;
 @SuppressLint("ViewConstructor")
 public class LeanbackGridLayout extends FrameLayout {
     private ThemedReactContext mContext;
-    private CardPresenter mCardPresenter;
+    private GridCardPresenter mCardPresenter;
     private ArrayObjectAdapter mRowsAdapter;
     private VerticalGridFragment mVerticalGridFragment;
 
@@ -45,12 +46,11 @@ public class LeanbackGridLayout extends FrameLayout {
     }
 
     private void initializeAdapter(VerticalGridFragment verticalGridFragment) {
-        VerticalGridPresenter verticalGridPresenter = new OTTGridPresenter();
+        VerticalGridPresenter verticalGridPresenter = new OTTGridPresenter(false);
         verticalGridPresenter.setNumberOfColumns(4);
         verticalGridFragment.setGridPresenter(verticalGridPresenter);
 
-
-        mRowsAdapter = new ArrayObjectAdapter(new CardPresenter());
+        mRowsAdapter = new ArrayObjectAdapter(new GridCardPresenter());
 
         FragmentManager fragmentManager = mContext.getCurrentActivity().getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -100,13 +100,13 @@ public class LeanbackGridLayout extends FrameLayout {
         ReadableArray data = dataAndAttributes.getArray("data");
         List<NativeRowItem> rows = DataManager.setupData(data);
 
-        CardPresenter cardPresenter;
+        GridCardPresenter cardPresenter;
 
         ReadableMap attributes = dataAndAttributes.getMap("attributes");
         if (attributes != null) {
-            cardPresenter = new CardPresenter(attributes);
+            cardPresenter = new GridCardPresenter(attributes);
         } else {
-            cardPresenter = new CardPresenter();
+            cardPresenter = new GridCardPresenter();
         }
 
         mRowsAdapter = new ArrayObjectAdapter(cardPresenter);

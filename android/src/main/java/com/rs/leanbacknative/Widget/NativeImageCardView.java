@@ -127,19 +127,19 @@ public class NativeImageCardView extends BaseCardView {
     public static final int CARD_TYPE_FLAG_ICON_RIGHT = 4;
     public static final int CARD_TYPE_FLAG_ICON_LEFT = 8;
 
-    private static final String ALPHA = "alpha";
+    protected static final String ALPHA = "alpha";
 
-    private ImageView mImageView;
-    private ViewGroup mInfoArea;
-    private TextView mTitleView;
-    private TextView mContentView;
-    private ImageView mBadgeImage;
-    private boolean mAttachedToWindow;
+    protected ImageView mImageView;
+    protected ViewGroup mInfoArea;
+    protected TextView mTitleView;
+    protected TextView mContentView;
+    protected ImageView mBadgeImage;
+    protected boolean mAttachedToWindow;
     ObjectAnimator mFadeInAnimator;
 
-    private AttributeSet mAttrs;
-    private int mDefStyleAttr;
-    private int mDefStyle;
+    protected AttributeSet mAttrs;
+    protected int mDefStyleAttr;
+    protected int mDefStyle;
 
     /**
      * Create an ImageCardView using a given theme for customization.
@@ -425,6 +425,20 @@ public class NativeImageCardView extends BaseCardView {
             return;
         }
         mContentView.setText(text);
+    }
+
+    /**
+     * @return TextView
+     */
+    public TextView getTitleView() {
+        return mTitleView;
+    }
+
+    /**
+     * @return TextView
+     */
+    public TextView getContentView() {
+        return mContentView;
     }
 
     /**
