@@ -49,6 +49,7 @@ public class LeanbackGridLayout extends FrameLayout {
         VerticalGridPresenter verticalGridPresenter = new OTTGridPresenter(false);
         verticalGridPresenter.setNumberOfColumns(4);
         verticalGridFragment.setGridPresenter(verticalGridPresenter);
+        verticalGridPresenter.setShadowEnabled(false);
 
         mRowsAdapter = new ArrayObjectAdapter(new GridCardPresenter());
 
