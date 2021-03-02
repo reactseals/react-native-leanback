@@ -1,4 +1,4 @@
-package com.rs.leanbacknative;
+package com.rs.leanbacknative.managers;
 
 import androidx.annotation.Nullable;
 import androidx.leanback.app.RowsFragment;
@@ -9,13 +9,13 @@ import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
-import com.rs.leanbacknative.Layout.LeanbackRowLayout;
+import com.rs.leanbacknative.layouts.LeanbackRowLayout;
 
 import java.util.Map;
 
-public class LeanbackNativeRowManager extends ViewGroupManager<LeanbackRowLayout> {
+public class LeanbackRowManager extends ViewGroupManager<LeanbackRowLayout> {
 
-    public static final String REACT_CLASS = "LeanbackNativeRow";
+    public static final String REACT_CLASS = "LeanbackRow";
     private final int COMMAND_REQUEST_FOCUS = 1;
 
     @Override

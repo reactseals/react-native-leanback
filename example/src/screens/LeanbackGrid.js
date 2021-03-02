@@ -15,6 +15,7 @@ const LeanbackGrid = () => (
         width: 300,
         height: 173,
       }}
+      numOfCols={4}
     />
   </ScrollView>
 );

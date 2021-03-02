@@ -1,7 +1,7 @@
-package com.rs.leanbacknative;
+package com.rs.leanbacknative.managers;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.leanback.app.VerticalGridFragment;
 
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
@@ -9,11 +9,11 @@ import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
-import com.rs.leanbacknative.Layout.LeanbackGridLayout;
+import com.rs.leanbacknative.layouts.LeanbackGridLayout;
 
 import java.util.Map;
 
-public class LeanbackNativeGridManager extends ViewGroupManager<LeanbackGridLayout> {
+public class BaseGridManager extends ViewGroupManager<LeanbackGridLayout> {
     private final int COMMAND_REQUEST_FOCUS = 1;
     public static final String REACT_CLASS = "LeanbackNativeGrid";
 
@@ -22,14 +22,10 @@ public class LeanbackNativeGridManager extends ViewGroupManager<LeanbackGridLayo
         return REACT_CLASS;
     }
 
+    @NonNull
     @Override
-    public LeanbackGridLayout createViewInstance(ThemedReactContext context) {
-        VerticalGridFragment gridFragment = new VerticalGridFragment();
-        LeanbackGridLayout leanbackGridLayout = new LeanbackGridLayout(context, gridFragment);
-
-        addView(leanbackGridLayout, gridFragment.getView(), 0);
-
-        return leanbackGridLayout;
+    protected LeanbackGridLayout createViewInstance(@NonNull ThemedReactContext reactContext) {
+        return null;
     }
 
     public Map getExportedCustomBubblingEventTypeConstants() {

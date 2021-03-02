@@ -1,10 +1,10 @@
-package com.rs.leanbacknative;
+package com.rs.leanbacknative.utils;
 
 import android.view.View;
 
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
-import com.rs.leanbacknative.Model.NativeRowItem;
+import com.rs.leanbacknative.models.Card;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +20,10 @@ public class DataManager {
 
     public static boolean isOverlayPresenter() { return isOverlayPresenter; }
 
-    public static List<NativeRowItem> setupData(ReadableArray data) {
+    public static List<Card> setupData(ReadableArray data) {
         viewIds.clear();
         isOverlayPresenter = false;
-        List<NativeRowItem> rows = new ArrayList<>();
+        List<Card> rows = new ArrayList<>();
         Random random = new Random();
 
         for (int i = 0; i < data.size(); i++) {
@@ -33,7 +33,7 @@ public class DataManager {
 
             ReadableMap dataRowItem = data.getMap(i);
 
-            NativeRowItem nativeRowItem = new NativeRowItem();
+            Card nativeRowItem = new Card();
             nativeRowItem.setIndex(i);
             nativeRowItem.setViewId(viewId);
             nativeRowItem.setId(validateString(dataRowItem, "id"));
@@ -51,6 +51,7 @@ public class DataManager {
             nativeRowItem.setProgramStartTimestamp(validateLong(dataRowItem, "programStartTimestamp"));
             nativeRowItem.setProgress(validateByte(dataRowItem, "progress"));
             nativeRowItem.setProgramEndTimestamp(validateLong(dataRowItem, "programEndTimestamp"));
+            nativeRowItem.setPresenterType(Card.Type.DEFAULT);
 
             rows.add(nativeRowItem);
 
@@ -59,11 +60,35 @@ public class DataManager {
                     nativeRowItem.getProgramStartTimestamp() != 0 ||
                     nativeRowItem.getProgress() != -1
             ) {
-                isOverlayPresenter = true;
+                nativeRowItem.setPresenterType(Card.Type.FULL);
             }
         }
 
         return rows;
+    }
+
+    private static Card.Type setType(Card item) {
+        boolean hasOverlayImage = !item.getOverlayImageUrl().isEmpty();
+        boolean hasOverlayText = !item.getOverlayText().isEmpty();
+        boolean isLive = item.getProgramStartTimestamp() != 0;
+
+//        if (hasOverlayImage && hasOverlayText && isLive) {
+//            return NativeRowItem.Type.FULL;
+//        }
+//
+//        if (hasOverlayImage && hasOverlayText) {
+//
+//        }
+//
+//        if (hasOverlayImage && isLive) {
+//
+//        }
+//
+//        if (hasOverlayText && isLive) {
+
+//        }
+
+        return Card.Type.DEFAULT;
     }
 
     private static String validateString(ReadableMap item, String prop) {

@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import {Row} from 'react-native-leanback';
-import ScrollView from 'react-native-snap-scrollview';
+// import ScrollView from '@reactseals/react-native-snap-scrollview';
 
 import data from '../data.json';
 

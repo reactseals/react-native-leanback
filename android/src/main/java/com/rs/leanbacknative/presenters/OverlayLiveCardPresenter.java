@@ -1,8 +1,8 @@
-package com.rs.leanbacknative.Presenter;
+package com.rs.leanbacknative.presenters;
 
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.ViewGroup;
+
 import androidx.core.content.ContextCompat;
 import androidx.leanback.widget.Presenter;
 import com.bumptech.glide.Glide;
@@ -12,28 +12,25 @@ import com.bumptech.glide.request.RequestOptions;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.uimanager.PixelUtil;
-import com.rs.leanbacknative.Model.NativeRowItem;
+import com.rs.leanbacknative.models.Card;
 import com.rs.leanbacknative.R;
-import com.rs.leanbacknative.Widget.NativeImageOverlayView;
-import static com.rs.leanbacknative.Presenter.CardUtils.*;
+import com.rs.leanbacknative.cardViews.OverlayLiveCardView;
+import com.rs.leanbacknative.utils.Constants;
+import com.rs.leanbacknative.utils.Utils;
 
 
-public class OverlayCardPresenter extends Presenter {
-    private static final String TAG = "CardPresenter";
 
-    private static final int DEFAULT_CARD_WIDTH = 313;
-    private static final int DEFAULT_CARD_HEIGHT = 176;
-
+public class OverlayLiveCardPresenter extends Presenter {
     private Drawable mDefaultCardImage;
 
-    private Integer mCardWidth = DEFAULT_CARD_WIDTH;
-    private Integer mCardHeight = DEFAULT_CARD_HEIGHT;
+    private Integer mCardWidth = Constants.DEFAULT_CARD_WIDTH;
+    private Integer mCardHeight = Constants.DEFAULT_CARD_HEIGHT;
     private ReadableArray mForbiddenFocusDirections;
     private int nextFocusUpId = -1;
     private int nextFocusDownId = -1;
     private int mBorderRadius;
 
-    public OverlayCardPresenter(ReadableMap attributes) {
+    public OverlayLiveCardPresenter(ReadableMap attributes) {
         mCardWidth = Math.round(PixelUtil.toPixelFromDIP(attributes.getInt("width")));
         mCardHeight = Math.round(PixelUtil.toPixelFromDIP(attributes.getInt("height")));
         mForbiddenFocusDirections = attributes.hasKey("forbiddenFocusDirections") ? attributes.getArray("forbiddenFocusDirections") : null;
@@ -42,12 +39,12 @@ public class OverlayCardPresenter extends Presenter {
         mBorderRadius = attributes.getInt("borderRadius");
     }
 
-    public OverlayCardPresenter() { }
+    public OverlayLiveCardPresenter() { }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent) {
         mDefaultCardImage = ContextCompat.getDrawable(parent.getContext(), R.drawable.lb_ic_sad_cloud);
-        NativeImageOverlayView cardView = new NativeImageOverlayView(parent.getContext());
+        OverlayLiveCardView cardView = new OverlayLiveCardView(parent.getContext());
         cardView.buildImageCardView();
 
         return new ViewHolder(cardView);
@@ -55,14 +52,14 @@ public class OverlayCardPresenter extends Presenter {
 
     @Override
     public void onBindViewHolder(Presenter.ViewHolder viewHolder, Object item) {
-        NativeRowItem rowItem = (NativeRowItem) item;
-        NativeImageOverlayView cardView = (NativeImageOverlayView) viewHolder.view;
+        Card rowItem = (Card) item;
+        OverlayLiveCardView cardView = (OverlayLiveCardView) viewHolder.view;
 
         if (cardView.getId() == -1)
             cardView.setId(rowItem.getViewId());
 
         if (mForbiddenFocusDirections != null)
-            CardUtils.setForbiddenFocusDirections(mForbiddenFocusDirections, cardView);
+            Utils.setForbiddenFocusDirections(mForbiddenFocusDirections, cardView);
 
         if (nextFocusUpId != -1)
             cardView.setNextFocusUpId(nextFocusUpId);
@@ -70,10 +67,10 @@ public class OverlayCardPresenter extends Presenter {
         if (nextFocusDownId != -1)
             cardView.setNextFocusDownId(nextFocusDownId);
 
-        CardUtils.setupTextOverlay(cardView, rowItem, mBorderRadius);
-        CardUtils.setupOverlayImage(cardView, rowItem);
-        CardUtils.setupLiveAssetElements(cardView, rowItem);
-
+        cardView.getOverlayTextView().setText(rowItem.getOverlayText());
+        cardView.setGradientCornerRadius(mBorderRadius);
+        cardView.setOverlayImagePosition(rowItem.getOverlayPosition());
+        cardView.setProgressBar(rowItem);
         cardView.setLayoutDimensions(mCardWidth, mCardHeight);
         cardView.setMainImageDimensions(mCardWidth, mCardHeight);
 
@@ -81,13 +78,11 @@ public class OverlayCardPresenter extends Presenter {
                 (new RequestOptions()).transform(new CenterCrop(), new RoundedCorners(mBorderRadius)) :
                 RequestOptions.fitCenterTransform();
 
-        if (!rowItem.getType().equals("see_all")) {
-            Glide.with(viewHolder.view.getContext())
+        Glide.with(viewHolder.view.getContext())
                 .load(rowItem.getCardImageUrl())
                 .apply(requestOptions)
                 .error(mDefaultCardImage)
                 .into(cardView.getMainImageView());
-        }
 
         if (!rowItem.getOverlayImageUrl().isEmpty()) {
             Glide.with(viewHolder.view.getContext())
@@ -95,10 +90,11 @@ public class OverlayCardPresenter extends Presenter {
                     .apply(RequestOptions.fitCenterTransform())
                     .into(cardView.getOverlayImageView());
         }
-
-        CardUtils.setUpSeeAllItem(cardView, rowItem);
     }
 
     @Override
-    public void onUnbindViewHolder(Presenter.ViewHolder viewHolder) { }
+    public void onUnbindViewHolder(Presenter.ViewHolder viewHolder) {
+        OverlayLiveCardView cardView = (OverlayLiveCardView) viewHolder.view;
+//        cardView.setMainImage(null);
+    }
 }

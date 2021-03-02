@@ -14,9 +14,9 @@
     "react": "16.13.1",
     "react-native": "0.63.3",
     "react-native-gesture-handler": "^1.8.0",
-    "react-native-leanback": "file:../",
+    "react-native-leanback": "../",
     "react-native-screens": "^2.11.0",
-    "react-native-snap-scrollview": "github:reactseals/react-native-snap-scrollview#feat/calculate-snap-points"
+    "@reactseals/react-native-snap-scrollview": "1.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

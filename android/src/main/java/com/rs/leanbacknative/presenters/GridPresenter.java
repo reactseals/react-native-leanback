@@ -1,4 +1,4 @@
-package com.rs.leanbacknative.Layout;
+package com.rs.leanbacknative.presenters;
 
 import android.view.ViewGroup;
 
@@ -9,13 +9,13 @@ import androidx.leanback.widget.FocusHighlight;
 import androidx.leanback.widget.VerticalGridPresenter;
 import androidx.leanback.widget.VerticalGridView;
 
-class OTTGridPresenter extends VerticalGridPresenter {
+public class GridPresenter extends VerticalGridPresenter {
 
-    public OTTGridPresenter() {
+    public GridPresenter() {
         super(FocusHighlight.ZOOM_FACTOR_MEDIUM);
     }
 
-    OTTGridPresenter(boolean useFocusDimmer) {
+    public GridPresenter(boolean useFocusDimmer) {
         super(FocusHighlight.ZOOM_FACTOR_MEDIUM, useFocusDimmer);
     }
 

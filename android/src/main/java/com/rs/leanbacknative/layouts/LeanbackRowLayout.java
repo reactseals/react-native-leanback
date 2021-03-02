@@ -1,4 +1,4 @@
-package com.rs.leanbacknative.Layout;
+package com.rs.leanbacknative.layouts;
 
 import android.annotation.SuppressLint;
 import android.app.FragmentManager;
@@ -23,10 +23,10 @@ import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
-import com.rs.leanbacknative.Presenter.CardPresenter;
-import com.rs.leanbacknative.Presenter.OverlayCardPresenter;
-import com.rs.leanbacknative.DataManager;
-import com.rs.leanbacknative.Model.NativeRowItem;
+import com.rs.leanbacknative.presenters.CardPresenterSelector;
+import com.rs.leanbacknative.presenters.RowPresenter;
+import com.rs.leanbacknative.utils.DataManager;
+import com.rs.leanbacknative.models.Card;
 
 import java.util.List;
 
@@ -37,8 +37,8 @@ public class LeanbackRowLayout extends FrameLayout {
     private ThemedReactContext mContext;
     private ArrayObjectAdapter mRowsAdapter;
     private String mRowTitle;
-    private NativeRowItem mLastSelectedItem;
-    private List<NativeRowItem> mRows;
+    private Card mLastSelectedItem;
+    private List<Card> mRows;
     private ListRowPresenter mListRowPresenter;
     private RowsFragment mRowsFragment;
     private boolean firstSelectEventIgnored = false;
@@ -63,7 +63,7 @@ public class LeanbackRowLayout extends FrameLayout {
         String focusedCardAlignment = attributes.hasKey("focusedCardAlignment") ? attributes.getString("focusedCardAlignment") : "left";
         int numberOfRows = attributes.hasKey("numberOfRows") ? attributes.getInt("numberOfRows") : 1;
 
-        mListRowPresenter = new OTTRowPresenter(focusedCardAlignment);
+        mListRowPresenter = new RowPresenter(focusedCardAlignment);
         mListRowPresenter.setNumRows(numberOfRows);
 
         mListRowPresenter.setShadowEnabled(false);
@@ -106,8 +106,8 @@ public class LeanbackRowLayout extends FrameLayout {
             androidx.leanback.widget.RowPresenter.ViewHolder rowViewHolder,
             Row row) {
 
-            if (item instanceof NativeRowItem && firstSelectEventIgnored) {
-                NativeRowItem nativeRowItem = (NativeRowItem) item;
+            if (item instanceof Card && firstSelectEventIgnored) {
+                Card nativeRowItem = (Card) item;
                 mLastSelectedItem = nativeRowItem;
                 WritableMap event = Arguments.createMap();
                 event.putString("item", nativeRowItem.toJSON());
@@ -115,7 +115,7 @@ public class LeanbackRowLayout extends FrameLayout {
             }
 
             //leanback fires this event initially when data is loaded even if item is not actually selected
-            if (item instanceof NativeRowItem) {
+            if (item instanceof Card) {
                 firstSelectEventIgnored = true;
             }
         }
@@ -126,8 +126,8 @@ public class LeanbackRowLayout extends FrameLayout {
         public void onItemClicked(Presenter.ViewHolder itemViewHolder, Object item,
                                   androidx.leanback.widget.RowPresenter.ViewHolder rowViewHolder, Row row) {
 
-            if (item instanceof NativeRowItem) {
-                NativeRowItem nativeRowItem = (NativeRowItem) item;
+            if (item instanceof Card) {
+                Card nativeRowItem = (Card) item;
                 WritableMap event = Arguments.createMap();
                 event.putString("item", nativeRowItem.toJSON());
                 mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "onPress", event);
@@ -139,26 +139,13 @@ public class LeanbackRowLayout extends FrameLayout {
         ReadableArray data = dataAndAttributes.getArray("data");
 
         mRows = DataManager.setupData(data);
-        ArrayObjectAdapter mListRowAdapterWithData;
 
         ReadableMap attributes = dataAndAttributes.getMap("attributes");
+        CardPresenterSelector cardPresenterSelector = new CardPresenterSelector(mContext, attributes);
+        ArrayObjectAdapter mListRowAdapterWithData = new ArrayObjectAdapter(cardPresenterSelector);
+
         if (attributes != null) {
             initializeAdapter(attributes);
-            if (DataManager.isOverlayPresenter()) {
-                OverlayCardPresenter cardPresenter =  new OverlayCardPresenter(attributes);
-                mListRowAdapterWithData = new ArrayObjectAdapter(cardPresenter);
-            } else {
-                CardPresenter cardPresenter = new CardPresenter(attributes);
-                mListRowAdapterWithData = new ArrayObjectAdapter(cardPresenter);
-            }
-        } else {
-            if (DataManager.isOverlayPresenter()) {
-                OverlayCardPresenter cardPresenter =  new OverlayCardPresenter();
-                mListRowAdapterWithData = new ArrayObjectAdapter(cardPresenter);
-            } else {
-                CardPresenter cardPresenter = new CardPresenter();
-                mListRowAdapterWithData = new ArrayObjectAdapter(cardPresenter);
-            }
         }
 
         for (int i = 0; i < mRows.size(); i++) {

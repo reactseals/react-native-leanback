@@ -1,4 +1,4 @@
-package com.rs.leanbacknative.Layout;
+package com.rs.leanbacknative.layouts;
 
 import android.annotation.SuppressLint;
 import android.app.FragmentManager;
@@ -21,10 +21,10 @@ import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
-import com.rs.leanbacknative.Presenter.OverlayCardPresenter;
-import com.rs.leanbacknative.Presenter.GridCardPresenter;
-import com.rs.leanbacknative.DataManager;
-import com.rs.leanbacknative.Model.NativeRowItem;
+import com.rs.leanbacknative.presenters.GridPresenter;
+import com.rs.leanbacknative.presenters.GridCardPresenter;
+import com.rs.leanbacknative.utils.DataManager;
+import com.rs.leanbacknative.models.Card;
 
 import java.util.List;
 
@@ -36,18 +36,18 @@ public class LeanbackGridLayout extends FrameLayout {
     private ArrayObjectAdapter mRowsAdapter;
     private VerticalGridFragment mVerticalGridFragment;
 
-    public LeanbackGridLayout(@NonNull ThemedReactContext context, VerticalGridFragment verticalGridFragment) {
+    public LeanbackGridLayout(@NonNull ThemedReactContext context, VerticalGridFragment verticalGridFragment, int numberOfColumns) {
         super(context);
 
         mContext = context;
         mVerticalGridFragment = verticalGridFragment;
-        initializeAdapter(verticalGridFragment);
+        initializeAdapter(verticalGridFragment, numberOfColumns);
         setupEventListeners(verticalGridFragment);
     }
 
-    private void initializeAdapter(VerticalGridFragment verticalGridFragment) {
-        VerticalGridPresenter verticalGridPresenter = new OTTGridPresenter(false);
-        verticalGridPresenter.setNumberOfColumns(4);
+    private void initializeAdapter(VerticalGridFragment verticalGridFragment, int numberOfColumns) {
+        VerticalGridPresenter verticalGridPresenter = new GridPresenter(false);
+        verticalGridPresenter.setNumberOfColumns(numberOfColumns);
         verticalGridFragment.setGridPresenter(verticalGridPresenter);
         verticalGridPresenter.setShadowEnabled(false);
 
@@ -73,8 +73,8 @@ public class LeanbackGridLayout extends FrameLayout {
                 RowPresenter.ViewHolder rowViewHolder,
                 Row row) {
 
-            if (item instanceof NativeRowItem) {
-                NativeRowItem nativeRowItem = (NativeRowItem) item;
+            if (item instanceof Card) {
+                Card nativeRowItem = (Card) item;
                 WritableMap event = Arguments.createMap();
                 event.putString("item", nativeRowItem.toJSON());
                 event.putInt("focusedRowIndex", mRowsAdapter.indexOf(row));
@@ -88,8 +88,8 @@ public class LeanbackGridLayout extends FrameLayout {
         public void onItemClicked(Presenter.ViewHolder itemViewHolder, Object item,
                                   RowPresenter.ViewHolder rowViewHolder, Row row) {
 
-            if (item instanceof NativeRowItem) {
-                NativeRowItem nativeRowItem = (NativeRowItem) item;
+            if (item instanceof Card) {
+                Card nativeRowItem = (Card) item;
                 WritableMap event = Arguments.createMap();
                 event.putString("item", nativeRowItem.toJSON());
                 mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "onPress", event);
@@ -99,7 +99,7 @@ public class LeanbackGridLayout extends FrameLayout {
 
     public void setDataAndAttributes(ReadableMap dataAndAttributes) {
         ReadableArray data = dataAndAttributes.getArray("data");
-        List<NativeRowItem> rows = DataManager.setupData(data);
+        List<Card> rows = DataManager.setupData(data);
 
         GridCardPresenter cardPresenter;
 

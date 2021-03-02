@@ -5,9 +5,22 @@ import {
   findNodeHandle,
 } from "react-native";
 
-const LeanbackNativeGrid = requireNativeComponent("LeanbackNativeGrid", null);
+const LeanbackGrid6Col = requireNativeComponent("LeanbackGrid6Col", null);
+const LeanbackGrid5Col = requireNativeComponent("LeanbackGrid5Col", null);
+const LeanbackGrid4Col = requireNativeComponent("LeanbackGrid4Col", null);
 
 const REQUEST_FOCUS_ACTION = 1;
+
+const getGridView = (numOfCols) => {
+  switch (numOfCols) {
+    case 6:
+      return LeanbackGrid6Col;
+    case 5:
+      return LeanbackGrid5Col;
+    default:
+      return LeanbackGrid4Col;
+  }
+}
 
 const Grid = React.forwardRef(
   (
@@ -17,6 +30,7 @@ const Grid = React.forwardRef(
       nextFocusUpId,
       nextFocusDownId,
       data,
+      numOfCols,
       ...restOfProps
     },
     ref
@@ -65,8 +79,10 @@ const Grid = React.forwardRef(
       UIManager.dispatchViewManagerCommand(node, REQUEST_FOCUS_ACTION, []);
     };
 
+    const GridView = getGridView(numOfCols);
+
     return (
-      <LeanbackNativeGrid
+      <GridView
         {...restOfProps}
         ref={rowRef}
         dataAndAttributes={attrs}

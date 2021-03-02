@@ -5,17 +5,15 @@
         "title": "The Avengers",
         "description": "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
         "overlayImageUrl": "https://images-platform.99static.com//bQzsVFJaxHG3baYYDtmtfidqxJ4=/0x0:1200x1200/fit-in/500x500/99designs-contests-attachments/91/91295/attachment_91295374",
-        "programStartTimestamp": "1603265045000",
-        "programEndTimestamp": "1603324800000",
+        "progress": "98",
         "liveBadgeColor": "#FF0000",
-        "liveProgressBarColor": "#FFFF00",
+        "liveProgressBarColor": "#FF0000",
         "overlayPosition": "right"
     },
     {
         "id": 2,
         "cardImageUrl": "https://miro.medium.com/max/3840/1*-xxH5kXE8AGA8-vzPURslg.jpeg",
-        "title": "Harry Potter",
-        "description": "Harry Potter is a film series based on the eponymous novels by author J. K. Rowling.",
+        "title": "This doesnt exists",
         "overlayText": "Im Overlay"
     },
     {

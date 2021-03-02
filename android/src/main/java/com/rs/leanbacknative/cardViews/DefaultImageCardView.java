@@ -11,14 +11,13 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.rs.leanbacknative.Widget;
+package com.rs.leanbacknative.cardViews;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +28,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.ColorInt;
-import androidx.annotation.Nullable;
 import androidx.leanback.R;
 import androidx.leanback.widget.BaseCardView;
 
@@ -119,7 +117,7 @@ import androidx.leanback.widget.BaseCardView;
  * @attr ref androidx.leanback.R.styleable#LeanbackTheme_imageCardViewImageStyle
  * @attr ref androidx.leanback.R.styleable#LeanbackTheme_imageCardViewInfoAreaStyle
  */
-public class NativeImageCardView extends BaseCardView {
+public class DefaultImageCardView extends BaseCardView {
 
     public static final int CARD_TYPE_FLAG_IMAGE_ONLY = 0;
     public static final int CARD_TYPE_FLAG_TITLE = 1;
@@ -156,14 +154,14 @@ public class NativeImageCardView extends BaseCardView {
      * return new ImageCardView(wrapper);
      */
     @Deprecated
-    public NativeImageCardView(Context context, int themeResId) {
+    public DefaultImageCardView(Context context, int themeResId) {
         this(new ContextThemeWrapper(context, themeResId));
     }
 
     /**
      * @see View#View(Context, AttributeSet, int)
      */
-    public NativeImageCardView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public DefaultImageCardView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mAttrs = attrs;
         mDefStyleAttr = defStyleAttr;
@@ -280,14 +278,14 @@ public class NativeImageCardView extends BaseCardView {
     /**
      * @see View#View(Context)
      */
-    public NativeImageCardView(Context context) {
+    public DefaultImageCardView(Context context) {
         this(context, null);
     }
 
     /**
      * @see View#View(Context, AttributeSet)
      */
-    public NativeImageCardView(Context context, AttributeSet attrs) {
+    public DefaultImageCardView(Context context, AttributeSet attrs) {
         this(context, attrs, R.attr.imageCardViewStyle);
     }
 

@@ -1,12 +1,10 @@
-package com.rs.leanbacknative.Model;
-
-import androidx.annotation.Nullable;
+package com.rs.leanbacknative.models;
 
 import com.google.gson.Gson;
 
 import java.io.Serializable;
 
-public class NativeRowItem implements Serializable {
+public class Card implements Serializable {
     static final long serialVersionUID = 727566175075960653L;
 
     private String id;
@@ -43,7 +41,9 @@ public class NativeRowItem implements Serializable {
 
     private byte progress;
 
-    public NativeRowItem() { }
+    private Card.Type mType;
+
+    public Card() { }
 
     public String getId() {
         return id;
@@ -188,5 +188,26 @@ public class NativeRowItem implements Serializable {
     public String toJSON(){
         Gson gson = new Gson();
         return gson.toJson(this);
+    }
+
+    public Card.Type getPresenterType() {
+        return mType;
+    }
+
+    public void setPresenterType(Type type) {
+        mType = type;
+    }
+
+
+    public enum Type {
+        OVERLAY,
+
+        OVERLAY_IMAGE,
+        OVERLAY_TEXT,
+        LIVE,
+        FULL,
+
+
+        DEFAULT
     }
 }

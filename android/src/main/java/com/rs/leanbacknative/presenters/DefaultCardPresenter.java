@@ -1,8 +1,7 @@
-package com.rs.leanbacknative.Presenter;
+package com.rs.leanbacknative.presenters;
 
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.core.content.ContextCompat;
@@ -13,11 +12,12 @@ import com.bumptech.glide.request.RequestOptions;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.uimanager.PixelUtil;
-import com.rs.leanbacknative.Model.NativeRowItem;
+import com.rs.leanbacknative.models.Card;
 import com.rs.leanbacknative.R;
-import com.rs.leanbacknative.Widget.NativeImageCardView;
+import com.rs.leanbacknative.cardViews.DefaultImageCardView;
+import com.rs.leanbacknative.utils.Utils;
 
-public class GridCardPresenter extends Presenter {
+public class DefaultCardPresenter extends Presenter {
     private static final String TAG = "CardPresenter";
 
     private static final int DEFAULT_CARD_WIDTH = 313;
@@ -41,10 +41,9 @@ public class GridCardPresenter extends Presenter {
     private static int sSelectedBackgroundColor;
     private static int sDefaultBackgroundColor;
     private String mCardShape = "square";
-    private NativeImageCardView mLastSelectedCardView;
 
 
-    public GridCardPresenter(ReadableMap attributes) {
+    public DefaultCardPresenter(ReadableMap attributes) {
         mCardWidth = Math.round(PixelUtil.toPixelFromDIP(attributes.getInt("width")));
         mCardHeight = Math.round(PixelUtil.toPixelFromDIP(attributes.getInt("height")));
         mHasImageOnly = attributes.getBoolean("hasImageOnly");
@@ -58,10 +57,10 @@ public class GridCardPresenter extends Presenter {
         mCardShape = attributes.getString("cardShape");
     }
 
-    public GridCardPresenter() {
+    public DefaultCardPresenter() {
     }
 
-    private static void updateCardBackgroundColor(NativeImageCardView view, boolean selected) {
+    private static void updateCardBackgroundColor(DefaultImageCardView view, boolean selected) {
         int color = selected ? sSelectedBackgroundColor : sDefaultBackgroundColor;
         // Both background colors should be set because the view's background is temporarily visible
         // during animations.
@@ -77,21 +76,14 @@ public class GridCardPresenter extends Presenter {
         sDefaultBackgroundColor = !mCardShape.equals("round") && mHasImageOnly ? ContextCompat.getColor(parent.getContext(), R.color.default_background) : Color.TRANSPARENT;
         mDefaultCardImage = ContextCompat.getDrawable(parent.getContext(), R.drawable.lb_ic_sad_cloud);
 
-        NativeImageCardView cardView =
-            new NativeImageCardView(parent.getContext()) {
+        DefaultImageCardView cardView =
+            new DefaultImageCardView(parent.getContext()) {
                 @Override
                 public void setSelected(boolean selected) {
                     if (!mHasImageOnly && !mCardShape.equals("round")) {
                         updateCardBackgroundColor(this, selected);
                     }
-                    if (mLastSelectedCardView != null) {
-                        mLastSelectedCardView.getTitleView().setVisibility(View.INVISIBLE);
-                        mLastSelectedCardView.getContentView().setVisibility(View.INVISIBLE);
-                    }
-                    this.getTitleView().setVisibility(View.VISIBLE);
-                    this.getContentView().setVisibility(View.VISIBLE);
                     super.setSelected(selected);
-                    mLastSelectedCardView = this;
                 }
             };
 
@@ -110,8 +102,8 @@ public class GridCardPresenter extends Presenter {
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, Object item) {
-        NativeRowItem rowItem = (NativeRowItem) item;
-        NativeImageCardView cardView = (NativeImageCardView) viewHolder.view;
+        Card rowItem = (Card) item;
+        DefaultImageCardView cardView = (DefaultImageCardView) viewHolder.view;
 
         cardView.setTitleText(rowItem.getTitle());
         cardView.setContentText(rowItem.getDescription());
@@ -121,7 +113,7 @@ public class GridCardPresenter extends Presenter {
         }
 
         if (mForbiddenFocusDirections != null)
-            CardUtils.setForbiddenFocusDirections(mForbiddenFocusDirections, cardView);
+            Utils.setForbiddenFocusDirections(mForbiddenFocusDirections, cardView);
 
         if (nextFocusUpId != -1) {
             cardView.setNextFocusUpId(nextFocusUpId);
@@ -131,23 +123,22 @@ public class GridCardPresenter extends Presenter {
             cardView.setNextFocusDownId(nextFocusDownId);
         }
 
-        cardView.setMainImageDimensions(mCardWidth, mCardHeight);
+        if (rowItem.getCardImageUrl() != null) {
+            cardView.setMainImageDimensions(mCardWidth, mCardHeight);
 
-        RequestOptions requestOptions = mCardShape.equals("round") ? RequestOptions.circleCropTransform() : RequestOptions.fitCenterTransform();
+            RequestOptions requestOptions = mCardShape.equals("round") ? RequestOptions.circleCropTransform() : RequestOptions.fitCenterTransform();
 
-        Glide.with(viewHolder.view.getContext())
+            Glide.with(viewHolder.view.getContext())
                 .load(rowItem.getCardImageUrl())
                 .apply(requestOptions)
                 .error(mDefaultCardImage)
                 .into(cardView.getMainImageView());
-
-        cardView.getTitleView().setVisibility(View.INVISIBLE);
-        cardView.getContentView().setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
     public void onUnbindViewHolder(ViewHolder viewHolder) {
-        NativeImageCardView cardView = (NativeImageCardView) viewHolder.view;
+        DefaultImageCardView cardView = (DefaultImageCardView) viewHolder.view;
         cardView.setBadgeImage(null);
         cardView.setMainImage(null);
     }
