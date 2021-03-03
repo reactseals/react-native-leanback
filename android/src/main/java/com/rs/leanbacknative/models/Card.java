@@ -200,14 +200,16 @@ public class Card implements Serializable {
 
 
     public enum Type {
-        OVERLAY,
-
         OVERLAY_IMAGE,
         OVERLAY_TEXT,
         LIVE,
-        FULL,
-
-
+        PROGRESS_LOGO_OVERLAY,
+        PROGRESS_LOGO,
+        PROGRESS_OVERLAY,
+        PROGRESS,
+        LOGO_OVERLAY,
+        LOGO,
+        OVERLAY,
         DEFAULT
     }
 }

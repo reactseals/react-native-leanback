@@ -25,20 +25,41 @@ public class CardPresenterSelector extends PresenterSelector {
         if (!(item instanceof Card)) throw new RuntimeException(
                 String.format("The PresenterSelector only supports data items of type '%s'",
                         Card.class.getName()));
+
         Card card = (Card) item;
         Presenter presenter = presenters.get(card.getPresenterType());
 
         if (presenter == null) {
             switch (card.getPresenterType()) {
-                case FULL:
-                    presenter = new OverlayLiveCardPresenter(mAttributes);
+                case PROGRESS_LOGO_OVERLAY:
+                    presenter = new ProgressLogoOverlayCardPresenter(mAttributes);
+                    break;
+                case PROGRESS_LOGO:
+                    presenter = new ProgressLogoCardPresenter(mAttributes);
+                    break;
+                case PROGRESS_OVERLAY:
+                    presenter = new ProgressOverlayCardPresenter(mAttributes);
+                    break;
+                case LOGO_OVERLAY:
+                    presenter = new LogoOverlayCardPresenter(mAttributes);
+                    break;
+                case LOGO:
+                    presenter = new LogoCardPresenter(mAttributes);
+                    break;
+                case OVERLAY:
+                    presenter = new OverlayCardPresenter(mAttributes);
+                    break;
+                case PROGRESS:
+                    presenter = new ProgressCardPresenter(mAttributes);
                     break;
                 default:
                     presenter = new DefaultCardPresenter(mAttributes);
                     break;
             }
         }
+
         presenters.put(card.getPresenterType(), presenter);
+
         return presenter;
     }
 }

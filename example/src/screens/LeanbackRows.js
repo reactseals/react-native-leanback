@@ -13,7 +13,7 @@ const LeanbackRows = () => {
     ref.current.requestFocus();
     swRef.current.scrollTo({y: 0});
   }, []);
-
+  
   return (
     <ScrollView
       ref={swRef}

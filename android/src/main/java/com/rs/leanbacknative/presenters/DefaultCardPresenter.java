@@ -15,21 +15,16 @@ import com.facebook.react.uimanager.PixelUtil;
 import com.rs.leanbacknative.models.Card;
 import com.rs.leanbacknative.R;
 import com.rs.leanbacknative.cardViews.DefaultImageCardView;
+import com.rs.leanbacknative.utils.Constants;
 import com.rs.leanbacknative.utils.Utils;
 
 public class DefaultCardPresenter extends Presenter {
     private static final String TAG = "CardPresenter";
 
-    private static final int DEFAULT_CARD_WIDTH = 313;
-    private static final int DEFAULT_CARD_HEIGHT = 176;
-
-    private final String FOCUS_DIRECTION_UP = "up";
-    private final String FOCUS_DIRECTION_DOWN = "down";
-
     private Drawable mDefaultCardImage;
 
-    private Integer mCardWidth = DEFAULT_CARD_WIDTH;
-    private Integer mCardHeight = DEFAULT_CARD_HEIGHT;
+    private Integer mCardWidth = Constants.DEFAULT_CARD_WIDTH;
+    private Integer mCardHeight = Constants.DEFAULT_CARD_HEIGHT;
     private boolean mHasImageOnly = false;
     private boolean mHasTitle = true;
     private boolean mHasContent = true;
@@ -88,8 +83,6 @@ public class DefaultCardPresenter extends Presenter {
             };
 
         cardView.buildImageCardView(mHasImageOnly, mHasTitle, mHasContent, mHasIconRight, mHasIconLeft);
-
-
 
         cardView.setBackgroundColor(sDefaultBackgroundColor);
         if (!mHasImageOnly)  cardView.findViewById(R.id.info_field).setBackgroundColor(sDefaultBackgroundColor);

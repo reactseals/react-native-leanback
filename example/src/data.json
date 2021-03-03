@@ -6,40 +6,53 @@
         "description": "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
         "overlayImageUrl": "https://images-platform.99static.com//bQzsVFJaxHG3baYYDtmtfidqxJ4=/0x0:1200x1200/fit-in/500x500/99designs-contests-attachments/91/91295/attachment_91295374",
         "progress": "98",
+        "overlayText": "Hello",
         "liveBadgeColor": "#FF0000",
-        "liveProgressBarColor": "#FF0000",
+        "liveProgressBarColor": "#FFFF00",
         "overlayPosition": "right"
     },
     {
         "id": 2,
         "cardImageUrl": "https://miro.medium.com/max/3840/1*-xxH5kXE8AGA8-vzPURslg.jpeg",
-        "title": "This doesnt exists",
-        "overlayText": "Im Overlay"
+        "title": "This doesnt exists 1",
+        "overlayImageUrl": "https://images-platform.99static.com//bQzsVFJaxHG3baYYDtmtfidqxJ4=/0x0:1200x1200/fit-in/500x500/99designs-contests-attachments/91/91295/attachment_91295374",
+        "progress": "60",
+        "liveBadgeColor": "#FF0000",
+        "liveProgressBarColor": "#FFFF00"
     },
     {
         "id": 5,
         "cardImageUrl": "https://pmcvariety.files.wordpress.com/2019/04/joker-trailer.jpg?w=681&h=383&crop=1",
-        "title": "Joker",
-        "description": "Joker is a 2019 American psychological thriller film directed and produced by Todd Phillips, who co-wrote the screenplay with Scott Silver.",
-        "overlayImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Google-Logo.svg/1280px-Google-Logo.svg.png"
+        "progress": "33",
+        "overlayText": "Hello",
+        "liveBadgeColor": "#FF0000",
+        "liveProgressBarColor": "#FFFF00",
+        "overlayPosition": "right"
     },
     {
         "id": 6,
         "cardImageUrl": "https://www.telegraph.co.uk/content/dam/films/spark/download-and-keep/film-poster-the-incredibles-2.jpg?imwidth=480",
         "title": "The Incredibles",
-        "description": "A family of undercover superheroes, while trying to live the quiet suburban life, are forced into action to save the world."
+        "description": "A family of undercover superheroes, while trying to live the quiet suburban life, are forced into action to save the world.",
+        "overlayImageUrl": "https://images-platform.99static.com//bQzsVFJaxHG3baYYDtmtfidqxJ4=/0x0:1200x1200/fit-in/500x500/99designs-contests-attachments/91/91295/attachment_91295374",
+        "overlayPosition": "right",
+        "overlayText": "Hello 123"
     },
     {
         "id": 7,
         "cardImageUrl": "https://cdn.onebauer.media/one/empire-tmdb/films/72105/images/sPiFgbWMSQxVMO6TuRFrkeWwarI.jpg?quality=50&width=1800&ratio=16-9&resizeStyle=aspectfill&format=jpg",
         "title": "Ted",
-        "description": "Ted is a 2012 American comedy film directed by Seth MacFarlane and written by MacFarlane"
+        "description": "Ted is a 2012 American comedy film directed by Seth MacFarlane and written by MacFarlane",
+        "overlayImageUrl": "https://images-platform.99static.com//bQzsVFJaxHG3baYYDtmtfidqxJ4=/0x0:1200x1200/fit-in/500x500/99designs-contests-attachments/91/91295/attachment_91295374",
+        "overlayPosition": "right"
     },
     {
         "id": 1,
         "cardImageUrl": "https://static.toiimg.com/photo/73514755.jpeg",
         "title": "The Gentlemen",
-        "description": "An American expat tries to sell off his highly profitable marijuana empire in London, triggering plots, schemes, bribery and blackmail in an attempt to steal his domain out from under him."
+        "liveBadgeColor": "#FF0000",
+        "liveProgressBarColor": "#FFFF00",
+        "progress": "68"
     },
     {
         "id": 2,

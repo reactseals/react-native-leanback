@@ -5,8 +5,8 @@ import androidx.leanback.app.VerticalGridFragment;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.rs.leanbacknative.layouts.LeanbackGridLayout;
 
-public class LeanbackGrid5Col extends BaseGridManager {
-    private static final String REACT_CLASS = "LeanbackGrid5Col";
+public class LeanbackGrid6ColManager extends BaseGridManager {
+    private static final String REACT_CLASS = "LeanbackGrid6Col";
 
     @Override
     public String getName() {
@@ -16,7 +16,7 @@ public class LeanbackGrid5Col extends BaseGridManager {
     @Override
     public LeanbackGridLayout createViewInstance(ThemedReactContext context) {
         VerticalGridFragment gridFragment = new VerticalGridFragment();
-        LeanbackGridLayout leanbackGridLayout = new LeanbackGridLayout(context, gridFragment, 5);
+        LeanbackGridLayout leanbackGridLayout = new LeanbackGridLayout(context, gridFragment, 6);
 
         addView(leanbackGridLayout, gridFragment.getView(), 0);
 

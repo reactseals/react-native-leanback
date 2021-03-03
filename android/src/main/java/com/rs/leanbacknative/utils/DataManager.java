@@ -1,5 +1,6 @@
 package com.rs.leanbacknative.utils;
 
+import android.util.Log;
 import android.view.View;
 
 import com.facebook.react.bridge.ReadableArray;
@@ -12,17 +13,13 @@ import java.util.Random;
 
 public class DataManager {
     private static ArrayList<Integer> viewIds = new ArrayList<Integer>();
-    private static boolean isOverlayPresenter;
 
     public static ArrayList getViewIds() {
         return viewIds;
     }
 
-    public static boolean isOverlayPresenter() { return isOverlayPresenter; }
-
     public static List<Card> setupData(ReadableArray data) {
         viewIds.clear();
-        isOverlayPresenter = false;
         List<Card> rows = new ArrayList<>();
         Random random = new Random();
 
@@ -51,42 +48,25 @@ public class DataManager {
             nativeRowItem.setProgramStartTimestamp(validateLong(dataRowItem, "programStartTimestamp"));
             nativeRowItem.setProgress(validateByte(dataRowItem, "progress"));
             nativeRowItem.setProgramEndTimestamp(validateLong(dataRowItem, "programEndTimestamp"));
-            nativeRowItem.setPresenterType(Card.Type.DEFAULT);
-
+            nativeRowItem.setPresenterType(getType(nativeRowItem));
             rows.add(nativeRowItem);
-
-            if (!nativeRowItem.getOverlayImageUrl().isEmpty() ||
-                    !nativeRowItem.getOverlayText().isEmpty() ||
-                    nativeRowItem.getProgramStartTimestamp() != 0 ||
-                    nativeRowItem.getProgress() != -1
-            ) {
-                nativeRowItem.setPresenterType(Card.Type.FULL);
-            }
         }
 
         return rows;
     }
 
-    private static Card.Type setType(Card item) {
-        boolean hasOverlayImage = !item.getOverlayImageUrl().isEmpty();
-        boolean hasOverlayText = !item.getOverlayText().isEmpty();
-        boolean isLive = item.getProgramStartTimestamp() != 0;
+    private static Card.Type getType(Card item) {
+        boolean hasLogo = !item.getOverlayImageUrl().isEmpty();
+        boolean hasOverlay = !item.getOverlayText().isEmpty();
+        boolean isLive = item.getProgramStartTimestamp() != 0 || item.getProgress() != -1;
 
-//        if (hasOverlayImage && hasOverlayText && isLive) {
-//            return NativeRowItem.Type.FULL;
-//        }
-//
-//        if (hasOverlayImage && hasOverlayText) {
-//
-//        }
-//
-//        if (hasOverlayImage && isLive) {
-//
-//        }
-//
-//        if (hasOverlayText && isLive) {
-
-//        }
+        if (isLive && hasOverlay && hasLogo) return Card.Type.PROGRESS_LOGO_OVERLAY;
+        if (isLive && hasLogo) return Card.Type.PROGRESS_LOGO;
+        if (isLive && hasOverlay) return Card.Type.PROGRESS_OVERLAY;
+        if (hasLogo && hasOverlay) return Card.Type.LOGO_OVERLAY;
+        if (hasLogo) return Card.Type.LOGO;
+        if (hasOverlay) return Card.Type.OVERLAY;
+        if (isLive) return Card.Type.PROGRESS;
 
         return Card.Type.DEFAULT;
     }
