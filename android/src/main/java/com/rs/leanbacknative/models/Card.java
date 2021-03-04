@@ -19,6 +19,8 @@ public class Card implements Serializable {
 
     private String cardImageUrl;
 
+    private String videoUrl;
+
     private String backdropUrl;
 
     private String overlayImageUrl;
@@ -30,8 +32,6 @@ public class Card implements Serializable {
     private String liveBadgeColor;
 
     private String liveProgressBarColor;
-
-    private String type;
 
     private String backgroundColor;
 
@@ -164,16 +164,16 @@ public class Card implements Serializable {
         this.progress = progress;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getBackgroundColor() {
         return backgroundColor;
+    }
+
+    public String getVideoUrl() {
+        return videoUrl;
+    }
+
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
     }
 
     public void setBackgroundColor(String backgroundColor) {
@@ -200,9 +200,6 @@ public class Card implements Serializable {
 
 
     public enum Type {
-        OVERLAY_IMAGE,
-        OVERLAY_TEXT,
-        LIVE,
         PROGRESS_LOGO_OVERLAY,
         PROGRESS_LOGO,
         PROGRESS_OVERLAY,
@@ -210,6 +207,8 @@ public class Card implements Serializable {
         LOGO_OVERLAY,
         LOGO,
         OVERLAY,
+        COLOR_TEXT,
+        VIDEO,
         DEFAULT
     }
 }

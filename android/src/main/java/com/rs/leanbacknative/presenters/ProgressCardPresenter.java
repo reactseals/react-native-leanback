@@ -5,24 +5,24 @@ import android.content.Context;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.facebook.react.bridge.ReadableMap;
-import com.rs.leanbacknative.cardViews.ProgressCardViewView;
+import com.rs.leanbacknative.cardViews.ProgressCardView;
 import com.rs.leanbacknative.models.Card;
 
-public class ProgressCardPresenter extends AbstractCardPresenter<ProgressCardViewView> {
+public class ProgressCardPresenter extends AbstractCardPresenter<ProgressCardView> {
     public ProgressCardPresenter(ReadableMap attributes) {
         initializeAttributes(attributes);
     }
 
     @Override
-    protected ProgressCardViewView onCreateView(Context context) {
-        ProgressCardViewView cardView = new ProgressCardViewView(context);
+    protected ProgressCardView onCreateView(Context context) {
+        ProgressCardView cardView = new ProgressCardView(context);
         cardView.buildImageCardView();
 
         return cardView;
     }
 
     @Override
-    public void onBindViewHolder(Card card, ProgressCardViewView cardView) {
+    public void onBindViewHolder(Card card, ProgressCardView cardView) {
         cardView.updateUI(card, mBorderRadius, mCardWidth, mCardHeight);
 
         if (!card.getOverlayImageUrl().isEmpty()) {

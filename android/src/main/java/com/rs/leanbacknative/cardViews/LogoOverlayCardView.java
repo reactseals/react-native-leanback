@@ -7,22 +7,21 @@ import android.view.View;
 import com.rs.leanbacknative.R;
 import com.rs.leanbacknative.models.Card;
 
-public class ProgressLogoOverlayCardViewView extends AbstractCardView {
-    public ProgressLogoOverlayCardViewView(Context context) {
+public class LogoOverlayCardView extends AbstractCardView {
+    public LogoOverlayCardView(Context context) {
         super(context);
     }
 
     @Override
     public void buildCardView() {
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        inflater.inflate(R.layout.card_view_progress_logo_overlay, this);
+        inflater.inflate(R.layout.card_view_logo_overlay, this);
     }
 
     public void updateUI(Card rowItem, int borderRadius, int cardWidth, int cardHeight) {
         overlayTextView.setText(rowItem.getOverlayText());
         setGradientCornerRadius(borderRadius);
         setOverlayImagePosition(rowItem.getOverlayPosition());
-        setProgressBar(rowItem);
         setLayoutDimensions(cardWidth, cardHeight);
         setMainImageDimensions(cardWidth, cardHeight);
     }

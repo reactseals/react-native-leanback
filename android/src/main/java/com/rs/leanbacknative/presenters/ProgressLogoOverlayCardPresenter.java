@@ -5,23 +5,23 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.facebook.react.bridge.ReadableMap;
 import com.rs.leanbacknative.models.Card;
-import com.rs.leanbacknative.cardViews.ProgressLogoOverlayCardViewView;
+import com.rs.leanbacknative.cardViews.ProgressLogoOverlayCardView;
 
-public class ProgressLogoOverlayCardPresenter extends AbstractCardPresenter<ProgressLogoOverlayCardViewView> {
+public class ProgressLogoOverlayCardPresenter extends AbstractCardPresenter<ProgressLogoOverlayCardView> {
     public ProgressLogoOverlayCardPresenter(ReadableMap attributes) {
         initializeAttributes(attributes);
     }
 
     @Override
-    protected ProgressLogoOverlayCardViewView onCreateView(Context context) {
-        ProgressLogoOverlayCardViewView cardView = new ProgressLogoOverlayCardViewView(context);
+    protected ProgressLogoOverlayCardView onCreateView(Context context) {
+        ProgressLogoOverlayCardView cardView = new ProgressLogoOverlayCardView(context);
         cardView.buildImageCardView();
 
         return cardView;
     }
 
     @Override
-    public void onBindViewHolder(Card card, ProgressLogoOverlayCardViewView cardView) {
+    public void onBindViewHolder(Card card, ProgressLogoOverlayCardView cardView) {
         cardView.updateUI(card, mBorderRadius, mCardWidth, mCardHeight);
 
         if (!card.getOverlayImageUrl().isEmpty()) {

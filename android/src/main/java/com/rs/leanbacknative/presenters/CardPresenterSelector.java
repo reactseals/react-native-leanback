@@ -52,6 +52,12 @@ public class CardPresenterSelector extends PresenterSelector {
                 case PROGRESS:
                     presenter = new ProgressCardPresenter(mAttributes);
                     break;
+                case COLOR_TEXT:
+                    presenter = new ColorTextCardPresenter(mAttributes);
+                    break;
+                case VIDEO:
+                    presenter = new VideoCardPresenter(mAttributes);
+                    break;
                 default:
                     presenter = new DefaultCardPresenter(mAttributes);
                     break;

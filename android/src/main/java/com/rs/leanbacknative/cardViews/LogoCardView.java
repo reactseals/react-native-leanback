@@ -6,8 +6,8 @@ import android.view.LayoutInflater;
 import com.rs.leanbacknative.R;
 import com.rs.leanbacknative.models.Card;
 
-public class LogoCardViewView extends AbstractCardView {
-    public LogoCardViewView(Context context) {
+public class LogoCardView extends AbstractCardView {
+    public LogoCardView(Context context) {
         super(context);
     }
 

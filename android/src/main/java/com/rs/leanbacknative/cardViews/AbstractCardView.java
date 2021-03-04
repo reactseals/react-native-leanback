@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,6 +65,8 @@ public abstract class AbstractCardView extends DefaultImageCardView {
     public ImageView getOverlayImageView() {
         return overlayImage;
     }
+    public View getGradientView() {  return gradient; }
+    public TextView getOverlayTextView() {  return overlayTextView; }
 
     protected void setOverlayImagePosition(String position) {
         FrameLayout.LayoutParams layoutParams = ((FrameLayout.LayoutParams) overlayImageWrapper.getLayoutParams());

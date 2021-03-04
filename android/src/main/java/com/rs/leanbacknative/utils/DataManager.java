@@ -38,9 +38,9 @@ public class DataManager {
             nativeRowItem.setDescription(validateString(dataRowItem, "description"));
             nativeRowItem.setCardImageUrl(validateString(dataRowItem, "cardImageUrl"));
             nativeRowItem.setOverlayImageUrl(validateString(dataRowItem, "overlayImageUrl"));
+            nativeRowItem.setVideoUrl(validateString(dataRowItem, "videoUrl"));
             nativeRowItem.setOverlayText(validateString(dataRowItem, "overlayText"));
             nativeRowItem.setBackdropUrl(validateString(dataRowItem, "backdropUrl"));
-            nativeRowItem.setType(validateString(dataRowItem, "type"));
             nativeRowItem.setBackgroundColor(validateString(dataRowItem, "backgroundColor"));
             nativeRowItem.setOverlayPosition(validateString(dataRowItem, "overlayPosition"));
             nativeRowItem.setLiveBadgeColor(validateString(dataRowItem, "liveBadgeColor"));
@@ -57,16 +57,20 @@ public class DataManager {
 
     private static Card.Type getType(Card item) {
         boolean hasLogo = !item.getOverlayImageUrl().isEmpty();
-        boolean hasOverlay = !item.getOverlayText().isEmpty();
+        boolean hasOverlayText = !item.getOverlayText().isEmpty();
         boolean isLive = item.getProgramStartTimestamp() != 0 || item.getProgress() != -1;
+        boolean isColorText = !item.getBackgroundColor().isEmpty();
+        boolean isVideo = !item.getVideoUrl().isEmpty();
 
-        if (isLive && hasOverlay && hasLogo) return Card.Type.PROGRESS_LOGO_OVERLAY;
+        if (isLive && hasOverlayText && hasLogo) return Card.Type.PROGRESS_LOGO_OVERLAY;
         if (isLive && hasLogo) return Card.Type.PROGRESS_LOGO;
-        if (isLive && hasOverlay) return Card.Type.PROGRESS_OVERLAY;
-        if (hasLogo && hasOverlay) return Card.Type.LOGO_OVERLAY;
+        if (isLive && hasOverlayText) return Card.Type.PROGRESS_OVERLAY;
+        if (hasLogo && hasOverlayText) return Card.Type.LOGO_OVERLAY;
         if (hasLogo) return Card.Type.LOGO;
-        if (hasOverlay) return Card.Type.OVERLAY;
+        if (isColorText) return Card.Type.COLOR_TEXT;
+        if (hasOverlayText) return Card.Type.OVERLAY;
         if (isLive) return Card.Type.PROGRESS;
+        if (isVideo) return Card.Type.VIDEO;
 
         return Card.Type.DEFAULT;
     }

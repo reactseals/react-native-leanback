@@ -39,6 +39,18 @@
         "overlayText": "Hello 123"
     },
     {
+        "id": 1,
+        "cardImageUrl": "https://allears.net/wp-content/uploads/2020/08/thor-poster-marvel.jpg",
+        "title": "Thor",
+        "videoUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4"
+    },
+    {
+        "id": 2,
+        "cardImageUrl": "https://allears.net/wp-content/uploads/2020/08/thor-poster-marvel.jpg",
+        "title": "Thor",
+        "videoUrl": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_640_3MG.mp4"
+    },
+    {
         "id": 7,
         "cardImageUrl": "https://cdn.onebauer.media/one/empire-tmdb/films/72105/images/sPiFgbWMSQxVMO6TuRFrkeWwarI.jpg?quality=50&width=1800&ratio=16-9&resizeStyle=aspectfill&format=jpg",
         "title": "Ted",
@@ -55,12 +67,6 @@
         "progress": "68"
     },
     {
-        "id": 2,
-        "cardImageUrl": "https://allears.net/wp-content/uploads/2020/08/thor-poster-marvel.jpg",
-        "title": "Thor",
-        "description": "Thor is a 2011 American superhero film based on the Marvel Comics character of the same name"
-    },
-    {
         "id": 5,
         "cardImageUrl": "https://www.denofgeek.com/wp-content/uploads/2017/08/captain_america_should_stay_in_the_past.jpg?resize=768%2C432",
         "title": "Captain America",
@@ -75,7 +81,7 @@
     {
         "id": 7,
         "cardImageUrl": "https://scontent.fkun1-1.fna.fbcdn.net/v/t1.0-0/c0.14.1067.557a/p600x600/84521152_100284664880990_6486162166201188352_o.jpg?_nc_cat=102&_nc_sid=e3f864&_nc_ohc=KzWSY8lcIY4AX_nAokH&_nc_ht=scontent.fkun1-1.fna&_nc_tp=27&oh=66d9e8475ae117d88f8b631c6c4b24ac&oe=5F9D6249",
-        "title": "Fast & Furious 9 2020",
-        "description": "F9 is an upcoming American action film directed by Justin Lin and written by Daniel Casey"
+        "backgroundColor": "#FF0000",
+        "overlayText": "See all"
     }
 ]

@@ -4,24 +4,24 @@ import android.content.Context;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.facebook.react.bridge.ReadableMap;
-import com.rs.leanbacknative.cardViews.LogoOverlayCardViewView;
+import com.rs.leanbacknative.cardViews.LogoOverlayCardView;
 import com.rs.leanbacknative.models.Card;
 
-public class LogoOverlayCardPresenter extends AbstractCardPresenter<LogoOverlayCardViewView> {
+public class LogoOverlayCardPresenter extends AbstractCardPresenter<LogoOverlayCardView> {
     public LogoOverlayCardPresenter(ReadableMap attributes) {
         initializeAttributes(attributes);
     }
 
     @Override
-    protected LogoOverlayCardViewView onCreateView(Context context) {
-        LogoOverlayCardViewView cardView = new LogoOverlayCardViewView(context);
+    protected LogoOverlayCardView onCreateView(Context context) {
+        LogoOverlayCardView cardView = new LogoOverlayCardView(context);
         cardView.buildImageCardView();
 
         return cardView;
     }
 
     @Override
-    public void onBindViewHolder(Card card, LogoOverlayCardViewView cardView) {
+    public void onBindViewHolder(Card card, LogoOverlayCardView cardView) {
         cardView.updateUI(card, mBorderRadius, mCardWidth, mCardHeight);
 
         if (!card.getOverlayImageUrl().isEmpty()) {
