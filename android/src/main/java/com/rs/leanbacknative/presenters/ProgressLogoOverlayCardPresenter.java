@@ -31,6 +31,6 @@ public class ProgressLogoOverlayCardPresenter extends AbstractCardPresenter<Prog
                     .into(cardView.getOverlayImageView());
         }
 
-        loadMainImage(cardView.getMainImageView(), card);
+        loadMainImage(cardView.getMainImageView(), card, null);
     }
 }

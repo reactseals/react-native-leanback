@@ -32,6 +32,6 @@ public class LogoCardPresenter extends AbstractCardPresenter<LogoCardView> {
                     .into(cardView.getOverlayImageView());
         }
 
-        loadMainImage(cardView.getMainImageView(), card);
+        loadMainImage(cardView.getMainImageView(), card, null);
     }
 }

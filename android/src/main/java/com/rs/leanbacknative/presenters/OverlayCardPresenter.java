@@ -32,6 +32,6 @@ public class OverlayCardPresenter extends AbstractCardPresenter<OverlayCardView>
                     .into(cardView.getOverlayImageView());
         }
 
-        loadMainImage(cardView.getMainImageView(), card);
+        loadMainImage(cardView.getMainImageView(), card, null);
     }
 }

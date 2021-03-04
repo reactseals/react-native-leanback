@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.leanback.widget.BaseCardView;
 import androidx.leanback.widget.Presenter;
@@ -31,6 +32,14 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
     protected int nextFocusUpId = -1;
     protected int nextFocusDownId = -1;
     protected int mBorderRadius;
+    protected boolean mHasImageOnly = false;
+    protected boolean mHasTitle = true;
+    protected boolean mHasContent = true;
+    protected boolean mHasIconRight = false;
+    protected boolean mHasIconLeft = false;
+    protected static int sSelectedBackgroundColor;
+    protected static int sDefaultBackgroundColor;
+    protected String mCardShape = "square";
 
     public AbstractCardPresenter() { }
 
@@ -68,6 +77,12 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
         nextFocusUpId = attributes.getInt("nextFocusUpId");
         nextFocusDownId = attributes.getInt("nextFocusDownId");
         mBorderRadius = attributes.getInt("borderRadius");
+        mHasImageOnly = attributes.getBoolean("hasImageOnly");
+        mHasTitle = attributes.getBoolean("hasTitle");
+        mHasContent = attributes.getBoolean("hasContent");
+        mHasIconRight = attributes.getBoolean("hasIconRight");
+        mHasIconLeft = attributes.getBoolean("hasIconLeft");
+        mCardShape = attributes.getString("cardShape");
     }
 
     void setFocusRules(View cardView, Card rowItem) {
@@ -84,8 +99,8 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
             cardView.setNextFocusDownId(nextFocusDownId);
     }
 
-    void loadMainImage(ImageView imageView, Card rowItem) {
-        RequestOptions requestOptions = mBorderRadius != 0 ?
+    void loadMainImage(ImageView imageView, Card rowItem, @Nullable RequestOptions reqOptions) {
+        RequestOptions requestOptions = reqOptions != null ? reqOptions : mBorderRadius != 0 ?
                 (new RequestOptions()).transform(new CenterCrop(), new RoundedCorners(mBorderRadius)) :
                 RequestOptions.fitCenterTransform();
 

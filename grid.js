@@ -65,6 +65,7 @@ const Grid = React.forwardRef(
         nextFocusUpId: nextFocusUpId || -1,
         nextFocusDownId: nextFocusDownId || -1,
         cardShape: attributes?.cardShape || "square",
+        borderRadius: 0
       },
     };
 

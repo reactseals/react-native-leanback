@@ -31,6 +31,6 @@ public class LogoOverlayCardPresenter extends AbstractCardPresenter<LogoOverlayC
                     .into(cardView.getOverlayImageView());
         }
 
-        loadMainImage(cardView.getMainImageView(), card);
+        loadMainImage(cardView.getMainImageView(), card, null);
     }
 }

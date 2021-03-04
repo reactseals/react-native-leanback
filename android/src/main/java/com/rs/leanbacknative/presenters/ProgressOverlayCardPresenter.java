@@ -22,6 +22,6 @@ public class ProgressOverlayCardPresenter extends AbstractCardPresenter<Progress
     @Override
     public void onBindViewHolder(Card card, ProgressOverlayCardView cardView) {
         cardView.updateUI(card, mBorderRadius, mCardWidth, mCardHeight);
-        loadMainImage(cardView.getMainImageView(), card);
+        loadMainImage(cardView.getMainImageView(), card, null);
     }
 }
