@@ -4,18 +4,21 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.danikula.videocache.HttpProxyCacheServer;
 import com.rs.leanbacknative.R;
 import com.rs.leanbacknative.models.Card;
+import com.rs.leanbacknative.utils.ProxyFactory;
 import com.rs.leanbacknative.widgets.VideoCardWidget;
 
 public class VideoCardView extends AbstractCardView {
-
+    HttpProxyCacheServer mProxy;
     VideoCardWidget mVideoView;
 
     private boolean mSelected = false;
 
     public VideoCardView(Context context) {
         super(context);
+        mProxy = ProxyFactory.getProxy(context);
     }
 
     @Override
@@ -33,7 +36,8 @@ public class VideoCardView extends AbstractCardView {
         mVideoView = view.findViewById(R.id.main_video);
         mVideoView.setLayoutParams(new LayoutParams(cardWidth, cardHeight));
 
-        setLoading(rowItem.getVideoUrl());
+        String proxyUrl = mProxy.getProxyUrl(rowItem.getVideoUrl());
+        setLoading(proxyUrl);
     }
 
     @Override
