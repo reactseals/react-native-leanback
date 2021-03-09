@@ -1,7 +1,7 @@
 {
   "name": "@reactseals/react-native-leanback",
   "title": "React Native Leanback",
-  "version": "1.0.5-beta.2",
+  "version": "2.0.0-beta.0",
   "description": "Leanback implementation for React Native Android TV",
   "main": "index.js",
   "scripts": {
@@ -34,6 +34,7 @@
     "react-native": ">=0.60.0-rc.0 <1.0.x"
   },
   "devDependencies": {
+    "lerna": "^3.22.1",
     "react": "^16.9.0",
     "react-native": "^0.61.5"
   }

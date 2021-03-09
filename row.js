@@ -5,7 +5,7 @@ import {
   findNodeHandle,
 } from 'react-native';
 
-const LeanbackNativeRow = requireNativeComponent('LeanbackNativeRow');
+const LeanbackNativeRow = requireNativeComponent('LeanbackRow');
 
 const REQUEST_FOCUS_ACTION = 1;
 
