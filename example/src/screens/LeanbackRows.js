@@ -4,14 +4,6 @@ import { Row } from 'react-native-leanback';
 // import ScrollView from '@reactseals/react-native-snap-scrollview';
 import { generateData, CARD_TYPES } from '../dataGenerator';
 
-//Missing stuff
-/*
-  1. SET BG COLOR FOR FOCUSED
-  2. CHECK WHAT ATTRIBUTES IS REDUNDANT LIKE: hasOnlyImage, hasTitle
-  3. Refactor rowItem with card
-  4. Documentation
- */
-
 const LeanbackRows = () => {
     const ref = useRef(null);
     const swRef = useRef(null);

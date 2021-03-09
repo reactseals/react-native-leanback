@@ -1,5 +1,6 @@
 package com.rs.leanbacknative.managers;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.leanback.app.RowsFragment;
 
@@ -10,19 +11,20 @@ import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
 import com.rs.leanbacknative.layouts.LeanbackRowLayout;
+import com.rs.leanbacknative.utils.Constants;
 
 import java.util.Map;
 
 public class LeanbackRowManager extends ViewGroupManager<LeanbackRowLayout> {
+    private static final String REACT_CLASS = "LeanbackRow";
 
-    public static final String REACT_CLASS = "LeanbackRow";
-    private final int COMMAND_REQUEST_FOCUS = 1;
-
+    @NonNull
     @Override
     public String getName() {
         return REACT_CLASS;
     }
 
+    @NonNull
     @Override
     public LeanbackRowLayout createViewInstance(ThemedReactContext context) {
         RowsFragment rowsFragment = new RowsFragment();
@@ -35,9 +37,9 @@ public class LeanbackRowManager extends ViewGroupManager<LeanbackRowLayout> {
 
     public Map getExportedCustomBubblingEventTypeConstants() {
         return MapBuilder.builder()
-            .put("onPress", MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", "onPress")))
-            .put("onFocus", MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", "onFocus")))
-            .put("onDataIdsReady", MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", "onDataIdsReady")))
+            .put(Constants.EVENT_ON_PRESS, MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", Constants.EVENT_ON_PRESS)))
+            .put(Constants.EVENT_ON_FOCUS, MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", Constants.EVENT_ON_FOCUS)))
+            .put(Constants.EVENT_ON_DATA_IDS_READY, MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", Constants.EVENT_ON_DATA_IDS_READY)))
             .build();
     }
 
@@ -52,12 +54,9 @@ public class LeanbackRowManager extends ViewGroupManager<LeanbackRowLayout> {
     }
 
     @Override
-    public void receiveCommand(LeanbackRowLayout view, int commandType, @Nullable ReadableArray args) {
-        switch (commandType) {
-            case COMMAND_REQUEST_FOCUS:
-                view.requestFocus();
-                break;
-            default:
+    public void receiveCommand(@NonNull LeanbackRowLayout view, String commandType, @Nullable ReadableArray args) {
+        if (Constants.COMMAND_REQUEST_FOCUS.equals(commandType)) {
+            view.requestFocus();
         }
     }
 }

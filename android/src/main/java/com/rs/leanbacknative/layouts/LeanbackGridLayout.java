@@ -22,6 +22,7 @@ import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.rs.leanbacknative.presenters.CardPresenterSelector;
 import com.rs.leanbacknative.presenters.GridPresenter;
 import com.rs.leanbacknative.presenters.GridCardPresenter;
+import com.rs.leanbacknative.utils.Constants;
 import com.rs.leanbacknative.utils.DataManager;
 import com.rs.leanbacknative.models.Card;
 import java.util.List;
@@ -74,7 +75,7 @@ public class LeanbackGridLayout extends FrameLayout {
                 WritableMap event = Arguments.createMap();
                 event.putString("item", card.toJSON());
                 event.putInt("focusedRowIndex", mRowsAdapter.indexOf(row));
-                mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "onFocus", event);
+                mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), Constants.EVENT_ON_FOCUS, event);
             }
         }
     }
@@ -88,7 +89,7 @@ public class LeanbackGridLayout extends FrameLayout {
                 Card card = (Card) item;
                 WritableMap event = Arguments.createMap();
                 event.putString("item", card.toJSON());
-                mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "onPress", event);
+                mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), Constants.EVENT_ON_PRESS, event);
             }
         }
     }
@@ -111,6 +112,6 @@ public class LeanbackGridLayout extends FrameLayout {
 
         WritableMap event = Arguments.createMap();
         event.putString("data", DataManager.getViewIds().toString());
-        mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "onDataIdsReady", event);
+        mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), Constants.EVENT_ON_DATA_IDS_READY, event);
     }
 }

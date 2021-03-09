@@ -10,13 +10,14 @@ import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
 import com.rs.leanbacknative.layouts.LeanbackGridLayout;
+import com.rs.leanbacknative.utils.Constants;
 
 import java.util.Map;
 
 public class BaseGridManager extends ViewGroupManager<LeanbackGridLayout> {
-    private final int COMMAND_REQUEST_FOCUS = 1;
-    public static final String REACT_CLASS = "LeanbackNativeGrid";
+    private static final String REACT_CLASS = "LeanbackNativeGrid";
 
+    @NonNull
     @Override
     public String getName() {
         return REACT_CLASS;
@@ -30,9 +31,9 @@ public class BaseGridManager extends ViewGroupManager<LeanbackGridLayout> {
 
     public Map getExportedCustomBubblingEventTypeConstants() {
         return MapBuilder.builder()
-                .put("onPress", MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", "onPress")))
-                .put("onFocus", MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", "onFocus")))
-                .put("onDataIdsReady", MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", "onDataIdsReady")))
+                .put(Constants.EVENT_ON_PRESS, MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", Constants.EVENT_ON_PRESS)))
+                .put(Constants.EVENT_ON_FOCUS, MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", Constants.EVENT_ON_FOCUS)))
+                .put(Constants.EVENT_ON_DATA_IDS_READY, MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", Constants.EVENT_ON_DATA_IDS_READY)))
                 .build();
     }
 
@@ -42,12 +43,9 @@ public class BaseGridManager extends ViewGroupManager<LeanbackGridLayout> {
     }
 
     @Override
-    public void receiveCommand(LeanbackGridLayout view, int commandType, @Nullable ReadableArray args) {
-        switch (commandType) {
-            case COMMAND_REQUEST_FOCUS:
-                view.requestFocus();
-                break;
-            default:
+    public void receiveCommand(@NonNull LeanbackGridLayout view, String commandType, @Nullable ReadableArray args) {
+        if (Constants.COMMAND_REQUEST_FOCUS.equals(commandType)) {
+            view.requestFocus();
         }
     }
 }

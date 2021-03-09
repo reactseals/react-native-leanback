@@ -9,7 +9,7 @@ const LeanbackGrid6Col = requireNativeComponent("LeanbackGrid6Col", null);
 const LeanbackGrid5Col = requireNativeComponent("LeanbackGrid5Col", null);
 const LeanbackGrid4Col = requireNativeComponent("LeanbackGrid4Col", null);
 
-const REQUEST_FOCUS_ACTION = 1;
+const REQUEST_FOCUS_ACTION = 'request-focus';
 
 const getGridView = (numOfCols) => {
   switch (numOfCols) {

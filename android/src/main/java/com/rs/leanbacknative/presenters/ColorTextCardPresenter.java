@@ -1,7 +1,6 @@
 package com.rs.leanbacknative.presenters;
 
 import android.content.Context;
-import android.graphics.Color;
 
 import com.facebook.react.bridge.ReadableMap;
 import com.rs.leanbacknative.cardViews.OverlayCardView;

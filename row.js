@@ -7,7 +7,7 @@ import {
 
 const LeanbackNativeRow = requireNativeComponent('LeanbackRow');
 
-const REQUEST_FOCUS_ACTION = 1;
+const REQUEST_FOCUS_ACTION = 'request-focus';
 
 const Row = React.forwardRef(
   (

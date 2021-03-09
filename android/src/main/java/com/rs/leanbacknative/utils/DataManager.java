@@ -1,7 +1,8 @@
 package com.rs.leanbacknative.utils;
 
-import android.util.Log;
 import android.view.View;
+
+import androidx.annotation.Nullable;
 
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
@@ -18,7 +19,7 @@ public class DataManager {
         return viewIds;
     }
 
-    public static List<Card> setupData(ReadableArray data) {
+    public static List<Card> setupData(@Nullable ReadableArray data) {
         viewIds.clear();
         List<Card> rows = new ArrayList<>();
         Random random = new Random();

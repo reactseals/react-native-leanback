@@ -23,6 +23,7 @@ import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.rs.leanbacknative.presenters.CardPresenterSelector;
 import com.rs.leanbacknative.presenters.RowPresenter;
+import com.rs.leanbacknative.utils.Constants;
 import com.rs.leanbacknative.utils.DataManager;
 import com.rs.leanbacknative.models.Card;
 import java.util.List;
@@ -35,7 +36,6 @@ public class LeanbackRowLayout extends FrameLayout {
     private String mRowTitle;
     private Card mLastSelectedItem;
     private List<Card> mRows;
-    private ListRowPresenter mListRowPresenter;
     private RowsFragment mRowsFragment;
     private boolean firstSelectEventIgnored = false;
 
@@ -56,14 +56,14 @@ public class LeanbackRowLayout extends FrameLayout {
     }
 
     private void initializeAdapter(ReadableMap attributes) {
-        String focusedCardAlignment = attributes.hasKey("focusedCardAlignment") ? attributes.getString("focusedCardAlignment") : "left";
+        String focusedCardAlignment = attributes.hasKey("focusedCardAlignment") ? attributes.getString("focusedCardAlignment") : Constants.FOCUSED_CARD_ALIGNMENT_LEFT;
         int numberOfRows = attributes.hasKey("numberOfRows") ? attributes.getInt("numberOfRows") : 1;
 
-        mListRowPresenter = new RowPresenter(focusedCardAlignment);
-        mListRowPresenter.setNumRows(numberOfRows);
+        ListRowPresenter listRowPresenter = new RowPresenter(focusedCardAlignment);
+        listRowPresenter.setNumRows(numberOfRows);
 
-        mListRowPresenter.setShadowEnabled(false);
-        mRowsAdapter = new ArrayObjectAdapter(mListRowPresenter);
+        listRowPresenter.setShadowEnabled(false);
+        mRowsAdapter = new ArrayObjectAdapter(listRowPresenter);
         mRowsFragment.setAdapter(mRowsAdapter);
     }
 
@@ -87,7 +87,7 @@ public class LeanbackRowLayout extends FrameLayout {
 
                     WritableMap ev = Arguments.createMap();
                     ev.putString("item", mLastSelectedItem.toJSON());
-                    mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "onFocus", ev);
+                    mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), Constants.EVENT_ON_FOCUS, ev);
             }
         }
 
@@ -107,7 +107,7 @@ public class LeanbackRowLayout extends FrameLayout {
                 mLastSelectedItem = card;
                 WritableMap event = Arguments.createMap();
                 event.putString("item", card.toJSON());
-                mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "onFocus", event);
+                mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), Constants.EVENT_ON_FOCUS, event);
             }
 
             //leanback fires this event initially when data is loaded even if item is not actually selected
@@ -126,7 +126,7 @@ public class LeanbackRowLayout extends FrameLayout {
                 Card card = (Card) item;
                 WritableMap event = Arguments.createMap();
                 event.putString("item", card.toJSON());
-                mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "onPress", event);
+                mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), Constants.EVENT_ON_PRESS, event);
             }
         }
     }
@@ -154,7 +154,7 @@ public class LeanbackRowLayout extends FrameLayout {
         mRowsAdapter.add(new ListRow(header, mListRowAdapterWithData));
         WritableMap event = Arguments.createMap();
         event.putString("data", DataManager.getViewIds().toString());
-        mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "onDataIdsReady", event);
+        mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), Constants.EVENT_ON_DATA_IDS_READY, event);
     }
 
     public void setRowTitle(String title) {

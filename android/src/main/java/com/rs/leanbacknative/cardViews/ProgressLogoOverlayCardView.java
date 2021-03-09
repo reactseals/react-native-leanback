@@ -2,7 +2,6 @@ package com.rs.leanbacknative.cardViews;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 
 import com.rs.leanbacknative.R;
 import com.rs.leanbacknative.models.Card;
