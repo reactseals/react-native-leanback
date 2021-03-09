@@ -11,12 +11,10 @@ import com.rs.leanbacknative.models.Card;
 import java.util.HashMap;
 
 public class CardPresenterSelector extends PresenterSelector {
-    private final Context mContext;
     private final ReadableMap mAttributes;
     private final HashMap<Card.Type, Presenter> presenters = new HashMap<Card.Type, Presenter>();
 
     public CardPresenterSelector(Context context, ReadableMap attributes) {
-        mContext = context;
         mAttributes = attributes;
     }
 
@@ -58,8 +56,11 @@ public class CardPresenterSelector extends PresenterSelector {
                 case VIDEO:
                     presenter = new VideoCardPresenter(mAttributes);
                     break;
+                case GRID:
+                    presenter = new GridCardPresenter(mAttributes, card);
+                    break;
                 default:
-                    presenter = new DefaultCardPresenter(mAttributes);
+                    presenter = new DefaultCardPresenter(mAttributes, card);
                     break;
             }
         }

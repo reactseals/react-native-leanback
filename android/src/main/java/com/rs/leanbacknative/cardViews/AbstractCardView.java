@@ -89,12 +89,12 @@ public abstract class AbstractCardView extends DefaultImageCardView {
         drawable.setCornerRadius(borderRadius);
     }
 
-    protected void setProgressBar(Card rowItem) {
-        long startTimestamp = rowItem.getProgramStartTimestamp();
-        long endTimestamp = rowItem.getProgramEndTimestamp();
-        int progress = rowItem.getProgress();
-        String badgeColor = rowItem.getLiveBadgeColor();
-        String progressBarColor = rowItem.getLiveProgressBarColor();
+    protected void setProgressBar(Card card) {
+        long startTimestamp = card.getProgramStartTimestamp();
+        long endTimestamp = card.getProgramEndTimestamp();
+        int progress = card.getProgress();
+        String badgeColor = card.getLiveBadgeColor();
+        String progressBarColor = card.getLiveProgressBarColor();
 
         if ((startTimestamp!= 0 && endTimestamp != 0) || progress != -1) {
             GradientDrawable drawable = (GradientDrawable) liveBadge.getBackground();
@@ -110,7 +110,7 @@ public abstract class AbstractCardView extends DefaultImageCardView {
             if (progress > 0 && progress < 100) {
                 progressBar.setProgress(progress);
             } else if (startTimestamp != 0 && endTimestamp != 0) {
-                progressBar.setProgress(Utils.livePercentageLeft(rowItem.getProgramStartTimestamp(), rowItem.getProgramEndTimestamp()));
+                progressBar.setProgress(Utils.livePercentageLeft(card.getProgramStartTimestamp(), card.getProgramEndTimestamp()));
             }
         }
     }

@@ -16,6 +16,8 @@ const Row = React.forwardRef(
       forbiddenFocusDirections,
       nextFocusUpId,
       nextFocusDownId,
+      nextFocusLeftId,
+      nextFocusRightId,
       data,
       ...restOfProps
     },
@@ -48,22 +50,6 @@ const Row = React.forwardRef(
       attributes: {
         width: attributes?.width || 513,
         height: attributes?.height || 176,
-        hasTitle:
-          attributes?.hasTitle !== undefined ? attributes.hasTitle : true,
-        hasImageOnly:
-          attributes?.hasImageOnly !== undefined
-            ? attributes.hasImageOnly
-            : false,
-        hasContent:
-          attributes?.hasContent !== undefined ? attributes.hasContent : true,
-        hasIconRight:
-          attributes?.hasIconRight !== undefined
-            ? attributes.hasIconRight
-            : false,
-        hasIconLeft:
-          attributes?.hasIconLeft !== undefined
-            ? attributes.hasIconLeft
-            : false,
         forbiddenFocusDirections:
           forbiddenFocusDirections && Array.isArray(forbiddenFocusDirections)
             ? forbiddenFocusDirections
@@ -72,6 +58,8 @@ const Row = React.forwardRef(
         numberOfRows: attributes?.numberOfRows || 1,
         nextFocusUpId: nextFocusUpId || -1,
         nextFocusDownId: nextFocusDownId || -1,
+        nextFocusLeftId: nextFocusLeftId || -1,
+        nextFocusRightId: nextFocusRightId || -1,
         cardShape: attributes?.cardShape || 'square',
         overlayPosition: attributes?.overlayPosition || '',
         borderRadius: attributes?.borderRadius || 0,

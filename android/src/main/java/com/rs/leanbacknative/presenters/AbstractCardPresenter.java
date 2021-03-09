@@ -31,15 +31,10 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
     protected ReadableArray mForbiddenFocusDirections;
     protected int nextFocusUpId = -1;
     protected int nextFocusDownId = -1;
+    protected int nextFocusLeftId = -1;
+    protected int nextFocusRightId = -1;
     protected int mBorderRadius;
-    protected boolean mHasImageOnly = false;
-    protected boolean mHasTitle = true;
-    protected boolean mHasContent = true;
-    protected boolean mHasIconRight = false;
-    protected boolean mHasIconLeft = false;
-    protected static int sSelectedBackgroundColor;
-    protected static int sDefaultBackgroundColor;
-    protected String mCardShape = "square";
+    protected String mCardShape = Constants.CARD_SHARE_SQUARE;
 
     public AbstractCardPresenter() { }
 
@@ -67,7 +62,7 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
     public abstract void onBindViewHolder(Card card, T cardView);
 
     public void onUnbindViewHolder(T cardView) {
-        // Nothing to clean up. Override if necessary.
+
     }
 
     void initializeAttributes(ReadableMap attributes) {
@@ -76,18 +71,15 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
         mForbiddenFocusDirections = attributes.hasKey("forbiddenFocusDirections") ? attributes.getArray("forbiddenFocusDirections") : null;
         nextFocusUpId = attributes.getInt("nextFocusUpId");
         nextFocusDownId = attributes.getInt("nextFocusDownId");
+        nextFocusLeftId = attributes.getInt("nextFocusLeftId");
+        nextFocusRightId = attributes.getInt("nextFocusLeftId");
         mBorderRadius = attributes.getInt("borderRadius");
-        mHasImageOnly = attributes.getBoolean("hasImageOnly");
-        mHasTitle = attributes.getBoolean("hasTitle");
-        mHasContent = attributes.getBoolean("hasContent");
-        mHasIconRight = attributes.getBoolean("hasIconRight");
-        mHasIconLeft = attributes.getBoolean("hasIconLeft");
         mCardShape = attributes.getString("cardShape");
     }
 
-    void setFocusRules(View cardView, Card rowItem) {
+    void setFocusRules(View cardView, Card card) {
         if (cardView.getId() == -1)
-            cardView.setId(rowItem.getViewId());
+            cardView.setId(card.getViewId());
 
         if (mForbiddenFocusDirections != null)
             Utils.setForbiddenFocusDirections(mForbiddenFocusDirections, cardView);
@@ -97,15 +89,21 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
 
         if (nextFocusDownId != -1)
             cardView.setNextFocusDownId(nextFocusDownId);
+
+        if (nextFocusLeftId != -1)
+            cardView.setNextFocusLeftId(nextFocusLeftId);
+
+        if (nextFocusRightId != -1)
+            cardView.setNextFocusRightId(nextFocusRightId);
     }
 
-    void loadMainImage(ImageView imageView, Card rowItem, @Nullable RequestOptions reqOptions) {
+    void loadMainImage(ImageView imageView, Card card, @Nullable RequestOptions reqOptions) {
         RequestOptions requestOptions = reqOptions != null ? reqOptions : mBorderRadius != 0 ?
                 (new RequestOptions()).transform(new CenterCrop(), new RoundedCorners(mBorderRadius)) :
                 RequestOptions.fitCenterTransform();
 
         Glide.with(imageView.getContext())
-                .load(rowItem.getCardImageUrl())
+                .load(card.getCardImageUrl())
                 .apply(requestOptions)
                 .error(mDefaultCardImage)
                 .into(imageView);

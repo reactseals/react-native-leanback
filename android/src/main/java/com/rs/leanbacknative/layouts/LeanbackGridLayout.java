@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.widget.FrameLayout;
-
 import androidx.annotation.NonNull;
 import androidx.leanback.app.VerticalGridFragment;
 import androidx.leanback.widget.ArrayObjectAdapter;
@@ -14,25 +13,22 @@ import androidx.leanback.widget.Presenter;
 import androidx.leanback.widget.Row;
 import androidx.leanback.widget.RowPresenter;
 import androidx.leanback.widget.VerticalGridPresenter;
-
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
+import com.rs.leanbacknative.presenters.CardPresenterSelector;
 import com.rs.leanbacknative.presenters.GridPresenter;
 import com.rs.leanbacknative.presenters.GridCardPresenter;
 import com.rs.leanbacknative.utils.DataManager;
 import com.rs.leanbacknative.models.Card;
-
 import java.util.List;
-
 
 @SuppressLint("ViewConstructor")
 public class LeanbackGridLayout extends FrameLayout {
     private ThemedReactContext mContext;
-    private GridCardPresenter mCardPresenter;
     private ArrayObjectAdapter mRowsAdapter;
     private VerticalGridFragment mVerticalGridFragment;
 
@@ -74,9 +70,9 @@ public class LeanbackGridLayout extends FrameLayout {
                 Row row) {
 
             if (item instanceof Card) {
-                Card nativeRowItem = (Card) item;
+                Card card = (Card) item;
                 WritableMap event = Arguments.createMap();
-                event.putString("item", nativeRowItem.toJSON());
+                event.putString("item", card.toJSON());
                 event.putInt("focusedRowIndex", mRowsAdapter.indexOf(row));
                 mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "onFocus", event);
             }
@@ -89,9 +85,9 @@ public class LeanbackGridLayout extends FrameLayout {
                                   RowPresenter.ViewHolder rowViewHolder, Row row) {
 
             if (item instanceof Card) {
-                Card nativeRowItem = (Card) item;
+                Card card = (Card) item;
                 WritableMap event = Arguments.createMap();
-                event.putString("item", nativeRowItem.toJSON());
+                event.putString("item", card.toJSON());
                 mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "onPress", event);
             }
         }
@@ -101,19 +97,13 @@ public class LeanbackGridLayout extends FrameLayout {
         ReadableArray data = dataAndAttributes.getArray("data");
         List<Card> rows = DataManager.setupData(data);
 
-        GridCardPresenter cardPresenter;
-
         ReadableMap attributes = dataAndAttributes.getMap("attributes");
-        if (attributes != null) {
-            cardPresenter = new GridCardPresenter(attributes);
-        } else {
-            cardPresenter = new GridCardPresenter();
-        }
-
-        mRowsAdapter = new ArrayObjectAdapter(cardPresenter);
+        CardPresenterSelector cardPresenterSelector = new CardPresenterSelector(mContext, attributes);
+        mRowsAdapter = new ArrayObjectAdapter(cardPresenterSelector);
 
         mRowsAdapter.clear();
         for (int i = 0; i < rows.size(); i++) {
+            rows.get(i).setPresenterType(Card.Type.GRID);
             mRowsAdapter.add(rows.get(i));
         }
 

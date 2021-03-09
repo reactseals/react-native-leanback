@@ -1,31 +1,33 @@
 package com.rs.leanbacknative.models;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.annotations.Expose;
 
 import java.io.Serializable;
 
 public class Card implements Serializable {
     static final long serialVersionUID = 727566175075960653L;
 
-    private String id;
+    @Expose private String id;
 
-    private int index;
+    @Expose private int index;
 
-    private int viewId;
+    @Expose private int viewId;
 
-    private String title;
+    @Expose private String title;
 
-    private String description;
+    @Expose private String description;
 
-    private String cardImageUrl;
+    @Expose private String cardImageUrl;
 
-    private String videoUrl;
+    @Expose private String videoUrl;
 
-    private String backdropUrl;
+    @Expose private String backdropUrl;
 
-    private String overlayImageUrl;
+    @Expose private String overlayImageUrl;
 
-    private String overlayText;
+    @Expose private String overlayText;
 
     private String overlayPosition;
 
@@ -35,11 +37,15 @@ public class Card implements Serializable {
 
     private String backgroundColor;
 
-    private long programStartTimestamp;
+    private String infoBackgroundColor;
 
-    private long programEndTimestamp;
+    private String infoSelectedBackgroundColor;
 
-    private byte progress;
+    @Expose private long programStartTimestamp;
+
+    @Expose private long programEndTimestamp;
+
+    @Expose private byte progress;
 
     private Card.Type mType;
 
@@ -180,13 +186,32 @@ public class Card implements Serializable {
         this.backgroundColor = backgroundColor;
     }
 
+    public String getInfoBackgroundColor() {
+        return infoBackgroundColor;
+    }
+
+    public void setInfoBackgroundColor(String infoBackgroundColor) {
+        this.infoBackgroundColor = infoBackgroundColor;
+    }
+
+    public String getInfoSelectedBackgroundColor() {
+        return infoSelectedBackgroundColor;
+    }
+
+    public void setInfoSelectedBackgroundColor(String infoSelectedBackgroundColor) {
+        this.infoSelectedBackgroundColor = infoSelectedBackgroundColor;
+    }
+
     @Override
     public String toString() {
         return this.getTitle();
     }
 
     public String toJSON(){
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder()
+                .excludeFieldsWithoutExposeAnnotation()
+                .create();
+
         return gson.toJson(this);
     }
 
@@ -209,6 +234,7 @@ public class Card implements Serializable {
         OVERLAY,
         COLOR_TEXT,
         VIDEO,
+        GRID,
         DEFAULT
     }
 }

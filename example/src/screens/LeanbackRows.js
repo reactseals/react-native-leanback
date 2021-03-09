@@ -2,8 +2,15 @@ import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { Row } from 'react-native-leanback';
 // import ScrollView from '@reactseals/react-native-snap-scrollview';
+import { generateData, CARD_TYPES } from '../dataGenerator';
 
-import data from '../data.json';
+//Missing stuff
+/*
+  1. SET BG COLOR FOR FOCUSED
+  2. CHECK WHAT ATTRIBUTES IS REDUNDANT LIKE: hasOnlyImage, hasTitle
+  3. Refactor rowItem with card
+  4. Documentation
+ */
 
 const LeanbackRows = () => {
     const ref = useRef(null);
@@ -24,7 +31,7 @@ const LeanbackRows = () => {
                 <Text style={styles.rowTitle}>Action</Text>
                 <Row
                     ref={ref}
-                    data={data}
+                    data={generateData(CARD_TYPES.DEFAULT)}
                     style={{ width: '100%', height: 300 }}
                     attributes={{
                         width: 313,
@@ -32,10 +39,10 @@ const LeanbackRows = () => {
                     }}
                 />
             </View>
-            <View setS napPoint>
+            <View setSnapPoint>
                 <Text style={styles.rowTitle}>Science Fiction</Text>
                 <Row
-                    data={data}
+                    data={generateData(CARD_TYPES.LOGO)}
                     attributes={{
                         width: 313,
                         height: 173,
@@ -45,9 +52,44 @@ const LeanbackRows = () => {
                 />
             </View>
             <View setSnapPoint>
+                <Text style={styles.rowTitle}>Science Fiction</Text>
+                <Row
+                    data={generateData(CARD_TYPES.OVERLAY_TEXT)}
+                    attributes={{
+                        width: 313,
+                        height: 173,
+                        hasImageOnly: true,
+                    }}
+                    style={{ width: '100%', height: 270 }}
+                />
+            </View>
+            <View setSnapPoint>
+                <Text style={styles.rowTitle}>Science Fiction</Text>
+                <Row
+                    data={generateData(CARD_TYPES.PROGRESS)}
+                    attributes={{
+                        width: 313,
+                        height: 173,
+                        hasImageOnly: true,
+                    }}
+                    style={{ width: '100%', height: 270 }}
+                />
+            </View>
+            <View setSnapPoint>
+                <Text style={styles.rowTitle}>Science Fiction</Text>
+                <Row
+                    data={generateData(CARD_TYPES.MIXED)}
+                    attributes={{
+                        width: 313,
+                        height: 173,
+                    }}
+                    style={{ width: '100%', height: 270 }}
+                />
+            </View>
+            <View setSnapPoint>
                 <Text style={styles.rowTitle}>Comedy</Text>
                 <Row
-                    data={[...data, ...data, ...data]}
+                    data={generateData()}
                     attributes={{
                         width: 213,
                         height: 173,

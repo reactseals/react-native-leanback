@@ -30,26 +30,30 @@ public class DataManager {
 
             ReadableMap dataRowItem = data.getMap(i);
 
-            Card nativeRowItem = new Card();
-            nativeRowItem.setIndex(i);
-            nativeRowItem.setViewId(viewId);
-            nativeRowItem.setId(validateString(dataRowItem, "id"));
-            nativeRowItem.setTitle(validateString(dataRowItem, "title"));
-            nativeRowItem.setDescription(validateString(dataRowItem, "description"));
-            nativeRowItem.setCardImageUrl(validateString(dataRowItem, "cardImageUrl"));
-            nativeRowItem.setOverlayImageUrl(validateString(dataRowItem, "overlayImageUrl"));
-            nativeRowItem.setVideoUrl(validateString(dataRowItem, "videoUrl"));
-            nativeRowItem.setOverlayText(validateString(dataRowItem, "overlayText"));
-            nativeRowItem.setBackdropUrl(validateString(dataRowItem, "backdropUrl"));
-            nativeRowItem.setBackgroundColor(validateString(dataRowItem, "backgroundColor"));
-            nativeRowItem.setOverlayPosition(validateString(dataRowItem, "overlayPosition"));
-            nativeRowItem.setLiveBadgeColor(validateString(dataRowItem, "liveBadgeColor"));
-            nativeRowItem.setLiveProgressBarColor(validateString(dataRowItem, "liveProgressBarColor"));
-            nativeRowItem.setProgramStartTimestamp(validateLong(dataRowItem, "programStartTimestamp"));
-            nativeRowItem.setProgress(validateByte(dataRowItem, "progress"));
-            nativeRowItem.setProgramEndTimestamp(validateLong(dataRowItem, "programEndTimestamp"));
-            nativeRowItem.setPresenterType(getType(nativeRowItem));
-            rows.add(nativeRowItem);
+            Card card = new Card();
+            card.setIndex(i);
+            card.setViewId(viewId);
+            card.setId(validateString(dataRowItem, "id"));
+            card.setTitle(validateString(dataRowItem, "title"));
+            card.setDescription(validateString(dataRowItem, "description"));
+            card.setCardImageUrl(validateString(dataRowItem, "cardImageUrl"));
+            card.setOverlayImageUrl(validateString(dataRowItem, "overlayImageUrl"));
+            card.setVideoUrl(validateString(dataRowItem, "videoUrl"));
+            card.setOverlayText(validateString(dataRowItem, "overlayText"));
+            card.setBackdropUrl(validateString(dataRowItem, "backdropUrl"));
+            card.setBackgroundColor(validateString(dataRowItem, "backgroundColor"));
+            card.setOverlayPosition(validateString(dataRowItem, "overlayPosition"));
+            card.setLiveBadgeColor(validateString(dataRowItem, "liveBadgeColor"));
+            card.setLiveProgressBarColor(validateString(dataRowItem, "liveProgressBarColor"));
+
+            card.setInfoBackgroundColor(validateString(dataRowItem, "infoBackgroundColor"));
+            card.setInfoSelectedBackgroundColor(validateString(dataRowItem, "infoSelectedBackgroundColor"));
+
+            card.setProgramStartTimestamp(validateLong(dataRowItem, "programStartTimestamp"));
+            card.setProgress(validateByte(dataRowItem, "progress"));
+            card.setProgramEndTimestamp(validateLong(dataRowItem, "programEndTimestamp"));
+            card.setPresenterType(getType(card));
+            rows.add(card);
         }
 
         return rows;

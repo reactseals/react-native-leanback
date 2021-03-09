@@ -27,7 +27,7 @@ public class VideoCardView extends AbstractCardView {
         inflater.inflate(R.layout.card_view_video, this);
     }
 
-    public void updateUI(Card rowItem, int borderRadius, int cardWidth, int cardHeight) {
+    public void updateUI(Card card, int borderRadius, int cardWidth, int cardHeight) {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View view = inflater.inflate(R.layout.card_view_video, this);
 
@@ -36,7 +36,7 @@ public class VideoCardView extends AbstractCardView {
         mVideoView = view.findViewById(R.id.main_video);
         mVideoView.setLayoutParams(new LayoutParams(cardWidth, cardHeight));
 
-        String proxyUrl = mProxy.getProxyUrl(rowItem.getVideoUrl());
+        String proxyUrl = mProxy.getProxyUrl(card.getVideoUrl());
         setLoading(proxyUrl);
     }
 

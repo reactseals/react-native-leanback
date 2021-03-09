@@ -17,8 +17,8 @@ public class LogoCardView extends AbstractCardView {
         inflater.inflate(R.layout.card_view_logo, this);
     }
 
-    public void updateUI(Card rowItem, int borderRadius, int cardWidth, int cardHeight) {
-        setOverlayImagePosition(rowItem.getOverlayPosition());
+    public void updateUI(Card card, int borderRadius, int cardWidth, int cardHeight) {
+        setOverlayImagePosition(card.getOverlayPosition());
         setLayoutDimensions(cardWidth, cardHeight);
         setMainImageDimensions(cardWidth, cardHeight);
     }

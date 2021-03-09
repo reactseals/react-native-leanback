@@ -9,37 +9,37 @@ import com.facebook.react.bridge.ReadableMap;
 import com.rs.leanbacknative.models.Card;
 import com.rs.leanbacknative.R;
 import com.rs.leanbacknative.cardViews.DefaultImageCardView;
+import com.rs.leanbacknative.utils.Constants;
 
 public class GridCardPresenter extends AbstractCardPresenter<DefaultImageCardView> {
-    public GridCardPresenter(ReadableMap attributes) {
+    private Card mCard;
+
+    public GridCardPresenter(ReadableMap attributes, Card card) {
         initializeAttributes(attributes);
+        mCard = card;
     }
 
     public GridCardPresenter() {
     }
 
-    private static void updateCardBackgroundColor(DefaultImageCardView view, boolean selected) {
-        int color = selected ? sSelectedBackgroundColor : sDefaultBackgroundColor;
-        // Both background colors should be set because the view's background is temporarily visible
-        // during animations.
-        view.setBackgroundColor(color);
-        view.findViewById(R.id.info_field).setBackgroundColor(color);
-
-    }
-
     @Override
     protected DefaultImageCardView onCreateView(Context context) {
-        sSelectedBackgroundColor =
-                ContextCompat.getColor(context, R.color.selected_background);
-        sDefaultBackgroundColor = !mCardShape.equals("round") && mHasImageOnly ? ContextCompat.getColor(context, R.color.default_background) : Color.TRANSPARENT;
-        mDefaultCardImage = ContextCompat.getDrawable(context, R.drawable.lb_ic_sad_cloud);
+        boolean hasTitle = !mCard.getTitle().isEmpty();
+        boolean hasContent = !mCard.getDescription().isEmpty();
+
+        final int defaultBackgroundColor = mCard.getInfoBackgroundColor().isEmpty() ?
+                Color.TRANSPARENT : Color.parseColor(mCard.getInfoBackgroundColor());
+        final int selectedBackgroundColor = mCard.getInfoSelectedBackgroundColor().isEmpty() ?
+                ContextCompat.getColor(context, R.color.selected_background) : Color.parseColor(mCard.getInfoSelectedBackgroundColor());;
 
         DefaultImageCardView cardView =
                 new DefaultImageCardView(context) {
                     @Override
                     public void setSelected(boolean selected) {
-                        if (!mHasImageOnly && !mCardShape.equals("round")) {
-                            updateCardBackgroundColor(this, selected);
+                        if (!mCardShape.equals(Constants.CARD_SHARE_ROUND)) {
+                            int color = selected ? selectedBackgroundColor : defaultBackgroundColor;
+                            this.setBackgroundColor(color);
+                            this.findViewById(R.id.info_field).setBackgroundColor(color);
                         }
                         if (selected) {
                             getTitleView().setVisibility(View.VISIBLE);
@@ -51,9 +51,9 @@ public class GridCardPresenter extends AbstractCardPresenter<DefaultImageCardVie
                     }
                 };
 
-        cardView.buildImageCardView(mHasImageOnly, mHasTitle, mHasContent, mHasIconRight, mHasIconLeft);
-        cardView.setBackgroundColor(sDefaultBackgroundColor);
-        if (!mHasImageOnly)  cardView.findViewById(R.id.info_field).setBackgroundColor(sDefaultBackgroundColor);
+        cardView.buildImageCardView(hasTitle, hasContent);
+        cardView.setBackgroundColor(defaultBackgroundColor);
+        cardView.findViewById(R.id.info_field).setBackgroundColor(defaultBackgroundColor);
 
         return cardView;
     }
@@ -64,7 +64,7 @@ public class GridCardPresenter extends AbstractCardPresenter<DefaultImageCardVie
         cardView.setContentText(card.getDescription());
         cardView.setMainImageDimensions(mCardWidth, mCardHeight);
 
-        RequestOptions requestOptions = mCardShape.equals("round") ? RequestOptions.circleCropTransform() : RequestOptions.fitCenterTransform();
+        RequestOptions requestOptions = mCardShape.equals(Constants.CARD_SHARE_ROUND) ? RequestOptions.circleCropTransform() : RequestOptions.fitCenterTransform();
 
         loadMainImage(cardView.getMainImageView(), card, requestOptions);
 

@@ -17,8 +17,8 @@ public class ProgressCardView extends AbstractCardView {
         inflater.inflate(R.layout.card_view_progress, this);
     }
 
-    public void updateUI(Card rowItem, int borderRadius, int cardWidth, int cardHeight) {
-        setProgressBar(rowItem);
+    public void updateUI(Card card, int borderRadius, int cardWidth, int cardHeight) {
+        setProgressBar(card);
         setLayoutDimensions(cardWidth, cardHeight);
         setMainImageDimensions(cardWidth, cardHeight);
     }

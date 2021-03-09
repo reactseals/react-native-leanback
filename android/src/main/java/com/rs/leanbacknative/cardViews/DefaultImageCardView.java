@@ -168,10 +168,13 @@ public class DefaultImageCardView extends BaseCardView {
         mDefStyle = R.style.Widget_Leanback_ImageCardView;
     }
 
-    public void buildImageCardView(boolean hasImageOnly, boolean hasTitle, boolean hasContent, boolean hasIconRight, boolean hasIconLeft) {
+    public void buildImageCardView(boolean hasTitle, boolean hasContent) {
         // Make sure the ImageCardView is focusable.
         setFocusable(true);
         setFocusableInTouchMode(true);
+
+        boolean hasIconRight = false;
+        boolean hasIconLeft = false;
 
         LayoutInflater inflater = LayoutInflater.from(getContext());
         inflater.inflate(R.layout.lb_image_card_view, this);
@@ -188,11 +191,7 @@ public class DefaultImageCardView extends BaseCardView {
                 mImageView.getResources().getInteger(android.R.integer.config_shortAnimTime));
 
         mInfoArea = findViewById(R.id.info_field);
-        if (hasImageOnly) {
-            removeView(mInfoArea);
-            cardAttrs.recycle();
-            return;
-        }
+
         // Create children
         if (hasTitle) {
             mTitleView = (TextView) inflater.inflate(R.layout.lb_image_card_view_themed_title,

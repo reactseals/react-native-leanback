@@ -17,9 +17,9 @@ public class ProgressLogoCardView extends AbstractCardView {
         inflater.inflate(R.layout.card_view_progress_logo, this);
     }
 
-    public void updateUI(Card rowItem, int borderRadius, int cardWidth, int cardHeight) {
-        setOverlayImagePosition(rowItem.getOverlayPosition());
-        setProgressBar(rowItem);
+    public void updateUI(Card card, int borderRadius, int cardWidth, int cardHeight) {
+        setOverlayImagePosition(card.getOverlayPosition());
+        setProgressBar(card);
         setLayoutDimensions(cardWidth, cardHeight);
         setMainImageDimensions(cardWidth, cardHeight);
     }

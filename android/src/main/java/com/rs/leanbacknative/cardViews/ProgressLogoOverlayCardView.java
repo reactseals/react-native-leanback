@@ -18,11 +18,11 @@ public class ProgressLogoOverlayCardView extends AbstractCardView {
         inflater.inflate(R.layout.card_view_progress_logo_overlay, this);
     }
 
-    public void updateUI(Card rowItem, int borderRadius, int cardWidth, int cardHeight) {
-        overlayTextView.setText(rowItem.getOverlayText());
+    public void updateUI(Card card, int borderRadius, int cardWidth, int cardHeight) {
+        overlayTextView.setText(card.getOverlayText());
         setGradientCornerRadius(borderRadius);
-        setOverlayImagePosition(rowItem.getOverlayPosition());
-        setProgressBar(rowItem);
+        setOverlayImagePosition(card.getOverlayPosition());
+        setProgressBar(card);
         setLayoutDimensions(cardWidth, cardHeight);
         setMainImageDimensions(cardWidth, cardHeight);
     }
@@ -30,17 +30,11 @@ public class ProgressLogoOverlayCardView extends AbstractCardView {
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-
-        gradient.setVisibility(View.INVISIBLE);
-        overlayTextView.setVisibility(View.INVISIBLE);
     }
 
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-
-        gradient.setVisibility(View.VISIBLE);
-        overlayTextView.setVisibility(View.VISIBLE);
     }
 }
 

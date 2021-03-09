@@ -40,6 +40,12 @@ public class Utils {
             if (Objects.equals(forbiddenFocusDirections.getString(i), Constants.FOCUS_DIRECTION_DOWN)) {
                 cardView.setNextFocusDownId(cardView.getId());
             }
+            if (Objects.equals(forbiddenFocusDirections.getString(i), Constants.FOCUS_DIRECTION_LEFT)) {
+                cardView.setNextFocusLeftId(cardView.getId());
+            }
+            if (Objects.equals(forbiddenFocusDirections.getString(i), Constants.FOCUS_DIRECTION_RIGHT)) {
+                cardView.setNextFocusRightId(cardView.getId());
+            }
         }
     }
 
