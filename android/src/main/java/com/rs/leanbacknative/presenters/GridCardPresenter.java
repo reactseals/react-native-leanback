@@ -41,12 +41,14 @@ public class GridCardPresenter extends AbstractCardPresenter<DefaultImageCardVie
                             this.setBackgroundColor(color);
                             this.findViewById(R.id.info_field).setBackgroundColor(color);
                         }
-                        if (selected) {
-                            getTitleView().setVisibility(View.VISIBLE);
-                            getContentView().setVisibility(View.VISIBLE);
-                        } else {
-                            getTitleView().setVisibility(View.INVISIBLE);
-                            getContentView().setVisibility(View.INVISIBLE);
+                        if (mGridShowOnlyFocusedInfo) {
+                            if (selected) {
+                                setTitleVisibility(View.VISIBLE);
+                                setContentVisibility(View.VISIBLE);
+                            } else {
+                                setTitleVisibility(View.INVISIBLE);
+                                setContentVisibility(View.INVISIBLE);
+                            }
                         }
                     }
                 };
@@ -68,8 +70,10 @@ public class GridCardPresenter extends AbstractCardPresenter<DefaultImageCardVie
 
         loadMainImage(cardView.getMainImageView(), card, requestOptions);
 
-        cardView.getTitleView().setVisibility(View.INVISIBLE);
-        cardView.getContentView().setVisibility(View.INVISIBLE);
+        if (mGridShowOnlyFocusedInfo) {
+            cardView.setTitleVisibility(View.INVISIBLE);
+            cardView.setContentVisibility(View.INVISIBLE);
+        }
     }
 
     @Override

@@ -18,6 +18,7 @@ const Row = React.forwardRef(
       nextFocusDownId,
       nextFocusLeftId,
       nextFocusRightId,
+      showOnlyFocusedInfo,
       data,
       ...restOfProps
     },
@@ -61,8 +62,8 @@ const Row = React.forwardRef(
         nextFocusLeftId: nextFocusLeftId || -1,
         nextFocusRightId: nextFocusRightId || -1,
         cardShape: attributes?.cardShape || 'square',
-        overlayPosition: attributes?.overlayPosition || '',
         borderRadius: attributes?.borderRadius || 0,
+        showOnlyFocusedInfo: showOnlyFocusedInfo ?? false
       },
     };
 

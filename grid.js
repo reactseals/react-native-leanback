@@ -27,6 +27,7 @@ const Grid = React.forwardRef(
     {
       attributes,
       forbiddenFocusDirections,
+      showOnlyFocusedInfo,
       nextFocusUpId,
       nextFocusDownId,
       nextFocusLeftId,
@@ -53,7 +54,8 @@ const Grid = React.forwardRef(
         nextFocusLeftId: nextFocusLeftId || -1,
         nextFocusRightId: nextFocusRightId || -1,
         cardShape: attributes?.cardShape || "square",
-        borderRadius: 0
+        borderRadius: 0,
+        showOnlyFocusedInfo: showOnlyFocusedInfo ?? false
       },
     };
 

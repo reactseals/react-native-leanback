@@ -403,6 +403,22 @@ public class DefaultImageCardView extends BaseCardView {
         mTitleView.setText(text);
     }
 
+    public void setTitleVisibility(int visibility){
+        if (mTitleView == null) {
+            return;
+        }
+
+        mTitleView.setVisibility(visibility);
+    }
+
+    public void setContentVisibility(int visibility){
+        if (mContentView == null) {
+            return;
+        }
+
+        mContentView.setVisibility(visibility);
+    }
+
     /**
      * Returns the title text.
      */

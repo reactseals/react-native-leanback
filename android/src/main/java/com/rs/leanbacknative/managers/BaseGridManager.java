@@ -43,9 +43,14 @@ public class BaseGridManager extends ViewGroupManager<LeanbackGridLayout> {
     }
 
     @Override
-    public void receiveCommand(@NonNull LeanbackGridLayout view, String commandType, @Nullable ReadableArray args) {
+    public void receiveCommand(@NonNull final LeanbackGridLayout view, String commandType, @Nullable ReadableArray args) {
         if (Constants.COMMAND_REQUEST_FOCUS.equals(commandType)) {
-            view.requestFocus();
+            view.post(new Runnable() {
+                @Override
+                public void run() {
+                    view.requestFocus();
+                }
+            });
         }
     }
 }
