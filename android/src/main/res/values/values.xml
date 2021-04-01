@@ -66,6 +66,8 @@
         <!-- hover card description style -->
         <attr format="reference" name="rowHoverCardDescriptionStyle"/>
 
+        <attr format="reference" name="fallbackBackground"/>
+
         <!-- CardView styles -->
         <attr format="reference" name="baseCardViewStyle"/>
         <attr format="reference" name="imageCardViewStyle"/>
@@ -327,6 +329,7 @@
     <style name="Theme.Leanback" parent="Theme.LeanbackBase">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="fallbackBackground">@drawable/fallback_bg</item>
 
        <!-- Used by MediaRouter -->
         <item name="isLightTheme">true</item>

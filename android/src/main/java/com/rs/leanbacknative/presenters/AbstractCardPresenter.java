@@ -43,7 +43,7 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
 
     @Override
     public final ViewHolder onCreateViewHolder(ViewGroup parent) {
-        mDefaultCardImage = ContextCompat.getDrawable(parent.getContext(), R.drawable.lb_ic_sad_cloud);
+        mDefaultCardImage = ContextCompat.getDrawable(parent.getContext(), R.drawable.fallback_bg);
         T cardView = onCreateView(parent.getContext());
         return new ViewHolder(cardView);
     }
