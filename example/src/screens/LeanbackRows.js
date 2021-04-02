@@ -29,6 +29,7 @@ const LeanbackRows = () => {
                         width: 313,
                         height: 173,
                     }}
+                    onFocus={(item) => console.log(item)}
                 />
             </View>
             <View setSnapPoint>

@@ -106,6 +106,8 @@
              ?android:attr/selectableItemBackground. -->
         <attr format="reference" name="guidedActionsSelectorDrawable"/>
 
+        <attr format="reference" name="fallbackBackground"/>
+
         <!-- Theme attribute for the shadow elevation of GuidedActions. Default is
              {@landroidx.leanbackback.R.dimen#lb_guidedactions_elevation}.-->
         <attr format="dimension|reference" name="guidedActionsElevation"/>
@@ -1065,6 +1067,7 @@
     <style name="Theme.Leanback" parent="Theme.LeanbackBase">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="fallbackBackground">@drawable/lb_fallback_bg</item>
 
        <!-- Used by MediaRouter -->
         <item name="isLightTheme">true</item>
