@@ -15,13 +15,13 @@ Move [styles.xml][link1] and [values.xml][link2] to your androidtv resources fol
 Install via `package.json`:
 
 ```
-"@reactseals/react-native-leanback": "2.0.0-beta.7"
+"@reactseals/react-native-leanback": "2.0.1"
 ```
 
 Install from the command line:
 
 ```
-npm install @reactseals/react-native-leanback@2.0.0-beta.7
+npm install @reactseals/react-native-leanback@2.0.1
 ```
 
 ## Usage
@@ -83,7 +83,7 @@ import { Grid } from 'react-native-leanback';
 
 | Prop                                | Type                                             | Default  | Description                                                                                   |
 | ----------------------------------- | ------------------------------------------------ | -------- | --------------------------------------------------------------------------------------------- |
-| ``data``                            | ``array``                                        |          | Data for row. See ## Data Model                                                               |
+| ``data``                            | ``array``                                        |          | Data for row. See [Data Model](#data-model)                                                   |
 | ``style``                           | ``object``                                       |          | Container holder style                                                                        |
 | ``title``                           | ``string``                                       |          | Row title                                                                                     |
 | ``numOfCols``                       | ``enum(4, 5, 6)``                                | `4`      | Number how many columns grid should contain(Grid only)                                        |
@@ -104,7 +104,7 @@ import { Grid } from 'react-native-leanback';
 
 ### `requestFocus()`
 
-Imperative method for requestiong focus of specific row or grid E.g.
+Imperative method for requesting focus of specific Row or Grid E.g.
 
 ```javascript
 ref.current.requestFocus()
