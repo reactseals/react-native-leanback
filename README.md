@@ -15,13 +15,13 @@ Move [styles.xml][link1] and [values.xml][link2] to your androidtv resources fol
 Install via `package.json`:
 
 ```
-"@reactseals/react-native-leanback": "2.0.1"
+"@reactseals/react-native-leanback": "2.0.2"
 ```
 
 Install from the command line:
 
 ```
-npm install @reactseals/react-native-leanback@2.0.1
+npm install @reactseals/react-native-leanback@2.0.2
 ```
 
 ## Usage
