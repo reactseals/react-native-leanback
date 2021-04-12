@@ -74,6 +74,7 @@ import { Grid } from 'react-native-leanback';
 | `overlayText`           | `no`     | Overlay text visible on the top of card image                                                                                   |
 | `overlayPosition`       | `no`     | Position of overlay text                                                                                                        |
 | `progress`              | `no`     | Percentage which indicates progress of live stream                                                                              |
+| `backgroundColor`       | `no`     | Background color of the card                                                                                                    |
 | `programStartTimestamp` | `no`     | Timestamp of live stream start. Must be combined with `programEndTimestamp` then progress gets automatically calculated         |
 | `programEndTimestamp`   | `no`     | Timestamp of live stream end. Must be combined with `programStartTimestamp` then progress gets automatically calculated         |
 | `viewId`                | `no`     | Unique viewId which can be used to prevent or force focus. If it's not defined then random unique id is generated automatically |
@@ -81,23 +82,24 @@ import { Grid } from 'react-native-leanback';
 
 ## Props
 
-| Prop                                | Type                                             | Default  | Description                                                                                   |
-| ----------------------------------- | ------------------------------------------------ | -------- | --------------------------------------------------------------------------------------------- |
-| ``data``                            | ``array``                                        |          | Data for row. See [Data Model](#data-model)                                                   |
-| ``style``                           | ``object``                                       |          | Container holder style                                                                        |
-| ``title``                           | ``string``                                       |          | Row title                                                                                     |
-| ``numOfCols``                       | ``enum(4, 5, 6)``                                | `4`      | Number how many columns grid should contain(Grid only)                                        |
-| ``forbiddenFocusDirections``        | ``array of enum('up', 'down', 'left', 'right')`` |          | Prevents any element to be focused when user navigates out of grid/row to provided directions |
-| ``nextFocusUpId``                   | ``string``                                       |          | Designates the next view to receive focus when the user navigates up                          |
-| ``nextFocusDownId``                 | ``string``                                       |          | Designates the next view to receive focus when the user navigates down                        |
-| ``nextFocusLeftId``                 | ``string``                                       |          | Designates the next view to receive focus when the user navigates left                        |
-| ``nextFocusRightId``                | ``string``                                       |          | Designates the next view to receive focus when the user navigates right                       |
-| ``attributes.width``                | ``integer``                                      |          | Width of card                                                                                 |
-| ``attributes.height``               | ``integer``                                      |          | Height of card                                                                                |
-| ``attributes.cardShape``            | ``enum('round', 'square')``                      | `square` | Shape of the card                                                                             |
-| ``attributes.focusedCardAlignment`` | ``enum('left', 'center')``                       | `center` | Alignment of focus                                                                            |
-| ``attributes.numberOfRows``         | ``number``                                       | `1`      | Number of rows in Row component                                                               |
-| ``attributes.borderRadius``         | ``number``                                       |          | Border radius                                                                                 |
+| Prop                              | Type                                           | Default  | Description                                                                                   |
+| --------------------------------- | ---------------------------------------------- | -------- | --------------------------------------------------------------------------------------------- |
+| `data`                            | `array`                                        |          | Data for row. See [Data Model](#data-model)                                                   |
+| `style`                           | `object`                                       |          | Container holder style                                                                        |
+| `title`                           | `string`                                       |          | Row title                                                                                     |
+| `numOfCols`                       | `enum(4, 5, 6)`                                | `4`      | Number how many columns grid should contain(Grid only)                                        |
+| `showOnlyFocusedInfo`             | `boolean`                                      | `false`  | Show info field block underneath ONLY when card is focused(Grid only)                         |
+| `forbiddenFocusDirections`        | `array of enum('up', 'down', 'left', 'right')` |          | Prevents any element to be focused when user navigates out of grid/row to provided directions |
+| `nextFocusUpId`                   | `string`                                       |          | Designates the next view to receive focus when the user navigates up                          |
+| `nextFocusDownId`                 | `string`                                       |          | Designates the next view to receive focus when the user navigates down                        |
+| `nextFocusLeftId`                 | `string`                                       |          | Designates the next view to receive focus when the user navigates left                        |
+| `nextFocusRightId`                | `string`                                       |          | Designates the next view to receive focus when the user navigates right                       |
+| `attributes.width`                | `integer`                                      |          | Width of card                                                                                 |
+| `attributes.height`               | `integer`                                      |          | Height of card                                                                                |
+| `attributes.cardShape`            | `enum('round', 'square')`                      | `square` | Shape of the card                                                                             |
+| `attributes.focusedCardAlignment` | `enum('left', 'center')`                       | `center` | Alignment of focus                                                                            |
+| `attributes.numberOfRows`         | `number`                                       | `1`      | Number of rows in Row component                                                               |
+| `attributes.borderRadius`         | `number`                                       |          | Border radius                                                                                 |
 
 
 ## Methods
