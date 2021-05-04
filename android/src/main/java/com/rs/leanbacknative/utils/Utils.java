@@ -3,6 +3,7 @@ package com.rs.leanbacknative.utils;
 import android.view.View;
 
 import com.facebook.react.bridge.ReadableArray;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.Objects;
 
@@ -49,4 +50,19 @@ public class Utils {
         }
     }
 
+    /**
+     *
+     * @param transformationMode
+     * @return
+     */
+    public static RequestOptions getRequestOptions(String transformationMode) {
+        switch (transformationMode) {
+            case Constants.IMAGE_TRANSFORMATION_NO_TRANSFORMATION:
+                return RequestOptions.noTransformation();
+            case Constants.IMAGE_TRANSFORMATION_CENTER_CROP:
+                return RequestOptions.centerCropTransform();
+            default:
+                return RequestOptions.fitCenterTransform();
+        }
+    }
 }

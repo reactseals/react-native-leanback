@@ -9,6 +9,7 @@ import com.rs.leanbacknative.models.Card;
 import com.rs.leanbacknative.R;
 import com.rs.leanbacknative.cardViews.DefaultImageCardView;
 import com.rs.leanbacknative.utils.Constants;
+import com.rs.leanbacknative.utils.Utils;
 
 public class DefaultCardPresenter extends AbstractCardPresenter<DefaultImageCardView> {
     private Card mCard;
@@ -59,22 +60,8 @@ public class DefaultCardPresenter extends AbstractCardPresenter<DefaultImageCard
         if (card.getCardImageUrl() != null) {
             cardView.setMainImageDimensions(mCardWidth, mCardHeight);
 
-            RequestOptions requestOptions;
-
-            switch (mImageTransformationMode) {
-                case Constants.IMAGE_TRANSFORMATION_NO_TRANSFORMATION:
-                    requestOptions = RequestOptions.noTransformation();
-                    break;
-                case Constants.IMAGE_TRANSFORMATION_CENTER_CROP:
-                    requestOptions = RequestOptions.centerCropTransform();
-                    break;
-                default:
-                    requestOptions = RequestOptions.fitCenterTransform();
-                    break;
-            }
-
-            requestOptions = mCardShape.equals(Constants.CARD_SHARE_ROUND) ?
-                    RequestOptions.circleCropTransform() : requestOptions;
+            RequestOptions requestOptions = mCardShape.equals(Constants.CARD_SHARE_ROUND) ?
+                    RequestOptions.circleCropTransform() : Utils.getRequestOptions(mImageTransformationMode);
 
             loadMainImage(cardView.getMainImageView(), card, requestOptions);
         }
