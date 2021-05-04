@@ -34,6 +34,7 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
     protected int nextFocusLeftId = -1;
     protected int nextFocusRightId = -1;
     protected int mBorderRadius;
+    protected boolean mHasImageOnly;
 
     protected boolean mGridShowOnlyFocusedInfo = false;
 
@@ -79,6 +80,7 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
         mBorderRadius = attributes.getInt("borderRadius");
         mCardShape = attributes.getString("cardShape");
         mGridShowOnlyFocusedInfo = attributes.getBoolean("showOnlyFocusedInfo");
+        mHasImageOnly = attributes.getBoolean("hasImageOnly");
     }
 
     void setFocusRules(View cardView, Card card) {

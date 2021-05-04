@@ -168,7 +168,7 @@ public class DefaultImageCardView extends BaseCardView {
         mDefStyle = R.style.Widget_Leanback_ImageCardView;
     }
 
-    public void buildImageCardView(boolean hasTitle, boolean hasContent) {
+    public void buildImageCardView(boolean hasTitle, boolean hasContent, boolean hasImageOnly) {
         // Make sure the ImageCardView is focusable.
         setFocusable(true);
         setFocusableInTouchMode(true);
@@ -192,14 +192,18 @@ public class DefaultImageCardView extends BaseCardView {
 
         mInfoArea = findViewById(R.id.info_field);
 
+        if (hasImageOnly) {
+            mInfoArea.setVisibility(View.INVISIBLE);
+        }
+
         // Create children
-        if (hasTitle) {
+        if (hasTitle && !hasImageOnly) {
             mTitleView = (TextView) inflater.inflate(R.layout.lb_image_card_view_themed_title,
                     mInfoArea, false);
             mInfoArea.addView(mTitleView);
         }
 
-        if (hasContent) {
+        if (hasContent && !hasImageOnly) {
             mContentView = (TextView) inflater.inflate(R.layout.lb_image_card_view_themed_content,
                     mInfoArea, false);
             mInfoArea.addView(mContentView);
@@ -215,7 +219,7 @@ public class DefaultImageCardView extends BaseCardView {
         }
 
         // Set up LayoutParams for children
-        if (hasTitle && !hasContent && mBadgeImage != null) {
+        if (hasTitle && !hasContent && mBadgeImage != null && !hasImageOnly) {
             RelativeLayout.LayoutParams relativeLayoutParams =
                     (RelativeLayout.LayoutParams) mTitleView.getLayoutParams();
             // Adjust title TextView if there is an icon but no content
@@ -228,7 +232,7 @@ public class DefaultImageCardView extends BaseCardView {
         }
 
         // Set up LayoutParams for children
-        if (hasContent) {
+        if (hasContent && !hasImageOnly) {
             RelativeLayout.LayoutParams relativeLayoutParams =
                     (RelativeLayout.LayoutParams) mContentView.getLayoutParams();
             if (!hasTitle) {
@@ -243,7 +247,7 @@ public class DefaultImageCardView extends BaseCardView {
             mContentView.setLayoutParams(relativeLayoutParams);
         }
 
-        if (mBadgeImage != null) {
+        if (mBadgeImage != null && !hasImageOnly) {
             RelativeLayout.LayoutParams relativeLayoutParams =
                     (RelativeLayout.LayoutParams) mBadgeImage.getLayoutParams();
             if (hasContent) {
@@ -261,7 +265,7 @@ public class DefaultImageCardView extends BaseCardView {
         // If the user has set a specific value here, it will differ from null.
         // In this case, we do want to override the value set in the style.
         Drawable background = cardAttrs.getDrawable(R.styleable.lbImageCardView_infoAreaBackground);
-        if (null != background) {
+        if (null != background && !hasImageOnly) {
             setInfoAreaBackground(background);
         }
         // Backward compatibility: There has to be an icon in the default

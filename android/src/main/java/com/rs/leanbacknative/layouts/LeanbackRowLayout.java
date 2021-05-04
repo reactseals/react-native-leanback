@@ -133,10 +133,10 @@ public class LeanbackRowLayout extends FrameLayout {
 
     public void setDataAndAttributes(ReadableMap dataAndAttributes) {
         ReadableArray data = dataAndAttributes.getArray("data");
-
-        mRows = DataManager.setupData(data);
-
         ReadableMap attributes = dataAndAttributes.getMap("attributes");
+
+        mRows = DataManager.setupData(data, attributes);
+
         CardPresenterSelector cardPresenterSelector = new CardPresenterSelector(mContext, attributes);
         ArrayObjectAdapter mListRowAdapterWithData = new ArrayObjectAdapter(cardPresenterSelector);
 

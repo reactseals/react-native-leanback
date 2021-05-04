@@ -44,7 +44,7 @@ public class DefaultCardPresenter extends AbstractCardPresenter<DefaultImageCard
                 }
             };
 
-        cardView.buildImageCardView(hasTitle, hasContent);
+        cardView.buildImageCardView(hasTitle, hasContent, mHasImageOnly);
         cardView.setBackgroundColor(defaultBackgroundColor);
         cardView.findViewById(R.id.info_field).setBackgroundColor(defaultBackgroundColor);
 

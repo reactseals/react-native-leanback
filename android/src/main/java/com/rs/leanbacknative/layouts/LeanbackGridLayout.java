@@ -96,9 +96,10 @@ public class LeanbackGridLayout extends FrameLayout {
 
     public void setDataAndAttributes(ReadableMap dataAndAttributes) {
         ReadableArray data = dataAndAttributes.getArray("data");
-        List<Card> rows = DataManager.setupData(data);
-
         ReadableMap attributes = dataAndAttributes.getMap("attributes");
+
+        List<Card> rows = DataManager.setupData(data, attributes);
+
         CardPresenterSelector cardPresenterSelector = new CardPresenterSelector(mContext, attributes);
         mRowsAdapter = new ArrayObjectAdapter(cardPresenterSelector);
 

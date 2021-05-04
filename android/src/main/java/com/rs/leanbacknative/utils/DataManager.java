@@ -19,7 +19,7 @@ public class DataManager {
         return viewIds;
     }
 
-    public static List<Card> setupData(@Nullable ReadableArray data) {
+    public static List<Card> setupData(@Nullable ReadableArray data, ReadableMap attributes) {
         viewIds.clear();
         List<Card> rows = new ArrayList<>();
         Random random = new Random();
@@ -53,19 +53,20 @@ public class DataManager {
             card.setProgramStartTimestamp(validateLong(dataRowItem, "programStartTimestamp"));
             card.setProgress(validateByte(dataRowItem, "progress"));
             card.setProgramEndTimestamp(validateLong(dataRowItem, "programEndTimestamp"));
-            card.setPresenterType(getType(card));
+            card.setPresenterType(getType(card, attributes));
             rows.add(card);
         }
 
         return rows;
     }
 
-    private static Card.Type getType(Card item) {
+    private static Card.Type getType(Card item, ReadableMap attributes) {
         boolean hasLogo = !item.getOverlayImageUrl().isEmpty();
         boolean hasOverlayText = !item.getOverlayText().isEmpty();
         boolean isLive = item.getProgramStartTimestamp() != 0 || item.getProgress() != -1;
         boolean isColorText = !item.getBackgroundColor().isEmpty();
         boolean isVideo = !item.getVideoUrl().isEmpty();
+        boolean hasImageOnly = attributes.getBoolean("hasImageOnly");
 
         if (isLive && hasOverlayText && hasLogo) return Card.Type.PROGRESS_LOGO_OVERLAY;
         if (isLive && hasLogo) return Card.Type.PROGRESS_LOGO;
@@ -76,6 +77,7 @@ public class DataManager {
         if (hasOverlayText) return Card.Type.OVERLAY;
         if (isLive) return Card.Type.PROGRESS;
         if (isVideo) return Card.Type.VIDEO;
+        if (hasImageOnly) return Card.Type.LOGO;
 
         return Card.Type.DEFAULT;
     }
