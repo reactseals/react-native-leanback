@@ -35,6 +35,7 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
     protected int nextFocusRightId = -1;
     protected int mBorderRadius;
     protected boolean mHasImageOnly;
+    protected String mImageTransformationMode;
 
     protected boolean mGridShowOnlyFocusedInfo = false;
 
@@ -81,6 +82,7 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
         mCardShape = attributes.getString("cardShape");
         mGridShowOnlyFocusedInfo = attributes.getBoolean("showOnlyFocusedInfo");
         mHasImageOnly = attributes.getBoolean("hasImageOnly");
+        mImageTransformationMode = attributes.getString("imageTransformationMode");
     }
 
     void setFocusRules(View cardView, Card card) {
@@ -104,9 +106,10 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
     }
 
     void loadMainImage(ImageView imageView, Card card, @Nullable RequestOptions reqOptions) {
+
         RequestOptions requestOptions = reqOptions != null ? reqOptions : mBorderRadius != 0 ?
                 (new RequestOptions()).transform(new CenterCrop(), new RoundedCorners(mBorderRadius)) :
-                RequestOptions.fitCenterTransform();
+                Utils.getRequestOptions(mImageTransformationMode);
 
         Glide.with(imageView.getContext())
                 .load(card.getCardImageUrl())
