@@ -56,12 +56,26 @@ public class DefaultCardPresenter extends AbstractCardPresenter<DefaultImageCard
         cardView.setTitleText(card.getTitle());
         cardView.setContentText(card.getDescription());
 
-
         if (card.getCardImageUrl() != null) {
             cardView.setMainImageDimensions(mCardWidth, mCardHeight);
 
-            RequestOptions requestOptions = mCardShape.equals(Constants.CARD_SHARE_ROUND) ?
-                    RequestOptions.circleCropTransform() : RequestOptions.fitCenterTransform();
+            RequestOptions requestOptions;
+
+            switch (mImageTransformationMode) {
+                case Constants.IMAGE_TRANSFORMATION_NO_TRANSFORMATION:
+                    requestOptions = RequestOptions.noTransformation();
+                    break;
+                case Constants.IMAGE_TRANSFORMATION_CENTER_CROP:
+                    requestOptions = RequestOptions.centerCropTransform();
+                    break;
+                default:
+                    requestOptions = RequestOptions.fitCenterTransform();
+                    break;
+            }
+
+            requestOptions = mCardShape.equals(Constants.CARD_SHARE_ROUND) ?
+                    RequestOptions.circleCropTransform() : requestOptions;
+
             loadMainImage(cardView.getMainImageView(), card, requestOptions);
         }
     }
