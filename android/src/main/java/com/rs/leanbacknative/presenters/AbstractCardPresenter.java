@@ -106,9 +106,10 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
     }
 
     void loadMainImage(ImageView imageView, Card card, @Nullable RequestOptions reqOptions) {
+
         RequestOptions requestOptions = reqOptions != null ? reqOptions : mBorderRadius != 0 ?
                 (new RequestOptions()).transform(new CenterCrop(), new RoundedCorners(mBorderRadius)) :
-                RequestOptions.fitCenterTransform();
+                Utils.getRequestOptions(mImageTransformationMode);
 
         Glide.with(imageView.getContext())
                 .load(card.getCardImageUrl())
