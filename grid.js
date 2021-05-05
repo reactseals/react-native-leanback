@@ -57,6 +57,8 @@ const Grid = React.forwardRef(
 				borderRadius: 0,
 				showOnlyFocusedInfo: showOnlyFocusedInfo ?? false,
 				hasImageOnly: attributes.hasImageOnly ?? false,
+				imageTransformationMode:
+					attributes?.imageTransformationMode || 'fitCenter',
 			},
 		};
 
