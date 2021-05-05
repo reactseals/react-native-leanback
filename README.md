@@ -100,7 +100,7 @@ import { Grid } from 'react-native-leanback';
 | `attributes.focusedCardAlignment` | `enum('left', 'center')`                       | `center` | Alignment of focus                                                                            |
 | `attributes.numberOfRows`         | `number`                                       | `1`      | Number of rows in Row component                                                               |
 | `attributes.borderRadius`         | `number`                                       |          | Border radius                                                                                 |
-
+|`attributes.imageTransformationMode`|`enum('noTransformation','centerCrop')`|`fitCenter`| Transformation mode of the card image |
 
 ## Methods
 
