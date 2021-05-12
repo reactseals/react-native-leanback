@@ -1,5 +1,6 @@
 package com.rs.leanbacknative.utils;
 
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -13,22 +14,23 @@ import java.util.List;
 import java.util.Random;
 
 public class DataManager {
-    private static ArrayList<Integer> viewIds = new ArrayList<Integer>();
+    public DataManager() {}
 
-    public static ArrayList getViewIds() {
+    private ArrayList<Integer> viewIds = new ArrayList<Integer>();
+
+    public ArrayList getViewIds() {
         return viewIds;
     }
 
-    public static List<Card> setupData(@Nullable ReadableArray data, ReadableMap attributes) {
-        viewIds.clear();
+    public List<Card> setupData(@Nullable ReadableArray data, ReadableMap attributes) {
         List<Card> rows = new ArrayList<>();
+        ArrayList<Integer> ids = new ArrayList<Integer>();
         Random random = new Random();
 
         for (int i = 0; i < data.size(); i++) {
             random.nextInt();
             int viewId = View.generateViewId() + random.nextInt(); // ensure viewID is not duplicate with React ones
-            viewIds.add(viewId);
-
+            ids.add(viewId);
             ReadableMap dataRowItem = data.getMap(i);
 
             Card card = new Card();
@@ -55,6 +57,11 @@ public class DataManager {
             card.setProgramEndTimestamp(validateLong(dataRowItem, "programEndTimestamp"));
             card.setPresenterType(getType(card, attributes));
             rows.add(card);
+        }
+
+        if (viewIds.size() == 0) {
+            viewIds = ids;
+            Log.d("ADDING_TO_ARRAY", viewIds.toString());
         }
 
         return rows;

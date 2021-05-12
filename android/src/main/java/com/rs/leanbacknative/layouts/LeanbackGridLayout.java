@@ -29,9 +29,10 @@ import java.util.List;
 
 @SuppressLint("ViewConstructor")
 public class LeanbackGridLayout extends FrameLayout {
-    private ThemedReactContext mContext;
+    private final ThemedReactContext mContext;
     private ArrayObjectAdapter mRowsAdapter;
-    private VerticalGridFragment mVerticalGridFragment;
+    private final VerticalGridFragment mVerticalGridFragment;
+    private final DataManager mDataManager;
 
     public LeanbackGridLayout(@NonNull ThemedReactContext context, VerticalGridFragment verticalGridFragment, int numberOfColumns) {
         super(context);
@@ -40,6 +41,7 @@ public class LeanbackGridLayout extends FrameLayout {
         mVerticalGridFragment = verticalGridFragment;
         initializeAdapter(verticalGridFragment, numberOfColumns);
         setupEventListeners(verticalGridFragment);
+        mDataManager = new DataManager();
     }
 
     private void initializeAdapter(VerticalGridFragment verticalGridFragment, int numberOfColumns) {
@@ -98,14 +100,11 @@ public class LeanbackGridLayout extends FrameLayout {
         ReadableArray data = dataAndAttributes.getArray("data");
         ReadableMap attributes = dataAndAttributes.getMap("attributes");
 
-        List<Card> rows = DataManager.setupData(data, attributes);
-
-        if (mRowsAdapter != null) {
-            mRowsAdapter.clear();
-        }
+        List<Card> rows = mDataManager.setupData(data, attributes);
 
         CardPresenterSelector cardPresenterSelector = new CardPresenterSelector(mContext, attributes);
         mRowsAdapter = new ArrayObjectAdapter(cardPresenterSelector);
+        mRowsAdapter.clear();
 
         for (int i = 0; i < rows.size(); i++) {
             rows.get(i).setPresenterType(Card.Type.GRID);
@@ -115,7 +114,7 @@ public class LeanbackGridLayout extends FrameLayout {
         mVerticalGridFragment.setAdapter(mRowsAdapter);
 
         WritableMap event = Arguments.createMap();
-        event.putString("data", DataManager.getViewIds().toString());
+        event.putString("data", mDataManager.getViewIds().toString());
         mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), Constants.EVENT_ON_DATA_IDS_READY, event);
     }
 }
