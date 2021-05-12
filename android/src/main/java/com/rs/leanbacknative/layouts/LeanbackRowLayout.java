@@ -137,6 +137,10 @@ public class LeanbackRowLayout extends FrameLayout {
 
         mRows = DataManager.setupData(data, attributes);
 
+        if (mRowsAdapter != null) {
+            mRowsAdapter.clear();
+        }
+
         CardPresenterSelector cardPresenterSelector = new CardPresenterSelector(mContext, attributes);
         ArrayObjectAdapter mListRowAdapterWithData = new ArrayObjectAdapter(cardPresenterSelector);
 
@@ -150,7 +154,6 @@ public class LeanbackRowLayout extends FrameLayout {
 
         HeaderItem header = new HeaderItem(0, mRowTitle);
 
-        mRowsAdapter.clear();
         mRowsAdapter.add(new ListRow(header, mListRowAdapterWithData));
         WritableMap event = Arguments.createMap();
         event.putString("data", DataManager.getViewIds().toString());

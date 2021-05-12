@@ -100,10 +100,13 @@ public class LeanbackGridLayout extends FrameLayout {
 
         List<Card> rows = DataManager.setupData(data, attributes);
 
+        if (mRowsAdapter != null) {
+            mRowsAdapter.clear();
+        }
+
         CardPresenterSelector cardPresenterSelector = new CardPresenterSelector(mContext, attributes);
         mRowsAdapter = new ArrayObjectAdapter(cardPresenterSelector);
 
-        mRowsAdapter.clear();
         for (int i = 0; i < rows.size(); i++) {
             rows.get(i).setPresenterType(Card.Type.GRID);
             mRowsAdapter.add(rows.get(i));
