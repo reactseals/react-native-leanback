@@ -2,6 +2,7 @@ package com.rs.leanbacknative.presenters;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -22,6 +23,10 @@ import com.rs.leanbacknative.R;
 import com.rs.leanbacknative.models.Card;
 import com.rs.leanbacknative.utils.Constants;
 import com.rs.leanbacknative.utils.Utils;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public abstract class AbstractCardPresenter<T extends BaseCardView> extends Presenter {
     protected Drawable mDefaultCardImage;
@@ -89,8 +94,17 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
         if (cardView.getId() == -1)
             cardView.setId(card.getViewId());
 
-        if (mForbiddenFocusDirections != null)
-            Utils.setForbiddenFocusDirections(mForbiddenFocusDirections, cardView);
+        if (mForbiddenFocusDirections != null) {
+            List<String> forbiddenFocus = toStringArrayList(mForbiddenFocusDirections);
+            if(card.getIndex() != 0){
+                forbiddenFocus = filterStringArrayList(forbiddenFocus, Constants.FOCUS_DIRECTION_LEFT);
+            }
+            if(!card.getIsLast()){
+                forbiddenFocus = filterStringArrayList(forbiddenFocus, Constants.FOCUS_DIRECTION_RIGHT);
+            }
+
+            Utils.setForbiddenFocusDirections(forbiddenFocus, cardView);
+        }
 
         if (nextFocusUpId != -1)
             cardView.setNextFocusUpId(nextFocusUpId);
@@ -116,5 +130,29 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
                 .apply(requestOptions)
                 .error(mDefaultCardImage)
                 .into(imageView);
+    }
+
+    public ArrayList<String> toStringArrayList(ReadableArray array) {
+        ArrayList<String> arrayList = new ArrayList<>();
+
+        for (int i = 0; i < array.size(); i++) {
+            arrayList.add(array.getString(i));
+        }
+        return arrayList;
+    }
+
+    public List<String> filterStringArrayList(List<String> list, String value){
+        // create an empty list
+        List<String> filteredList = new ArrayList<>();
+
+        // iterate through the list
+        for (String entry: list)
+        {
+            // filter values that match entered value to filter out
+            if (!entry.matches(value)) {
+                filteredList.add(entry);
+            }
+        }
+        return filteredList;
     }
 }

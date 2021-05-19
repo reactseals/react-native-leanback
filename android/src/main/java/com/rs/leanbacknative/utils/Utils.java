@@ -5,6 +5,7 @@ import android.view.View;
 import com.facebook.react.bridge.ReadableArray;
 import com.bumptech.glide.request.RequestOptions;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Utils {
@@ -33,18 +34,18 @@ public class Utils {
      * @param forbiddenFocusDirections
      * @param cardView
      */
-    public static void setForbiddenFocusDirections(ReadableArray forbiddenFocusDirections, View cardView) {
+    public static void setForbiddenFocusDirections(List<String> forbiddenFocusDirections, View cardView) {
         for (int i = 0; i < forbiddenFocusDirections.size(); i++) {
-            if (Objects.equals(forbiddenFocusDirections.getString(i), Constants.FOCUS_DIRECTION_UP)) {
+            if (Objects.equals(forbiddenFocusDirections.get(i), Constants.FOCUS_DIRECTION_UP)) {
                 cardView.setNextFocusUpId(cardView.getId());
             }
-            if (Objects.equals(forbiddenFocusDirections.getString(i), Constants.FOCUS_DIRECTION_DOWN)) {
+            if (Objects.equals(forbiddenFocusDirections.get(i), Constants.FOCUS_DIRECTION_DOWN)) {
                 cardView.setNextFocusDownId(cardView.getId());
             }
-            if (Objects.equals(forbiddenFocusDirections.getString(i), Constants.FOCUS_DIRECTION_LEFT)) {
+            if (Objects.equals(forbiddenFocusDirections.get(i), Constants.FOCUS_DIRECTION_LEFT)) {
                 cardView.setNextFocusLeftId(cardView.getId());
             }
-            if (Objects.equals(forbiddenFocusDirections.getString(i), Constants.FOCUS_DIRECTION_RIGHT)) {
+            if (Objects.equals(forbiddenFocusDirections.get(i), Constants.FOCUS_DIRECTION_RIGHT)) {
                 cardView.setNextFocusRightId(cardView.getId());
             }
         }
