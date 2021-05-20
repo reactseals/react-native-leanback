@@ -94,15 +94,7 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
             cardView.setId(card.getViewId());
 
         if (mForbiddenFocusDirections != null) {
-            List<String> forbiddenFocus = toStringArrayList(mForbiddenFocusDirections);
-            if(card.getIndex() != 0){
-                forbiddenFocus = filterStringArrayList(forbiddenFocus, Constants.FOCUS_DIRECTION_LEFT);
-            }
-            if(!card.getIsLast()){
-                forbiddenFocus = filterStringArrayList(forbiddenFocus, Constants.FOCUS_DIRECTION_RIGHT);
-            }
-
-            Utils.setForbiddenFocusDirections(forbiddenFocus, cardView);
+            Utils.setForbiddenFocusDirections(mForbiddenFocusDirections, card, cardView);
         }
 
         if (nextFocusUpId != -1)
@@ -129,29 +121,5 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
                 .apply(requestOptions)
                 .error(mDefaultCardImage)
                 .into(imageView);
-    }
-
-    public ArrayList<String> toStringArrayList(ReadableArray array) {
-        ArrayList<String> arrayList = new ArrayList<>();
-
-        for (int i = 0; i < array.size(); i++) {
-            arrayList.add(array.getString(i));
-        }
-        return arrayList;
-    }
-
-    public List<String> filterStringArrayList(List<String> list, String value){
-        // create an empty list
-        List<String> filteredList = new ArrayList<>();
-
-        // iterate through the list
-        for (String entry: list)
-        {
-            // filter values that match entered value to filter out
-            if (!entry.matches(value)) {
-                filteredList.add(entry);
-            }
-        }
-        return filteredList;
     }
 }

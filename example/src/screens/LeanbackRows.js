@@ -30,6 +30,7 @@ const LeanbackRows = () => {
                         height: 173,
                     }}
                     onFocus={(item) => console.log(item)}
+                    forbiddenFocusDirections={['left', 'right']}
                 />
             </View>
             <View setSnapPoint>
