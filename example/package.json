@@ -14,7 +14,6 @@
     "react": "16.13.1",
     "react-native": "0.63.3",
     "react-native-gesture-handler": "^1.8.0",
-    "react-native-leanback": "../",
     "react-native-screens": "^2.11.0",
     "@reactseals/react-native-snap-scrollview": "1.1.1"
   },
@@ -32,7 +31,8 @@
     "jest": "^25.1.0",
     "metro-react-native-babel-preset": "^0.59.0",
     "prettier": "2.2.1",
-    "react-test-renderer": "16.13.1"
+    "react-test-renderer": "16.13.1",
+    "babel-plugin-module-resolver": "^4.0.0"
   },
   "jest": {
     "preset": "react-native"

@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "publish:prod": "npm publish --access public",
-    "publish:beta": "npm publish --access public --tag beta"
+    "publish:beta": "npm publish --access public --tag beta",
+    "example": "yarn --cwd example",
+    "bootstrap": "yarn example && yarn"
   },
   "repository": {
     "type": "git",
