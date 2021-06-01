@@ -1,110 +1,111 @@
 import React, { useRef, useImperativeHandle } from 'react';
 import {
-	requireNativeComponent,
-	UIManager,
-	findNodeHandle,
+  requireNativeComponent,
+  UIManager,
+  findNodeHandle,
 } from 'react-native';
-
+import type { RowProperties, CardData } from './types';
+import { REQUEST_FOCUS_ACTION } from './constants';
 const LeanbackNativeRow = requireNativeComponent('LeanbackRow');
 
-const REQUEST_FOCUS_ACTION = 'request-focus';
+const isValidTimestamp = (timestamp?: string | number): boolean => {
+  if (timestamp && typeof timestamp === 'string') {
+    return timestamp.length === 13;
+  }
 
-const Row = React.forwardRef(
-	(
-		{
-			attributes,
-			forbiddenFocusDirections,
-			nextFocusUpId,
-			nextFocusDownId,
-			nextFocusLeftId,
-			nextFocusRightId,
-			imageTransformationMode,
-			showOnlyFocusedInfo,
-			data,
-			...restOfProps
-		},
-		ref
-	) => {
-		const rowRef = useRef();
+  return timestamp ? false : true;
+};
 
-		// Validate timestamps
-		data.forEach((item) => {
-			if (
-				typeof item.programStartTimestamp === 'string' &&
-				item?.programStartTimestamp?.length &&
-				item?.programStartTimestamp?.length !== 13
-			)
-				throw new Error(
-					'Timestamp is of incorrect format. Must meet JS standart - miliseconds!'
-				);
-			if (
-				typeof item.programEndTimestamp === 'string' &&
-				item?.programStartTimestamp?.length &&
-				item?.programEndTimestamp?.length !== 13
-			)
-				throw new Error(
-					'Timestamp is of incorrect format. Must meet JS standart - miliseconds!'
-				);
-		});
+const Row = React.forwardRef((opts: RowProperties, ref) => {
+  const rowRef: React.RefObject<any> = useRef();
 
-		const attrs = {
-			data,
-			attributes: {
-				width: attributes?.width || 513,
-				height: attributes?.height || 176,
-				forbiddenFocusDirections:
-					forbiddenFocusDirections && Array.isArray(forbiddenFocusDirections)
-						? forbiddenFocusDirections
-						: [],
-				focusedCardAlignment: attributes?.focusedCardAlignment || 'left',
-				numberOfRows: attributes?.numberOfRows || 1,
-				nextFocusUpId: nextFocusUpId || -1,
-				nextFocusDownId: nextFocusDownId || -1,
-				nextFocusLeftId: nextFocusLeftId || -1,
-				nextFocusRightId: nextFocusRightId || -1,
-				cardShape: attributes?.cardShape || 'square',
-				borderRadius: attributes?.borderRadius || 0,
-				showOnlyFocusedInfo: showOnlyFocusedInfo ?? false,
-				hasImageOnly: attributes.hasImageOnly ?? false,
-				imageTransformationMode:
-					attributes?.imageTransformationMode || 'fitCenter',
-			},
-		};
+  const {
+    key,
+    style,
+    data,
+    forbiddenFocusDirections,
+    attributes,
+    nextFocusUpId,
+    nextFocusDownId,
+    nextFocusLeftId,
+    nextFocusRightId,
+    onFocus,
+    onPress,
+    onDataIdsReady,
+  } = opts;
 
-		useImperativeHandle(ref, () => ({
-			requestFocus: () => {
-				requestFocus();
-			},
-		}));
+  // Validate timestamps
+  data.forEach((item: CardData) => {
+    if (isValidTimestamp(item.programStartTimestamp))
+      throw new Error(
+        'Timestamp is of incorrect format. Must meet JS standart - miliseconds!'
+      );
 
-		const requestFocus = () => {
-			const node = findNodeHandle(rowRef.current);
-			UIManager.dispatchViewManagerCommand(node, REQUEST_FOCUS_ACTION, []);
-		};
+    if (isValidTimestamp(item.programEndTimestamp))
+      throw new Error(
+        'Timestamp is of incorrect format. Must meet JS standart - miliseconds!'
+      );
+  });
 
-		return (
-			<LeanbackNativeRow
-				{...restOfProps}
-				ref={rowRef}
-				dataAndAttributes={attrs}
-				onFocus={(event) => {
-					const { item } = event.nativeEvent;
-					if (restOfProps.onFocus) restOfProps.onFocus(JSON.parse(item));
-				}}
-				onPress={(event) => {
-					const { item } = event.nativeEvent;
-					if (restOfProps.onPress) restOfProps.onPress(JSON.parse(item));
-				}}
-				onDataIdsReady={(event) => {
-					const { data: stringifiedData } = event.nativeEvent;
-					if (restOfProps.onDataIdsReady) {
-						const data = JSON.parse(stringifiedData);
-						if (data.length) restOfProps.onDataIdsReady(data);
-					}
-				}}
-			/>
-		);
-	}
-);
+  const attrs = {
+    data,
+    attributes: {
+      width: attributes?.width || 513,
+      height: attributes?.height || 176,
+      forbiddenFocusDirections:
+        forbiddenFocusDirections && Array.isArray(forbiddenFocusDirections)
+          ? forbiddenFocusDirections
+          : [],
+      focusedCardAlignment: attributes?.focusedCardAlignment || 'left',
+      numberOfRows: attributes?.numberOfRows || 1,
+      nextFocusUpId: nextFocusUpId || -1,
+      nextFocusDownId: nextFocusDownId || -1,
+      nextFocusLeftId: nextFocusLeftId || -1,
+      nextFocusRightId: nextFocusRightId || -1,
+      cardShape: attributes?.cardShape || 'square',
+      borderRadius: attributes?.borderRadius || 0,
+      hasImageOnly: attributes.hasImageOnly ?? false,
+      imageTransformationMode:
+        attributes?.imageTransformationMode || 'fitCenter',
+    },
+  };
+
+  useImperativeHandle(ref, () => ({
+    requestFocus: () => {
+      requestFocus();
+    },
+  }));
+
+  const requestFocus = () => {
+    const node = findNodeHandle(rowRef.current);
+    //@ts-ignore
+    UIManager.dispatchViewManagerCommand(node, REQUEST_FOCUS_ACTION, []);
+  };
+
+  return (
+    <LeanbackNativeRow
+      key={key}
+      ref={rowRef}
+      // @ts-ignore
+      style={style}
+      dataAndAttributes={attrs}
+      onFocus={(event: any) => {
+        const { item } = event.nativeEvent;
+        if (onFocus) onFocus(JSON.parse(item));
+      }}
+      onPress={(event: any) => {
+        const { item } = event.nativeEvent;
+        if (onPress) onPress(JSON.parse(item));
+      }}
+      onDataIdsReady={(event: any) => {
+        const { data: stringifiedData } = event.nativeEvent;
+        if (onDataIdsReady) {
+          const data = JSON.parse(stringifiedData);
+          if (data.length) onDataIdsReady(data);
+        }
+      }}
+    />
+  );
+});
 
 export default Row;
