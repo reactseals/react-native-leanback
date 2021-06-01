@@ -1,6 +1,5 @@
 package com.rs.leanbacknative.utils;
 
-import android.util.Log;
 import android.view.View;
 
 import com.facebook.react.bridge.ReadableArray;
@@ -48,8 +47,7 @@ public class Utils {
         }
 
         for (int i = 0; i < forbiddenFocus.size(); i++) {
-            if (Objects.equals(forbiddenFocus.get(i), Constants.FOCUS_DIRECTION_UP)
-            ) {
+            if (Objects.equals(forbiddenFocus.get(i), Constants.FOCUS_DIRECTION_UP)) {
                 cardView.setNextFocusUpId(cardView.getId());
             }
             if (Objects.equals(forbiddenFocus.get(i), Constants.FOCUS_DIRECTION_DOWN)) {
