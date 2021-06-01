@@ -13,6 +13,8 @@ public class Card implements Serializable {
 
     @Expose private int index;
 
+    @Expose private Boolean isLast;
+
     @Expose private int viewId;
 
     @Expose private String title;
@@ -89,6 +91,14 @@ public class Card implements Serializable {
 
     public void setIndex(int index) {
         this.index = index;
+    }
+
+    public Boolean isLast() {
+        return isLast;
+    }
+
+    public void setIsLast(Boolean isLast) {
+        this.isLast = isLast;
     }
 
     public String getBackdropUrl() {

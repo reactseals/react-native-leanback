@@ -80,5 +80,9 @@ public class GridCardPresenter extends AbstractCardPresenter<DefaultImageCardVie
     public void onUnbindViewHolder(DefaultImageCardView cardView) {
         cardView.setBadgeImage(null);
         cardView.setMainImage(null);
+        cardView.setNextFocusLeftId(View.NO_ID);
+        cardView.setNextFocusRightId(View.NO_ID);
+        cardView.setNextFocusUpId(View.NO_ID);
+        cardView.setNextFocusDownId(View.NO_ID);
     }
 }

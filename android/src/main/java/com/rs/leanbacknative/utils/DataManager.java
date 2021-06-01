@@ -35,6 +35,7 @@ public class DataManager {
 
             Card card = new Card();
             card.setIndex(i);
+            card.setIsLast(i == data.size());
             card.setViewId(viewId);
             card.setId(validateString(dataRowItem, "id"));
             card.setTitle(validateString(dataRowItem, "title"));
@@ -61,7 +62,6 @@ public class DataManager {
 
         if (viewIds.size() == 0) {
             viewIds = ids;
-            Log.d("ADDING_TO_ARRAY", viewIds.toString());
         }
 
         return rows;
@@ -128,4 +128,3 @@ public class DataManager {
         return res;
     }
 }
-

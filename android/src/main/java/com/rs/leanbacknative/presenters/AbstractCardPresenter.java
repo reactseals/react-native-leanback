@@ -23,16 +23,20 @@ import com.rs.leanbacknative.models.Card;
 import com.rs.leanbacknative.utils.Constants;
 import com.rs.leanbacknative.utils.Utils;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 public abstract class AbstractCardPresenter<T extends BaseCardView> extends Presenter {
     protected Drawable mDefaultCardImage;
 
     protected Integer mCardWidth = Constants.DEFAULT_CARD_WIDTH;
     protected Integer mCardHeight = Constants.DEFAULT_CARD_HEIGHT;
     protected ReadableArray mForbiddenFocusDirections;
-    protected int nextFocusUpId = -1;
-    protected int nextFocusDownId = -1;
-    protected int nextFocusLeftId = -1;
-    protected int nextFocusRightId = -1;
+    protected int nextFocusUpId = View.NO_ID;
+    protected int nextFocusDownId = View.NO_ID;
+    protected int nextFocusLeftId = View.NO_ID;
+    protected int nextFocusRightId = View.NO_ID;
     protected int mBorderRadius;
     protected boolean mHasImageOnly;
     protected String mImageTransformationMode;
@@ -67,7 +71,10 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
     public abstract void onBindViewHolder(Card card, T cardView);
 
     public void onUnbindViewHolder(T cardView) {
-
+        cardView.setNextFocusLeftId(View.NO_ID);
+        cardView.setNextFocusRightId(View.NO_ID);
+        cardView.setNextFocusUpId(View.NO_ID);
+        cardView.setNextFocusDownId(View.NO_ID);
     }
 
     void initializeAttributes(ReadableMap attributes) {
@@ -86,22 +93,23 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
     }
 
     void setFocusRules(View cardView, Card card) {
-        if (cardView.getId() == -1)
+        if (cardView.getId() == View.NO_ID)
             cardView.setId(card.getViewId());
 
-        if (mForbiddenFocusDirections != null)
-            Utils.setForbiddenFocusDirections(mForbiddenFocusDirections, cardView);
+        if (mForbiddenFocusDirections != null) {
+            Utils.setForbiddenFocusDirections(mForbiddenFocusDirections, card, cardView);
+        }
 
-        if (nextFocusUpId != -1)
+        if (nextFocusUpId != View.NO_ID)
             cardView.setNextFocusUpId(nextFocusUpId);
 
-        if (nextFocusDownId != -1)
+        if (nextFocusDownId != View.NO_ID)
             cardView.setNextFocusDownId(nextFocusDownId);
 
-        if (nextFocusLeftId != -1)
+        if (nextFocusLeftId != View.NO_ID && card.getIndex() == 0)
             cardView.setNextFocusLeftId(nextFocusLeftId);
 
-        if (nextFocusRightId != -1)
+        if (nextFocusRightId != View.NO_ID && card.isLast())
             cardView.setNextFocusRightId(nextFocusRightId);
     }
 
