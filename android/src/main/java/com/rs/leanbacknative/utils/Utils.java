@@ -1,5 +1,6 @@
 package com.rs.leanbacknative.utils;
 
+import android.util.Log;
 import android.view.View;
 
 import com.facebook.react.bridge.ReadableArray;
@@ -42,12 +43,13 @@ public class Utils {
         if(card.getIndex() != 0){
             forbiddenFocus = filterStringArrayList(forbiddenFocus, Constants.FOCUS_DIRECTION_LEFT);
         }
-        if(!card.getIsLast()){
+        if(!card.isLast()){
             forbiddenFocus = filterStringArrayList(forbiddenFocus, Constants.FOCUS_DIRECTION_RIGHT);
         }
 
         for (int i = 0; i < forbiddenFocus.size(); i++) {
-            if (Objects.equals(forbiddenFocus.get(i), Constants.FOCUS_DIRECTION_UP)) {
+            if (Objects.equals(forbiddenFocus.get(i), Constants.FOCUS_DIRECTION_UP)
+            ) {
                 cardView.setNextFocusUpId(cardView.getId());
             }
             if (Objects.equals(forbiddenFocus.get(i), Constants.FOCUS_DIRECTION_DOWN)) {
@@ -103,8 +105,7 @@ public class Utils {
         List<String> filteredList = new ArrayList<>();
 
         // iterate through the list
-        for (String entry: list)
-        {
+        for (String entry: list) {
             // filter values that match entered value to filter out
             if (!entry.matches(value)) {
                 filteredList.add(entry);

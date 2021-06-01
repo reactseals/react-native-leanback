@@ -62,7 +62,6 @@ public class DataManager {
 
         if (viewIds.size() == 0) {
             viewIds = ids;
-            Log.d("ADDING_TO_ARRAY", viewIds.toString());
         }
 
         return rows;
@@ -129,4 +128,3 @@ public class DataManager {
         return res;
     }
 }
-

@@ -93,7 +93,7 @@ public class Card implements Serializable {
         this.index = index;
     }
 
-    public Boolean getIsLast() {
+    public Boolean isLast() {
         return isLast;
     }
 
