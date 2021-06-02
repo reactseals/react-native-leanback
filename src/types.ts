@@ -66,8 +66,8 @@ export type RowProperties = {
   onDataIdsReady: OnDataIdsReadyFunction;
 };
 
-export type OnFocusFunction = (data: CardData[]) => CardData[];
+export type OnFocusFunction = (data: CardData[]) => void;
 
-export type OnPressFunction = (data: CardData[]) => CardData[];
+export type OnPressFunction = (data: CardData[]) => void;
 
-export type OnDataIdsReadyFunction = (data: CardData[]) => CardData[];
+export type OnDataIdsReadyFunction = (data: CardData[]) => void;

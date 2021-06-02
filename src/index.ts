@@ -1,4 +1,3 @@
-import Grid from './grid';
-import Row from './row';
-
-export { Grid, Row };
+export { default as Grid } from './grid';
+export { default as Row } from './row';
+export { CardData } from './types';
