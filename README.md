@@ -15,13 +15,13 @@ Move [styles.xml][link1] and [values.xml][link2] to your androidtv resources fol
 Install via `package.json`:
 
 ```
-"@reactseals/react-native-leanback": "2.0.2"
+"@reactseals/react-native-leanback": "2.0.3"
 ```
 
 Install from the command line:
 
 ```
-npm install @reactseals/react-native-leanback@2.0.2
+npm install @reactseals/react-native-leanback@2.0.3
 ```
 
 ## Usage
@@ -82,25 +82,25 @@ import { Grid } from 'react-native-leanback';
 
 ## Props
 
-| Prop                              | Type                                           | Default  | Description                                                                                   |
-| --------------------------------- | ---------------------------------------------- | -------- | --------------------------------------------------------------------------------------------- |
-| `data`                            | `array`                                        |          | Data for row. See [Data Model](#data-model)                                                   |
-| `style`                           | `object`                                       |          | Container holder style                                                                        |
-| `title`                           | `string`                                       |          | Row title                                                                                     |
-| `numOfCols`                       | `enum(4, 5, 6)`                                | `4`      | Number how many columns grid should contain(Grid only)                                        |
-| `showOnlyFocusedInfo`             | `boolean`                                      | `false`  | Show info field block underneath ONLY when card is focused(Grid only)                         |
-| `forbiddenFocusDirections`        | `array of enum('up', 'down', 'left', 'right')` |          | Prevents any element to be focused when user navigates out of grid/row to provided directions |
-| `nextFocusUpId`                   | `string`                                       |          | Designates the next view to receive focus when the user navigates up                          |
-| `nextFocusDownId`                 | `string`                                       |          | Designates the next view to receive focus when the user navigates down                        |
-| `nextFocusLeftId`                 | `string`                                       |          | Designates the next view to receive focus when the user navigates left                        |
-| `nextFocusRightId`                | `string`                                       |          | Designates the next view to receive focus when the user navigates right                       |
-| `attributes.width`                | `integer`                                      |          | Width of card                                                                                 |
-| `attributes.height`               | `integer`                                      |          | Height of card                                                                                |
-| `attributes.cardShape`            | `enum('round', 'square')`                      | `square` | Shape of the card                                                                             |
-| `attributes.focusedCardAlignment` | `enum('left', 'center')`                       | `center` | Alignment of focus                                                                            |
-| `attributes.numberOfRows`         | `number`                                       | `1`      | Number of rows in Row component                                                               |
-| `attributes.borderRadius`         | `number`                                       |          | Border radius                                                                                 |
-|`attributes.imageTransformationMode`|`enum('noTransformation','centerCrop')`|`fitCenter`| Transformation mode of the card image |
+| Prop                                 | Type                                           | Default     | Description                                                                                   |
+| ------------------------------------ | ---------------------------------------------- | ----------- | --------------------------------------------------------------------------------------------- |
+| `data`                               | `array`                                        |             | Data for row. See [Data Model](#data-model)                                                   |
+| `style`                              | `object`                                       |             | Container holder style                                                                        |
+| `title`                              | `string`                                       |             | Row title                                                                                     |
+| `numOfCols`                          | `enum(4, 5, 6)`                                | `4`         | Number how many columns grid should contain(Grid only)                                        |
+| `showOnlyFocusedInfo`                | `boolean`                                      | `false`     | Show info field block underneath ONLY when card is focused(Grid only)                         |
+| `forbiddenFocusDirections`           | `array of enum('up', 'down', 'left', 'right')` |             | Prevents any element to be focused when user navigates out of grid/row to provided directions |
+| `nextFocusUpId`                      | `string`                                       |             | Designates the next view to receive focus when the user navigates up                          |
+| `nextFocusDownId`                    | `string`                                       |             | Designates the next view to receive focus when the user navigates down                        |
+| `nextFocusLeftId`                    | `string`                                       |             | Designates the next view to receive focus when the user navigates left                        |
+| `nextFocusRightId`                   | `string`                                       |             | Designates the next view to receive focus when the user navigates right                       |
+| `attributes.width`                   | `integer`                                      |             | Width of card                                                                                 |
+| `attributes.height`                  | `integer`                                      |             | Height of card                                                                                |
+| `attributes.cardShape`               | `enum('round', 'square')`                      | `square`    | Shape of the card                                                                             |
+| `attributes.focusedCardAlignment`    | `enum('left', 'center')`                       | `center`    | Alignment of focus                                                                            |
+| `attributes.numberOfRows`            | `number`                                       | `1`         | Number of rows in Row component                                                               |
+| `attributes.borderRadius`            | `number`                                       |             | Border radius                                                                                 |
+| `attributes.imageTransformationMode` | `enum('noTransformation','centerCrop')`        | `fitCenter` | Transformation mode of the card image                                                         |
 
 ## Methods
 
