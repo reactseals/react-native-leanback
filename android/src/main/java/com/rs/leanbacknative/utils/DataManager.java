@@ -129,7 +129,7 @@ public class DataManager {
     }
     private static Boolean validateBoolean(ReadableMap item, String prop) {
         Boolean res = false;
-        if (!item.hasKey(prop) || item.isNull(prop)) return true;
+        if (!item.hasKey(prop) || item.isNull(prop)) return false;
         switch (item.getType(prop)) {
             case Boolean:
                 res =  item.getBoolean(prop);
