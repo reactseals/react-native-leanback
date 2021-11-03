@@ -33,6 +33,8 @@ public class Card implements Serializable {
 
     private String overlayPosition;
 
+    private Boolean displayLiveBadge;
+
     private String liveBadgeColor;
 
     private String liveProgressBarColor;
@@ -155,6 +157,12 @@ public class Card implements Serializable {
 
     public void setOverlayPosition(String overlayPosition) {
         this.overlayPosition = overlayPosition;
+    }
+
+    public Boolean getDisplayLiveBadge() { return displayLiveBadge; }
+
+    public void setDisplayLiveBadge(Boolean displayLiveBadge) {
+        this.displayLiveBadge = displayLiveBadge;
     }
 
     public String getLiveBadgeColor() {
