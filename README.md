@@ -68,6 +68,7 @@ import { Grid } from 'react-native-leanback';
 | `videoUrl`              | `no`     | Video url                                                                                                                       |
 | `title`                 | `no`     | Title of the card, visible underneath of the image                                                                              |
 | `description`           | `no`     | Description   of the card, visible  underneath of the title                                                                     |
+| `displayLiveBadge`      | `no`     | Hides or displays live stream badge                                                                                             |
 | `liveBadgeColor`        | `no`     | Color of the badge which represents live stream                                                                                 |
 | `liveProgressBarColor`  | `no`     | Progress bar color                                                                                                              |
 | `overlayImageUrl`       | `no`     | Url of overlay image visible on the top of the card image                                                                       |

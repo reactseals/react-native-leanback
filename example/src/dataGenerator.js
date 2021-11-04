@@ -61,6 +61,7 @@ function createProgressCards(data) {
             progress: Math.floor(Math.random() * 100) + 1,
             liveBadgeColor: randColor,
             liveProgressBarColor: Math.random() >= 0.8 ? randColorBar : randColor,
+            displayLiveBadge: Math.random() < 0.5,
         };
     });
 }
@@ -82,6 +83,7 @@ function createMixedCards(data) {
                 progress: Math.floor(Math.random() * 100) + 1,
                 liveProgressBarColor: Math.random() >= 0.8 ? randColorBar : randColor,
                 liveBadgeColor: randColor,
+                displayLiveBadge: Math.random() < 0.5,
             }),
             ...(Math.random() >= 0.5 && { overlayText: row.title }),
         };

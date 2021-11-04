@@ -47,6 +47,7 @@ public class DataManager {
             card.setBackdropUrl(validateString(dataRowItem, "backdropUrl"));
             card.setBackgroundColor(validateString(dataRowItem, "backgroundColor"));
             card.setOverlayPosition(validateString(dataRowItem, "overlayPosition"));
+            card.setDisplayLiveBadge(validateBoolean(dataRowItem, "displayLiveBadge"));
             card.setLiveBadgeColor(validateString(dataRowItem, "liveBadgeColor"));
             card.setLiveProgressBarColor(validateString(dataRowItem, "liveProgressBarColor"));
 
@@ -111,7 +112,6 @@ public class DataManager {
                 res =  Long.parseLong(item.getString(prop));
                 break;
         }
-
         return res;
     }
     private static byte validateByte(ReadableMap item, String prop) {
@@ -123,6 +123,16 @@ public class DataManager {
                 break;
             case String:
                 res =(byte) Integer.parseInt(item.getString(prop));
+                break;
+        }
+        return res;
+    }
+    private static Boolean validateBoolean(ReadableMap item, String prop) {
+        Boolean res = false;
+        if (!item.hasKey(prop) || item.isNull(prop)) return false;
+        switch (item.getType(prop)) {
+            case Boolean:
+                res =  item.getBoolean(prop);
                 break;
         }
         return res;

@@ -2,6 +2,8 @@ package com.rs.leanbacknative.presenters;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.view.View;
+
 import androidx.core.content.ContextCompat;
 import com.bumptech.glide.request.RequestOptions;
 import com.facebook.react.bridge.ReadableMap;
