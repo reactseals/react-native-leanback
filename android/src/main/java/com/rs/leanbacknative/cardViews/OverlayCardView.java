@@ -3,6 +3,7 @@ package com.rs.leanbacknative.cardViews;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
+import android.view.View;
 
 import com.rs.leanbacknative.R;
 import com.rs.leanbacknative.models.Card;
@@ -20,6 +21,7 @@ public class OverlayCardView extends AbstractCardView {
 
     public void updateUI(Card card, int borderRadius, int cardWidth, int cardHeight) {
         overlayTextView.setText(card.getOverlayText());
+        overlayTextView.setVisibility(View.INVISIBLE);
         setGradientCornerRadius(borderRadius);
         setLayoutDimensions(cardWidth, cardHeight);
         setMainImageDimensions(cardWidth, cardHeight);
