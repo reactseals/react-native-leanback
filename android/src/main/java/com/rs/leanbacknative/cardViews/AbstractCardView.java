@@ -83,8 +83,8 @@ public abstract class AbstractCardView extends DefaultImageCardView {
     }
 
     protected void setGradientCornerRadius(int borderRadius) {
-        GradientDrawable drawable = (GradientDrawable) gradient.getBackground();
-        drawable.setCornerRadius(borderRadius);
+//        GradientDrawable drawable = (GradientDrawable) gradient.getBackground();
+//        drawable.setCornerRadius(borderRadius);
     }
 
     protected void setProgressBar(Card card) {

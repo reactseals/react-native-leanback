@@ -22,6 +22,7 @@ public class OverlayCardView extends AbstractCardView {
     public void updateUI(Card card, int borderRadius, int cardWidth, int cardHeight) {
         overlayTextView.setText(card.getOverlayText());
         overlayTextView.setVisibility(View.INVISIBLE);
+        gradient.setVisibility(View.INVISIBLE);
         setGradientCornerRadius(borderRadius);
         setLayoutDimensions(cardWidth, cardHeight);
         setMainImageDimensions(cardWidth, cardHeight);

@@ -11,20 +11,41 @@
         style="?attr/imageCardViewImageStyle"
         tools:ignore="ContentDescription" />
 
-    <View
+
+
+    <ImageView
         android:id="@+id/gradient"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/gradient" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:src="@drawable/gradient_img"/>
+
+<!--    <View-->
+<!--        android:id="@+id/gradient"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@drawable/gradient" />-->
 
     <TextView
         android:id="@+id/overlay_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:textColor="@color/lb_basic_card_title_text_color"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_gravity="bottom"
+        android:ellipsize="end" />
+
+    <TextView
+        android:id="@+id/overlay_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:maxLines="1"
         android:textColor="@color/lb_basic_card_title_text_color"
-        android:textSize="26sp"
+        android:textSize="10sp"
         android:textStyle="bold"
-        android:layout_gravity="center"
+        android:layout_gravity="bottom"
         android:ellipsize="end" />
 </FrameLayout>
