@@ -39,7 +39,7 @@
             android:textColor="@color/lb_basic_card_title_text_color"
             android:textSize="26px"
             android:lineHeight="32px"
-            android:textStyle="bold"
+            android:fontFamily="@font/markpro_bold"
             android:layout_gravity="left"
             android:ellipsize="end" />
 
@@ -53,7 +53,7 @@
             android:textSize="18px"
             android:lineHeight="20px"
             android:layout_gravity="left"
-            android:textStyle="bold"
+            android:fontFamily="@font/markpro_bold"
             android:ellipsize="end" />
 
     </LinearLayout>

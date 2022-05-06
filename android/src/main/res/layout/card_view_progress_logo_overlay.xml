@@ -39,11 +39,11 @@
         android:text="@string/card_live_badge"
         android:textColor="#FFF"
         android:textSize="16sp"
-        android:textStyle="bold"
         android:layout_marginBottom="15dp"
         android:layout_marginStart="10dp"
         android:layout_gravity="bottom"
-        android:background="@drawable/badge_circle" />
+        android:background="@drawable/badge_circle"
+        android:fontFamily="@font/markpro_bold" />
 
     <TextView
         android:id="@+id/overlay_title"

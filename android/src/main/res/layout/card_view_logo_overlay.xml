@@ -39,8 +39,8 @@
         android:maxLines="1"
         android:textColor="@color/lb_basic_card_title_text_color"
         android:textSize="26sp"
-        android:textStyle="bold"
         android:layout_gravity="center"
-        android:ellipsize="end" />
+        android:ellipsize="end"
+        android:fontFamily="@font/markpro_bold"/>
 
 </FrameLayout>
