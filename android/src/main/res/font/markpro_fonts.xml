@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<font-family xmlns:android="http://schemas.android.com/apk/res/android">
-    <font
-        android:font="@font/markpro_book" />
-    <font
-        android:font="@font/markpro_bold" />
-    <font
-        android:font="@font/markpro_black" />
-</font-family>
