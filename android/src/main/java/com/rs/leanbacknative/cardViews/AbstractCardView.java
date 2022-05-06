@@ -22,7 +22,8 @@ public abstract class AbstractCardView extends DefaultImageCardView {
     protected RelativeLayout overlayImageWrapper;
     protected ImageView overlayImage;
     protected ProgressBar progressBar;
-    protected TextView overlayTextView;
+    protected TextView overlayTitleView;
+    protected TextView overlaySubtitleView;
     protected TextView liveBadge;
     protected View gradient;
 
@@ -42,7 +43,8 @@ public abstract class AbstractCardView extends DefaultImageCardView {
         mImageView = findViewById(com.rs.leanbacknative.R.id.main_image);
         overlayImage = findViewById(R.id.overlay_image);
         progressBar = findViewById(R.id.progress_bar);
-        overlayTextView = findViewById(R.id.overlay_text);
+        overlayTitleView = findViewById(R.id.overlay_title);
+        overlaySubtitleView = findViewById(R.id.overlay_subtitle);
         liveBadge = findViewById(R.id.live_badge);
         gradient = findViewById(R.id.gradient);
 
@@ -64,7 +66,7 @@ public abstract class AbstractCardView extends DefaultImageCardView {
         return overlayImage;
     }
     public View getGradientView() {  return gradient; }
-    public TextView getOverlayTextView() {  return overlayTextView; }
+    public TextView getOverlayTitleView() {  return overlayTitleView; }
 
     protected void setOverlayImagePosition(String position) {
         FrameLayout.LayoutParams layoutParams = ((FrameLayout.LayoutParams) overlayImageWrapper.getLayoutParams());

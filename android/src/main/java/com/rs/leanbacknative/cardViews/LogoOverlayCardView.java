@@ -18,7 +18,7 @@ public class LogoOverlayCardView extends AbstractCardView {
     }
 
     public void updateUI(Card card, int borderRadius, int cardWidth, int cardHeight) {
-        overlayTextView.setText(card.getOverlayText());
+        overlayTitleView.setText(card.getOverlayTitle());
         setGradientCornerRadius(borderRadius);
         setOverlayImagePosition(card.getOverlayPosition());
         setLayoutDimensions(cardWidth, cardHeight);

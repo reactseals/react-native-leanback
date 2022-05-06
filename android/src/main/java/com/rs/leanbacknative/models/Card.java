@@ -29,7 +29,9 @@ public class Card implements Serializable {
 
     @Expose private String overlayImageUrl;
 
-    @Expose private String overlayText;
+    @Expose private String overlayTitle;
+
+    @Expose private String overlaySubtitle;
 
     private String overlayPosition;
 
@@ -127,12 +129,20 @@ public class Card implements Serializable {
         this.overlayImageUrl = overlayImageUrl;
     }
 
-    public String getOverlayText() {
-        return overlayText;
+    public String getOverlayTitle() {
+        return overlayTitle;
     }
 
-    public void setOverlayText(String overlayText) {
-        this.overlayText = overlayText;
+    public void setOverlayTitle(String overlayTitle) {
+        this.overlayTitle = overlayTitle;
+    }
+
+    public String getOverlaySubtitle() {
+        return overlaySubtitle;
+    }
+
+    public void setOverlaySubtitle(String overlaySubtitle) {
+        this.overlaySubtitle = overlaySubtitle;
     }
 
     public long getProgramStartTimestamp() {

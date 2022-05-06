@@ -18,7 +18,7 @@ public class ProgressOverlayCardView extends AbstractCardView {
     }
 
     public void updateUI(Card card, int borderRadius, int cardWidth, int cardHeight) {
-        overlayTextView.setText(card.getOverlayText());
+        overlayTitleView.setText(card.getOverlayTitle());
         setGradientCornerRadius(borderRadius);
         setProgressBar(card);
         setLayoutDimensions(cardWidth, cardHeight);

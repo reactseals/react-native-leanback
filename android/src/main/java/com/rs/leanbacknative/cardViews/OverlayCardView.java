@@ -20,8 +20,14 @@ public class OverlayCardView extends AbstractCardView {
     }
 
     public void updateUI(Card card, int borderRadius, int cardWidth, int cardHeight) {
-        overlayTextView.setText(card.getOverlayText());
-        overlayTextView.setVisibility(View.INVISIBLE);
+        overlayTitleView.setText(card.getOverlayTitle());
+        overlayTitleView.setVisibility(View.INVISIBLE);
+
+
+        overlaySubtitleView.setText(card.getOverlaySubtitle());
+        overlaySubtitleView.setVisibility(View.INVISIBLE);
+
+
         gradient.setVisibility(View.INVISIBLE);
         setGradientCornerRadius(borderRadius);
         setLayoutDimensions(cardWidth, cardHeight);
@@ -29,7 +35,7 @@ public class OverlayCardView extends AbstractCardView {
     }
 
     public void colorTextCardUpdateUI(Card card, int borderRadius, int cardWidth, int cardHeight) {
-        getOverlayTextView().setText(card.getOverlayText());
+        getOverlayTitleView().setText(card.getOverlayTitle());
         getGradientView().setBackgroundColor(Color.parseColor(card.getBackgroundColor()));
         setLayoutDimensions(cardWidth, cardHeight);
     }
