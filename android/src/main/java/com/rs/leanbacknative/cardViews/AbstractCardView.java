@@ -67,6 +67,7 @@ public abstract class AbstractCardView extends DefaultImageCardView {
     }
     public View getGradientView() {  return gradient; }
     public TextView getOverlayTitleView() {  return overlayTitleView; }
+    public TextView getOverlaySubtitleView() {  return overlaySubtitleView; }
 
     protected void setOverlayImagePosition(String position) {
         FrameLayout.LayoutParams layoutParams = ((FrameLayout.LayoutParams) overlayImageWrapper.getLayoutParams());

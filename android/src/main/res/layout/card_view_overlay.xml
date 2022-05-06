@@ -20,6 +20,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/gradient_img"/>
 
+
     <TextView
         android:id="@+id/overlay_title"
         android:layout_width="wrap_content"
@@ -30,6 +31,7 @@
         android:textStyle="bold"
         android:layout_gravity="bottom"
         android:ellipsize="end" />
+
 
     <TextView
         android:id="@+id/overlay_subtitle"

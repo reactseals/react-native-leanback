@@ -44,6 +44,7 @@ public class DataManager {
             card.setOverlayImageUrl(validateString(dataRowItem, "overlayImageUrl"));
             card.setVideoUrl(validateString(dataRowItem, "videoUrl"));
             card.setOverlayTitle(validateString(dataRowItem, "overlayTitle"));
+            card.setOverlaySubtitle(validateString(dataRowItem, "overlaySubtitle"));
             card.setBackdropUrl(validateString(dataRowItem, "backdropUrl"));
             card.setBackgroundColor(validateString(dataRowItem, "backgroundColor"));
             card.setOverlayPosition(validateString(dataRowItem, "overlayPosition"));
