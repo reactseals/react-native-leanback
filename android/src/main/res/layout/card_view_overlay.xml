@@ -20,27 +20,42 @@
         android:scaleType="centerCrop"
         android:src="@drawable/gradient_img"/>
 
-
-    <TextView
-        android:id="@+id/overlay_title"
+    <LinearLayout
+        android:id="@+id/overlay_text_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxLines="2"
-        android:textColor="@color/lb_basic_card_title_text_color"
-        android:textSize="14sp"
-        android:textStyle="bold"
+        android:layout_weight="2"
+        android:gravity="bottom"
         android:layout_gravity="bottom"
-        android:ellipsize="end" />
+        android:paddingHorizontal="10dp"
+        android:paddingBottom="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/overlay_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:textColor="@color/lb_basic_card_title_text_color"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_gravity="left"
+            android:ellipsize="end" />
 
 
-    <TextView
-        android:id="@+id/overlay_subtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:textColor="@color/lb_basic_card_title_text_color"
-        android:textSize="10sp"
-        android:textStyle="bold"
-        android:layout_gravity="bottom"
-        android:ellipsize="end" />
+        <TextView
+            android:id="@+id/overlay_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textColor="@color/lb_basic_card_title_text_color"
+            android:textSize="10sp"
+            android:layout_gravity="left"
+            android:textStyle="bold"
+            android:ellipsize="end" />
+
+    </LinearLayout>
+
+
+
 </FrameLayout>
