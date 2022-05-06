@@ -26,7 +26,7 @@ public class OverlayCardPresenter extends AbstractCardPresenter<OverlayCardView>
 
                 if (selected) {
                     border.setColor(Color.TRANSPARENT); //white background
-                    border.setStroke(10, Color.WHITE);
+                    border.setStroke(4, Color.WHITE);
                     this.findViewById(R.id.overlay_title).setVisibility(View.VISIBLE);
                     this.findViewById(R.id.overlay_subtitle).setVisibility(View.VISIBLE);
                     this.findViewById(R.id.gradient).setVisibility(View.VISIBLE);
