@@ -37,8 +37,8 @@
             android:layout_height="wrap_content"
             android:maxLines="2"
             android:textColor="@color/lb_basic_card_title_text_color"
-            android:textSize="26px"
-            android:lineHeight="32px"
+            android:textSize="30px"
+            android:lineHeight="28px"
             android:fontFamily="@font/markpro_bold"
             android:layout_gravity="left"
             android:ellipsize="end" />
@@ -50,8 +50,8 @@
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:textColor="@color/lb_basic_card_title_text_color"
-            android:textSize="18px"
-            android:lineHeight="20px"
+            android:textSize="20px"
+            android:lineHeight="18px"
             android:layout_gravity="left"
             android:fontFamily="@font/markpro_bold"
             android:ellipsize="end" />
