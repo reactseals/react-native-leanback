@@ -11,6 +11,15 @@
         style="?attr/imageCardViewImageStyle"
         tools:ignore="ContentDescription" />
 
+    <View
+        android:id="@+id/gradient"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cropToPadding="true"
+        android:background="@drawable/gradient" />
+
+
+
     <RelativeLayout
         android:id="@+id/overlay_image_wrapper"
         android:layout_width="120dp"

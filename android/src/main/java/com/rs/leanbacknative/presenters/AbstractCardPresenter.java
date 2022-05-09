@@ -57,7 +57,7 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
     @Override
     public final void onBindViewHolder(ViewHolder viewHolder, Object item) {
         Card card = (Card) item;
-        setFocusRules((T) viewHolder.view, card);
+        setFocusRules(viewHolder.view, card);
         onBindViewHolder(card, (T) viewHolder.view);
     }
 

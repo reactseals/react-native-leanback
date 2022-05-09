@@ -31,7 +31,7 @@ public class DefaultCardPresenter extends AbstractCardPresenter<DefaultImageCard
         int infoBackgroundColor = mCard.getInfoBackgroundColor().isEmpty() ?
                 ContextCompat.getColor(context, R.color.default_background) : Color.parseColor(mCard.getInfoBackgroundColor());
         final int selectedBackgroundColor = mCard.getInfoSelectedBackgroundColor().isEmpty() ?
-                ContextCompat.getColor(context, R.color.selected_background) : Color.parseColor(mCard.getInfoSelectedBackgroundColor());;
+                ContextCompat.getColor(context, R.color.selected_background) : Color.parseColor(mCard.getInfoSelectedBackgroundColor());
         final int defaultBackgroundColor = mCardShape.equals(Constants.CARD_SHARE_ROUND) ? Color.TRANSPARENT : infoBackgroundColor;
 
         DefaultImageCardView cardView =

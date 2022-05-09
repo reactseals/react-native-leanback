@@ -26,10 +26,12 @@ public class OverlayCardPresenter extends AbstractCardPresenter<OverlayCardView>
 
                 if (selected) {
                     border.setColor(Color.TRANSPARENT); //white background
-                    border.setStroke(4, Color.WHITE);
+                    border.setStroke(6, Color.WHITE);
                     this.findViewById(R.id.overlay_title).setVisibility(View.VISIBLE);
                     this.findViewById(R.id.overlay_subtitle).setVisibility(View.VISIBLE);
                     this.findViewById(R.id.gradient).setVisibility(View.VISIBLE);
+
+                    this.findViewById(R.id.gradient).setPadding(6, 6, 6,6);
 
                 } else {
                     border.setColor(Color.TRANSPARENT); //white background
@@ -37,6 +39,8 @@ public class OverlayCardPresenter extends AbstractCardPresenter<OverlayCardView>
                     this.findViewById(R.id.overlay_title).setVisibility(View.GONE);
                     this.findViewById(R.id.overlay_subtitle).setVisibility(View.GONE);
                     this.findViewById(R.id.gradient).setVisibility(View.GONE);
+                    this.findViewById(R.id.gradient).setPadding(0, 0, 0,0);
+
                 }
 
                 this.findViewById(R.id.gradient).setBackground(border);

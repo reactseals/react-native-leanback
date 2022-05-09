@@ -30,7 +30,7 @@ public class GridCardPresenter extends AbstractCardPresenter<DefaultImageCardVie
         final int defaultBackgroundColor = mCard.getInfoBackgroundColor().isEmpty() ?
                 Color.TRANSPARENT : Color.parseColor(mCard.getInfoBackgroundColor());
         final int selectedBackgroundColor = mCard.getInfoSelectedBackgroundColor().isEmpty() ?
-                ContextCompat.getColor(context, R.color.selected_background) : Color.parseColor(mCard.getInfoSelectedBackgroundColor());;
+                ContextCompat.getColor(context, R.color.selected_background) : Color.parseColor(mCard.getInfoSelectedBackgroundColor());
 
         DefaultImageCardView cardView =
                 new DefaultImageCardView(context) {
