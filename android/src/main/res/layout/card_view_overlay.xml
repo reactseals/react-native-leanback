@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:scaleType="centerCrop"
+        android:cropToPadding="true"
         android:src="@drawable/gradient_img"/>
 
     <LinearLayout
