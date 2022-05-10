@@ -17,36 +17,59 @@
         android:layout_height="match_parent"
         android:background="@drawable/border" />
 
-    <TextView
-        android:id="@+id/live_badge"
+    <LinearLayout
+        android:id="@+id/overlay_text_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/card_live_badge"
-        android:textColor="#FFF"
-        android:textSize="16sp"
-        android:layout_marginBottom="15dp"
-        android:layout_marginStart="10dp"
-        android:layout_gravity="bottom"
-        android:background="@drawable/badge_circle"
-        android:fontFamily="@font/markpro_bold" />
+        android:layout_gravity="start"
+        android:layout_marginStart="24px"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/overlay_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:textColor="@color/lb_basic_card_title_text_color"
-        android:textSize="26sp"
-        android:layout_gravity="center"
-        android:ellipsize="end"
-        android:fontFamily="@font/markpro_bold" />
+        <TextView
+            android:id="@+id/overlay_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:textColor="#FFF"
+            android:ellipsize="end"
+            android:textSize="26px"
+            android:lineHeight="32px"
+            android:fontFamily="@font/markpro_bold" />
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        style="@android:style/Widget.Material.Light.ProgressBar.Horizontal"
+        <TextView
+            android:id="@+id/overlay_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:textColor="#FFF"
+            android:ellipsize="end"
+            android:textSize="26px"
+            android:lineHeight="32px" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/progress_view_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:progress="25"
-        android:paddingHorizontal="10dp"
-        android:layout_gravity="bottom" />
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/overlay_remaining_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"
+            android:textSize="26px"
+            android:lineHeight="32px"
+            android:layout_marginStart="24px"
+            android:layout_marginBottom="10px"
+            android:fontFamily="@font/markpro_bold" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@android:style/Widget.Material.Light.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:progress="25" />
+    </LinearLayout>
 </FrameLayout>

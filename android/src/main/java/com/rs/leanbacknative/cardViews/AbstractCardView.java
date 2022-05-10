@@ -26,6 +26,7 @@ public abstract class AbstractCardView extends DefaultImageCardView {
     protected TextView overlaySubtitleView;
     protected TextView liveBadge;
     protected View gradient;
+    protected TextView overlayRemainingTimeView;
 
     public AbstractCardView(Context context) {
         super(context);
@@ -45,6 +46,7 @@ public abstract class AbstractCardView extends DefaultImageCardView {
         overlaySubtitleView = findViewById(R.id.overlay_subtitle);
         liveBadge = findViewById(R.id.live_badge);
         gradient = findViewById(R.id.gradient);
+        overlayRemainingTimeView = findViewById(R.id.overlay_remaining_time);
 
         mFadeInAnimator = ObjectAnimator.ofFloat(mImageView, ALPHA, 1f);
         mFadeInAnimator.setDuration(
@@ -63,6 +65,7 @@ public abstract class AbstractCardView extends DefaultImageCardView {
     public View getGradientView() {  return gradient; }
     public TextView getOverlayTitleView() {  return overlayTitleView; }
     public TextView getOverlaySubtitleView() {  return overlaySubtitleView; }
+    public TextView getOverlayRemainingTimeView() { return overlayRemainingTimeView; }
 
     protected void setGradientCornerRadius(int borderRadius) {
 //        GradientDrawable drawable = (GradientDrawable) gradient.getBackground();
