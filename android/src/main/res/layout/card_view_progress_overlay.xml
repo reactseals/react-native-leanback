@@ -44,9 +44,15 @@
         android:textColor="#FFF"
         android:ellipsize="end"
         android:textSize="26px"
-        android:lineHeight="32px"
-        android:fontFamily="@font/markpro_bold" />
+        android:lineHeight="32px" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/progress_view_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
 
     <TextView
         android:id="@+id/overlay_remaining_time"
@@ -55,9 +61,8 @@
         android:textColor="#FFF"
         android:textSize="26px"
         android:lineHeight="32px"
-        android:layout_marginBottom="50px"
         android:layout_marginStart="24px"
-        android:layout_gravity="bottom"
+        android:layout_marginBottom="10px"
         android:fontFamily="@font/markpro_bold" />
 
     <ProgressBar
@@ -65,7 +70,6 @@
         style="@android:style/Widget.Material.Light.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:progress="25"
-        android:paddingHorizontal="1px"
-        android:layout_gravity="bottom" />
+        android:progress="25" />
+    </LinearLayout>
 </FrameLayout>
