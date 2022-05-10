@@ -24,13 +24,17 @@ public class ContinueWatchingCardPresenter extends AbstractCardPresenter<Continu
                 if (selected) {
                     border.setColor(Color.TRANSPARENT);
                     border.setStroke(6, Color.WHITE);
+                    border.setCornerRadius(12);
                     this.findViewById(R.id.gradient).setVisibility(View.VISIBLE);
                     this.findViewById(R.id.gradient).setPadding(6, 6, 6,6);
+                    this.findViewById(R.id.progress_bar).setPadding(6,0,6, 0);
                 } else {
                     border.setColor(Color.TRANSPARENT);
                     border.setStroke(0, Color.TRANSPARENT);
+                    border.setCornerRadius(12);
                     this.findViewById(R.id.gradient).setVisibility(View.GONE);
                     this.findViewById(R.id.gradient).setPadding(0, 0, 0,0);
+                    this.findViewById(R.id.progress_bar).setPadding(0,0,0,0);
                 }
                 this.findViewById(R.id.gradient).setBackground(border);
 
