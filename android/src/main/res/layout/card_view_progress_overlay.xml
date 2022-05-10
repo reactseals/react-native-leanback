@@ -18,27 +18,27 @@
         android:background="@drawable/gradient" />
 
     <TextView
-        android:id="@+id/live_badge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/card_live_badge"
-        android:textColor="#FFF"
-        android:textSize="16sp"
-        android:layout_marginBottom="15dp"
-        android:layout_marginStart="10dp"
-        android:layout_gravity="bottom"
-        android:background="@drawable/badge_circle"
-        android:fontFamily="@font/markpro_bold" />
-
-    <TextView
         android:id="@+id/overlay_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:textColor="@color/lb_basic_card_title_text_color"
-        android:textSize="26sp"
-        android:layout_gravity="center"
+        android:maxLines="2"
+        android:textColor="#FFF"
         android:ellipsize="end"
+        android:textSize="26px"
+        android:lineHeight="32px"
+        android:layout_gravity="start"
+        android:fontFamily="@font/markpro_bold" />
+
+    <TextView
+        android:id="@+id/overlay_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFF"
+        android:textSize="26px"
+        android:lineHeight="32px"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_gravity="bottom"
         android:fontFamily="@font/markpro_bold" />
 
     <ProgressBar
@@ -47,6 +47,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:progress="25"
-        android:paddingHorizontal="10dp"
+        android:paddingHorizontal="1px"
         android:layout_gravity="bottom" />
 </FrameLayout>

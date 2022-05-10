@@ -94,20 +94,20 @@ public abstract class AbstractCardView extends DefaultImageCardView {
         long startTimestamp = card.getProgramStartTimestamp();
         long endTimestamp = card.getProgramEndTimestamp();
         int progress = card.getProgress();
-        Boolean displayLiveBadge = card.getDisplayLiveBadge();
+        // Boolean displayLiveBadge = card.getDisplayLiveBadge();
         String badgeColor = card.getLiveBadgeColor();
         String progressBarColor = card.getLiveProgressBarColor();
 
         if ((startTimestamp!= 0 && endTimestamp != 0) || progress != -1) {
-            GradientDrawable drawable = (GradientDrawable) liveBadge.getBackground();
+            // GradientDrawable drawable = (GradientDrawable) liveBadge.getBackground();
 
-            if (!displayLiveBadge) {
-                liveBadge.setVisibility(View.INVISIBLE);
-            }
+            // // if (!displayLiveBadge) {
+            // //     liveBadge.setVisibility(View.INVISIBLE);
+            // // }
 
-            if (!badgeColor.isEmpty()) {
-                drawable.setColor(Color.parseColor(badgeColor));
-            }
+            // if (!badgeColor.isEmpty()) {
+            //     drawable.setColor(Color.parseColor(badgeColor));
+            // }
 
             if (!progressBarColor.isEmpty()) {
                 progressBar.setProgressTintList(ColorStateList.valueOf(Color.parseColor(progressBarColor)));
