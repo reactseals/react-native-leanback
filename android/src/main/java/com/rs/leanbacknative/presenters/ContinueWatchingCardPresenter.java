@@ -2,9 +2,13 @@ package com.rs.leanbacknative.presenters;
 
 import android.content.Context;
 import com.facebook.react.bridge.ReadableMap;
+import com.rs.leanbacknative.R;
 import com.rs.leanbacknative.cardViews.ContinueWatchingCardView;
 import com.rs.leanbacknative.models.Card;
 
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
+import android.view.View;
 
 public class ContinueWatchingCardPresenter extends AbstractCardPresenter<ContinueWatchingCardView> {
     public ContinueWatchingCardPresenter(ReadableMap attributes) {
@@ -28,10 +32,10 @@ public class ContinueWatchingCardPresenter extends AbstractCardPresenter<Continu
                     this.findViewById(R.id.gradient).setVisibility(View.GONE);
                     this.findViewById(R.id.gradient).setPadding(0, 0, 0,0);
                 }
-            }
-            this.findViewById(R.id.gradient).setBackground(border);
+                this.findViewById(R.id.gradient).setBackground(border);
 
-            super.setSelected(selected);
+                super.setSelected(selected);
+            }
         };
         cardView.buildImageCardView();
 
