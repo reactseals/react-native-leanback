@@ -28,28 +28,24 @@ public class DefaultCardPresenter extends AbstractCardPresenter<DefaultImageCard
         boolean hasTitle = !mCard.getTitle().isEmpty();
         boolean hasContent = !mCard.getSubtitle().isEmpty();
 
-        int infoBackgroundColor = mCard.getInfoBackgroundColor().isEmpty() ?
-                ContextCompat.getColor(context, R.color.default_background) : Color.parseColor(mCard.getInfoBackgroundColor());
-        final int selectedBackgroundColor = mCard.getInfoSelectedBackgroundColor().isEmpty() ?
-                ContextCompat.getColor(context, R.color.selected_background) : Color.parseColor(mCard.getInfoSelectedBackgroundColor());
-        final int defaultBackgroundColor = mCardShape.equals(Constants.CARD_SHARE_ROUND) ? Color.TRANSPARENT : infoBackgroundColor;
+//        final int defaultBackgroundColor = mCardShape.equals(Constants.CARD_SHARE_ROUND) ? Color.TRANSPARENT : infoBackgroundColor;
 
         DefaultImageCardView cardView =
             new DefaultImageCardView(context) {
                 @Override
                 public void setSelected(boolean selected) {
-                    if (!mCardShape.equals(Constants.CARD_SHARE_ROUND)) {
-                        int color = selected ? selectedBackgroundColor : defaultBackgroundColor;
-                        this.setBackgroundColor(color);
-                        this.findViewById(R.id.info_field).setBackgroundColor(color);
-                    }
+//                    if (!mCardShape.equals(Constants.CARD_SHARE_ROUND)) {
+//                        int color = defaultBackgroundColor;
+//                        this.setBackgroundColor(color);
+//                        this.findViewById(R.id.info_field).setBackgroundColor(color);
+//                    }
                     super.setSelected(selected);
                 }
             };
 
         cardView.buildImageCardView(hasTitle, hasContent, mHasImageOnly);
-        cardView.setBackgroundColor(defaultBackgroundColor);
-        cardView.findViewById(R.id.info_field).setBackgroundColor(defaultBackgroundColor);
+//        cardView.setBackgroundColor(defaultBackgroundColor);
+//        cardView.findViewById(R.id.info_field).setBackgroundColor(defaultBackgroundColor);
 
         return cardView;
     }

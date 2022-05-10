@@ -40,20 +40,11 @@ public class DataManager {
             card.setTitle(validateString(dataRowItem, "title"));
             card.setSubtitle(validateString(dataRowItem, "description"));
             card.setCardImageUrl(validateString(dataRowItem, "cardImageUrl"));
-            card.setOverlayImageUrl(validateString(dataRowItem, "overlayImageUrl"));
-            card.setVideoUrl(validateString(dataRowItem, "videoUrl"));
             card.setOverlayTitle(validateString(dataRowItem, "overlayTitle"));
             card.setOverlaySubtitle(validateString(dataRowItem, "overlaySubtitle"));
-            card.setBackdropUrl(validateString(dataRowItem, "backdropUrl"));
-            card.setBackgroundColor(validateString(dataRowItem, "backgroundColor"));
-            card.setOverlayPosition(validateString(dataRowItem, "overlayPosition"));
             card.setDisplayLiveBadge(validateBoolean(dataRowItem, "displayLiveBadge"));
             card.setLiveBadgeColor(validateString(dataRowItem, "liveBadgeColor"));
             card.setLiveProgressBarColor(validateString(dataRowItem, "liveProgressBarColor"));
-
-            card.setInfoBackgroundColor(validateString(dataRowItem, "infoBackgroundColor"));
-            card.setInfoSelectedBackgroundColor(validateString(dataRowItem, "infoSelectedBackgroundColor"));
-
             card.setProgramStartTimestamp(validateLong(dataRowItem, "programStartTimestamp"));
             card.setProgress(validateByte(dataRowItem, "progress"));
             card.setProgramEndTimestamp(validateLong(dataRowItem, "programEndTimestamp"));

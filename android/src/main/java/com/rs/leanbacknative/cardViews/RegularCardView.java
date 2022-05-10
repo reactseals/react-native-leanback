@@ -35,7 +35,6 @@ public class RegularCardView extends AbstractCardView {
     public void colorTextCardUpdateUI(Card card, int borderRadius, int cardWidth, int cardHeight) {
         getOverlayTitleView().setText(card.getOverlayTitle());
         getOverlaySubtitleView().setText(card.getOverlaySubtitle());
-        getGradientView().setBackgroundColor(Color.parseColor(card.getBackgroundColor()));
         setLayoutDimensions(cardWidth, cardHeight);
     }
 }

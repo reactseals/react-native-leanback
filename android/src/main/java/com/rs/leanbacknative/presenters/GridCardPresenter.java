@@ -27,19 +27,14 @@ public class GridCardPresenter extends AbstractCardPresenter<DefaultImageCardVie
         boolean hasTitle = !mCard.getTitle().isEmpty();
         boolean hasContent = !mCard.getSubtitle().isEmpty();
 
-        final int defaultBackgroundColor = mCard.getInfoBackgroundColor().isEmpty() ?
-                Color.TRANSPARENT : Color.parseColor(mCard.getInfoBackgroundColor());
-        final int selectedBackgroundColor = mCard.getInfoSelectedBackgroundColor().isEmpty() ?
-                ContextCompat.getColor(context, R.color.selected_background) : Color.parseColor(mCard.getInfoSelectedBackgroundColor());
-
         DefaultImageCardView cardView =
                 new DefaultImageCardView(context) {
                     @Override
                     public void setSelected(boolean selected) {
                         if (!mCardShape.equals(Constants.CARD_SHARE_ROUND)) {
-                            int color = selected ? selectedBackgroundColor : defaultBackgroundColor;
-                            this.setBackgroundColor(color);
-                            this.findViewById(R.id.info_field).setBackgroundColor(color);
+//                            int color = selected ? selectedBackgroundColor : defaultBackgroundColor;
+//                            this.setBackgroundColor(color);
+//                            this.findViewById(R.id.info_field).setBackgroundColor(color);
                         }
                         if (mGridShowOnlyFocusedInfo) {
                             if (selected) {
@@ -54,8 +49,8 @@ public class GridCardPresenter extends AbstractCardPresenter<DefaultImageCardVie
                 };
 
         cardView.buildImageCardView(hasTitle, hasContent, mHasImageOnly);
-        cardView.setBackgroundColor(defaultBackgroundColor);
-        cardView.findViewById(R.id.info_field).setBackgroundColor(defaultBackgroundColor);
+//        cardView.setBackgroundColor(defaultBackgroundColor);
+//        cardView.findViewById(R.id.info_field).setBackgroundColor(defaultBackgroundColor);
 
         return cardView;
     }

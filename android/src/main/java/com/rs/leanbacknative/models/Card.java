@@ -23,29 +23,15 @@ public class Card implements Serializable {
 
     @Expose private String cardImageUrl;
 
-    @Expose private String videoUrl;
-
-    @Expose private String backdropUrl;
-
-    @Expose private String overlayImageUrl;
-
     @Expose private String overlayTitle;
 
     @Expose private String overlaySubtitle;
-
-    private String overlayPosition;
 
     private Boolean displayLiveBadge;
 
     private String liveBadgeColor;
 
     private String liveProgressBarColor;
-
-    private String backgroundColor;
-
-    private String infoBackgroundColor;
-
-    private String infoSelectedBackgroundColor;
 
     @Expose private long programStartTimestamp;
 
@@ -105,28 +91,12 @@ public class Card implements Serializable {
         this.isLast = isLast;
     }
 
-    public String getBackdropUrl() {
-        return backdropUrl;
-    }
-
-    public void setBackdropUrl(String backdropUrl) {
-        this.backdropUrl = backdropUrl;
-    }
-
     public int getViewId() {
         return viewId;
     }
 
     public void setViewId(int viewId) {
         this.viewId = viewId;
-    }
-
-    public String getOverlayImageUrl() {
-        return overlayImageUrl;
-    }
-
-    public void setOverlayImageUrl(String overlayImageUrl) {
-        this.overlayImageUrl = overlayImageUrl;
     }
 
     public String getOverlayTitle() {
@@ -161,14 +131,6 @@ public class Card implements Serializable {
         this.programEndTimestamp = programEndTimestamp;
     }
 
-    public String getOverlayPosition() {
-        return overlayPosition;
-    }
-
-    public void setOverlayPosition(String overlayPosition) {
-        this.overlayPosition = overlayPosition;
-    }
-
     public Boolean getDisplayLiveBadge() { return displayLiveBadge; }
 
     public void setDisplayLiveBadge(Boolean displayLiveBadge) {
@@ -196,38 +158,6 @@ public class Card implements Serializable {
 
     public void setProgress(byte progress) {
         this.progress = progress;
-    }
-
-    public String getBackgroundColor() {
-        return backgroundColor;
-    }
-
-    public String getVideoUrl() {
-        return videoUrl;
-    }
-
-    public void setVideoUrl(String videoUrl) {
-        this.videoUrl = videoUrl;
-    }
-
-    public void setBackgroundColor(String backgroundColor) {
-        this.backgroundColor = backgroundColor;
-    }
-
-    public String getInfoBackgroundColor() {
-        return infoBackgroundColor;
-    }
-
-    public void setInfoBackgroundColor(String infoBackgroundColor) {
-        this.infoBackgroundColor = infoBackgroundColor;
-    }
-
-    public String getInfoSelectedBackgroundColor() {
-        return infoSelectedBackgroundColor;
-    }
-
-    public void setInfoSelectedBackgroundColor(String infoSelectedBackgroundColor) {
-        this.infoSelectedBackgroundColor = infoSelectedBackgroundColor;
     }
 
     @Override
