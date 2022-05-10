@@ -6,9 +6,9 @@ import android.view.View;
 import androidx.core.content.ContextCompat;
 import com.bumptech.glide.request.RequestOptions;
 import com.facebook.react.bridge.ReadableMap;
+import com.rs.leanbacknative.cardViews.DefaultImageCardView;
 import com.rs.leanbacknative.models.Card;
 import com.rs.leanbacknative.R;
-import com.rs.leanbacknative.cardViews.DefaultImageCardView;
 import com.rs.leanbacknative.utils.Constants;
 
 public class GridCardPresenter extends AbstractCardPresenter<DefaultImageCardView> {
@@ -25,7 +25,7 @@ public class GridCardPresenter extends AbstractCardPresenter<DefaultImageCardVie
     @Override
     protected DefaultImageCardView onCreateView(Context context) {
         boolean hasTitle = !mCard.getTitle().isEmpty();
-        boolean hasContent = !mCard.getDescription().isEmpty();
+        boolean hasContent = !mCard.getSubtitle().isEmpty();
 
         final int defaultBackgroundColor = mCard.getInfoBackgroundColor().isEmpty() ?
                 Color.TRANSPARENT : Color.parseColor(mCard.getInfoBackgroundColor());
@@ -63,7 +63,7 @@ public class GridCardPresenter extends AbstractCardPresenter<DefaultImageCardVie
     @Override
     public void onBindViewHolder(Card card, DefaultImageCardView cardView) {
         cardView.setTitleText(card.getTitle());
-        cardView.setContentText(card.getDescription());
+        cardView.setContentText(card.getSubtitle());
         cardView.setMainImageDimensions(mCardWidth, mCardHeight);
 
         RequestOptions requestOptions = mCardShape.equals(Constants.CARD_SHARE_ROUND) ? RequestOptions.circleCropTransform() : RequestOptions.fitCenterTransform();

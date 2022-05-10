@@ -7,9 +7,9 @@ import android.view.View;
 import androidx.core.content.ContextCompat;
 import com.bumptech.glide.request.RequestOptions;
 import com.facebook.react.bridge.ReadableMap;
+import com.rs.leanbacknative.cardViews.DefaultImageCardView;
 import com.rs.leanbacknative.models.Card;
 import com.rs.leanbacknative.R;
-import com.rs.leanbacknative.cardViews.DefaultImageCardView;
 import com.rs.leanbacknative.utils.Constants;
 import com.rs.leanbacknative.utils.Utils;
 
@@ -26,7 +26,7 @@ public class DefaultCardPresenter extends AbstractCardPresenter<DefaultImageCard
     @Override
     protected DefaultImageCardView onCreateView(Context context) {
         boolean hasTitle = !mCard.getTitle().isEmpty();
-        boolean hasContent = !mCard.getDescription().isEmpty();
+        boolean hasContent = !mCard.getSubtitle().isEmpty();
 
         int infoBackgroundColor = mCard.getInfoBackgroundColor().isEmpty() ?
                 ContextCompat.getColor(context, R.color.default_background) : Color.parseColor(mCard.getInfoBackgroundColor());
@@ -57,7 +57,7 @@ public class DefaultCardPresenter extends AbstractCardPresenter<DefaultImageCard
     @Override
     public void onBindViewHolder(Card card, DefaultImageCardView cardView) {
         cardView.setTitleText(card.getTitle());
-        cardView.setContentText(card.getDescription());
+        cardView.setContentText(card.getSubtitle());
 
         if (card.getCardImageUrl() != null) {
             cardView.setMainImageDimensions(mCardWidth, mCardHeight);

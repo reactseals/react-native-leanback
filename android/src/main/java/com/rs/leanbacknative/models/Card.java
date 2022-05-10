@@ -19,7 +19,7 @@ public class Card implements Serializable {
 
     @Expose private String title;
 
-    @Expose private String description;
+    @Expose private String subtitle;
 
     @Expose private String cardImageUrl;
 
@@ -32,8 +32,6 @@ public class Card implements Serializable {
     @Expose private String overlayTitle;
 
     @Expose private String overlaySubtitle;
-
-    @Expose private String overlayRemainingTime;
 
     private String overlayPosition;
 
@@ -75,12 +73,12 @@ public class Card implements Serializable {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public String getSubtitle() {
+        return subtitle;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
     }
 
     public String getCardImageUrl() {
@@ -145,14 +143,6 @@ public class Card implements Serializable {
 
     public void setOverlaySubtitle(String overlaySubtitle) {
         this.overlaySubtitle = overlaySubtitle;
-    }
-
-    public String getOverlayRemainingTime() {
-        return overlayRemainingTime;
-    }
-
-    public void setOverlayRemainingTime(String overlayRemainingTime) {
-        this.overlayRemainingTime = overlayRemainingTime;
     }
 
     public long getProgramStartTimestamp() {
@@ -263,16 +253,10 @@ public class Card implements Serializable {
 
 
     public enum Type {
-        PROGRESS_LOGO_OVERLAY,
-        PROGRESS_LOGO,
-        PROGRESS_OVERLAY,
-        PROGRESS,
-        LOGO_OVERLAY,
-        LOGO,
-        OVERLAY,
-        COLOR_TEXT,
-        VIDEO,
-        GRID,
-        DEFAULT
+        CHANNEL_TILE,
+        CONTINUE_WATCHING_TILE,
+        APP_TILE,
+        REGULAR_TILE,
+        GRID_TILE,
     }
 }

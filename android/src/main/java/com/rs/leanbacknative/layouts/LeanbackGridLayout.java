@@ -107,7 +107,7 @@ public class LeanbackGridLayout extends FrameLayout {
         mRowsAdapter.clear();
 
         for (int i = 0; i < rows.size(); i++) {
-            rows.get(i).setPresenterType(Card.Type.GRID);
+            rows.get(i).setPresenterType(Card.Type.GRID_TILE);
             mRowsAdapter.add(rows.get(i));
         }
 

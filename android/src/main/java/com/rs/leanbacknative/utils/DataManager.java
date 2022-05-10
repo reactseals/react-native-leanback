@@ -1,6 +1,5 @@
 package com.rs.leanbacknative.utils;
 
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -39,13 +38,12 @@ public class DataManager {
             card.setViewId(viewId);
             card.setId(validateString(dataRowItem, "id"));
             card.setTitle(validateString(dataRowItem, "title"));
-            card.setDescription(validateString(dataRowItem, "description"));
+            card.setSubtitle(validateString(dataRowItem, "description"));
             card.setCardImageUrl(validateString(dataRowItem, "cardImageUrl"));
             card.setOverlayImageUrl(validateString(dataRowItem, "overlayImageUrl"));
             card.setVideoUrl(validateString(dataRowItem, "videoUrl"));
             card.setOverlayTitle(validateString(dataRowItem, "overlayTitle"));
             card.setOverlaySubtitle(validateString(dataRowItem, "overlaySubtitle"));
-            card.setOverlayRemainingTime(validateString(dataRowItem, "overlayRemainingTime"));
             card.setBackdropUrl(validateString(dataRowItem, "backdropUrl"));
             card.setBackgroundColor(validateString(dataRowItem, "backgroundColor"));
             card.setOverlayPosition(validateString(dataRowItem, "overlayPosition"));
@@ -71,25 +69,17 @@ public class DataManager {
     }
 
     private static Card.Type getType(Card item, ReadableMap attributes) {
-        boolean hasLogo = !item.getOverlayImageUrl().isEmpty();
         boolean hasOverlayTitle = !item.getOverlayTitle().isEmpty();
-        boolean isLive = item.getProgramStartTimestamp() != 0 || item.getProgress() != -1;
-        boolean isColorText = !item.getBackgroundColor().isEmpty();
-        boolean isVideo = !item.getVideoUrl().isEmpty();
+        boolean hasTitle = !item.getTitle().isEmpty();
+        boolean hasProgress = item.getProgress() > 0;
         boolean hasImageOnly = attributes.getBoolean("hasImageOnly");
 
-        if (isLive && hasOverlayTitle && hasLogo) return Card.Type.PROGRESS_LOGO_OVERLAY;
-        if (isLive && hasLogo) return Card.Type.PROGRESS_LOGO;
-        if (isLive && hasOverlayTitle) return Card.Type.PROGRESS_OVERLAY;
-        if (hasLogo && hasOverlayTitle) return Card.Type.LOGO_OVERLAY;
-        if (hasLogo) return Card.Type.LOGO;
-        if (isColorText) return Card.Type.COLOR_TEXT;
-        if (hasOverlayTitle) return Card.Type.OVERLAY;
-        if (isLive) return Card.Type.PROGRESS;
-        if (isVideo) return Card.Type.VIDEO;
-        if (hasImageOnly) return Card.Type.LOGO;
+        if (hasTitle && hasOverlayTitle) return Card.Type.CHANNEL_TILE;
+        if (hasProgress && hasOverlayTitle) return Card.Type.CONTINUE_WATCHING_TILE;
+        if (hasOverlayTitle) return Card.Type.REGULAR_TILE;
+        if (hasImageOnly) return Card.Type.APP_TILE;
 
-        return Card.Type.DEFAULT;
+        return Card.Type.REGULAR_TILE;
     }
 
     private static String validateString(ReadableMap item, String prop) {

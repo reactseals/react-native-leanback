@@ -29,35 +29,17 @@ public class CardPresenterSelector extends PresenterSelector {
 
         if (presenter == null) {
             switch (card.getPresenterType()) {
-                case PROGRESS_LOGO_OVERLAY:
-                    presenter = new ProgressLogoOverlayCardPresenter(mAttributes);
+                case CHANNEL_TILE:
+                    presenter = new ChannelCardPresenter(mAttributes);
                     break;
-                case PROGRESS_LOGO:
-                    presenter = new ProgressLogoCardPresenter(mAttributes);
+                case CONTINUE_WATCHING_TILE:
+                    presenter = new ContinueWatchingCardPresenter(mAttributes);
                     break;
-                case PROGRESS_OVERLAY:
-                    presenter = new ProgressOverlayCardPresenter(mAttributes);
+                case APP_TILE:
+                    presenter = new AppCardPresenter(mAttributes);
                     break;
-                case LOGO_OVERLAY:
-                    presenter = new LogoOverlayCardPresenter(mAttributes);
-                    break;
-                case LOGO:
-                    presenter = new LogoCardPresenter(mAttributes);
-                    break;
-                case OVERLAY:
-                    presenter = new OverlayCardPresenter(mAttributes);
-                    break;
-                case PROGRESS:
-                    presenter = new ProgressCardPresenter(mAttributes);
-                    break;
-                case COLOR_TEXT:
-                    presenter = new ColorTextCardPresenter(mAttributes);
-                    break;
-                case VIDEO:
-                    presenter = new VideoCardPresenter(mAttributes);
-                    break;
-                case GRID:
-                    presenter = new GridCardPresenter(mAttributes, card);
+                case REGULAR_TILE:
+                    presenter = new RegularCardPresenter(mAttributes);
                     break;
                 default:
                     presenter = new DefaultCardPresenter(mAttributes, card);

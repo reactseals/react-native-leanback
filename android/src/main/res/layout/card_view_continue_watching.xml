@@ -15,22 +15,7 @@
         android:id="@+id/gradient"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/gradient" />
-
-    <RelativeLayout
-        android:id="@+id/overlay_image_wrapper"
-        android:layout_width="120dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center">
-
-        <ImageView
-            android:id="@+id/overlay_image"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"
-            tools:ignore="ContentDescription" />
-    </RelativeLayout>
+        android:background="@drawable/border" />
 
     <TextView
         android:id="@+id/live_badge"
@@ -52,9 +37,9 @@
         android:maxLines="1"
         android:textColor="@color/lb_basic_card_title_text_color"
         android:textSize="26sp"
-        android:textStyle="bold"
         android:layout_gravity="center"
-        android:ellipsize="end" />
+        android:ellipsize="end"
+        android:fontFamily="@font/markpro_bold" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
