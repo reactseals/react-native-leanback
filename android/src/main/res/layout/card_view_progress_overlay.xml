@@ -17,6 +17,14 @@
         android:layout_height="match_parent"
         android:background="@drawable/gradient" />
 
+    <LinearLayout
+        android:id="@+id/overlay_text_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="24px"
+        android:orientation="vertical">
+
     <TextView
         android:id="@+id/overlay_title"
         android:layout_width="wrap_content"
@@ -26,18 +34,29 @@
         android:ellipsize="end"
         android:textSize="26px"
         android:lineHeight="32px"
-        android:layout_gravity="start"
         android:fontFamily="@font/markpro_bold" />
 
     <TextView
         android:id="@+id/overlay_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:textColor="#FFF"
+        android:ellipsize="end"
+        android:textSize="26px"
+        android:lineHeight="32px"
+        android:fontFamily="@font/markpro_bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/overlay_remaining_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textColor="#FFF"
         android:textSize="26px"
         android:lineHeight="32px"
-        android:layout_marginBottom="15dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginBottom="50px"
+        android:layout_marginStart="24px"
         android:layout_gravity="bottom"
         android:fontFamily="@font/markpro_bold" />
 

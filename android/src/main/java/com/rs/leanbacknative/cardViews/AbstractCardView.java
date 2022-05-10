@@ -26,6 +26,7 @@ public abstract class AbstractCardView extends DefaultImageCardView {
     protected TextView overlaySubtitleView;
     protected TextView liveBadge;
     protected View gradient;
+    protected Textview overlayRemainingTime;
 
     public AbstractCardView(Context context) {
         super(context);
@@ -47,6 +48,7 @@ public abstract class AbstractCardView extends DefaultImageCardView {
         overlaySubtitleView = findViewById(R.id.overlay_subtitle);
         liveBadge = findViewById(R.id.live_badge);
         gradient = findViewById(R.id.gradient);
+        overlayRemainingTime = findViewById(R.id.overlay_remaining_time);
 
         mFadeInAnimator = ObjectAnimator.ofFloat(mImageView, ALPHA, 1f);
         mFadeInAnimator.setDuration(
@@ -68,6 +70,7 @@ public abstract class AbstractCardView extends DefaultImageCardView {
     public View getGradientView() {  return gradient; }
     public TextView getOverlayTitleView() {  return overlayTitleView; }
     public TextView getOverlaySubtitleView() {  return overlaySubtitleView; }
+    public TextView getOverlayRemainingTime() { return overlayRemainingTime; }
 
     protected void setOverlayImagePosition(String position) {
         FrameLayout.LayoutParams layoutParams = ((FrameLayout.LayoutParams) overlayImageWrapper.getLayoutParams());

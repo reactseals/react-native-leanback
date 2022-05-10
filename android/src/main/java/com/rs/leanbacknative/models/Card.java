@@ -33,6 +33,8 @@ public class Card implements Serializable {
 
     @Expose private String overlaySubtitle;
 
+    @Expose private String overlayRemainingTime;
+
     private String overlayPosition;
 
     private Boolean displayLiveBadge;
@@ -143,6 +145,14 @@ public class Card implements Serializable {
 
     public void setOverlaySubtitle(String overlaySubtitle) {
         this.overlaySubtitle = overlaySubtitle;
+    }
+
+    public String getOverlayRemainingTime() {
+        return overlayRemainingTime;
+    }
+
+    public void setOverlayRemainingTime(String overlayRemainingTime) {
+        this.overlayRemainingTime = overlayRemainingTime;
     }
 
     public long getProgramStartTimestamp() {
