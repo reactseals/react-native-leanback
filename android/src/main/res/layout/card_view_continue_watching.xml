@@ -65,11 +65,17 @@
             android:layout_marginBottom="10px"
             android:fontFamily="@font/markpro_bold" />
 
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            style="@android:style/Widget.Material.Light.ProgressBar.Horizontal"
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:progress="25" />
+            android:layout_height="6px">
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="6px"
+                android:progress="30" />
+        </FrameLayout>
     </LinearLayout>
 </FrameLayout>
