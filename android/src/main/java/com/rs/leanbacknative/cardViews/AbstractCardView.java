@@ -26,7 +26,7 @@ public abstract class AbstractCardView extends DefaultImageCardView {
     protected TextView overlaySubtitleView;
     protected TextView liveBadge;
     protected View gradient;
-    protected Textview overlayRemainingTime;
+    protected TextView overlayRemainingTime;
 
     public AbstractCardView(Context context) {
         super(context);
