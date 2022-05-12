@@ -3,6 +3,7 @@ package com.rs.leanbacknative.presenters;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.view.View;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -22,20 +23,29 @@ public class ChannelCardPresenter extends AbstractCardPresenter<ChannelCardView>
             @Override
             public void setSelected(boolean selected) {
                 GradientDrawable border = new GradientDrawable();
-//
-//                if (selected) {
-//                    border.setColor(Color.TRANSPARENT); //white background
-//                    border.setStroke(6, Color.WHITE);
-//                    border.setCornerRadius(12);
-//                    this.findViewById(R.id.gradient).setBackground(border);
-//                    this.findViewById(R.id.gradient).setPadding(6, 6, 6,6);
-//                } else {
-//                    border.setColor(Color.TRANSPARENT); //white background
-//                    border.setStroke(0, Color.TRANSPARENT);
-//                    border.setCornerRadius(12);
-//                    this.findViewById(R.id.gradient).setBackground(border);
-//                    this.findViewById(R.id.gradient).setPadding(0, 0, 0,0);
-//                }
+
+                if (selected) {
+                    border.setColor(Color.TRANSPARENT); //white background
+                    border.setStroke(6, Color.WHITE);
+                    this.findViewById(R.id.overlay_title).setVisibility(View.VISIBLE);
+                    this.findViewById(R.id.overlay_subtitle).setVisibility(View.VISIBLE);
+                    this.findViewById(R.id.gradient).setVisibility(View.VISIBLE);
+
+                    this.findViewById(R.id.gradient).setPadding(6, 6, 6,6);
+
+                    this.findViewById(R.id.channel_text_layout).setVisibility(View.GONE);
+
+                } else {
+                    border.setColor(Color.TRANSPARENT); //white background
+                    border.setStroke(0, Color.TRANSPARENT);
+                    this.findViewById(R.id.overlay_title).setVisibility(View.GONE);
+                    this.findViewById(R.id.overlay_subtitle).setVisibility(View.GONE);
+                    this.findViewById(R.id.gradient).setVisibility(View.GONE);
+                    this.findViewById(R.id.gradient).setPadding(0, 0, 0,0);
+                    this.findViewById(R.id.channel_text_layout).setVisibility(View.VISIBLE);
+                }
+
+                this.findViewById(R.id.gradient).setBackground(border);
 
                 super.setSelected(selected);
             }

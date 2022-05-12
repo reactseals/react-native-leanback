@@ -38,7 +38,7 @@ public class DataManager {
             card.setViewId(viewId);
             card.setId(validateString(dataRowItem, "id"));
             card.setTitle(validateString(dataRowItem, "title"));
-            card.setSubtitle(validateString(dataRowItem, "description"));
+            card.setSubtitle(validateString(dataRowItem, "subtitle"));
             card.setCardImageUrl(validateString(dataRowItem, "cardImageUrl"));
             card.setOverlayTitle(validateString(dataRowItem, "overlayTitle"));
             card.setOverlaySubtitle(validateString(dataRowItem, "overlaySubtitle"));
