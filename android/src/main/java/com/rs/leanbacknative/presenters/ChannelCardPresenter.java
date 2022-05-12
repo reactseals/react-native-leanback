@@ -33,7 +33,7 @@ public class ChannelCardPresenter extends AbstractCardPresenter<ChannelCardView>
 
                     this.findViewById(R.id.gradient).setPadding(6, 6, 6,6);
 
-                    this.findViewById(R.id.channel_text_layout).setVisibility(View.GONE);
+//                    this.findViewById(R.id.channel_text_layout).setVisibility(View.GONE);
 
                 } else {
                     border.setColor(Color.TRANSPARENT); //white background
@@ -42,7 +42,7 @@ public class ChannelCardPresenter extends AbstractCardPresenter<ChannelCardView>
                     this.findViewById(R.id.overlay_subtitle).setVisibility(View.GONE);
                     this.findViewById(R.id.gradient).setVisibility(View.GONE);
                     this.findViewById(R.id.gradient).setPadding(0, 0, 0,0);
-                    this.findViewById(R.id.channel_text_layout).setVisibility(View.VISIBLE);
+//                    this.findViewById(R.id.channel_text_layout).setVisibility(View.VISIBLE);
                 }
 
                 this.findViewById(R.id.gradient).setBackground(border);
