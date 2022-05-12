@@ -15,7 +15,8 @@
         android:id="@+id/gradient"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/border" />
+        android:background="@drawable/border"
+        />
 
     <LinearLayout
         android:id="@+id/overlay_text_layout"
@@ -74,8 +75,7 @@
                 android:id="@+id/progress_bar"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
-                android:layout_height="6px"
-                android:progress="30" />
+                android:layout_height="6px" />
         </FrameLayout>
     </LinearLayout>
 </FrameLayout>

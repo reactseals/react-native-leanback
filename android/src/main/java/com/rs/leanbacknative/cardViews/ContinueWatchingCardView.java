@@ -21,6 +21,7 @@ public class ContinueWatchingCardView extends AbstractCardView {
         overlayTitleView.setText(card.getOverlayTitle());
         overlaySubtitleView.setText(card.getOverlaySubtitle());
         overlayRemainingTimeView.setText(card.getOverlayRemainingTime());
+        progressBar.setProgress(card.getProgress());
         setGradientCornerRadius(borderRadius);
         setProgressBar(card);
         setLayoutDimensions(cardWidth, cardHeight);
