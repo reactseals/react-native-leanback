@@ -63,11 +63,11 @@ public class DataManager {
     private static Card.Type getType(Card item, ReadableMap attributes) {
         boolean hasOverlayTitle = !item.getOverlayTitle().isEmpty();
         boolean hasTitle = !item.getTitle().isEmpty();
-        boolean hasProgress = item.getProgress() > 0;
+        boolean hasRemainingTime = !item.getOverlayRemainingTime().isEmpty();
         boolean hasImageOnly = attributes.getBoolean("hasImageOnly");
 
         if (hasTitle && hasOverlayTitle) return Card.Type.CHANNEL_TILE;
-        if (hasProgress && hasOverlayTitle) return Card.Type.CONTINUE_WATCHING_TILE;
+        if (hasRemainingTime && hasOverlayTitle) return Card.Type.CONTINUE_WATCHING_TILE;
         if (hasOverlayTitle) return Card.Type.REGULAR_TILE;
         if (hasImageOnly) return Card.Type.APP_TILE;
 
