@@ -329,7 +329,7 @@
     <style name="Theme.Leanback" parent="Theme.LeanbackBase">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="fallbackBackground">@drawable/lb_fallback_bg</item>
+        <item name="fallbackBackground">@drawable/logo</item>
 
        <!-- Used by MediaRouter -->
         <item name="isLightTheme">true</item>
