@@ -11,12 +11,18 @@
         style="?attr/imageCardViewImageStyle"
         tools:ignore="ContentDescription" />
 
-    <View
-        android:id="@+id/gradient"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/continue_watching_gradient"
-        />
+        android:id="@+id/gradient">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/continue_watching_gradient"
+            />
+    </FrameLayout>
+
+
 
     <LinearLayout
         android:id="@+id/overlay_text_layout"
