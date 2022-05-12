@@ -15,7 +15,7 @@
         android:id="@+id/gradient"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/border"
+        android:background="@drawable/continue_watching_gradient"
         />
 
     <LinearLayout
