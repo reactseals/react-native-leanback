@@ -39,6 +39,7 @@ public class CardPresenterSelector extends PresenterSelector {
                     presenter = new AppCardPresenter(mAttributes);
                     break;
                 case REGULAR_TILE:
+                case GRID_TILE:
                     presenter = new RegularCardPresenter(mAttributes);
                     break;
                 default:
