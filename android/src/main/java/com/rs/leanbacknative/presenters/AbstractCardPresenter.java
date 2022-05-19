@@ -125,4 +125,11 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
                 .error(mDefaultCardImage)
                 .into(imageView);
     }
+
+    void loadLocalImage(ImageView imageView, Card card, int resource) {
+        Glide.with(imageView.getContext())
+                .load(card.getCardImageUrl())
+                .error(resource)
+                .into(imageView);
+    }
 }
