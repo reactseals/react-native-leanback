@@ -2,6 +2,7 @@ package com.rs.leanbacknative.cardViews;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -25,6 +26,12 @@ public class RegularCardView extends AbstractCardView {
 
         overlaySubtitleView.setText(card.getOverlaySubtitle());
         overlaySubtitleView.setVisibility(View.INVISIBLE);
+
+        if (card.getDeleteMode()) {
+            deleteImageView.setVisibility(View.VISIBLE);
+        } else {
+            deleteImageView.setVisibility(View.INVISIBLE);
+        }
 
         gradient.setVisibility(View.INVISIBLE);
         setGradientCornerRadius(borderRadius);

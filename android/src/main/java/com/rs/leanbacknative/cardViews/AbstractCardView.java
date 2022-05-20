@@ -27,6 +27,7 @@ public abstract class AbstractCardView extends DefaultImageCardView {
     // protected TextView liveBadge;
     protected View gradient;
     protected TextView overlayRemainingTimeView;
+    protected ImageView deleteImageView;
 
     public AbstractCardView(Context context) {
         super(context);
@@ -47,6 +48,7 @@ public abstract class AbstractCardView extends DefaultImageCardView {
         // liveBadge = findViewById(R.id.live_badge);
         gradient = findViewById(R.id.gradient);
         overlayRemainingTimeView = findViewById(R.id.overlay_remaining_time);
+        deleteImageView = findViewById(R.id.delete_icon);
 
         mFadeInAnimator = ObjectAnimator.ofFloat(mImageView, ALPHA, 1f);
         mFadeInAnimator.setDuration(

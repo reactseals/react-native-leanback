@@ -43,6 +43,7 @@ public class DataManager {
             card.setOverlayTitle(validateString(dataRowItem, "overlayTitle"));
             card.setOverlaySubtitle(validateString(dataRowItem, "overlaySubtitle"));
             card.setOverlayRemainingTime(validateString(dataRowItem, "overlayRemainingTime"));
+            card.setDeleteMode(validateBoolean(dataRowItem, "isDeleteMode"));
             card.setDisplayLiveBadge(validateBoolean(dataRowItem, "displayLiveBadge"));
             card.setLiveBadgeColor(validateString(dataRowItem, "liveBadgeColor"));
             card.setLiveProgressBarColor(validateString(dataRowItem, "liveProgressBarColor"));

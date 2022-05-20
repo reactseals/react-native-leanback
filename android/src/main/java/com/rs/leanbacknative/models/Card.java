@@ -41,6 +41,8 @@ public class Card implements Serializable {
 
     @Expose private byte progress;
 
+    @Expose private Boolean isDeleteMode;
+
     private Card.Type mType;
 
     public Card() { }
@@ -111,6 +113,14 @@ public class Card implements Serializable {
 
     public String getOverlaySubtitle() {
         return overlaySubtitle;
+    }
+
+    public void setDeleteMode(Boolean isDeleteMode) {
+        this.isDeleteMode = isDeleteMode;
+    }
+
+    public Boolean getDeleteMode() {
+        return isDeleteMode;
     }
 
     public void setOverlaySubtitle(String overlaySubtitle) {
