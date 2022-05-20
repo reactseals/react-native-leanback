@@ -50,8 +50,8 @@ public class DataManager {
             card.setProgramStartTimestamp(validateLong(dataRowItem, "programStartTimestamp"));
             card.setProgress(validateByte(dataRowItem, "progress"));
             card.setProgramEndTimestamp(validateLong(dataRowItem, "programEndTimestamp"));
-            card.setPresenterType(getType(card, attributes));
             card.setServiceCardTitle(validateString(dataRowItem, "serviceCardTitle"));
+            card.setPresenterType(getType(card, attributes));
             rows.add(card);
         }
 
@@ -67,13 +67,13 @@ public class DataManager {
         boolean hasTitle = !item.getTitle().isEmpty();
         boolean hasRemainingTime = !item.getOverlayRemainingTime().isEmpty();
         boolean hasImageOnly = attributes.getBoolean("hasImageOnly");
-        boolean hasServiceTitle = !item.getServiceCardTitle().isEmpty();
+        // boolean hasServiceTitle = !item.getServiceCardTitle().isEmpty();
 
         if (hasTitle && hasOverlayTitle) return Card.Type.CHANNEL_TILE;
         if (hasRemainingTime && hasOverlayTitle) return Card.Type.CONTINUE_WATCHING_TILE;
         if (hasOverlayTitle) return Card.Type.REGULAR_TILE;
         if (hasImageOnly) return Card.Type.APP_TILE;
-        if (hasServiceTitle) return Card.Type.SERVICE_CARD;
+        // if (hasServiceTitle) return Card.Type.SERVICE_CARD;
 
         return Card.Type.REGULAR_TILE;
     }
