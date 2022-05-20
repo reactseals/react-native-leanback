@@ -29,6 +29,8 @@ public class Card implements Serializable {
 
     @Expose private String overlayRemainingTime;
 
+    @Expose private String serviceCardTitle;
+
     private Boolean displayLiveBadge;
 
     private String liveBadgeColor;
@@ -135,6 +137,14 @@ public class Card implements Serializable {
         this.overlayRemainingTime = overlayRemainingTime;
     }
 
+    public String getServiceCardTitle() {
+        return serviceCardTitle;
+    }
+
+    public void setServiceCardTitle(String serviceCardTitle) {
+        this.serviceCardTitle = serviceCardTitle;
+    }
+
     public long getProgramStartTimestamp() {
         return programStartTimestamp;
     }
@@ -208,5 +218,6 @@ public class Card implements Serializable {
         APP_TILE,
         REGULAR_TILE,
         GRID_TILE,
+        SERVICE_CARD
     }
 }

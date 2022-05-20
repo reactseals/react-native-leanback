@@ -42,6 +42,9 @@ public class CardPresenterSelector extends PresenterSelector {
                 case GRID_TILE:
                     presenter = new RegularCardPresenter(mAttributes);
                     break;
+                case SERVICE_CARD:
+                    presenter = new ServiceCardPresenter(mAttributes);
+                    break;
                 default:
                     presenter = new DefaultCardPresenter(mAttributes, card);
                     break;

@@ -28,6 +28,8 @@ public abstract class AbstractCardView extends DefaultImageCardView {
     protected View gradient;
     protected TextView overlayRemainingTimeView;
     protected ImageView deleteImageView;
+    protected TextView serviceCardTitleView;
+    protected ImageView serviceCardImageView;
 
     public AbstractCardView(Context context) {
         super(context);
@@ -53,6 +55,8 @@ public abstract class AbstractCardView extends DefaultImageCardView {
         mFadeInAnimator = ObjectAnimator.ofFloat(mImageView, ALPHA, 1f);
         mFadeInAnimator.setDuration(
                 mImageView.getResources().getInteger(android.R.integer.config_shortAnimTime));
+        serviceCardTitleView = findViewById(R.id.service_text);
+        serviceCardImageView = findViewById(R.id.service_icon);
     }
 
     public abstract void buildCardView();
