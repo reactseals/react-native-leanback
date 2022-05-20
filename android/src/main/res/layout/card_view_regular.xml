@@ -23,7 +23,7 @@
 
     <ImageView
         android:id="@+id/delete_icon"
-        android:src="@drawable/icon_delete_white"
+        android:src="@drawable/icon_delete_with_border_white"
         android:layout_gravity="center"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
