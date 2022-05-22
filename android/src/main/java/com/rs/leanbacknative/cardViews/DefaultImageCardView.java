@@ -352,10 +352,12 @@ public class DefaultImageCardView extends BaseCardView {
      * Sets the layout dimensions of the ImageView.
      */
     public void setMainImageDimensions(int width, int height) {
-        ViewGroup.LayoutParams lp = mImageView.getLayoutParams();
-        lp.width = width;
-        lp.height = height;
-        mImageView.setLayoutParams(lp);
+        if (mImageView != null) {
+            ViewGroup.LayoutParams lp = mImageView.getLayoutParams();
+            lp.width = width;
+            lp.height = height;
+            mImageView.setLayoutParams(lp);
+        }
     }
 
     /**
@@ -496,7 +498,9 @@ public class DefaultImageCardView extends BaseCardView {
     }
 
     private void fadeIn() {
-        mImageView.setAlpha(0f);
+        if (mImageView != null) {
+            mImageView.setAlpha(0f);
+        }
         if (mAttachedToWindow) {
             mFadeInAnimator.start();
         }
@@ -511,8 +515,10 @@ public class DefaultImageCardView extends BaseCardView {
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         mAttachedToWindow = true;
-        if (mImageView.getAlpha() == 0) {
-            fadeIn();
+        if (mImageView != null) {
+            if (mImageView.getAlpha() == 0) {
+                fadeIn();
+            }
         }
     }
 
@@ -520,7 +526,9 @@ public class DefaultImageCardView extends BaseCardView {
     protected void onDetachedFromWindow() {
         mAttachedToWindow = false;
         mFadeInAnimator.cancel();
-        mImageView.setAlpha(1f);
+        if (mImageView != null) {
+            mImageView.setAlpha(1f);
+        }
         super.onDetachedFromWindow();
     }
 }
