@@ -184,7 +184,7 @@ public class DefaultImageCardView extends BaseCardView {
             mImageView.setVisibility(View.INVISIBLE);
         }
         // Set Object Animator for image view.
-        if (mImageView != null) {
+        if (mImageView != null && mFadeInAnimator != null) {
             mFadeInAnimator = ObjectAnimator.ofFloat(mImageView, ALPHA, 1f);
             mFadeInAnimator.setDuration(
                     mImageView.getResources().getInteger(android.R.integer.config_shortAnimTime));
@@ -334,7 +334,9 @@ public class DefaultImageCardView extends BaseCardView {
 
         mImageView.setImageDrawable(drawable);
         if (drawable == null) {
-            mFadeInAnimator.cancel();
+            if (mFadeInAnimator != null) {
+                mFadeInAnimator.cancel();
+            }
             mImageView.setAlpha(1f);
             mImageView.setVisibility(View.INVISIBLE);
         } else {
@@ -342,7 +344,9 @@ public class DefaultImageCardView extends BaseCardView {
             if (fade) {
                 fadeIn();
             } else {
-                mFadeInAnimator.cancel();
+                if (mFadeInAnimator != null) {
+                    mFadeInAnimator.cancel();
+                }
                 mImageView.setAlpha(1f);
             }
         }
