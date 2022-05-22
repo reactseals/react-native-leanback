@@ -529,7 +529,9 @@ public class DefaultImageCardView extends BaseCardView {
     @Override
     protected void onDetachedFromWindow() {
         mAttachedToWindow = false;
-        mFadeInAnimator.cancel();
+        if (mFadeInAnimator != null) {
+            mFadeInAnimator.cancel();
+        }
         if (mImageView != null) {
             mImageView.setAlpha(1f);
         }
