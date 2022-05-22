@@ -108,11 +108,12 @@ public class LeanbackGridLayout extends FrameLayout {
         mRowsAdapter.clear();
 
         for (int i = 0; i < rows.size(); i++) {
-            Log.d("=====================", "setDataAndAttributes: "+rows.get(i));
+            Log.d("=====================1", "setDataAndAttributes: "+rows.get(i).getServiceCardTitle());
+            Log.d("=====================2", "setDataAndAttributes: "+rows.get(i).getOverlayTitle());
             if(!rows.get(i).getServiceCardTitle().isEmpty()) {
             rows.get(i).setPresenterType(Card.Type.SERVICE_CARD);
             } else {
-            rows.get(i).setPresenterType(Card.Type.CONTINUE_WATCHING_TILE);
+            rows.get(i).setPresenterType(Card.Type.GRID_TILE);
             }
             mRowsAdapter.add(rows.get(i));
         }
