@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.rs.leanbacknative.R;
 import com.rs.leanbacknative.models.Card;
 import com.rs.leanbacknative.utils.Utils;
@@ -52,9 +53,12 @@ public abstract class AbstractCardView extends DefaultImageCardView {
         overlayRemainingTimeView = findViewById(R.id.overlay_remaining_time);
         deleteImageView = findViewById(R.id.delete_icon);
 
-        mFadeInAnimator = ObjectAnimator.ofFloat(mImageView, ALPHA, 1f);
-        mFadeInAnimator.setDuration(
-                mImageView.getResources().getInteger(android.R.integer.config_shortAnimTime));
+        if (mImageView != null) {
+            mFadeInAnimator = ObjectAnimator.ofFloat(mImageView, ALPHA, 1f);
+            mFadeInAnimator.setDuration(
+                    mImageView.getResources().getInteger(android.R.integer.config_shortAnimTime));
+        }
+
         serviceCardTitleView = findViewById(R.id.service_text);
         serviceCardImageView = findViewById(R.id.service_icon);
     }
@@ -68,10 +72,21 @@ public abstract class AbstractCardView extends DefaultImageCardView {
         layout.setLayoutParams(lp);
     }
 
-    public View getGradientView() {  return gradient; }
-    public TextView getOverlayTitleView() {  return overlayTitleView; }
-    public TextView getOverlaySubtitleView() {  return overlaySubtitleView; }
-    public TextView getOverlayRemainingTimeView() { return overlayRemainingTimeView; }
+    public View getGradientView() {
+        return gradient;
+    }
+
+    public TextView getOverlayTitleView() {
+        return overlayTitleView;
+    }
+
+    public TextView getOverlaySubtitleView() {
+        return overlaySubtitleView;
+    }
+
+    public TextView getOverlayRemainingTimeView() {
+        return overlayRemainingTimeView;
+    }
 
     protected void setGradientCornerRadius(int borderRadius) {
 //        GradientDrawable drawable = (GradientDrawable) gradient.getBackground();
@@ -86,7 +101,7 @@ public abstract class AbstractCardView extends DefaultImageCardView {
         // String badgeColor = card.getLiveBadgeColor();
         // String progressBarColor = card.getLiveProgressBarColor();
 
-        if ((startTimestamp!= 0 && endTimestamp != 0) || progress != -1) {
+        if ((startTimestamp != 0 && endTimestamp != 0) || progress != -1) {
             // GradientDrawable drawable = (GradientDrawable) liveBadge.getBackground();
 
             // if (!displayLiveBadge) {

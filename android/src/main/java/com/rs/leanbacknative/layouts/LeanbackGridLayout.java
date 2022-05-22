@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.util.Log;
 import android.widget.FrameLayout;
+
 import androidx.annotation.NonNull;
 import androidx.leanback.app.VerticalGridFragment;
 import androidx.leanback.widget.ArrayObjectAdapter;
@@ -14,6 +15,7 @@ import androidx.leanback.widget.Presenter;
 import androidx.leanback.widget.Row;
 import androidx.leanback.widget.RowPresenter;
 import androidx.leanback.widget.VerticalGridPresenter;
+
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
@@ -26,6 +28,7 @@ import com.rs.leanbacknative.presenters.GridCardPresenter;
 import com.rs.leanbacknative.utils.Constants;
 import com.rs.leanbacknative.utils.DataManager;
 import com.rs.leanbacknative.models.Card;
+
 import java.util.List;
 
 @SuppressLint("ViewConstructor")
@@ -108,12 +111,10 @@ public class LeanbackGridLayout extends FrameLayout {
         mRowsAdapter.clear();
 
         for (int i = 0; i < rows.size(); i++) {
-            Log.d("=====================1", "setDataAndAttributes: "+rows.get(i).getServiceCardTitle());
-            Log.d("=====================2", "setDataAndAttributes: "+rows.get(i).getOverlayTitle());
-            if(!rows.get(i).getServiceCardTitle().isEmpty()) {
-            rows.get(i).setPresenterType(Card.Type.SERVICE_CARD);
+            if (!rows.get(i).getServiceCardTitle().isEmpty()) {
+                rows.get(i).setPresenterType(Card.Type.SERVICE_CARD);
             } else {
-            rows.get(i).setPresenterType(Card.Type.GRID_TILE);
+                rows.get(i).setPresenterType(Card.Type.GRID_TILE);
             }
             mRowsAdapter.add(rows.get(i));
         }

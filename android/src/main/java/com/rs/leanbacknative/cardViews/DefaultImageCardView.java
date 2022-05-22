@@ -45,14 +45,14 @@ import androidx.leanback.widget.BaseCardView;
  * <pre>
  * {@code
  * <style name="CustomImageCardViewStyle" parent="Widget.Leanback.ImageCardViewStyle">
-<item name="cardBackground">#F0F</item>
-<item name="lbImageCardViewType">Title|Content</item>
-</style>
-<style name="CustomImageCardTheme" parent="Theme.Leanback">
-<item name="imageCardViewStyle">@style/CustomImageCardViewStyle</item>
-<item name="imageCardViewInfoAreaStyle">@style/ImageCardViewColoredInfoArea</item>
-<item name="imageCardViewTitleStyle">@style/ImageCardViewColoredTitle</item>
-</style>}
+ * <item name="cardBackground">#F0F</item>
+ * <item name="lbImageCardViewType">Title|Content</item>
+ * </style>
+ * <style name="CustomImageCardTheme" parent="Theme.Leanback">
+ * <item name="imageCardViewStyle">@style/CustomImageCardViewStyle</item>
+ * <item name="imageCardViewInfoAreaStyle">@style/ImageCardViewColoredInfoArea</item>
+ * <item name="imageCardViewTitleStyle">@style/ImageCardViewColoredTitle</item>
+ * </style>}
  * </pre>
  * <p>
  * The first possibility is to set custom Styles in the Leanback Theme's attributes
@@ -95,18 +95,18 @@ import androidx.leanback.widget.BaseCardView;
  *
  * <pre>
  * {@code <style name="CustomImageCardViewStyle" parent="Widget.Leanback.ImageCardViewStyle">
-...
-<item name="lbImageCardViewType">Title|Content|IconOnLeft</item>
-...
-</style>}
+ * ...
+ * <item name="lbImageCardViewType">Title|Content|IconOnLeft</item>
+ * ...
+ * </style>}
  * </pre>
  *
  * <pre>
  * {@code <style name="CustomImageCardViewStyle" parent="Widget.Leanback.ImageCardViewStyle">
-...
-<item name="lbImageCardViewType">ImageOnly</item>
-...
-</style>}
+ * ...
+ * <item name="lbImageCardViewType">ImageOnly</item>
+ * ...
+ * </style>}
  * </pre>
  *
  * @attr ref androidx.leanback.R.styleable#LeanbackTheme_imageCardViewStyle
@@ -142,13 +142,11 @@ public class DefaultImageCardView extends BaseCardView {
     /**
      * Create an ImageCardView using a given theme for customization.
      *
-     * @param context
-     *            The Context the view is running in, through which it can
-     *            access the current theme, resources, etc.
-     * @param themeResId
-     *            The resourceId of the theme you want to apply to the ImageCardView. The theme
-     *            includes attributes "imageCardViewStyle", "imageCardViewTitleStyle",
-     *            "imageCardViewContentStyle" etc. to customize individual part of ImageCardView.
+     * @param context    The Context the view is running in, through which it can
+     *                   access the current theme, resources, etc.
+     * @param themeResId The resourceId of the theme you want to apply to the ImageCardView. The theme
+     *                   includes attributes "imageCardViewStyle", "imageCardViewTitleStyle",
+     *                   "imageCardViewContentStyle" etc. to customize individual part of ImageCardView.
      * @deprecated Calling this constructor inefficiently creates one ContextThemeWrapper per card,
      * you should share it in card Presenter: wrapper = new ContextThemeWrapper(context, themResId);
      * return new ImageCardView(wrapper);
@@ -186,9 +184,11 @@ public class DefaultImageCardView extends BaseCardView {
             mImageView.setVisibility(View.INVISIBLE);
         }
         // Set Object Animator for image view.
-        mFadeInAnimator = ObjectAnimator.ofFloat(mImageView, ALPHA, 1f);
-        mFadeInAnimator.setDuration(
-                mImageView.getResources().getInteger(android.R.integer.config_shortAnimTime));
+        if (mImageView != null) {
+            mFadeInAnimator = ObjectAnimator.ofFloat(mImageView, ALPHA, 1f);
+            mFadeInAnimator.setDuration(
+                    mImageView.getResources().getInteger(android.R.integer.config_shortAnimTime));
+        }
 
         mInfoArea = findViewById(R.id.info_field);
 
@@ -407,7 +407,7 @@ public class DefaultImageCardView extends BaseCardView {
         mTitleView.setText(text);
     }
 
-    public void setTitleVisibility(int visibility){
+    public void setTitleVisibility(int visibility) {
         if (mTitleView == null) {
             return;
         }
@@ -415,7 +415,7 @@ public class DefaultImageCardView extends BaseCardView {
         mTitleView.setVisibility(visibility);
     }
 
-    public void setContentVisibility(int visibility){
+    public void setContentVisibility(int visibility) {
         if (mContentView == null) {
             return;
         }
