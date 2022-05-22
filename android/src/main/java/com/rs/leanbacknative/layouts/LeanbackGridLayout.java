@@ -3,6 +3,7 @@ package com.rs.leanbacknative.layouts;
 import android.annotation.SuppressLint;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.util.Log;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.leanback.app.VerticalGridFragment;
@@ -107,6 +108,12 @@ public class LeanbackGridLayout extends FrameLayout {
         mRowsAdapter.clear();
 
         for (int i = 0; i < rows.size(); i++) {
+            Log.d("=====================", "setDataAndAttributes: "+rows.get(i));
+            if(!rows.get(i).getServiceCardTitle().isEmpty()) {
+            rows.get(i).setPresenterType(Card.Type.SERVICE_CARD);
+            } else {
+            rows.get(i).setPresenterType(Card.Type.CONTINUE_WATCHING_TILE);
+            }
             mRowsAdapter.add(rows.get(i));
         }
 
