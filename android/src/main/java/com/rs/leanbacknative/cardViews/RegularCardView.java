@@ -28,10 +28,10 @@ public class RegularCardView extends AbstractCardView {
         overlaySubtitleView.setVisibility(View.INVISIBLE);
 
         if (card.getDeleteMode()) {
-            deleteImageView.setVisibility(View.VISIBLE);
+            deleteLayout.setVisibility(View.VISIBLE);
             layout.setAlpha(.5f);
         } else {
-            deleteImageView.setVisibility(View.INVISIBLE);
+            deleteLayout.setVisibility(View.INVISIBLE);
             layout.setAlpha(1f);
         }
 
