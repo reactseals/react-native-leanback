@@ -29,10 +29,8 @@ public class RegularCardView extends AbstractCardView {
 
         if (card.getDeleteMode()) {
             deleteLayout.setVisibility(View.VISIBLE);
-            layout.setAlpha(.5f);
         } else {
             deleteLayout.setVisibility(View.INVISIBLE);
-            layout.setAlpha(1f);
         }
 
         gradient.setVisibility(View.INVISIBLE);
