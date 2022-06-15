@@ -40,6 +40,8 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
     protected int mBorderRadius;
     protected boolean mHasImageOnly;
     protected String mImageTransformationMode;
+    protected boolean mIsGrid;
+    protected int mNumOfCols;
 
     protected boolean mGridShowOnlyFocusedInfo = false;
 
@@ -90,6 +92,8 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
         mGridShowOnlyFocusedInfo = attributes.getBoolean("showOnlyFocusedInfo");
         mHasImageOnly = attributes.getBoolean("hasImageOnly");
         mImageTransformationMode = attributes.getString("imageTransformationMode");
+        mIsGrid = attributes.hasKey("isGrid") ? attributes.getBoolean("isGrid") : false;
+        mNumOfCols = attributes.hasKey("numOfCols") ? attributes.getInt("numOfCols") : 4;
     }
 
     void setFocusRules(View cardView, Card card) {
@@ -106,8 +110,15 @@ public abstract class AbstractCardPresenter<T extends BaseCardView> extends Pres
         if (nextFocusDownId != View.NO_ID)
             cardView.setNextFocusDownId(nextFocusDownId);
 
-        if (nextFocusLeftId != View.NO_ID && card.getIndex() == 0)
-            cardView.setNextFocusLeftId(nextFocusLeftId);
+        if (mIsGrid) {
+            if (nextFocusLeftId != View.NO_ID && card.getIndex() % mNumOfCols == 0) {
+                cardView.setNextFocusLeftId(nextFocusLeftId);
+            }
+        } else {
+            if (nextFocusLeftId != View.NO_ID && card.getIndex() == 0) {
+                cardView.setNextFocusLeftId(nextFocusLeftId);
+            }
+        }
 
         if (nextFocusRightId != View.NO_ID && card.isLast())
             cardView.setNextFocusRightId(nextFocusRightId);

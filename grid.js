@@ -59,6 +59,8 @@ const Grid = React.forwardRef(
 				hasImageOnly: attributes.hasImageOnly ?? false,
 				imageTransformationMode:
 					attributes?.imageTransformationMode || 'fitCenter',
+				isGrid: true,
+				numOfCols: numOfCols
 			},
 		};
 
