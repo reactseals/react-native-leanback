@@ -196,7 +196,7 @@ public class Card implements Serializable {
         return overlaySizeTitle;
     }
 
-    public void setOverlaySizeTitle(String overlayTitle) {
+    public void setOverlaySizeTitle(String overlaySizeTitle) {
         this.overlaySizeTitle = overlaySizeTitle;
     }
 
