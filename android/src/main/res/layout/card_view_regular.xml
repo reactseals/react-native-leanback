@@ -32,6 +32,13 @@
             android:layout_height="match_parent"
             android:background="#80000000" />
 
+        <ImageView
+            android:id="@+id/delete_icon"
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_delete_with_border_white" />
+
         <TextView
             android:id="@+id/overlay_size_title"
             android:layout_width="wrap_content"
@@ -41,13 +48,6 @@
             android:lineHeight="32px"
             android:textColor="@color/lb_basic_card_title_text_color"
             android:textSize="24px" />
-
-        <ImageView
-            android:id="@+id/delete_icon"
-            android:layout_width="60px"
-            android:layout_height="60px"
-            android:layout_gravity="center"
-            android:src="@drawable/icon_delete_with_border_white" />
     </FrameLayout>
 
 

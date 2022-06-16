@@ -44,12 +44,12 @@ public class DataManager {
             card.setOverlaySubtitle(validateString(dataRowItem, "overlaySubtitle"));
             card.setOverlayRemainingTime(validateString(dataRowItem, "overlayRemainingTime"));
             card.setDeleteMode(validateBoolean(dataRowItem, "isDeleteMode"));
+            card.setOverlaySizeTitle(validateString(dataRowItem, "overlaySizeTitle"));
             card.setDisplayLiveBadge(validateBoolean(dataRowItem, "displayLiveBadge"));
             card.setLiveBadgeColor(validateString(dataRowItem, "liveBadgeColor"));
             card.setLiveProgressBarColor(validateString(dataRowItem, "liveProgressBarColor"));
             card.setProgramStartTimestamp(validateLong(dataRowItem, "programStartTimestamp"));
             card.setProgress(validateByte(dataRowItem, "progress"));
-            card.setOverlaySizeTitle(validateString(dataRowItem, "overlaySizeTitle"));
             card.setProgramEndTimestamp(validateLong(dataRowItem, "programEndTimestamp"));
             card.setServiceCardTitle(validateString(dataRowItem, "serviceCardTitle"));
             card.setPresenterType(getType(card, attributes));
