@@ -45,6 +45,8 @@ public class Card implements Serializable {
 
     @Expose private Boolean isDeleteMode;
 
+    @Expose private String overlaySizeTitle;
+
     private Card.Type mType;
 
     public Card() { }
@@ -188,6 +190,14 @@ public class Card implements Serializable {
 
     public void setProgress(byte progress) {
         this.progress = progress;
+    }
+
+    public String getOverlaySizeTitle() {
+        return overlaySizeTitle;
+    }
+
+    public void setOverlaySizeTitle(String overlayTitle) {
+        this.overlaySizeTitle = overlaySizeTitle;
     }
 
     @Override

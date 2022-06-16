@@ -32,6 +32,16 @@
             android:layout_height="match_parent"
             android:background="#80000000" />
 
+        <TextView
+            android:id="@+id/overlay_size_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:fontFamily="@font/markpro_bold"
+            android:lineHeight="32px"
+            android:textColor="@color/lb_basic_card_title_text_color"
+            android:textSize="24px" />
+
         <ImageView
             android:id="@+id/delete_icon"
             android:layout_width="60px"

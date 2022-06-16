@@ -31,6 +31,7 @@ public abstract class AbstractCardView extends DefaultImageCardView {
     protected FrameLayout deleteLayout;
     protected TextView serviceCardTitleView;
     protected ImageView serviceCardImageView;
+    protected TextView overlaySizeView;
 
     public AbstractCardView(Context context) {
         super(context);
@@ -52,6 +53,7 @@ public abstract class AbstractCardView extends DefaultImageCardView {
         gradient = findViewById(R.id.gradient);
         overlayRemainingTimeView = findViewById(R.id.overlay_remaining_time);
         deleteLayout = findViewById(R.id.delete_icon_layout);
+        overlaySizeView = findViewById(R.id.overlay_size_title);
 
         if (mImageView != null) {
             mFadeInAnimator = ObjectAnimator.ofFloat(mImageView, ALPHA, 1f);

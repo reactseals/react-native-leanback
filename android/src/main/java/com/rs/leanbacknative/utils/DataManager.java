@@ -49,6 +49,7 @@ public class DataManager {
             card.setLiveProgressBarColor(validateString(dataRowItem, "liveProgressBarColor"));
             card.setProgramStartTimestamp(validateLong(dataRowItem, "programStartTimestamp"));
             card.setProgress(validateByte(dataRowItem, "progress"));
+            card.setOverlaySizeTitle(validateString(dataRowItem, "overlaySizeTitle"));
             card.setProgramEndTimestamp(validateLong(dataRowItem, "programEndTimestamp"));
             card.setServiceCardTitle(validateString(dataRowItem, "serviceCardTitle"));
             card.setPresenterType(getType(card, attributes));
