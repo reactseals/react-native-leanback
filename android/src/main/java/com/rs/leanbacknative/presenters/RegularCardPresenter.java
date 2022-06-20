@@ -23,26 +23,19 @@ public class RegularCardPresenter extends AbstractCardPresenter<RegularCardView>
             @Override
             public void setSelected(boolean selected) {
                 GradientDrawable border = new GradientDrawable();
-
+                border.setColor(Color.TRANSPARENT); //white background
+                border.setCornerRadius(12);
                 if (selected) {
-                    border.setColor(Color.TRANSPARENT); //white background
-                    border.setStroke(6, Color.WHITE);
                     this.findViewById(R.id.overlay_title).setVisibility(View.VISIBLE);
                     this.findViewById(R.id.overlay_subtitle).setVisibility(View.VISIBLE);
                     this.findViewById(R.id.gradient).setVisibility(View.VISIBLE);
-
-                    this.findViewById(R.id.gradient).setPadding(6, 6, 6,6);
-
+                    this.findViewById(R.id.content_stroke).setBackgroundResource(R.drawable.card_stroke);
                 } else {
-                    border.setColor(Color.TRANSPARENT); //white background
-                    border.setStroke(0, Color.TRANSPARENT);
                     this.findViewById(R.id.overlay_title).setVisibility(View.GONE);
                     this.findViewById(R.id.overlay_subtitle).setVisibility(View.GONE);
                     this.findViewById(R.id.gradient).setVisibility(View.GONE);
-                    this.findViewById(R.id.gradient).setPadding(0, 0, 0,0);
-
+                    this.findViewById(R.id.content_stroke).setBackgroundResource(0);
                 }
-
                 this.findViewById(R.id.gradient).setBackground(border);
 
                 super.setSelected(selected);

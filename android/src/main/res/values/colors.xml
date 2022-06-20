@@ -6,4 +6,6 @@
     <color name="selected_background">#ffaa3f</color>
     <color name="default_background">#3d3d3d</color>
     <color name="bg">#0096a6</color>
+    <color name="progress_bg">#464646</color>
+    <color name="progress_primary">#0038FF</color>
 </resources>
