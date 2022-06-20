@@ -14,7 +14,7 @@
 
         <ImageView
             android:id="@+id/main_image"
-            style="?attr/imageCardViewImageStyle"
+            style="@style/CustomImageStyle"
             tools:ignore="ContentDescription" />
 
 
