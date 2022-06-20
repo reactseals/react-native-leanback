@@ -6,90 +6,100 @@
     android:layout_height="match_parent"
     android:background="#00ffffff">
 
-    <ImageView
-        android:id="@+id/main_image"
-        style="?attr/imageCardViewImageStyle"
-        tools:ignore="ContentDescription" />
-
-
-    <ImageView
-        android:id="@+id/gradient"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:cropToPadding="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/gradient_img" />
-
     <FrameLayout
-        android:id="@+id/delete_icon_layout"
+        android:id="@+id/content_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="invisible">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#80000000" />
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
 
         <ImageView
-            android:id="@+id/delete_icon"
-            android:layout_width="60px"
-            android:layout_height="60px"
-            android:layout_gravity="center"
-            android:src="@drawable/icon_delete_with_border_white" />
+            android:id="@+id/main_image"
+            style="?attr/imageCardViewImageStyle"
+            tools:ignore="ContentDescription" />
 
-        <TextView
-            android:id="@+id/overlay_size_title"
+
+        <ImageView
+            android:id="@+id/gradient"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:cropToPadding="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/gradient_img" />
+
+        <FrameLayout
+            android:id="@+id/delete_icon_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#80000000" />
+
+            <ImageView
+                android:id="@+id/delete_icon"
+                android:layout_width="60px"
+                android:layout_height="60px"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_delete_with_border_white" />
+
+            <TextView
+                android:id="@+id/overlay_size_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="17px"
+                android:layout_marginRight="24px"
+                android:fontFamily="@font/markpro_bold"
+                android:lineHeight="32px"
+                android:textColor="@color/lb_basic_card_title_text_color"
+                android:textSize="24px" />
+        </FrameLayout>
+
+
+        <LinearLayout
+            android:id="@+id/overlay_text_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:fontFamily="@font/markpro_bold"
-            android:lineHeight="32px"
-            android:textColor="@color/lb_basic_card_title_text_color"
-            android:textSize="24px"
-            android:layout_marginRight="24px"
-            android:layout_marginTop="17px"/>
+            android:layout_gravity="bottom"
+            android:layout_weight="2"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:paddingHorizontal="24px"
+            android:paddingBottom="20px">
+
+            <TextView
+                android:id="@+id/overlay_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:ellipsize="end"
+                android:fontFamily="@font/markpro_bold"
+                android:lineHeight="30px"
+                android:maxLines="2"
+                android:textColor="@color/lb_basic_card_title_text_color"
+                android:textSize="30px" />
+
+
+            <TextView
+                android:id="@+id/overlay_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:ellipsize="end"
+                android:fontFamily="@font/markpro_bold"
+                android:lineHeight="18px"
+                android:maxLines="1"
+                android:textColor="@color/lb_basic_card_title_text_color"
+                android:textSize="20px" />
+
+        </LinearLayout>
     </FrameLayout>
 
-
-    <LinearLayout
-        android:id="@+id/overlay_text_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_weight="2"
-        android:gravity="bottom"
-        android:orientation="vertical"
-        android:paddingHorizontal="24px"
-        android:paddingBottom="20px">
-
-        <TextView
-            android:id="@+id/overlay_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:ellipsize="end"
-            android:fontFamily="@font/markpro_bold"
-            android:lineHeight="30px"
-            android:maxLines="2"
-            android:textColor="@color/lb_basic_card_title_text_color"
-            android:textSize="30px" />
-
-
-        <TextView
-            android:id="@+id/overlay_subtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:ellipsize="end"
-            android:fontFamily="@font/markpro_bold"
-            android:lineHeight="18px"
-            android:maxLines="1"
-            android:textColor="@color/lb_basic_card_title_text_color"
-            android:textSize="20px" />
-
-    </LinearLayout>
-
-
+    <FrameLayout
+        android:id="@+id/content_stroke"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </FrameLayout>

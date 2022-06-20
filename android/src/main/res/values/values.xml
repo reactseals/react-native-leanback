@@ -271,6 +271,7 @@
     <dimen name="lb_basic_card_main_height">188dp</dimen>
     <dimen name="lb_basic_card_main_width">140dp</dimen>
     <dimen name="lb_basic_card_title_text_size">14sp</dimen>
+    <dimen name="lb_browse_padding_start">18dp</dimen>
     <item format="integer" name="lb_browse_header_select_duration" type="dimen">150</item>
     <item format="float" name="lb_browse_header_select_scale" type="dimen">1.2</item>
 

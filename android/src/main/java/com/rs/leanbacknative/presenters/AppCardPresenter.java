@@ -21,19 +21,14 @@ public class AppCardPresenter extends AbstractCardPresenter<AppCardView> {
             @Override
             public void setSelected(boolean selected) {
                 GradientDrawable border = new GradientDrawable();
-
+                border.setCornerRadius(12);
+                border.setColor(Color.TRANSPARENT);
                 if (selected) {
-                    border.setColor(Color.TRANSPARENT); //white background
-                    border.setStroke(6, Color.WHITE);
-                    border.setCornerRadius(12);
+                    this.findViewById(R.id.content_stroke).setBackgroundResource(R.drawable.card_stroke);
                     this.findViewById(R.id.gradient).setBackground(border);
-                    this.findViewById(R.id.gradient).setPadding(6, 6, 6,6);
                 } else {
-                    border.setColor(Color.TRANSPARENT); //white background
-                    border.setStroke(0, Color.TRANSPARENT);
-                    border.setCornerRadius(12);
+                    this.findViewById(R.id.content_stroke).setBackgroundResource(0);
                     this.findViewById(R.id.gradient).setBackground(border);
-                    this.findViewById(R.id.gradient).setPadding(0, 0, 0,0);
                 }
 
                 super.setSelected(selected);

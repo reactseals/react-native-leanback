@@ -3,85 +3,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/overlay_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#00ffffff">
-
-    <ImageView
-        android:id="@+id/main_image"
-        style="?attr/imageCardViewImageStyle"
-        tools:ignore="ContentDescription" />
-
+    android:layout_height="match_parent">
     <FrameLayout
+        android:id="@+id/content_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/gradient">
-        <View
+        android:layout_gravity="center">
+        <ImageView
+            android:id="@+id/main_image"
+            style="?attr/imageCardViewImageStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/continue_watching_gradient"
-            />
-    </FrameLayout>
-
-
-
-    <LinearLayout
-        android:id="@+id/overlay_text_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="24px"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/overlay_title"
+            android:foreground="@drawable/continue_watching_gradient"
+            tools:ignore="ContentDescription" />
+        <LinearLayout
+            android:id="@+id/overlay_text_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxLines="2"
-            android:textColor="#FFF"
-            android:ellipsize="end"
-            android:textSize="26px"
-            android:lineHeight="32px"
-            android:fontFamily="@font/markpro_bold" />
-
-        <TextView
-            android:id="@+id/overlay_subtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLines="2"
-            android:textColor="#FFF"
-            android:ellipsize="end"
-            android:textSize="26px"
-            android:lineHeight="32px" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/progress_view_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/overlay_remaining_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#FFF"
-            android:textSize="26px"
-            android:lineHeight="32px"
+            android:layout_gravity="start"
             android:layout_marginStart="24px"
-            android:layout_marginBottom="10px"
-            android:fontFamily="@font/markpro_bold" />
-
-
-        <FrameLayout
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/overlay_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/markpro_bold"
+                android:lineHeight="32px"
+                android:maxLines="2"
+                android:textColor="#FFF"
+                android:textSize="26px" />
+            <TextView
+                android:id="@+id/overlay_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lineHeight="32px"
+                android:maxLines="2"
+                android:textColor="#FFF"
+                android:textSize="26px" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/progress_view_layout"
             android:layout_width="match_parent"
-            android:layout_height="6px">
-
-            <ProgressBar
-                android:id="@+id/progress_bar"
-                style="?android:attr/progressBarStyleHorizontal"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="0px"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/overlay_remaining_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24px"
+                android:layout_marginBottom="12px"
+                android:fontFamily="@font/markpro_bold"
+                android:lineHeight="32px"
+                android:textColor="#FFF"
+                android:textSize="26px" />
+            <FrameLayout
+                android:id="@+id/progress_bar_container"
                 android:layout_width="match_parent"
-                android:layout_height="6px" />
-        </FrameLayout>
-    </LinearLayout>
+                android:layout_height="6px">
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="6px"
+                    android:progressDrawable="@drawable/progress_bar"
+                />
+            </FrameLayout>
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/content_stroke"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </FrameLayout>
