@@ -1,5 +1,5 @@
 {
-  "name": "@reactseals/react-native-leanback",
+  "name": "@skytvnz/react-native-leanback",
   "title": "React Native Leanback",
   "version": "2.0.5",
   "description": "Leanback implementation for React Native Android TV",
@@ -8,23 +8,11 @@
     "publish:prod": "npm publish --access public",
     "publish:beta": "npm publish --access public --tag beta"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/reactseals/react-native-leanback.git",
-    "baseUrl": "https://github.com/reactseals/react-native-leanback"
-  },
   "keywords": [
     "react-native",
     "react native leanback",
     "android tv",
     "leanback"
-  ],
-  "author": {
-    "name": "Aurimas Mickys",
-    "email": "aurimas.mickys@gmail.com"
-  },
-  "contributors": [
-    "Rokas Kasinskas <https://github.com/kasinskas>"
   ],
   "license": "MIT",
   "licenseFilename": "LICENSE",
