@@ -78,7 +78,6 @@
                 android:ellipsize="end"
                 android:fontFamily="@font/markpro_bold"
                 android:lineHeight="30px"
-                android:maxLines="2"
                 android:textColor="@color/lb_basic_card_title_text_color"
                 android:textSize="30px" />
 
@@ -91,7 +90,7 @@
                 android:ellipsize="end"
                 android:fontFamily="@font/markpro_bold"
                 android:lineHeight="18px"
-                android:maxLines="1"
+                android:maxLines="2"
                 android:textColor="@color/lb_basic_card_title_text_color"
                 android:textSize="20px" />
 
