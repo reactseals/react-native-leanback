@@ -3,7 +3,7 @@
     android:id="@+id/overlay_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0057FF">
+    android:background="@drawable/card_image_stroke">
 
     <ImageView
         android:id="@+id/gradient"
@@ -37,8 +37,10 @@
             android:paddingTop="2px"
             android:textColor="@color/lb_basic_card_title_text_color"
             android:textSize="34px" />
-
     </LinearLayout>
-
+    <FrameLayout
+        android:id="@+id/content_stroke"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </FrameLayout>

@@ -12,11 +12,11 @@ import androidx.leanback.widget.VerticalGridView;
 public class GridPresenter extends VerticalGridPresenter {
 
     public GridPresenter() {
-        super(FocusHighlight.ZOOM_FACTOR_MEDIUM);
+        super(FocusHighlight.ZOOM_FACTOR_LARGE);
     }
 
     public GridPresenter(boolean useFocusDimmer) {
-        super(FocusHighlight.ZOOM_FACTOR_MEDIUM, useFocusDimmer);
+        super(FocusHighlight.ZOOM_FACTOR_LARGE, useFocusDimmer);
     }
 
     @Override

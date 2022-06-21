@@ -14,7 +14,7 @@
 
         <ImageView
             android:id="@+id/main_image"
-            style="?attr/imageCardViewImageStyle"
+            style="@style/CustomImageStyle"
             tools:ignore="ContentDescription" />
 
 
@@ -67,7 +67,6 @@
             android:layout_weight="2"
             android:gravity="bottom"
             android:orientation="vertical"
-            android:paddingHorizontal="24px"
             android:paddingBottom="20px">
 
             <TextView
@@ -77,11 +76,11 @@
                 android:layout_gravity="left"
                 android:ellipsize="end"
                 android:fontFamily="@font/markpro_bold"
-                android:lineHeight="30px"
-                android:maxLines="2"
+                android:lineHeight="32px"
+                android:paddingHorizontal="24px"
                 android:textColor="@color/lb_basic_card_title_text_color"
+                android:textFontWeight="700"
                 android:textSize="30px" />
-
 
             <TextView
                 android:id="@+id/overlay_subtitle"
@@ -90,11 +89,12 @@
                 android:layout_gravity="left"
                 android:ellipsize="end"
                 android:fontFamily="@font/markpro_bold"
-                android:lineHeight="18px"
-                android:maxLines="1"
+                android:lineHeight="24px"
+                android:maxLines="2"
+                android:paddingLeft="24px"
                 android:textColor="@color/lb_basic_card_title_text_color"
+                android:textFontWeight="700"
                 android:textSize="20px" />
-
         </LinearLayout>
     </FrameLayout>
 

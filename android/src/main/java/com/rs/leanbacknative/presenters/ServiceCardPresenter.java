@@ -20,21 +20,13 @@ public class ServiceCardPresenter extends AbstractCardPresenter<ServiceCardView>
         ServiceCardView cardView = new ServiceCardView(context) {
             @Override
             public void setSelected(boolean selected) {
-                GradientDrawable border = new GradientDrawable();
                 if (selected) {
-                    border.setColor(Color.TRANSPARENT);
-                    border.setStroke(6, Color.WHITE);
-                    border.setCornerRadius(12);
                     this.findViewById(R.id.gradient).setVisibility(View.VISIBLE);
-                    this.findViewById(R.id.gradient).setPadding(6, 6, 6,6);
+                    this.findViewById(R.id.content_stroke).setBackgroundResource(R.drawable.card_stroke);
                 } else {
-                    border.setColor(Color.TRANSPARENT);
-                    border.setStroke(0, Color.TRANSPARENT);
-                    border.setCornerRadius(12);
                     this.findViewById(R.id.gradient).setVisibility(View.GONE);
-                    this.findViewById(R.id.gradient).setPadding(0, 0, 0,0);
+                    this.findViewById(R.id.content_stroke).setBackgroundResource(0);
                 }
-                this.findViewById(R.id.gradient).setBackground(border);
 
                 super.setSelected(selected);
             }
