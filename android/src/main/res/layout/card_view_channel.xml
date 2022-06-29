@@ -4,10 +4,8 @@
     android:id="@+id/channel_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clickable="true"
     android:foreground="?attr/selectableItemBackground"
-    android:orientation="vertical"
-    android:stateListAnimator="@anim/animation">
+    android:orientation="vertical">
 
     <FrameLayout
         android:id="@+id/overlay_container"
