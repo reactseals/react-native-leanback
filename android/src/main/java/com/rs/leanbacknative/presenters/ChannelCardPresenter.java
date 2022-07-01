@@ -1,12 +1,10 @@
 package com.rs.leanbacknative.presenters;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.view.View;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
+import androidx.annotation.RequiresApi;
 import com.facebook.react.bridge.ReadableMap;
 import com.rs.leanbacknative.R;
 import com.rs.leanbacknative.models.Card;
@@ -18,34 +16,36 @@ public class ChannelCardPresenter extends AbstractCardPresenter<ChannelCardView>
     }
 
     @Override
-    protected ChannelCardView onCreateView(Context context) {
+    protected ChannelCardView onCreateView(final Context context) {
         ChannelCardView cardView = new ChannelCardView(context) {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void setSelected(boolean selected) {
-                GradientDrawable border = new GradientDrawable();
+                View textContainerView = this.findViewById(R.id.channel_text_layout);
 
                 if (selected) {
-                    border.setColor(Color.TRANSPARENT); //white background
-                    border.setStroke(6, Color.WHITE);
+                    Drawable resImg = context.getResources().getDrawable(R.drawable.border_gradient_channel);
+                    this.findViewById(R.id.main_image).setForeground(resImg);
+
                     this.findViewById(R.id.overlay_title).setVisibility(View.VISIBLE);
                     this.findViewById(R.id.overlay_subtitle).setVisibility(View.VISIBLE);
-                    this.findViewById(R.id.gradient).setVisibility(View.VISIBLE);
+                    this.findViewById(R.id.channel_container).setTranslationY(6);
 
-                    this.findViewById(R.id.gradient).setPadding(6, 6, 6,6);
-
-//                    this.findViewById(R.id.channel_text_layout).setVisibility(View.GONE);
-
+                    textContainerView.setScaleX((float) 0.887);
+                    textContainerView.setScaleY((float) 0.895);
+                    textContainerView.setTranslationY(-17);
+                    textContainerView.animate().alpha((float) 0.4).setDuration(100);
                 } else {
-                    border.setColor(Color.TRANSPARENT); //white background
-                    border.setStroke(0, Color.TRANSPARENT);
+                    this.findViewById(R.id.main_image).setForeground(null);
                     this.findViewById(R.id.overlay_title).setVisibility(View.GONE);
                     this.findViewById(R.id.overlay_subtitle).setVisibility(View.GONE);
-                    this.findViewById(R.id.gradient).setVisibility(View.GONE);
-                    this.findViewById(R.id.gradient).setPadding(0, 0, 0,0);
-//                    this.findViewById(R.id.channel_text_layout).setVisibility(View.VISIBLE);
-                }
+                    this.findViewById(R.id.channel_container).setTranslationY(0);
 
-                this.findViewById(R.id.gradient).setBackground(border);
+                    textContainerView.setScaleX((float) 1);
+                    textContainerView.setScaleY((float) 1);
+                    textContainerView.animate().alpha((float) 1).setDuration(100);
+                    textContainerView.setTranslationY(0);
+                }
 
                 super.setSelected(selected);
             }

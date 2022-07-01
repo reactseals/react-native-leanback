@@ -1,69 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/channel_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/channel_container"
+    android:foreground="?attr/selectableItemBackground"
     android:orientation="vertical">
 
     <FrameLayout
         android:id="@+id/overlay_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#00ffffff">
+        android:layout_gravity="center">
 
         <ImageView
             android:id="@+id/main_image"
             style="?attr/imageCardViewImageStyle"
             tools:ignore="ContentDescription" />
 
-
         <ImageView
             android:id="@+id/gradient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:scaleType="centerCrop"
             android:cropToPadding="true"
-            android:src="@drawable/gradient_img"/>
+            android:scaleType="centerCrop" />
 
         <LinearLayout
             android:id="@+id/overlay_text_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:layout_weight="2"
             android:gravity="bottom"
-            android:layout_gravity="bottom"
+            android:orientation="vertical"
             android:paddingHorizontal="24px"
-            android:paddingBottom="20px"
-            android:orientation="vertical">
+            android:paddingBottom="20px">
 
             <TextView
                 android:id="@+id/overlay_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:ellipsize="end"
+                android:fontFamily="@font/markpro_bold"
+                android:lineHeight="30px"
                 android:maxLines="2"
                 android:textColor="@color/lb_basic_card_title_text_color"
-                android:textSize="30px"
-                android:lineHeight="30px"
-                android:fontFamily="@font/markpro_bold"
-                android:layout_gravity="left"
-                android:ellipsize="end" />
-
+                android:textSize="30px" />
 
             <TextView
                 android:id="@+id/overlay_subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:ellipsize="end"
+                android:fontFamily="@font/markpro_bold"
+                android:lineHeight="18px"
                 android:maxLines="1"
                 android:textColor="@color/lb_basic_card_title_text_color"
-                android:textSize="20px"
-                android:lineHeight="18px"
-                android:layout_gravity="left"
-                android:fontFamily="@font/markpro_bold"
-                android:ellipsize="end" />
-
+                android:textSize="20px" />
         </LinearLayout>
 
     </FrameLayout>
@@ -79,27 +75,24 @@
             android:id="@+id/channel_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:ellipsize="end"
+            android:fontFamily="@font/markpro_bold"
+            android:lineHeight="32px"
             android:maxLines="2"
             android:textColor="@color/lb_basic_card_title_text_color"
-            android:textSize="26px"
-            android:lineHeight="32px"
-            android:fontFamily="@font/markpro_bold"
-            android:layout_gravity="left"
-            android:ellipsize="end" />
-
+            android:textSize="26px" />
 
         <TextView
             android:id="@+id/channel_subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:ellipsize="end"
+            android:fontFamily="@font/markpro_book"
+            android:lineHeight="32px"
             android:maxLines="1"
             android:textColor="@color/lb_basic_card_title_text_color"
-            android:textSize="26px"
-            android:lineHeight="32px"
-            android:layout_gravity="left"
-            android:fontFamily="@font/markpro_book"
-            android:ellipsize="end" />
-
+            android:textSize="26px" />
     </LinearLayout>
-
 </LinearLayout>
