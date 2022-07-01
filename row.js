@@ -95,6 +95,10 @@ const Row = React.forwardRef(
 					const { item } = event.nativeEvent;
 					if (restOfProps.onPress) restOfProps.onPress(JSON.parse(item));
 				}}
+				onLongPress={(event) => {
+					const { item } = event.nativeEvent;
+					if (restOfProps.onLongPress) restOfProps.onLongPress(JSON.parse(item));
+				}}
 				onDataIdsReady={(event) => {
 					const { data: stringifiedData } = event.nativeEvent;
 					if (restOfProps.onDataIdsReady) {

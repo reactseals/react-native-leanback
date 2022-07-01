@@ -38,6 +38,7 @@ public class LeanbackRowManager extends ViewGroupManager<LeanbackRowLayout> {
     public Map getExportedCustomBubblingEventTypeConstants() {
         return MapBuilder.builder()
             .put(Constants.EVENT_ON_PRESS, MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", Constants.EVENT_ON_PRESS)))
+            .put(Constants.EVENT_ON_LONG_PRESS, MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", Constants.EVENT_ON_LONG_PRESS)))
             .put(Constants.EVENT_ON_FOCUS, MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", Constants.EVENT_ON_FOCUS)))
             .put(Constants.EVENT_ON_DATA_IDS_READY, MapBuilder.of("phasedRegistrationNames", MapBuilder.of("bubbled", Constants.EVENT_ON_DATA_IDS_READY)))
             .build();
