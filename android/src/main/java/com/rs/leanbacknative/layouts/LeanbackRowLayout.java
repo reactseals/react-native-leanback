@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.leanback.app.RowsFragment;
@@ -22,6 +23,8 @@ import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
+import com.rs.leanbacknative.cardViews.AppCardView;
+import com.rs.leanbacknative.presenters.AppCardPresenter;
 import com.rs.leanbacknative.presenters.CardPresenterSelector;
 import com.rs.leanbacknative.presenters.RowPresenter;
 import com.rs.leanbacknative.utils.Constants;
@@ -129,6 +132,16 @@ public class LeanbackRowLayout extends FrameLayout {
                 Card card = (Card) item;
                 WritableMap event = Arguments.createMap();
                 event.putString("item", card.toJSON());
+
+                if (itemViewHolder.view instanceof AppCardView) {
+                    AppCardView appCardView = (AppCardView) itemViewHolder.view;
+                    if (appCardView.isContextMenuOpen()) {
+                        mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), Constants.EVENT_ON_LONG_PRESS, event);
+                        appCardView.closeContextMenu();
+                        return;
+                    }
+                }
+
                 mContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), Constants.EVENT_ON_PRESS, event);
             }
         }

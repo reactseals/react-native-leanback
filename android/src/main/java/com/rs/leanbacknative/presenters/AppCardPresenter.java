@@ -3,7 +3,6 @@ package com.rs.leanbacknative.presenters;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
-import android.util.Log;
 
 import com.facebook.react.bridge.ReadableMap;
 import com.rs.leanbacknative.R;
@@ -44,8 +43,10 @@ public class AppCardPresenter extends AbstractCardPresenter<AppCardView> {
         cardView.updateUI(card, mBorderRadius, mCardWidth, mCardHeight);
         if (card.getId().equals("all-apps")) {
             loadLocalImage(cardView.getMainImageView(), card, R.drawable.icon_apps);
+            cardView.setIsServiceCard(true);
         } else if (card.getId().equals("edit")) {
             loadLocalImage(cardView.getMainImageView(), card, R.drawable.icon_edit);
+            cardView.setIsServiceCard(true);
         } else {
             loadMainImage(cardView.getMainImageView(), card, null);
         }

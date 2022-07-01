@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/context_menu"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content">
+    <Button
+            android:id="@+id/context_button"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:fontFamily="@font/markpro_bold"
+            android:lineHeight="32px"
+            android:textAllCaps="false"
+            android:textColor="@color/lb_basic_card_title_text_color"
+            android:textFontWeight="700"
+            android:textSize="30px"
+            android:text="Remove"
+    />
+</LinearLayout>
