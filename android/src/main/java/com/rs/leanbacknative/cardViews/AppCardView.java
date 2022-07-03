@@ -17,6 +17,15 @@ public class AppCardView extends AbstractCardView {
     public AppCardView(Context context) {
         super(context);
 
+        setOnFocusChangeListener(new OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (!hasFocus) {
+                    closeContextMenu();
+                }
+            }
+        });
+
         setOnLongClickListener(new OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
