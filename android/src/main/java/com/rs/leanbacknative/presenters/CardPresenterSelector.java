@@ -40,7 +40,7 @@ public class CardPresenterSelector extends PresenterSelector {
                     break;
                 case REGULAR_TILE:
                 case GRID_TILE:
-                    presenter = new RegularCardPresenter(mAttributes);
+                    presenter = new RegularCardPresenter(mAttributes, card);
                     break;
                 case SERVICE_CARD:
                     presenter = new ServiceCardPresenter(mAttributes);

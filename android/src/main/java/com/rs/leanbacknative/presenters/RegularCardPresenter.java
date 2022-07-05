@@ -13,8 +13,11 @@ import com.rs.leanbacknative.cardViews.RegularCardView;
 import com.rs.leanbacknative.models.Card;
 
 public class RegularCardPresenter extends AbstractCardPresenter<RegularCardView> {
-    public RegularCardPresenter(ReadableMap attributes) {
+    private Card mCard;
+
+    public RegularCardPresenter(ReadableMap attributes, Card card) {
         initializeAttributes(attributes);
+        mCard = card;
     }
 
     @Override
@@ -30,6 +33,11 @@ public class RegularCardPresenter extends AbstractCardPresenter<RegularCardView>
                     this.findViewById(R.id.overlay_subtitle).setVisibility(View.VISIBLE);
                     this.findViewById(R.id.gradient).setVisibility(View.VISIBLE);
                     this.findViewById(R.id.content_stroke).setBackgroundResource(R.drawable.card_stroke);
+                    if (mCard.getDeleteMode()) {
+                        this.findViewById(R.id.overlay_size_title).setVisibility(View.VISIBLE);
+                    } else {
+                        this.findViewById(R.id.overlay_size_title).setVisibility(View.GONE);
+                    }
                 } else {
                     this.findViewById(R.id.overlay_title).setVisibility(View.GONE);
                     this.findViewById(R.id.overlay_subtitle).setVisibility(View.GONE);
