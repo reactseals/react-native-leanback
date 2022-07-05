@@ -50,12 +50,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:layout_marginTop="17px"
+                android:layout_marginTop="12px"
                 android:layout_marginRight="24px"
                 android:fontFamily="@font/markpro_bold"
                 android:lineHeight="32px"
                 android:textColor="@color/lb_basic_card_title_text_color"
-                android:textSize="24px" />
+                android:textSize="24px"
+                android:visibility="invisible" />
         </FrameLayout>
 
 
