@@ -57,7 +57,7 @@ public class LeanbackRowLayout extends FrameLayout {
     private void initializeFragmentManager() {
         FragmentManager fragmentManager = mContext.getCurrentActivity().getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(mRowsFragment, "RowsFragment").commit();
+        fragmentTransaction.add(mRowsFragment, "RowsFragment").commitAllowingStateLoss();
         fragmentManager.executePendingTransactions();
     }
 
