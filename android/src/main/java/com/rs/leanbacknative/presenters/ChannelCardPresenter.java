@@ -37,8 +37,8 @@ public class ChannelCardPresenter extends AbstractCardPresenter<ChannelCardView>
                     textContainerView.animate().alpha((float) 0.4).setDuration(100);
                 } else {
                     this.findViewById(R.id.main_image).setForeground(null);
-                    this.findViewById(R.id.overlay_title).setVisibility(View.GONE);
-                    this.findViewById(R.id.overlay_subtitle).setVisibility(View.GONE);
+                    this.findViewById(R.id.overlay_title).setVisibility(View.INVISIBLE);
+                    this.findViewById(R.id.overlay_subtitle).setVisibility(View.INVISIBLE);
                     this.findViewById(R.id.channel_container).setTranslationY(0);
 
                     textContainerView.setScaleX((float) 1);

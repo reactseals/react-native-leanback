@@ -39,9 +39,9 @@ public class RegularCardPresenter extends AbstractCardPresenter<RegularCardView>
                         this.findViewById(R.id.overlay_size_title).setVisibility(View.GONE);
                     }
                 } else {
-                    this.findViewById(R.id.overlay_title).setVisibility(View.GONE);
-                    this.findViewById(R.id.overlay_subtitle).setVisibility(View.GONE);
-                    this.findViewById(R.id.gradient).setVisibility(View.GONE);
+                    this.findViewById(R.id.overlay_title).setVisibility(View.INVISIBLE);
+                    this.findViewById(R.id.overlay_subtitle).setVisibility(View.INVISIBLE);
+                    this.findViewById(R.id.gradient).setVisibility(View.INVISIBLE);
                     this.findViewById(R.id.content_stroke).setBackgroundResource(0);
                 }
                 this.findViewById(R.id.gradient).setBackground(border);

@@ -24,7 +24,7 @@ public class ServiceCardPresenter extends AbstractCardPresenter<ServiceCardView>
                     this.findViewById(R.id.gradient).setVisibility(View.VISIBLE);
                     this.findViewById(R.id.content_stroke).setBackgroundResource(R.drawable.card_stroke);
                 } else {
-                    this.findViewById(R.id.gradient).setVisibility(View.GONE);
+                    this.findViewById(R.id.gradient).setVisibility(View.INVISIBLE);
                     this.findViewById(R.id.content_stroke).setBackgroundResource(0);
                 }
 
